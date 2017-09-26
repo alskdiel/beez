@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/ssgkey/")
 public class SSGKeyCtrl {
 
-	@RequestMapping("/getBTRSSI.do")
+	@RequestMapping("/getRSSIByMobile.do")
 	@ResponseBody
-	public String getBTRSSI() {
-		System.out.println("MainCtrl main");
+	public String getRSSIByMobile() {
+		
 		
 		return "";
 	}
