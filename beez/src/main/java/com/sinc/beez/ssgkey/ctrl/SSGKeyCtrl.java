@@ -4,15 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sinc.beez.ssgkey.model.SSGKeyVO;
+
 @Controller
 @RequestMapping("/ssgkey/")
 public class SSGKeyCtrl {
 
-	@RequestMapping("/getRSSIByMobile.do")
+	@RequestMapping("/setRSSIByMobile.do")
 	@ResponseBody
-	public String getRSSIByMobile() {
+	public boolean setRSSIByMobile(SSGKeyVO vo) {
+		vo.toString();
 		
 		
-		return "";
+		
+		return true;
 	}
 }
