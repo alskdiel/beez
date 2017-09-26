@@ -12,6 +12,9 @@ public class SSGKeyVO {
 				+ ", btRssi=" + btRssi + ", appID=" + appID
 				+ ", userID=" + userID + "]";
 	}
+	public SSGKeyVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public SSGKeyVO(String pcName, String pcAddr, int btRssi, String appID,
 			String userID) {
 		super();
