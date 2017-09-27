@@ -1,5 +1,9 @@
 package com.sinc.beez.ssgkey.service;
 
-public interface SSGKeyService {
+import java.util.Map;
 
+public interface SSGKeyService {
+	public	boolean	setRssi(String pcName, int Rssi);
+	public	int		getRssi(String pcName);
+	
 }
