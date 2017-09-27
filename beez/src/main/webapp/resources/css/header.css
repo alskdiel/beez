@@ -1,2 +1,74 @@
-@CHARSET "EUC-KR";
+.main-header nav.navbar {	
+	background-color: #fdc23e
+}
+
+.main-header .navbar a.logo {
+	max-width: 50%;
+}
+
+a {
+	color: #333;
+}
+a:hover {
+	color: inherit;
+}
+a:focus {
+	color: inherit;
+}
+a:active {
+	color: inherit;
+}
+
+.navbar-userinfo {
+	font-size: 20px;
+	line-height: 50px;
+	text-align: center;
+	padding: 0 15px;
+	font-weight: 300px;
+	overflow: hidden;
+	transition: width .3s ease-in-out;
+	text-decoration: none;
+}
+
+.main-header .sidebar-toggle:hover {
+	color: inherit;
+}
+.main-header .sidebar-toggle:focus {
+	color: inherit;
+}
+.main-header .sidebar-toggle:active {
+	color: inherit;
+}
+
+.nav>li>a:hover {
+	background: inherit;
+	color: inherit;
+}
+.nav>li>a:focus {
+	background: inherit;
+	color: inherit;
+}
+.nav>li>a:active {
+	background: inherit;
+	color: inherit;
+}
+
+
+.sidebar-open .main-sidebar {
+	background: #254555;
+	z-index: 9999;
+	box-shadow: 5px -1px 10px #666;
+	color: #bbb;
+	padding-top: 0px !important
+	
+}
+
+.sidebar-open .main-sidebar div, .sidebar-open .main-sidebar span, .sidebar-open .main-sidebar a {
+	color: inherit;
+}
+
+.sidebar-open .main-sidebar .sidebar .user-panel.beez-logo {
+	margin-bottom: 100px!important;
+	
+}
 
