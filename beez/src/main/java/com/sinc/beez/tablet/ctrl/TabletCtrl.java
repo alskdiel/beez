@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TabletCtrl {
 
 	@RequestMapping("/tablet.do")
-	public String TableForm() {
+	public String TabletForm() {
 
 		System.out.println("Tablet Ctrl");
 		return "tablet/tablet";

@@ -1,8 +1,13 @@
 package com.sinc.beez.tablet.service;
 
-import org.springframework.stereotype.Service;
-
-@Service("tabletService") 
 public class TabletServiceImpl implements TabletService {
+
+	@Override
+	public String getStatus(int office_seq) {
+		
+		
+		
+		return "";
+	}
 
 }

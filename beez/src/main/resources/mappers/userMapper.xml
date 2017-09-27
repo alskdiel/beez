@@ -6,33 +6,27 @@
 <mapper namespace="com.sinc.beez.mapper.user">
 
 	<select id="login" parameterType="user" resultType="user">
-		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
-		FROM	SPRING_USER_TBL
-		WHERE	ID = #{id}
-		AND		PWD = #{pwd}
+		SELECT  USER_ID, DEPT_ID, USER_PWD, USER_NAME, SKEY_USE, PHONE_NUM, DUTY_NAME, LAST_ACCESS, FAIL_CNT
+		FROM 	USER_TB
+		WHERE	ID = #{id} AND PWD = #{pwd}
 	</select>
-	<!-- 
+	
 	<update id="keepLogin" parameterType="java.util.HashMap">
-		UPDATE 	SPRING_USER_TBL
-		SET		SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next}
-		WHERE  	ID = #{id}
+		UPDATE 	USER_TBL 
+		SET		SESSIONKEY 	 = #{sessionId},
+				SESSIONLIMIT = #{next}
+		WHERE   ID = #{id}
 	</update>
 	
-	<select id="sessionKey" parameterType="java.lang.String" resultType="user">
-		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
-		FROM	SPRING_USER_TBL
-		WHERE	SESSIONKEY = #{value} AND SESSIONLIMIT > SYSDATE
-	</select>
-	
-	<update id="deleteSession" parameterType="java.util.HashMap">
-		UPDATE 	SPRING_USER_TBL
-		SET		SESSIONKEY = 'NONE', SESSIONLIMIT = SYSDATE
-		WHERE  	SESSIONKEY = #{sessionId}
+	<update id="killLogin" parameterType="java.util.HashMap">
+		UPDATE  USER_TBL
+		SET		SESSIONLIMIT = #{next}
+		WHERE	SESSIONKEY 	 = #{sessionId}
 	</update>
 	
-	<insert id="signup" parameterType="user">
-		INSERT 	INTO SPRING_USER_TBL (ID, PWD, NAME, IMGSRC)
-		VALUES	(#{id}, #{pwd}, #{name}, #{imgSrc})
+	<insert id="joinUser" parameterType="user">
+		INSERT  INTO USER_TBL (USER_ID, USER_PWD)
+				VALUES(#{id}, #{pwd})
 	</insert>
-	-->
+	
 </mapper>
