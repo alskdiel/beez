@@ -7,7 +7,21 @@ public class DeviceVO {
 	private String device_type, device_mac_addr,
 	device_alias,device_unique_id,device_fcm_token,
 	device_enable_yn;
-	
+		
+	public DeviceVO(int device_seq, String device_type,
+			String device_mac_addr, String device_alias,
+			String device_unique_id, String device_fcm_token,
+			String device_enable_yn) {
+		super();
+		this.device_seq = device_seq;
+		this.device_type = device_type;
+		this.device_mac_addr = device_mac_addr;
+		this.device_alias = device_alias;
+		this.device_unique_id = device_unique_id;
+		this.device_fcm_token = device_fcm_token;
+		this.device_enable_yn = device_enable_yn;
+	}
+
 	public DeviceVO() {
 		super();
 	}

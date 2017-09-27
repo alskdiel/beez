@@ -3,9 +3,15 @@ package com.sinc.beez.office.model.vo;
 public class OfficeVO {
 
 	private int office_seq;
-	private String beacon_id;
 	private int floor_num;
 	private String building_name;
+	
+	public OfficeVO(int office_seq, int floor_num, String building_name) {
+		super();
+		this.office_seq = office_seq;
+		this.floor_num = floor_num;
+		this.building_name = building_name;
+	}
 	public OfficeVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -16,12 +22,7 @@ public class OfficeVO {
 	public void setOffice_seq(int office_seq) {
 		this.office_seq = office_seq;
 	}
-	public String getBeacon_id() {
-		return beacon_id;
-	}
-	public void setBeacon_id(String beacon_id) {
-		this.beacon_id = beacon_id;
-	}
+	
 	public int getFloor_num() {
 		return floor_num;
 	}
@@ -34,13 +35,13 @@ public class OfficeVO {
 	public void setBuilding_name(String building_name) {
 		this.building_name = building_name;
 	}
-	
 	@Override
 	public String toString() {
-		return "OfficeVO [office_seq=" + office_seq + ", beacon_id="
-				+ beacon_id + ", floor_num=" + floor_num + ", building_name="
+		return "OfficeVO [office_seq=" + office_seq + ", floor_num="
+				+ floor_num + ", building_name="
 				+ building_name + "]";
 	}
+	
 	
 	
 }

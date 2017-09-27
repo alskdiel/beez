@@ -5,6 +5,24 @@ public class DeptVO {
 	private String dept_id, dept_name, higher_dept,
 	        office_addr;
 
+	
+	
+	public DeptVO(String dept_id, String dept_name, String higher_dept,
+			String office_addr) {
+		super();
+		this.dept_id = dept_id;
+		this.dept_name = dept_name;
+		this.higher_dept = higher_dept;
+		this.office_addr = office_addr;
+	}
+
+	@Override
+	public String toString() {
+		return "DeptVO [dept_id=" + dept_id + ", dept_name="
+				+ dept_name + ", higher_dept=" + higher_dept
+				+ ", office_addr=" + office_addr + "]";
+	}
+
 	public DeptVO() {
 		super();
 		// TODO Auto-generated constructor stub

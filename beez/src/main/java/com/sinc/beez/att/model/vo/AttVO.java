@@ -9,6 +9,18 @@ public class AttVO {
 	private String att_arrive_time,att_leave_time,
 	att_newest_chk_time;
 
+	
+	
+	public AttVO(Date all_date, int att_idx, String att_arrive_time,
+			String att_leave_time, String att_newest_chk_time) {
+		super();
+		this.all_date = all_date;
+		this.att_idx = att_idx;
+		this.att_arrive_time = att_arrive_time;
+		this.att_leave_time = att_leave_time;
+		this.att_newest_chk_time = att_newest_chk_time;
+	}
+
 	public AttVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -57,8 +69,9 @@ public class AttVO {
 	@Override
 	public String toString() {
 		return "AttVO [all_date=" + all_date + ", att_idx=" + att_idx
-				+ ", att_arrive_time=" + att_arrive_time + ", att_leave_time="
-				+ att_leave_time + ", att_newest_chk_time="
+				+ ", att_arrive_time=" + att_arrive_time
+				+ ", att_leave_time=" + att_leave_time
+				+ ", att_newest_chk_time="
 				+ att_newest_chk_time + "]";
 	}
 

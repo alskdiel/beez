@@ -27,6 +27,27 @@ public class UserVO {
 	
 	
 	
+	public UserVO(String user_id, String user_pwd, String user_name,
+			String phone_num, String duty_name, String last_access,
+			String skey_use_yn, int fail_cnt, String user_leave_yn,
+			Date seated_date, AttVO att, DeptVO dept,
+			OfficeVO office, SeatVO seat) {
+		super();
+		this.user_id = user_id;
+		this.user_pwd = user_pwd;
+		this.user_name = user_name;
+		this.phone_num = phone_num;
+		this.duty_name = duty_name;
+		this.last_access = last_access;
+		this.skey_use_yn = skey_use_yn;
+		this.fail_cnt = fail_cnt;
+		this.user_leave_yn = user_leave_yn;
+		this.seated_date = seated_date;
+		this.att = att;
+		this.dept = dept;
+		this.office = office;
+		this.seat = seat;
+	}
 	public UserVO() {
 		super();
 		// TODO Auto-generated constructor stub
