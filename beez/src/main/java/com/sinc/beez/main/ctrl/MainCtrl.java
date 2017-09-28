@@ -8,8 +8,8 @@ public class MainCtrl {
 
 	@RequestMapping("/main.do")
 	public String main() {
+
 		System.out.println("MainCtrl main");
-		
 		return "home";
 	}
 }

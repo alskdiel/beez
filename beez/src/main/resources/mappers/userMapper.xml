@@ -5,7 +5,7 @@
   
 <mapper namespace="com.sinc.beez.mapper.user">
 
-	<select id="login" parameterType="user" resultType="user">
+	<!-- <select id="login" parameterType="user" resultType="user">
 		SELECT  USER_ID, DEPT_ID, USER_PWD, USER_NAME, SKEY_USE, PHONE_NUM, DUTY_NAME, LAST_ACCESS, FAIL_CNT
 		FROM 	USER_TB
 		WHERE	ID = #{id} AND PWD = #{pwd}
@@ -27,6 +27,6 @@
 	<insert id="joinUser" parameterType="user">
 		INSERT  INTO USER_TBL (USER_ID, USER_PWD)
 				VALUES(#{id}, #{pwd})
-	</insert>
+	</insert> -->
 	
 </mapper>

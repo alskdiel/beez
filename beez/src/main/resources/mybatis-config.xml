@@ -6,10 +6,7 @@
 <configuration>
 	
 	<typeAliases>
-		<typeAlias type="com.sinc.beez.user.model.vo.UserVO" 		alias="user"/>
-		<typeAlias type="com.sinc.beez.tablet.model.vo.TabletVO" 	alias="tablet"/>
-		<typeAlias type="com.sinc.beez.beacon.model.vo.BeaconVO" 	alias="beacon"/>
-		<typeAlias type="com.sinc.beez.office.model.vo.OfficeVO" 	alias="office"/>
+		<typeAlias type="com.sinc.beez.user.model.vo.UserVO" alias="user"/>
 	</typeAliases>
 
 </configuration>
