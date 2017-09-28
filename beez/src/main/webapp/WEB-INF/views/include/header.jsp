@@ -106,9 +106,20 @@
 							- 설정
 						</a>
 					</li>
+					<li>
+						<a href="javascript:sendAndroidMsg()">
+							- SSG KEY 연동 설정
+						</a>
+						</li>
 				</ul>
 			</li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->
 </aside>
+
+<script type="text/javascript">
+	function sendAndroidMsg(){
+		window.beez.startActivityFunction('SSGKEYSETTING');
+	}
+</script>
