@@ -16,7 +16,8 @@ public interface UserService{
 	public Object getState(Object obj);
 	public List<Object> getMyCalender(Object obj);
 	public Object getUserSeat(Object obj);
-	public List<Object> teamList(Object obj);
+	public List<Object> getUserTeamList(Object obj);
+	
 	public List<Object> seatHistory(Object obj);
 
 	public List<Object> getUserByName(Object obj);

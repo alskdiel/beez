@@ -12,7 +12,7 @@
 		WHERE   U.USER_ID = #{user_id}
 	</select>
 	
-	<select id="teamlist" parameterType="user" resultType="dept">
+	<select id="teamlist" parameterType="user" resultType="user">
 		SELECT  USER_ID
 		FROM    USER_TB
 		WHERE   DEPT_ID = 

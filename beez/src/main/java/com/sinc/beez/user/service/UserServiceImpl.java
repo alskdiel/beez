@@ -1,5 +1,6 @@
 package com.sinc.beez.user.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -72,15 +73,17 @@ public class UserServiceImpl implements UserService{
 	public Object getUserSeat(Object obj) {
 		System.out.println("UserService getUserSeat");
 		
+		((UserVO)obj).setUser_name(((UserVO)dao.getUserByIDRow(obj)).getUser_name());
 		((UserVO)obj).setSeat((SeatVO)dao.userSeatRow(obj));
 		
 		return obj;
 	}
 
 	@Override
-	public List<Object> teamList(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Object> getUserTeamList(Object obj) {
+		System.out.println("UserService getUserTeamList");
+		
+		return dao.userTeamListRow(obj);
 	}
 
 	@Override

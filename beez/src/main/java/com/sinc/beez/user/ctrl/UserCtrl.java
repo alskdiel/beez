@@ -1,6 +1,6 @@
 package com.sinc.beez.user.ctrl;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
@@ -21,27 +21,51 @@ public class UserCtrl {
 	
 	@RequestMapping("/status.do")
 	public String status() {
-		UserVO tmp = new UserVO();	// tmp: current_user
-		tmp.setUser_id("p908vd");
-		System.out.println(service.getState(tmp));
+		System.out.println("/user/status.do");
+		
+		/**********************************/
+		// current_user = session.getUserVO
+		UserVO current_user = new UserVO();
+		current_user.setUser_id("p908vd");
+		/**********************************/
+		
+		System.out.println(service.getState(current_user));
 		
 		return null;
 	}
-/*	
+	
 	@RequestMapping("/search.do")
 	@ResponseBody
-	public UserVO search(UserVO userToSearch) {
+	public UserVO search(UserVO userToSearch) {			// user_id should be in params
 		System.out.println("/user/search.do");
-		UserVO ret = (UserVO)service.getUserById(userToSearch);
+		
+		UserVO ret = (UserVO)service.getUserSeat(userToSearch); 
 		
 		return ret;
 	}
-*/
+
 	@RequestMapping("/finduser.do")
 	@ResponseBody
-	public List<Object> findUserByName(UserVO userToSearch) {
+	public ArrayList<UserVO> findUserByName(UserVO userToSearch) {
 		System.out.println("/user/finduser.do");
-		List<Object> list = service.getUserByName(userToSearch);
+
+		ArrayList<UserVO> list = (ArrayList) service.getUserByName(userToSearch);
+		
+		return list;
+	}
+	
+	@RequestMapping("/myteam.do")
+	@ResponseBody
+	public ArrayList<UserVO> getUserTeam() {
+		System.out.println("/user/myteam.do");
+		
+		/**********************************/
+		// current_user = session.getUserVO
+		UserVO current_user = new UserVO();
+		current_user.setUser_id("p908v4");
+		/**********************************/
+		
+		ArrayList<UserVO> list = (ArrayList) service.getUserTeamList(current_user);
 		
 		return list;
 	}
