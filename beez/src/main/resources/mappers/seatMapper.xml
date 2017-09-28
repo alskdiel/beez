@@ -6,11 +6,10 @@
 <mapper namespace="com.sinc.beez.mapper.seat">
 
 	<select id="seatlist" parameterType="office" resultType="seat">
-		
-		select floor_num, s.seat_id
+	    
+	    select SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE 
 		from SEAT_TB s
-		join office_tb o on(s.office_seq=o.office_seq)
-
+        where office_seq=#{office_seq}
 	</select>
 	
 	<select id="office" parameterType="office" resultType="office">
