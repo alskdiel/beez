@@ -3,11 +3,19 @@ package com.sinc.beez.user.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.sinc.beez.user.dao.UserDao;
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
 
+	@Resource(name="userDao")
+	private UserDao dao;
+	
+	
 	
 	
 	@Override

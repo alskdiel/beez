@@ -1,10 +1,16 @@
 package com.sinc.beez.office.model.vo;
 
+import java.util.List;
+
+import com.sinc.beez.seat.model.vo.SeatVO;
+
 public class OfficeVO {
 
 	private int office_seq;
 	private int floor_num;
 	private String building_name;
+	
+	private List<SeatVO> seat;
 	
 	public OfficeVO(int office_seq, int floor_num, String building_name) {
 		super();

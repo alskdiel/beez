@@ -6,12 +6,13 @@ import java.util.List;
 
 public interface UserService{
 
+	////////////////////////로그인////////////////////////////	
 	public Object loginService(Object obj);
 	public void keepLogin(String id, String sessionId, Date next);
 	public Object checkUserWithSessionKey(String value);
 	public void deleteSessionKey(String sessionId, Date next);
 	public void join(Object obj);
-	//////////////////////////////////////////////////
+	////////////////////////////////////////////////////////
 	public Object getState(Object obj);
 	public List<Object> getMyCalender(Object obj);
 	public Object getUserSeat(Object obj);

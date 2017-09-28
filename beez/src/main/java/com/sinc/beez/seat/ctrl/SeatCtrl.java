@@ -1,15 +1,29 @@
 package com.sinc.beez.seat.ctrl;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sinc.beez.seat.service.SeatService;
+
 @Controller
+@RequestMapping("/seat")
 public class SeatCtrl {
 
-	@RequestMapping("/seats.do")
+	@Resource(name="seatService")
+	private SeatService service;
+	
+	
+	//전체 좌석 현황
+	@RequestMapping("/list.do")
 	public String status() {
 		
-		return "seat/status";
+	    List<Object> list = service.seatList();
+		System.out.println(list);
+		return null;
 	}
 	
 	@RequestMapping("/seatstat.do")
