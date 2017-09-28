@@ -19,4 +19,7 @@ public interface UserService{
 	public List<Object> teamList(Object obj);
 	public List<Object> seatHistory(Object obj);
 
+	public List<Object> getUserByName(Object obj);
+	//public Object getUserById(Object obj);
+	
 }

@@ -4,13 +4,52 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.sinc.beez.mapper.user">
-
-	<select id="login" parameterType="user" resultType="user">
-		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
-		FROM	SPRING_USER_TBL
-		WHERE	ID = #{id}
-		AND		PWD = #{pwd}
+	
+	<select id="dept" parameterType="user" resultType="dept">
+		SELECT  DEPT_NAME, U.DEPT_ID
+		FROM    USER_TB U
+		JOIN    DEPT_TB D ON (U.DEPT_ID = D.DEPT_ID)
+		WHERE   U.USER_ID = #{user_id}
 	</select>
+	
+	<select id="teamlist" parameterType="user" resultType="dept">
+		SELECT  USER_ID
+		FROM    USER_TB
+		WHERE   DEPT_ID = 
+					   (SELECT  DEPT_ID
+						FROM    USER_TB
+						WHERE   USER_ID = #{user_id})
+	</select>
+	
+	<select id="seat" parameterType="user" resultType="seat">
+		SELECT  S.SEAT_ID, S.OFFICE_SEQ, S.SEAT_REAL_LOCATION, U.SEATED_DATE, U.USER_ID
+		FROM    USER_SEAT_TB U
+		JOIN    SEAT_TB S on (U.SEAT_ID = S.SEAT_ID AND U.OFFICE_SEQ = S.OFFICE_SEQ)
+		WHERE   (USER_ID = #{user_id}) AND (U.SEATED_DATE > TRUNC(SYSDATE)) AND (U.USER_LEAVE_YN = 'N')
+	</select>
+	
+	
+	<select id="userbyname" parameterType="user" resultType="user">
+		SELECT  USER_NAME, USER_ID
+		FROM    USER_TB
+		WHERE   USER_NAME = #{user_name}
+	</select>
+	
+	<select id="userbyid" parameterType="user" resultType="user">
+		SELECT  USER_NAME, USER_ID
+		FROM    USER_TB
+		WHERE   USER_ID = #{user_id}
+	</select>
+	
+	<select id="arrival" parameterType="user" resultType="att">
+		SELECT  ATT_ARRIVE_TIME
+		FROM    USER_ATT_TB
+		WHERE   (USER_ID = #{user_id}) AND ATT_DATE > TRUNC(SYSDATE)
+
+	</select>
+	
+	
+	
 	<!-- 
 	<update id="keepLogin" parameterType="java.util.HashMap">
 		UPDATE 	SPRING_USER_TBL

@@ -7,7 +7,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.sinc.beez.att.model.vo.AttVO;
+import com.sinc.beez.dept.model.vo.DeptVO;
+import com.sinc.beez.seat.model.vo.SeatVO;
 import com.sinc.beez.user.dao.UserDao;
+import com.sinc.beez.user.model.vo.UserVO;
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -48,8 +52,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getState(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("UserService getState");
+		
+		((UserVO)obj).setUser_name(((UserVO)dao.getUserByIDRow(obj)).getUser_name());		
+		((UserVO)obj).setDept((DeptVO)dao.userDeptRow(obj));
+		((UserVO)obj).setAtt((AttVO)dao.userAttArivalRow(obj));
+		((UserVO)obj).setSeat((SeatVO)dao.userSeatRow(obj));
+		
+		return obj;
 	}
 
 	@Override
@@ -60,8 +70,11 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getUserSeat(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("UserService getUserSeat");
+		
+		((UserVO)obj).setSeat((SeatVO)dao.userSeatRow(obj));
+		
+		return obj;
 	}
 
 	@Override
@@ -76,4 +89,25 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
+	@Override
+	public List<Object> getUserByName(Object obj) {
+		System.out.println("UserService getUserByName");
+		
+		List<Object> list = dao.getUserByNameRow(obj);
+		
+		for(int i=0; i<list.size(); i++) {
+			((UserVO)list.get(i)).setDept((DeptVO)(dao.userDeptRow(list.get(i))));
+		}
+		
+		return list;
+	}
+
+	/*
+	@Override
+	public Object getUserById(Object obj) {
+		System.out.println("UserService getUserById");
+		
+		return dao.getUserByIDRow(obj);
+	}
+	*/
 }

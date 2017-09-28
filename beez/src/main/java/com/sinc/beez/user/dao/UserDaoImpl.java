@@ -17,66 +17,49 @@ public class UserDaoImpl implements UserDao {
 
 	@Resource(name="sqlSession")
 	private SqlSession session;
-	
-	
-	@Override
-	public Object loginRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public void keepLoginRow(Map<String, Object> map) {
-		// TODO Auto-generated method stub
+	public Object userDeptRow(Object obj) {
+		System.out.println("UserDao userDeptRow");
 		
-	}
-
-	@Override
-	public Object checkUserWithSessionKeyRow(String value) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteSessionRow(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void joinRow(Object obj) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Object stateRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Object> myCalenderRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne(USERPREFIX + "dept", obj);
 	}
 
 	@Override
 	public Object userSeatRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("UserDao userSeatRow");
+		
+		return session.selectOne(USERPREFIX + "seat", obj);
 	}
 
 	@Override
-	public List<Object> teamListRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object userAttArivalRow(Object obj) {
+		System.out.println("UserDao userAttArivalRow");
+		
+		return session.selectOne(USERPREFIX + "arrival", obj);
 	}
 
 	@Override
-	public List<Object> seatHistoryRow(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Object> userTeamListRow(Object obj) {
+		System.out.println("UserDao userTeamListRow");
+		
+		return session.selectList(USERPREFIX + "teamlist", obj);
 	}
 
+	@Override
+	public List<Object> getUserByNameRow(Object obj) {
+		System.out.println("UserDao getUserByName");
+		
+		return session.selectList(USERPREFIX + "userbyname", obj);
+	}
+
+	
+	@Override
+	public Object getUserByIDRow(Object obj) {
+		System.out.println("UserDao getUserById");
+		
+		return session.selectOne(USERPREFIX + "userbyid", obj);
+	}
+	
+	
 }
