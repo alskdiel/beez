@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.sinc.beez.office.model.vo.OfficeVO;
+import com.sinc.beez.seat.model.vo.SeatVO;
 
 
 @Repository("seatDao")
@@ -24,25 +25,24 @@ public class SeatDaoImpl implements SeatDao {
 	public List<Object> seatListRow() {
 	    System.out.println("Dao seatListRow");
 	    
-	    List<OfficeVO> offices= session.selectList(SEATPREFIX+"office");
-	    System.out.println(offices);
-	    System.out.println(offices.size());
-	    
-	    for(int i=0; i<offices.size(); i++) {
-	    	
-	    	//int seq =offices.get(i).getOffice_seq(); // 1번째에 seq 얻어서 seq에 넣음 그걸 넘김.
-	    	//System.out.println("//"+seq+"//");
+	    List<Object> offices= session.selectList(SEATPREFIX+"office");
 	   
-			
+	     for(int i=0;i<offices.size();i++){
 	    	
-	    }
-	    return null;
+		    List<SeatVO> seatlist = session.selectList(SEATPREFIX+"seatlist",offices.get(i));
+		    ((OfficeVO)offices.get(i)).setSeat(seatlist);
+	     }
+	    return offices;
+	     }
+	
 
-	}
 
+	
 	@Override
 	public Object userFavoriteRow(Object obj) {
 		return null;
 	}
+
+
 
 }
