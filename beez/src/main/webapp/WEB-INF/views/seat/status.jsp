@@ -15,18 +15,23 @@
 		<%@include file="./../include/header.jsp"%>
 
 
-		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<section class="content-header">
+		  <div class="content-wrapper">
+			  <!-- Content Header (Page header) -->
+			  <section class="content-header">
 			
-			실시간좌석현황
+				  <input type="text" name="searchSeat" id="searchSeat">
+				  <button id='searchBtn'>직원 검색</button>
 				
-			</section>
-
-		</div>
-		<div class='control-sidebar-bg'></div>
+				  <c:forEach items="${seatlist}" var="SeatVO">
+				  	${SeatVO}
+				  </c:forEach>
+			  </section>
+		  </div>
+		
+		 <div class='control-sidebar-bg'></div>
 	</div>
-	
+		
+			
 	
 	
 	<!-- jQuery -->

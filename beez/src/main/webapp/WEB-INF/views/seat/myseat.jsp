@@ -20,7 +20,10 @@
 			<section class="content-header">
 			
 			내 자리 이력
-				
+			
+			<div class="btn" id="myseat">call ajax</div>
+			<input type="hidden" value='${endPageNo}' id="endPageNo"/>
+			
 			</section>
 
 		</div>
@@ -41,7 +44,7 @@
     <script src="/resources/dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
-    
+    <script src="/resources/js/seat.js"></script>  
     
 </body>
 </html>

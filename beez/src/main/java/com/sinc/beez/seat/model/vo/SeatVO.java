@@ -1,10 +1,13 @@
 package com.sinc.beez.seat.model.vo;
 
+import com.sinc.beez.office.model.vo.OfficeVO;
+
 public class SeatVO {
     	
 	private String seat_id, seat_real_location,
 	        seat_useable_state,seat_nfc_tag_id;
-
+     
+	private OfficeVO office;
 	
 	
 	@Override

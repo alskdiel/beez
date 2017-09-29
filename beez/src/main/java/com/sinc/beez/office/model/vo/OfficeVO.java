@@ -1,11 +1,25 @@
 package com.sinc.beez.office.model.vo;
 
+
+import java.util.List;
+
+import com.sinc.beez.seat.model.vo.SeatVO;
+
 public class OfficeVO {
 
 	private int office_seq;
 	private int floor_num;
 	private String building_name;
 	
+	private List<SeatVO> seat;
+	
+	
+	public List<SeatVO> getSeat() {
+		return seat;
+	}
+	public void setSeat(List<SeatVO> seat) {
+		this.seat = seat;
+	}
 	public OfficeVO(int office_seq, int floor_num, String building_name) {
 		super();
 		this.office_seq = office_seq;
@@ -35,13 +49,14 @@ public class OfficeVO {
 	public void setBuilding_name(String building_name) {
 		this.building_name = building_name;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "OfficeVO [office_seq=" + office_seq + ", floor_num="
-				+ floor_num + ", building_name="
-				+ building_name + "]";
+				+ floor_num + ", building_name=" + building_name + ", seat="
+				+ seat + "]";
 	}
-	
-	
+
 	
 }
