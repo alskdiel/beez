@@ -18,11 +18,10 @@ import com.sinc.beez.userseat.model.vo.UserSeatVO;
 @RequestMapping("/tablet")
 public class TabletCtrl {
 
-	@Resource(name="tabletService")
-	private TabletService service;	
-	
+	@Resource(name = "tabletService")
+	private TabletService service;
+
 	@RequestMapping("/tablet.do")
-	@ResponseBody
 	public String TabletForm(BeaconVO beacon, SeatVO seat) {
 
 		System.out.println("Tablet Ctrl");
@@ -31,7 +30,7 @@ public class TabletCtrl {
 		JSONObject json = null;
 
 		service.seatInfoService(seat);
-		
+
 		try {
 			for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -45,12 +44,12 @@ public class TabletCtrl {
 
 				jsonArray.put(json);
 			}
-			
+
 			if (beacon.getBeacon_id() != null) {
-				return "tablet/tablet.do?beaconID=${beacon.getBeacon_id}";
+				return "tablet/tablet.do?beacon_id=${beacon.getBeacon_id}";
 			}
 		} catch (Exception e) {
-				e.printStackTrace();
+			e.printStackTrace();
 		}
 		return "tablet/tablet";
 	}

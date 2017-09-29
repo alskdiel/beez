@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sinc.beez.mapper.tablet">
+
+	<select id="seat" parameterType="tablet" resultType="tablet">
+		select * from seat_tb 
+		outer join user_seat_tb using (seat_id) 
+		where seated_date = ${SYSDATE}
+	</select>
+
+</mapper>
