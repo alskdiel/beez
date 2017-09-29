@@ -59,12 +59,12 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
-						<a href="/user/myattend.do">
+						<a href="/att/myattend.do">
 							- 캘린더
 						</a>
 					</li>
 					<li>
-						<a href="/user/myattstat.do">
+						<a href="/att/myattstat.do">
 							- 근태통계
 						</a>
 					</li>

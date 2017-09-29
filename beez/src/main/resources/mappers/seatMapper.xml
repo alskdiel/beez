@@ -8,13 +8,6 @@
 	<select id="seatlist" parameterType="office" resultType="seat">
 	    SELECT *  FROM LIST_SEATED_USER_VW
 	</select>
-	
-	
-	<select id="office" parameterType="office" resultType="office">
-		select *
-		from OFFICE_TB
-	</select>
-	
 		
 	<select id="seat" parameterType="user" resultType="seat">
 		SELECT  S.SEAT_ID, S.OFFICE_SEQ, S.SEAT_REAL_LOCATION, U.SEATED_DATE, U.USER_ID
