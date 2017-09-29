@@ -73,9 +73,9 @@ th, td {
 <body>
 	<h2 align="center">14F</h2>
 
-	<div class="largetable1" align="center"
+	<div class="maintable" align="center"
 		style="float: left; width: 18%; padding: 10px;">
-		<table id="table1" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-a-1'>1</td>
 				<td class="available" id='14f-a-5'>5</td>
@@ -95,9 +95,9 @@ th, td {
 		</table>
 	</div>
 
-	<div class="largetable1" align="center"
+	<div class="maintable" align="center"
 		style="float: left; width: 18%; padding: 10px;">
-		<table id="table2" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-a-9'>9</td>
 				<td class="available" id='14f-a-13'>13</td>
@@ -117,9 +117,9 @@ th, td {
 		</table>
 	</div>
 
-	<div class="largetable1" align="center"
+	<div class="maintable" align="center"
 		style="float: left; width: 18%; padding: 10px;">
-		<table id="table3" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-a-17'>17</td>
 				<td class="available" id='14f-a-21'>21</td>
@@ -139,10 +139,10 @@ th, td {
 		</table>
 	</div>
 
-	<div class="largetable1" align="center"
+	<div class="maintable" align="center"
 		style="float: left; width: 18%; padding: 10px;">
 
-		<table id="table3" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-25'>25</td>
 				<td class="available" id='14f-b-29'>29</td>
@@ -161,9 +161,9 @@ th, td {
 			</tr>
 		</table>
 	</div>
-	<div class="largetable1" align="center"
+	<div class="maintable" align="center"
 		style="float: left; width: 18%; padding: 10px;">
-		<table id="table4" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-33'>33</td>
 				<td class="available" id='14f-b-37'>37</td>
@@ -184,9 +184,9 @@ th, td {
 	</div>
 	<br>
 
-	<div class="largetable1" align="right"
+	<div class="maintable" align="right"
 		style="float: left; width: 93%; padding: 10px;">
-		<table id="table7" style="width: 20%">
+		<table id="subtable" style="width: 20%">
 			<tr>
 				<td class="available" id='14f-b-55'>55</td>
 				<td class="available" id='14f-b-56'>56</td>
@@ -203,10 +203,10 @@ th, td {
 	</div>
 	<br>
 
-	<div class="largetable1" align="right"
+	<div class="maintable" align="right"
 		style="float: left; width: 30%; padding: 10px;">
 
-		<table id="table5" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-a-41'>41</td>
 				<td class="available" id='14f-a-42'>42</td>
@@ -219,9 +219,9 @@ th, td {
 		</table>
 	</div>
 
-	<div class="largetable1" align="right"
+	<div class="maintable" align="right"
 		style="float: left; width: 30%; padding: 10px;">
-		<table id="table6" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-47'>47</td>
 				<td class="available" id='14f-b-48'>48</td>
@@ -236,9 +236,9 @@ th, td {
 		</table>
 	</div>
 
-	<div class="largetable1" align="right"
+	<div class="maintable" align="right"
 		style="float: left; width: 30%; padding: 10px;">
-		<table id="table8" style="width: 70%">
+		<table id="subtable" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-63'>63</td>
 				<td class="available" id='14f-b-64'>64</td>
@@ -267,27 +267,28 @@ th, td {
 			 2. 그리고 JOIN해서 UserSeatTb 값이 있으면 unavailable 이다. 
 			 (outerJOIN : MAPPER) SPRING에서 값 AJAX로 수신
 			 3. Seated Date가 오늘인 것만 조회해야한다. (WHERE SEATED_DATE 오늘인 것)
-			 4. 이것을 3초마다 재실행 시켜서 Auto Refresh가 되도록 한다.	
+			 4. 이것을 3초마다 재실행 시켜서 Auto Refresh가 되도록 한다.
+
+				// var element = $(data).find('id');
+
 		 */
 
 		function tabletsinc() {
 			$.ajax({
 				url : "tablet.do",
 				type : "post",
-				data : "$('.largetable').attr('id')",
+				data : "$('#subtable')",
 				dataType : "json",
 				success : function(data) {
 
-					var element = $(data).find('id');
-
-					$.each(data, function(idx, element) {
+					$.each(function(idx, data) {
 
 						if (seat_useable_state == 'N') {
-							$('element').attr("class", "occupied");
+							$(data).attr("class", "occupied");
 						}
 
-						if (user_leave == 'Y') {
-							$('element').attr("class", "unavailable");
+						if (user_leave == 'N') {
+							$(data).attr("class", "unavailable");
 						}
 					});
 				}
@@ -297,7 +298,6 @@ th, td {
 		$(document).ready(function() {
 			setInterval(tabletsinc(), 3000);
 		});
-		
 	</script>
 
 </body>

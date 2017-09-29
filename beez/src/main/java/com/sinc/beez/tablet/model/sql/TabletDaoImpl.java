@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.sinc.beez.office.model.vo.OfficeVO;
 import com.sinc.beez.seat.model.vo.SeatVO;
+import com.sinc.beez.userseat.model.vo.UserSeatVO;
 
 @Repository("tabletDao")
 public class TabletDaoImpl implements TabletDao {
@@ -25,6 +25,16 @@ public class TabletDaoImpl implements TabletDao {
 
 		if (seat.getSeat_id() != null) {
 			return session.selectList(TABLETPREFIX + "seat", seat);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Object> userseatInfo(UserSeatVO userseat) {
+
+		System.out.println("TabletDaoImpl userseatInfo");
+		if (userseat.getSeat_id() != null) {
+			return session.selectList(TABLETPREFIX + "userseat", userseat);
 		}
 		return null;
 	}

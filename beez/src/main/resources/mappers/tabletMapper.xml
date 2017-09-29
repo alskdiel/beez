@@ -5,10 +5,14 @@
 
 <mapper namespace="com.sinc.beez.mapper.tablet">
 
-	<select id="seat" parameterType="tablet" resultType="tablet">
-		select * from seat_tb 
-		outer join user_seat_tb using (seat_id) 
-		where seated_date = ${SYSDATE}
+	<select id="seat" parameterType="seat" resultType="seat">
+		select SEAT_USEABLE_STATE 	
+		from seat_tb 
+	</select>
+	
+	<select id="userseat" parameterType="seat" resultType="userseat">
+		select USER_LEAVE_YN
+		from  USER_SEAT_TB 
 	</select>
 
 </mapper>
