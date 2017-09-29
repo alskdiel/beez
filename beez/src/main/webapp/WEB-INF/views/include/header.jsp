@@ -59,12 +59,12 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
-						<a href="/myattend.do">
+						<a href="/user/myattend.do">
 							- 캘린더
 						</a>
 					</li>
 					<li>
-						<a href="/myattstat.do">
+						<a href="/user/myattstat.do">
 							- 근태통계
 						</a>
 					</li>
@@ -78,17 +78,17 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
-						<a href="/seats.do">
+						<a href="/seat/list.do">
 							- 전체좌석정보
 						</a>
 					</li>
 					<li>
-						<a href="/seatstat.do">
+						<a href="/seat/seatstat.do">
 							- 좌석통계
 						</a>
 					</li>
 					<li>
-						<a href="/myseat.do">
+						<a href="/seat/myseat.do">
 							- 자리 이력
 						</a>
 					</li>

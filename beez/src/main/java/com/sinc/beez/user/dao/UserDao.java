@@ -16,9 +16,6 @@ public interface UserDao {
 	public void joinRow(Object obj);
 	*/
 	////////////////////////////////////////////////////////
-	public Object userDeptRow(Object obj);
-	public Object userSeatRow(Object obj);
-	public Object userAttArivalRow(Object obj);
 	public List<Object> userTeamListRow(Object obj);
 	
 	public List<Object> getUserByNameRow(Object obj);

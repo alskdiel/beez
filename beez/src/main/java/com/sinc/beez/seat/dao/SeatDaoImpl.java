@@ -1,7 +1,9 @@
 package com.sinc.beez.seat.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -25,17 +27,8 @@ public class SeatDaoImpl implements SeatDao {
 	public List<Object> seatListRow() {
 	    System.out.println("Dao seatListRow");
 	    
-	    List<Object> offices= session.selectList(SEATPREFIX+"office");
-	   
-	     for(int i=0;i<offices.size();i++){
-	    	
-		    List<SeatVO> seatlist = session.selectList(SEATPREFIX+"seatlist",offices.get(i));
-		    ((OfficeVO)offices.get(i)).setSeat(seatlist);
-	     }
-	    return offices;
-	     }
-	
-
+	    return session.selectList(SEATPREFIX+"seatlist");
+	}
 
 	
 	@Override
@@ -44,5 +37,29 @@ public class SeatDaoImpl implements SeatDao {
 	}
 
 
+	@Override
+	public Object seatRow(Object obj) {
+		System.out.println("SeatDao userSeatRow");
+		
+		return session.selectOne(SEATPREFIX + "seat", obj);
+	}
+
+
+
+
+	
+	@Override
+	public List<Object> seatHistoryListRow(Object obj) {
+		System.out.println("SeatDao seatHistoryListRow");
+		
+		return session.selectList(SEATPREFIX + "history", obj);
+	}
+	
+	@Override
+	public int getCountRow(Object obj) {
+		System.out.println("SeatDao getCountRow");
+		
+		return session.selectOne(SEATPREFIX + "cnt", obj);
+	}
 
 }

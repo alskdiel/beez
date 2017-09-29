@@ -1,6 +1,5 @@
 package com.sinc.beez.user.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,8 +7,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.sinc.beez.att.dao.AttDao;
 import com.sinc.beez.att.model.vo.AttVO;
+import com.sinc.beez.dept.dao.DeptDao;
 import com.sinc.beez.dept.model.vo.DeptVO;
+import com.sinc.beez.seat.dao.SeatDao;
 import com.sinc.beez.seat.model.vo.SeatVO;
 import com.sinc.beez.user.dao.UserDao;
 import com.sinc.beez.user.model.vo.UserVO;
@@ -18,9 +20,13 @@ import com.sinc.beez.user.model.vo.UserVO;
 public class UserServiceImpl implements UserService{
 
 	@Resource(name="userDao")
-	private UserDao dao;
-	
-	
+	private UserDao userDao;
+	@Resource(name="deptDao")
+	private DeptDao deptDao;
+	@Resource(name="attDao")
+	private AttDao attDao;
+	@Resource(name="seatDao")
+	private SeatDao seatDao;
 	
 	
 	@Override
@@ -55,10 +61,11 @@ public class UserServiceImpl implements UserService{
 	public Object getState(Object obj) {
 		System.out.println("UserService getState");
 		
-		((UserVO)obj).setUser_name(((UserVO)dao.getUserByIDRow(obj)).getUser_name());		
-		((UserVO)obj).setDept((DeptVO)dao.userDeptRow(obj));
-		((UserVO)obj).setAtt((AttVO)dao.userAttArivalRow(obj));
-		((UserVO)obj).setSeat((SeatVO)dao.userSeatRow(obj));
+		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
+		
+		((UserVO)obj).setDept((DeptVO)deptDao.deptRow(obj));
+		((UserVO)obj).setAtt((AttVO)attDao.attArivalRow(obj));
+		((UserVO)obj).setSeat((SeatVO)seatDao.seatRow(obj));
 		
 		return obj;
 	}
@@ -73,8 +80,8 @@ public class UserServiceImpl implements UserService{
 	public Object getUserSeat(Object obj) {
 		System.out.println("UserService getUserSeat");
 		
-		((UserVO)obj).setUser_name(((UserVO)dao.getUserByIDRow(obj)).getUser_name());
-		((UserVO)obj).setSeat((SeatVO)dao.userSeatRow(obj));
+		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
+		((UserVO)obj).setSeat((SeatVO)seatDao.seatRow(obj));
 		
 		return obj;
 	}
@@ -83,7 +90,7 @@ public class UserServiceImpl implements UserService{
 	public List<Object> getUserTeamList(Object obj) {
 		System.out.println("UserService getUserTeamList");
 		
-		return dao.userTeamListRow(obj);
+		return userDao.userTeamListRow(obj);
 	}
 
 	@Override
@@ -96,10 +103,10 @@ public class UserServiceImpl implements UserService{
 	public List<Object> getUserByName(Object obj) {
 		System.out.println("UserService getUserByName");
 		
-		List<Object> list = dao.getUserByNameRow(obj);
+		List<Object> list = userDao.getUserByNameRow(obj);
 		
 		for(int i=0; i<list.size(); i++) {
-			((UserVO)list.get(i)).setDept((DeptVO)(dao.userDeptRow(list.get(i))));
+			((UserVO)list.get(i)).setDept((DeptVO)(deptDao.deptRow(list.get(i))));
 		}
 		
 		return list;

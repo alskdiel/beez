@@ -17,26 +17,6 @@ public class UserDaoImpl implements UserDao {
 	@Resource(name="sqlSession")
 	private SqlSession session;
 
-	@Override
-	public Object userDeptRow(Object obj) {
-		System.out.println("UserDao userDeptRow");
-		
-		return session.selectOne(USERPREFIX + "dept", obj);
-	}
-
-	@Override
-	public Object userSeatRow(Object obj) {
-		System.out.println("UserDao userSeatRow");
-		
-		return session.selectOne(USERPREFIX + "seat", obj);
-	}
-
-	@Override
-	public Object userAttArivalRow(Object obj) {
-		System.out.println("UserDao userAttArivalRow");
-		
-		return session.selectOne(USERPREFIX + "arrival", obj);
-	}
 
 	@Override
 	public List<Object> userTeamListRow(Object obj) {

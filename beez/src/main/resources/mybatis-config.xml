@@ -16,6 +16,9 @@
         <typeAlias type="com.sinc.beez.office.model.vo.OfficeVO" alias="office"/>
 		<typeAlias type="com.sinc.beez.dept.model.vo.DeptVO" alias="dept"/>
 	    <typeAlias type="com.sinc.beez.seat.model.vo.SeatVO" alias="seat"/>
+	    
+	    <typeAlias type="com.sinc.beez.userseat.model.vo.UserSeatVO" alias="userseat"/>
+	    
 		
 	</typeAliases>
 
