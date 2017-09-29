@@ -5,7 +5,7 @@ public class BeaconOfficeDTO {
 	private	String		beacon_addr;
 	private	String		beacon_position;
 	private	String		beacon_alias;
-	private	int		fllor_num;
+	private	int		floor_num;
 	private	String		building_name;
 	
 	public BeaconOfficeDTO() {
@@ -18,19 +18,19 @@ public class BeaconOfficeDTO {
 				+ ", beacon_addr=" + beacon_addr
 				+ ", beacon_position=" + beacon_position
 				+ ", beacon_alias=" + beacon_alias
-				+ ", fllor_num=" + fllor_num
+				+ ", floor_num=" + floor_num
 				+ ", building_name=" + building_name + "]";
 	}
 
 	public BeaconOfficeDTO(String beacon_id, String beacon_addr,
 			String beacon_position, String beacon_alias,
-			int fllor_num, String building_name) {
+			int floor_num, String building_name) {
 		super();
 		this.beacon_id = beacon_id;
 		this.beacon_addr = beacon_addr;
 		this.beacon_position = beacon_position;
 		this.beacon_alias = beacon_alias;
-		this.fllor_num = fllor_num;
+		this.floor_num = floor_num;
 		this.building_name = building_name;
 	}
 
@@ -66,12 +66,12 @@ public class BeaconOfficeDTO {
 		this.beacon_alias = beacon_alias;
 	}
 
-	public int getFllor_num() {
-		return fllor_num;
+	public int getfloor_num() {
+		return floor_num;
 	}
 
-	public void setFllor_num(int fllor_num) {
-		this.fllor_num = fllor_num;
+	public void setfloor_num(int floor_num) {
+		this.floor_num = floor_num;
 	}
 
 	public String getBuilding_name() {

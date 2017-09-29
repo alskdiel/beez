@@ -8,11 +8,11 @@
 		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
 		FROM    BEACON_OFFICE_VW
 	</select>
-	<select id="getBeaconInfoByAddr" resultType="beaconoffice" parameterType="string">
+	<select id="getBeaconInfoByAddr" resultType="beaconoffice">
 		
 		SELECT  	BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
 		FROM    	BEACON_OFFICE_VW
-		WHERE	BEACON_ADDR = #{addr}
+		WHERE	BEACON_ADDR = #{address}
 	
 	</select>
 	<select id="isBeaconInfoByVO" resultType="beaconoffice" parameterType="beacon">

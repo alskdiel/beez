@@ -16,7 +16,6 @@ public class BeaconDAOImpl implements BeaconDAO {
 	@Inject
 	SqlSession session;
 
-
 	@Override
 	public List<BeaconOfficeDTO> getBeaconInfoAll() {
 		return session.selectList(PREFIX + "getBeaconInfoAll");
@@ -24,8 +23,12 @@ public class BeaconDAOImpl implements BeaconDAO {
 
 	@Override
 	public BeaconOfficeDTO getBeaconInfoByAddr(String address) {
-		return session.selectOne(PREFIX + "getBeaconInfoByAddr",
-				address);
+		System.out.println(address);
+		BeaconOfficeDTO dto = new BeaconOfficeDTO();
+		dto = session.selectOne(PREFIX + "getBeaconInfoByAddr", address);
+		
+		if (dto == null) return new BeaconOfficeDTO();
+		return dto;
 	}
 
 	@Override
