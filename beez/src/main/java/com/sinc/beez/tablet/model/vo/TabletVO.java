@@ -2,9 +2,11 @@ package com.sinc.beez.tablet.model.vo;
 
 public class TabletVO {
 
-	private String user_id, seat_id;
-	private int office_seq;
-	private String user_leave;
+	private String 	user_id, 
+					seat_id;
+	
+	private int 	office_seq;
+	private String 	user_leave;
 
 	public TabletVO() {
 		super();

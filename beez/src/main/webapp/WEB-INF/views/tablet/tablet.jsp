@@ -62,13 +62,13 @@ th, td {
 }
 
 /*   주황색   */
-.no-available {
+.unavailable {
 	background-color: #FF8A19;
 }
 </style>
 </head>
 <!-- jQuery 2.1.4 -->
-<script src="./resources/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../resources/jQuery/jQuery-2.1.4.min.js"></script>
 
 <body>
 	<h2 align="center">14F</h2>
@@ -77,16 +77,16 @@ th, td {
 		style="float: left; width: 18%; padding: 10px;">
 		<table id="table1" style="width: 70%">
 			<tr>
-				<td class="occupied" id='14f-a-1'>1</td>
-				<td class="no-available" id='14f-a-5'>5</td>
+				<td class="available" id='14f-a-1'>1</td>
+				<td class="available" id='14f-a-5'>5</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-2'>2</td>
-				<td class="occupied" id='14f-a-6'>6</td>
+				<td class="available" id='14f-a-6'>6</td>
 			</tr>
 			<tr>
-				<td class="no-available" id='14f-a-3'>3</td>
-				<td class="occupied" id='14f-a-7'>7</td>
+				<td class="available" id='14f-a-3'>3</td>
+				<td class="available" id='14f-a-7'>7</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-4'>4</td>
@@ -104,15 +104,15 @@ th, td {
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-10'>10</td>
-				<td class="occupied" id='14f-a-14'>14</td>
+				<td class="available" id='14f-a-14'>14</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-11'>11</td>
-				<td class="occupied" id='14f-a-15'>15</td>
+				<td class="available" id='14f-a-15'>15</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-a-12'>12</td>
-				<td class="occupied" id='14f-a-16'>16</td>
+				<td class="available" id='14f-a-12'>12</td>
+				<td class="available" id='14f-a-16'>16</td>
 			</tr>
 		</table>
 	</div>
@@ -121,16 +121,16 @@ th, td {
 		style="float: left; width: 18%; padding: 10px;">
 		<table id="table3" style="width: 70%">
 			<tr>
-				<td class="occupied" id='14f-a-17'>17</td>
-				<td class="occupied" id='14f-a-21'>21</td>
+				<td class="available" id='14f-a-17'>17</td>
+				<td class="available" id='14f-a-21'>21</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-18'>18</td>
 				<td class="available" id='14f-a-22'>22</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-a-19'>19</td>
-				<td class="no-available" id='14f-a-23'>23</td>
+				<td class="available" id='14f-a-19'>19</td>
+				<td class="available" id='14f-a-23'>23</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-20'>20</td>
@@ -144,15 +144,15 @@ th, td {
 
 		<table id="table3" style="width: 70%">
 			<tr>
-				<td class="occupied" id='14f-b-25'>25</td>
+				<td class="available" id='14f-b-25'>25</td>
 				<td class="available" id='14f-b-29'>29</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-b-26'>26</td>
-				<td class="no-available" id='14f-b-30'>30</td>
+				<td class="available" id='14f-b-26'>26</td>
+				<td class="available" id='14f-b-30'>30</td>
 			</tr>
 			<tr>
-				<td class="no-available" id='14f-b-27'>27</td>
+				<td class="available" id='14f-b-27'>27</td>
 				<td class="available" id='14f-b-31'>31</td>
 			</tr>
 			<tr>
@@ -166,18 +166,18 @@ th, td {
 		<table id="table4" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-33'>33</td>
-				<td class="occupied" id='14f-b-37'>37</td>
+				<td class="available" id='14f-b-37'>37</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-b-34'>34</td>
-				<td class="occupied" id='14f-b-38'>38</td>
+				<td class="available" id='14f-b-38'>38</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-b-35'>35</td>
+				<td class="available" id='14f-b-35'>35</td>
 				<td class="available" id='14f-b-39'>39</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-b-36'>36</td>
+				<td class="available" id='14f-b-36'>36</td>
 				<td class="available" id='14f-b-40'>40</td>
 			</tr>
 		</table>
@@ -189,12 +189,12 @@ th, td {
 		<table id="table7" style="width: 20%">
 			<tr>
 				<td class="available" id='14f-b-55'>55</td>
-				<td class="occupied" id='14f-b-56'>56</td>
+				<td class="available" id='14f-b-56'>56</td>
 				<td class="available" id='14f-b-57'>57</td>
-				<td class="occupied" id='14f-b-58'>58</td>
+				<td class="available" id='14f-b-58'>58</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-b-59'>59</td>
+				<td class="available" id='14f-b-59'>59</td>
 				<td class="available" id='14f-b-60'>60</td>
 				<td class="available" id='14f-b-61'>61</td>
 				<td class="available" id='14f-b-62'>62</td>
@@ -208,43 +208,45 @@ th, td {
 
 		<table id="table5" style="width: 70%">
 			<tr>
-				<td class="occupied" id='14f-a-41'>41</td>
+				<td class="available" id='14f-a-41'>41</td>
 				<td class="available" id='14f-a-42'>42</td>
 				<td class="available" id='14f-a-43'>43</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-a-44'>44</td>
-				<td class="no-available" id='14f-a-45'>45</td>
-				<td class="occupied" id='14f-a-46'>46</td>
+				<td class="available" id='14f-a-45'>45</td>
+				<td class="available" id='14f-a-46'>46</td>
 		</table>
 	</div>
+
 	<div class="largetable1" align="right"
 		style="float: left; width: 30%; padding: 10px;">
 		<table id="table6" style="width: 70%">
 			<tr>
-				<td class="no-available" id='14f-b-47'>47</td>
+				<td class="available" id='14f-b-47'>47</td>
 				<td class="available" id='14f-b-48'>48</td>
 				<td class="available" id='14f-b-49'>49</td>
 				<td class="available" id='14f-b-50'>50</td>
 			</tr>
 			<tr>
 				<td class="available" id='14f-b-51'>51</td>
-				<td class="occupied" id='14f-b-52'>52</td>
+				<td class="available" id='14f-b-52'>52</td>
 				<td class="available" id='14f-b-53'>53</td>
 				<td class="available" id='14f-b-54'>54</td>
 		</table>
 	</div>
+
 	<div class="largetable1" align="right"
 		style="float: left; width: 30%; padding: 10px;">
 		<table id="table8" style="width: 70%">
 			<tr>
 				<td class="available" id='14f-b-63'>63</td>
-				<td class="occupied" id='14f-b-64'>64</td>
+				<td class="available" id='14f-b-64'>64</td>
 				<td class="available" id='14f-b-65'>65</td>
 				<td class="available" id='14f-b-66'>66</td>
 			</tr>
 			<tr>
-				<td class="occupied" id='14f-b-67'>67</td>
+				<td class="available" id='14f-b-67'>67</td>
 				<td class="available" id='14f-b-68'>68</td>
 				<td class="available" id='14f-b-69'>69</td>
 				<td class="available" id='14f-b-70'>70</td>
@@ -257,7 +259,47 @@ th, td {
 		<h5 id=circle2>&nbsp;&nbsp;&nbsp;사용 중</h5>
 		<h5 id=circle3>&nbsp;&nbsp;&nbsp;사용 불가</h5>
 	</div>
-	
+
+	<script type="text/javascript">
+		/*
+			 1-1 SPRING Back을 설계해서 지금 층의 정보에 맞는 좌석을 가져온다 							
+			 1-2 SCRIPT (Usable_State == N) occupied (AJAX이용해서 수신)	
+			 2. 그리고 JOIN해서 UserSeatTb 값이 있으면 unavailable 이다. 
+			 (outerJOIN : MAPPER) SPRING에서 값 AJAX로 수신
+			 3. Seated Date가 오늘인 것만 조회해야한다. (WHERE SEATED_DATE 오늘인 것)
+			 4. 이것을 3초마다 재실행 시켜서 Auto Refresh가 되도록 한다.	
+		 */
+
+		function tabletsinc() {
+			$.ajax({
+				url : "tablet.do",
+				type : "post",
+				data : "$('.largetable').attr('id')",
+				dataType : "json",
+				success : function(data) {
+
+					var element = $(data).find('id');
+
+					$.each(data, function(idx, element) {
+
+						if (seat_useable_state == 'N') {
+							$('element').attr("class", "occupied");
+						}
+
+						if (user_leave == 'Y') {
+							$('element').attr("class", "unavailable");
+						}
+					});
+				}
+			});
+		}
+
+		$(document).ready(function() {
+			setInterval(tabletsinc(), 3000);
+		});
+		
+	</script>
+
 </body>
 
 </html>

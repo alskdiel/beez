@@ -23,21 +23,4 @@
 	
 	<context:component-scan base-package="com.sinc.beez.**" />
 	
-	
-	<!-- Interceptor -->
-	<!-- 
-	<beans:bean id="sample" class="com.sinc.project.util.interceptor.SampleInterceptor"/>
-	
-	<interceptors>
-		<interceptor>
-			<mapping path="/a.sinc"/>
-			<beans:ref bean="sample"/>
-		</interceptor>
-			
-	</interceptors>
-
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	</beans:bean>
-	-->
-	
 </beans:beans>

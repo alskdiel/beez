@@ -4,10 +4,15 @@ import java.util.Date;
 
 public class UserVO {
 
-	private String dept_id, user_pwd, user_name, skey_use, phone_num,
-			duty_name;
-	private Date last_access;
-	private int fail_cnt;
+	private String 	dept_id, 
+					user_pwd, 
+					user_name, 
+					skey_use, 
+					phone_num,
+					duty_name;
+	
+	private Date 	last_access;
+	private int 	fail_cnt;
 
 	public UserVO() {
 		super();
