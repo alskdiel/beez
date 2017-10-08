@@ -56,10 +56,12 @@ public class SeatCtrl {
 		
 		List<Object> list = service.seatHistoryList(current_user, pagingDTO);
 		model.addAttribute("endPageNo", pagingDTO.getEndPageNo());
+		model.addAttribute("userSeatVO", list);
 		
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i));
 		}
+		
 		return "seat/myseat";
 	}
 	

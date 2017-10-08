@@ -8,15 +8,8 @@
 	<select id="seatlist" parameterType="office" resultType="seat">
 	    SELECT *  FROM LIST_SEATED_USER_VW
 	</select>
-		
-	<select id="seat" parameterType="user" resultType="seat">
-		SELECT  S.SEAT_ID, S.OFFICE_SEQ, S.SEAT_REAL_LOCATION, U.SEATED_DATE, U.USER_ID
-		FROM    USER_SEAT_TB U
-		JOIN    SEAT_TB S on (U.SEAT_ID = S.SEAT_ID AND U.OFFICE_SEQ = S.OFFICE_SEQ)
-		WHERE   (USER_ID = #{user_id}) AND (U.SEATED_DATE <![CDATA[>]]> TRUNC(SYSDATE)) AND (U.USER_LEAVE_YN = 'N')
-	</select>
 	
-	
+
 	<select id="history" parameterType="java.util.HashMap" resultType="userseat">
 		SELECT * FROM (
 			SELECT ROWNUM rnum, H.* FROM (
@@ -37,6 +30,16 @@
 		FROM    USER_SEAT_TB
 		WHERE   USER_ID = #{user_id}
 	</select>
+	
+	<select id="office" parameterType="userseat" resultType="java.util.Map">
+		SELECT  BUILDING_NAME, SEAT_REAL_LOCATION, FLOOR_NUM
+		FROM    OFFICE_TB O
+		JOIN    SEAT_TB S ON (O.OFFICE_SEQ = S.OFFICE_SEQ)
+		WHERE   O.OFFICE_SEQ = #{office_seq} AND S.SEAT_ID = #{seat_id}
+	</select>
+	
+	
+	
 	
 </mapper>
 

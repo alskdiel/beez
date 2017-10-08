@@ -1,5 +1,6 @@
 package com.sinc.beez.seat.service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.sinc.beez.seat.dao.SeatDao;
 import com.sinc.beez.user.model.vo.UserVO;
+import com.sinc.beez.userseat.model.vo.UserSeatVO;
 import com.sinc.beez.util.PagingDTO;
 
 
@@ -42,7 +44,21 @@ public class SeatServiceImpl implements SeatService{
 		map.put("endRowNum", ((PagingDTO)pagingDTO).getEndRowNum());
 		map.put("startRowNum", ((PagingDTO)pagingDTO).getStartRowNum());
 		
-		return dao.seatHistoryListRow(map);
+		List<Object> list = dao.seatHistoryListRow(map);
+		for(int i=0; i<list.size(); i++) {
+			UserSeatVO userSeatVO = (UserSeatVO)list.get(i);
+			int office_seq = userSeatVO.getOffice_seq();
+			String seat_id = userSeatVO.getSeat_id();
+			
+			Map<Object, Object> officeInfo = dao.officeInfo(userSeatVO);
+			
+			userSeatVO.setBuilding_name((String)(officeInfo.get("BUILDING_NAME")));
+			userSeatVO.setFloor_num(((BigDecimal)(officeInfo.get("FLOOR_NUM"))).intValue());
+			userSeatVO.setSeat_real_location((String)(officeInfo.get("SEAT_REAL_LOCATION")));
+			
+		}
+		
+		return list;
 	}
 	
 	@Override

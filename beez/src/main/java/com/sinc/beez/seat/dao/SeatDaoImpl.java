@@ -62,4 +62,12 @@ public class SeatDaoImpl implements SeatDao {
 		return session.selectOne(SEATPREFIX + "cnt", obj);
 	}
 
+
+	@Override
+	public Map<Object, Object> officeInfo(Object obj) {		// obj: UserSeatVO
+		System.out.println("SeatDao officeInfo");
+
+		return session.selectOne(SEATPREFIX + "office", obj);
+	}
+
 }
