@@ -21,10 +21,13 @@
 			
 				  <input type="text" name="searchSeat" id="searchSeat">
 				  <button id='searchBtn'>직원 검색</button>
-				
+				<%--
 				  <c:forEach items="${seatlist}" var="SeatVO">
 				  	${SeatVO}
 				  </c:forEach>
+				   --%>
+				   <img src="/resources/images/m_bg.png" style="width: 100% !important">
+				   	
 			  </section>
 		  </div>
 		
@@ -47,6 +50,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
     
+    <link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
     
 </body>
 </html>

@@ -1,6 +1,13 @@
 var sysdate = new Date().yyyymmdd_datepicker();
 $('input[name="daterange"]').val(sysdate + "-" + sysdate);
 
+var index = {
+		"all": 11,
+		"loc": 1,
+		"date": 1
+};
+
+
 var pageNo = {
 		"all": 2,
 		"loc": 1,
@@ -110,7 +117,6 @@ $(document).on("scroll", function() {
 
 
 function renderData(data) {
-	var index;
 	var building_name;
 	var floor_num;
 	var seat_real_location;
@@ -126,7 +132,7 @@ function renderData(data) {
 		seated_Date = new Date(data[i].seated_Date).yyyymmdd();
 		
 		toRender += "<tr>" +
-				"<td>index</td>" +
+				"<td>" + index[stored_filterType]++ + "</td>" +
 				"<td>" + building_name + " / " + floor_num + "F / " + seat_real_location + "</td>" +
 				"<td>" + seat_id + "</td>" +
 				"<td>" + seated_Date + "</td>" +
@@ -157,5 +163,6 @@ $("#icon-search").on("click", function() {
 
 function resetPageNo() {
 	pageNo["loc"] = pageNo["date"] = 1;
+	index["loc"] = index["date"] = 1;
 }
 var stored_data;
