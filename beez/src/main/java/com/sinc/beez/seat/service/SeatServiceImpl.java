@@ -55,6 +55,9 @@ public class SeatServiceImpl implements SeatService{
 			
 			list = dao.seatHistoryListDateRow(map);
 		} else if(type.equals("loc")) {
+			String loc = (String)params;
+			map.put("where", loc);
+			
 			list = dao.seatHistoryListLocRow(map);
 		} else {
 			list = dao.seatHistoryListRow(map);
@@ -80,9 +83,7 @@ public class SeatServiceImpl implements SeatService{
 	public int getCount(Object obj, Object type, Object params) {
 		System.out.println("Service getCount");
 		
-		if(type.equals("all")) {
-			return dao.getCountRow(obj);
-		} else if(type.equals("date")) {
+		if(type.equals("date")) {
 			String[] dates = ((String)params).split("-");
 			Date from = new Date(dates[0]);
 			Date to = new Date(dates[1]);
@@ -93,10 +94,16 @@ public class SeatServiceImpl implements SeatService{
 			
 			
 			return dao.getCountRowDate(map);
+		} else if(type.equals("loc"))  {
+			String loc = (String)params;
+			Map<Object, Object> map = new HashMap<Object, Object>();
+			map.put("user_id", ((UserVO)obj).getUser_id());
+			map.put("where", loc);
+			
+			return dao.getCountRowLoc(map);
 		} else {
-			//return dao.getCountRowLoc(obj, params);
+			return dao.getCountRow(obj);
 		}
 		
-		return dao.getCountRow(obj);
 	}
 }

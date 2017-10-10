@@ -71,8 +71,8 @@ public class SeatDaoImpl implements SeatDao {
 
 	@Override
 	public int getCountRowLoc(Object obj) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return session.selectOne(SEATPREFIX + "cntLoc", obj);
 	}
 
 
@@ -87,7 +87,8 @@ public class SeatDaoImpl implements SeatDao {
 	@Override
 	public List<Object> seatHistoryListLocRow(Object obj) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return session.selectList(SEATPREFIX + "historyLoc", obj);
 	}
 
 }

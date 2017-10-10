@@ -40,6 +40,22 @@
 		
 	</select>
 	
+	<select id="historyLoc" parameterType="java.util.HashMap" resultType="userseat">
+		SELECT * FROM (
+			SELECT ROWNUM rnum, H.* FROM (
+				SELECT  US.SEAT_ID, US.OFFICE_SEQ, US.SEATED_DATE
+				FROM    USER_SEAT_TB US
+				JOIN    OFFICE_TB O ON (US.OFFICE_SEQ = O.OFFICE_SEQ)
+				WHERE   (US.USER_ID = #{user_id})
+				AND     ((O.BUILDING_NAME LIKE '%'||#{where}||'%') OR (O.FLOOR_NUM LIKE '%'||#{where}||'%'))
+				ORDER BY US.SEATED_DATE DESC
+			) H
+			WHERE ROWNUM <![CDATA[<]]>= #{endRowNum}
+		)
+		WHERE rnum <![CDATA[>]]>= #{startRowNum}
+		
+	</select>
+	
 	<select id="cnt" parameterType="user" resultType="int">
 		SELECT	COUNT(*) CNT
 		FROM    USER_SEAT_TB
@@ -60,6 +76,13 @@
 		AND		(SEATED_DATE BETWEEN #{from} AND #{to})
 	</select>
 	
+	<select id="cntLoc" parameterType="java.util.Map" resultType="int">
+		SELECT	COUNT(*) CNT
+		FROM    USER_SEAT_TB US
+		JOIN    OFFICE_TB O ON (US.OFFICE_SEQ = O.OFFICE_SEQ)
+		WHERE   (US.USER_ID = #{user_id})
+		AND     ((O.BUILDING_NAME LIKE '%'||#{where}||'%') OR (O.FLOOR_NUM LIKE '%'||#{where}||'%'))
+	</select>
 	
 	
 </mapper>

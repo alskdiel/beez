@@ -2,42 +2,46 @@ var sysdate = new Date().yyyymmdd_datepicker();
 $('input[name="daterange"]').val(sysdate + "-" + sysdate);
 
 var pageNo = {
-		all: 2,
-		loc: 1,
-		date: 1
+		"all": 2,
+		"loc": 1,
+		"date": 1
 };
 
+console.log(pageNo);
+
 var endPageNo = {
-		all: 4,
-		loc: 1,
-		date: 1
-}
+		"all": 4,
+		"loc": 1,
+		"date": 1
+};
 
 var filterType = "all";
-
+var stored_filterType = "all";
 
 function getMoreData() {
-	if(pageNo[filterType] <= endPageNo[filterType]) {
+	console.log(stored_filterType);
+	if(pageNo[stored_filterType] <= endPageNo[stored_filterType]) {
 		var params;
-		if(filterType == "all") {
+		if(stored_filterType == "all") {
+
 			params = null;
-		} else if(filterType == "date") {
+		} else if(stored_filterType == "date") {
 			params = $('input[name="daterange"]').val();	
 		} else {
-			params = null;
+			params = $("#entered-loc").val();
 		}
+		console.log(pageNo);
 
 		$.ajax({
 			url  : "myseatajax.do" , 
 			type : "get" , 
-			data : { pageNo : pageNo[filterType],
-					 filterType: filterType,
+			data : { pageNo : pageNo[stored_filterType],
+					 filterType: stored_filterType,
 					 params: params} ,
 			dataType : "json" , 
 			success : function(data) {
-				pageNo[filterType]++;
-				console.log(data);
-				endPageNo[filterType] = data.endPageNo;
+				pageNo[stored_filterType]++;
+				endPageNo[stored_filterType] = data.endPageNo;
 				renderData(data.list);
 			}
 		});
@@ -58,6 +62,7 @@ $("#seat-history-filter").on("click", function() {
 });
 
 var prev_filterType;
+
 function setFilterType(selected) {
 	prev_filterType = filterType;
 	filterType = selected;
@@ -71,6 +76,7 @@ function setFilterType(selected) {
 	} else if(selected == "date") {
 		type = "날짜";
 	} else {
+		stored_filterType = filterType;
 		type = "전체보기";
 	}
 	type += "<span class='caret'></span>";
@@ -78,6 +84,7 @@ function setFilterType(selected) {
 	
 	if(selected == "all" && stored_data) {
 		$("#table-seat-history tbody").html(stored_data);
+		resetPageNo();
 	}
 
 	$(".filter-container .dropdown #filter-type").html(type);
@@ -85,7 +92,6 @@ function setFilterType(selected) {
 
 function changeFilterContent(contents, changeTo) {
 	for(var i=0; i<contents.length; i++) {
-		console.log($(contents[i]));
 		$(contents[i]).css("display", "none");
 		
 		if($(contents[i]).hasClass(changeTo)) {
@@ -97,7 +103,6 @@ function changeFilterContent(contents, changeTo) {
 var flag = true;
 $(document).on("scroll", function() {
 	if($(window).scrollTop() + window.innerHeight == $(document).height()) {
-		console.log("xxxx");
 		flag = false;
 		getMoreData();
 	}
@@ -105,7 +110,6 @@ $(document).on("scroll", function() {
 
 
 function renderData(data) {
-	console.log(data);
 	var index;
 	var building_name;
 	var floor_num;
@@ -140,16 +144,18 @@ $(function() {
 });
 
 $("#icon-search").on("click", function() {
-	console.log(filterType);
-	if(prev_filterType == "all") {
+	stored_filterType = filterType;
+	
+	if(prev_filterType == "all" && !stored_data) {
 		stored_data = $("#table-seat-history tbody").html();
 	}
 	
 	$("#table-seat-history tbody").empty();
-
-	console.log(stored_data);
+	resetPageNo();
 	getMoreData();
 });
 
-
+function resetPageNo() {
+	pageNo["loc"] = pageNo["date"] = 1;
+}
 var stored_data;

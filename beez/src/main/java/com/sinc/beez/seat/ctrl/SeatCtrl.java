@@ -82,9 +82,7 @@ public class SeatCtrl {
 		String params = request.getParameter("params");
 		
 		pagingDTO.setTotalCount(service.getCount(current_user, filterType, params));
-		
-		System.out.println(pagingDTO.getTotalCount());
-		
+				
 		ArrayList<UserSeatVO> list = (ArrayList) service.seatHistoryList(current_user, pagingDTO, filterType, params);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
