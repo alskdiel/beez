@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sinc.beez.mapper.tablet">
+
+	<select id="tabletdto" parameterType="int" resultType="tabletdto">
+		SELECT  office_seq, seat_id, seat_real_location, seat_useable_state,
+				seat_nfc_tag_id, user_id, seated_date, user_leave_yn
+  		FROM 	LIST_SEATED_USER_TODAY_VW
+  		WHERE	OFFICE_SEQ = #{floor} 
+	</select>
+	
+</mapper>
