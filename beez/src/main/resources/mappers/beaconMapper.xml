@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.beez.mapper.beacon">
+	<select id="getBeaconInfoAll" resultType="beaconoffice">
+		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
+		FROM    BEACON_OFFICE_VW
+	</select>
+	<select id="getBeaconInfoByAddr" resultType="beaconoffice">
+		
+		SELECT  	BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
+		FROM    	BEACON_OFFICE_VW
+		WHERE	BEACON_ADDR = #{address}
+	
+	</select>
+	<select id="isBeaconInfoByVO" resultType="beaconoffice" parameterType="beacon">
+		SELECT  	BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
+		FROM    	BEACON_OFFICE_VW
+		WHERE	BEACON_ADDR = #{beacon_addr}
+		AND		BEACON_ID	= #{beacon_id}
+	</select>
+	<!-- 
+	<select id="login" parameterType="user" resultType="user">
+		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
+		FROM	SPRING_USER_TBL
+		WHERE	ID = #{id}
+		AND		PWD = #{pwd}
+	</select>
+	<update id="keepLogin" parameterType="java.util.HashMap">
+		UPDATE 	SPRING_USER_TBL
+		SET		SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next}
+		WHERE  	ID = #{id}
+	</update>
+	
+	<select id="sessionKey" parameterType="java.lang.String" resultType="user">
+		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
+		FROM	SPRING_USER_TBL
+		WHERE	SESSIONKEY = #{value} AND SESSIONLIMIT > SYSDATE
+	</select>
+	
+	<update id="deleteSession" parameterType="java.util.HashMap">
+		UPDATE 	SPRING_USER_TBL
+		SET		SESSIONKEY = 'NONE', SESSIONLIMIT = SYSDATE
+		WHERE  	SESSIONKEY = #{sessionId}
+	</update>
+	
+	<insert id="signup" parameterType="user">
+		INSERT 	INTO SPRING_USER_TBL (ID, PWD, NAME, IMGSRC)
+		VALUES	(#{id}, #{pwd}, #{name}, #{imgSrc})
+	</insert>
+	-->
+</mapper>

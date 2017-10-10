@@ -119,7 +119,12 @@
 </aside>
 
 <script type="text/javascript">
+	
 	function sendAndroidMsg(){
 		window.beez.startActivityFunction('SSGKEYSETTING');
+	}
+	function getPosition(alias, addr){
+		alert(alias);
+	
 	}
 </script>
