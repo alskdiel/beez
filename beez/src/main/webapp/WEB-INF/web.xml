@@ -3,6 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+
+	<!-- 시작 페이지 -->
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/views/designtest/index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<!-- error 페이지 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/error/error404.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/views/error/error500.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/WEB-INF/views/error/errorNullPointer.jsp</location>
+	</error-page>
+
+
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
 	<context-param>
@@ -44,7 +68,5 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/* </url-pattern>
 	</filter-mapping>
-
-
 
 </web-app>

@@ -7,6 +7,5 @@ import com.sinc.beez.userseat.model.vo.UserSeatVO;
 
 public interface TabletDao {
 
-	public List<Object> seatInfo(SeatVO seat);
-	public List<Object> userseatInfo(UserSeatVO userseat);	
+	public List<Object> seatInfo(int floor);
 }

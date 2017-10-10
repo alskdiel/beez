@@ -17,16 +17,9 @@ public class TabletServiceImpl implements TabletService {
 	private TabletDao dao;
 
 	@Override
-	public List<Object> seatInfoService(SeatVO seat) {
+	public List<Object> seatInfoService(int floor) {
 	
 		System.out.println("TabletServiceImpl seatInfoService");
-		return dao.seatInfo(seat);
-	}
-
-	@Override
-	public List<Object> userseatInfoService(UserSeatVO userseat) {
-		
-		System.out.println("TabletServiceImpl userseatInfoService");
-		return dao.userseatInfo(userseat);
+		return dao.seatInfo(floor);
 	}
 }

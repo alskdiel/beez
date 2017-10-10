@@ -7,6 +7,5 @@ import com.sinc.beez.userseat.model.vo.UserSeatVO;
 
 public interface TabletService {
 
-	public List<Object> seatInfoService(SeatVO seat);
-	public List<Object> userseatInfoService(UserSeatVO userseat);
+	public List<Object> seatInfoService(int floor);
 }

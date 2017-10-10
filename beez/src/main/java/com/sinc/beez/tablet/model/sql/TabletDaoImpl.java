@@ -19,23 +19,9 @@ public class TabletDaoImpl implements TabletDao {
 	private static final String TABLETPREFIX = "com.sinc.beez.mapper.tablet.";
 
 	@Override
-	public List<Object> seatInfo(SeatVO seat) {
+	public List<Object> seatInfo(int floor) {
 
 		System.out.println("TabletDaoImpl seatInfo");
-
-		if (seat.getSeat_id() != null) {
-			return session.selectList(TABLETPREFIX + "seat", seat);
-		}
-		return null;
-	}
-
-	@Override
-	public List<Object> userseatInfo(UserSeatVO userseat) {
-
-		System.out.println("TabletDaoImpl userseatInfo");
-		if (userseat.getSeat_id() != null) {
-			return session.selectList(TABLETPREFIX + "userseat", userseat);
-		}
-		return null;
+		return session.selectList(TABLETPREFIX + "tabletdto", floor);
 	}
 }

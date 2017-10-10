@@ -273,31 +273,8 @@ th, td {
 
 		 */
 
-		function tabletsinc() {
-			$.ajax({
-				url : "tablet.do",
-				type : "post",
-				data : "$('#subtable')",
-				dataType : "json",
-				success : function(data) {
 
-					$.each(function(idx, data) {
-
-						if (seat_useable_state == 'N') {
-							$(data).attr("class", "occupied");
-						}
-
-						if (user_leave == 'N') {
-							$(data).attr("class", "unavailable");
-						}
-					});
-				}
-			});
-		}
-
-		$(document).ready(function() {
-			setInterval(tabletsinc(), 3000);
-		});
+		
 	</script>
 
 </body>
