@@ -1,7 +1,5 @@
 package com.sinc.beez.seat.dao;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +7,6 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
-import com.sinc.beez.office.model.vo.OfficeVO;
-import com.sinc.beez.seat.model.vo.SeatVO;
 
 
 @Repository("seatDao")
@@ -44,10 +39,6 @@ public class SeatDaoImpl implements SeatDao {
 		return session.selectOne(SEATPREFIX + "seat", obj);
 	}
 
-
-
-
-	
 	@Override
 	public List<Object> seatHistoryListRow(Object obj) {
 		System.out.println("SeatDao seatHistoryListRow");
@@ -65,9 +56,38 @@ public class SeatDaoImpl implements SeatDao {
 
 	@Override
 	public Map<Object, Object> officeInfo(Object obj) {		// obj: UserSeatVO
-		System.out.println("SeatDao officeInfo");
 
 		return session.selectOne(SEATPREFIX + "office", obj);
+	}
+
+
+	@Override
+	public int getCountRowDate(Object obj) {
+		System.out.println("getCountRowDate");
+		
+		return session.selectOne(SEATPREFIX + "cntDate", obj);
+	}
+
+
+	@Override
+	public int getCountRowLoc(Object obj) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public List<Object> seatHistoryListDateRow(Object obj) {
+		// TODO Auto-generated method stub
+		
+		return session.selectList(SEATPREFIX + "historyDate", obj);
+	}
+
+
+	@Override
+	public List<Object> seatHistoryListLocRow(Object obj) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

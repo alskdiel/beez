@@ -25,6 +25,21 @@
 	</select>
 	
 	
+	<select id="historyDate" parameterType="java.util.HashMap" resultType="userseat">
+		SELECT * FROM (
+			SELECT ROWNUM rnum, H.* FROM (
+				SELECT  SEAT_ID, OFFICE_SEQ, SEATED_DATE
+				FROM    USER_SEAT_TB
+				WHERE   (USER_ID = #{user_id})
+				AND		(SEATED_DATE BETWEEN #{from} AND #{to})
+				ORDER BY SEATED_DATE DESC
+			) H
+			WHERE ROWNUM <![CDATA[<]]>= #{endRowNum}
+		)
+		WHERE rnum <![CDATA[>]]>= #{startRowNum}
+		
+	</select>
+	
 	<select id="cnt" parameterType="user" resultType="int">
 		SELECT	COUNT(*) CNT
 		FROM    USER_SEAT_TB
@@ -38,6 +53,12 @@
 		WHERE   O.OFFICE_SEQ = #{office_seq} AND S.SEAT_ID = #{seat_id}
 	</select>
 	
+	<select id="cntDate" parameterType="java.util.Map" resultType="int">
+		SELECT	COUNT(*) CNT
+		FROM    USER_SEAT_TB
+		WHERE   (USER_ID = #{user_id})
+		AND		(SEATED_DATE BETWEEN #{from} AND #{to})
+	</select>
 	
 	
 	

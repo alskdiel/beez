@@ -11,7 +11,14 @@ public interface SeatDao {
 	public Object seatRow(Object obj);
 	
 	public List<Object> seatHistoryListRow(Object obj);	// obj: UserVO
+	public List<Object> seatHistoryListDateRow(Object obj);	// obj: UserVO
+	public List<Object> seatHistoryListLocRow(Object obj);	// obj: UserVO
+
+	
+	
 	public Map<Object, Object> officeInfo(Object obj);			// obj: UserSeatVO
 	public int getCountRow(Object obj);					// obj: UserVO
+	public int getCountRowDate(Object obj);	// obj: UserVO, from/to: Date
+	public int getCountRowLoc(Object obj);	// obj: UserVO, toFind: String
 
 }

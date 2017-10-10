@@ -1,0 +1,44 @@
+.content-body, .content-header {
+	padding: 15px 0px 0px 0px;
+}
+
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-header .icon-filter {
+	display: inline-block;
+	float: right;
+	width: 30px;
+	height: 30px;
+}
+
+
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body {
+	height: 0px;
+	background: #fff;
+	
+	-webkit-transition: height 0.4s;
+	-moz-transition: height 0.4s;
+	transition: height 0.4s;
+}
+
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body.validated {
+	height: 100px;
+}
+
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.loc,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.date {
+	display: none;
+}
+
+
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container div {
+	display: inline-block;
+}
+
+#table-seat-history {
+	border-top: 1px solid #ddd;
+}
+
+.content-wrapper.seat-history .content-body .scrollspy-example {
+	overflow: auto;
+	height: 500px;
+}

@@ -1,9 +1,11 @@
 package com.sinc.beez.seat.ctrl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,23 +53,18 @@ public class SeatCtrl {
 		pagingDTO.setPageNo(1);
 		
 		pagingDTO.setBlockSize(10);
-		pagingDTO.setTotalCount(service.getCount(current_user));
+		pagingDTO.setTotalCount(service.getCount(current_user, "all", null));
 		
-		
-		List<Object> list = service.seatHistoryList(current_user, pagingDTO);
-		model.addAttribute("endPageNo", pagingDTO.getEndPageNo());
+		List<Object> list = service.seatHistoryList(current_user, pagingDTO, "all", null);
 		model.addAttribute("userSeatVO", list);
 		
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i));
-		}
 		
 		return "seat/myseat";
 	}
 	
 	@RequestMapping("/myseatajax.do")
 	@ResponseBody
-	public ArrayList<UserSeatVO> myHistoryAjax(PagingDTO pagingDTO, String pageNo) {
+	public HashMap<String, Object> myHistoryAjax(PagingDTO pagingDTO, String pageNo, HttpServletRequest request) {
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
@@ -81,14 +78,20 @@ public class SeatCtrl {
 		}
 				
 		pagingDTO.setBlockSize(10);
-		pagingDTO.setTotalCount(service.getCount(current_user));
+		String filterType = request.getParameter("filterType");
+		String params = request.getParameter("params");
+		
+		pagingDTO.setTotalCount(service.getCount(current_user, filterType, params));
+		
+		System.out.println(pagingDTO.getTotalCount());
+		
+		ArrayList<UserSeatVO> list = (ArrayList) service.seatHistoryList(current_user, pagingDTO, filterType, params);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("endPageNo", pagingDTO.getEndPageNo());
+		map.put("list", list);
 		
 		
-		ArrayList<UserSeatVO> list = (ArrayList) service.seatHistoryList(current_user, pagingDTO);
-		
-		for(int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		return list;
+		return map;
 	}
 }
