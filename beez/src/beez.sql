@@ -38,7 +38,7 @@ CREATE TABLE DEPT_TB
 CREATE TABLE BEACON_TB
 (
     BEACON_ID       VARCHAR2(40) NOT NULL,
-	OFFICE_SEQNUMBER NOT NULL,
+	OFFICE_SEQ		NUMBER 	NOT NULL,
     BEACON_ADDR     VARCHAR2(40) NOT NULL,
     BEACON_POSITION VARCHAR2(200),
     BEACON_ALIAS    VARCHAR2(50),
@@ -156,9 +156,34 @@ insert into dept_tb values ('EMART', '이마트팀', null, '성수');
 insert into dept_tb values ('POS', 'POS팀', null, '명동');
 
 
-
+select * from USER_SEAT_TB;
 -------------------------------------------------------------------------------------------------------------
+-- 김기찬 
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
 
+VALUES(2,'10','A','Y','10F-A-10');
+
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+
+VALUES(2,'12','A','Y','10F-A-12');
+
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+
+VALUES(4,'60','B','Y','14F-B-60');
+
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+
+VALUES(4,'61','B','Y','14F-B-61');
+
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+
+VALUES(4,'1','A','Y','14F-A-1');
+
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+
+VALUES(4,'2','A','Y','14F-A-2');
+
+-----------------------------------------------------------
 INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
 VALUES(1,'1','A','N','9F-A-1');
 
@@ -283,7 +308,8 @@ INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_S
 VALUES(1,'36','B','N','9F-B-36');
 
 -------------------------------------------------------------------------------------------------------------
-
+INSERT  INTO    SEAT_TB (OFFICE_SEQ, SEAT_ID, SEAT_REAL_LOCATION, SEAT_USEABLE_STATE, SEAT_NFC_TAG_ID)
+VALUES(4,'1','A','N','14F-A-1');
 
 
 INSERT  INTO    BEACON_TB VALUES('B1', 3, '78:A5:04:4F:53:61', 'TEST', 'TEST');
@@ -308,6 +334,22 @@ insert into user_tb values ('p908v3', 'dlrbtkd', '이규상', 'N', '010-1234-123
 insert into user_tb values ('p908vd', 'whguswo', '조현재', 'Y', '010-1234-1234', 'STARBUCKS', '인턴', SYSDATE-1, default);
 insert into user_tb values ('p908v4', 'ghdrlfehd', '홍길동', 'N', '010-1234-1234', 'POS', '인턴', SYSDATE, default);
 insert into user_tb values ('p908v5', 'rlacjftn', '김철수', 'N', '010-1234-1234', 'HR', '인턴', SYSDATE, default);
+
+
+
+
+
+
+INSERT  INTO    USER_SEAT_TB    VALUES ('p908v1', '1',4, SYSDATE, 'N');
+
+INSERT  INTO    USER_SEAT_TB    VALUES ('p908v2', '2',4, SYSDATE, 'N');
+
+INSERT  INTO    USER_SEAT_TB    VALUES ('p908v1', '1',4, SYSDATE-1, 'N');
+
+INSERT  INTO    USER_SEAT_TB    VALUES ('p908v2', '2',4, SYSDATE-2, 'N');
+
+
+
 
 INSERT  INTO    USER_SEAT_TB    VALUES ('p908v1', '1',1, SYSDATE, 'N');
 INSERT  INTO    USER_SEAT_TB    VALUES ('p908v1', '2',1, SYSDATE, 'Y');

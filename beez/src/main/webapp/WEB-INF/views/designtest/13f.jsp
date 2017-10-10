@@ -244,8 +244,8 @@
 	<script src="../../../resources/js/lib/jQuery/jQuery-2.1.4.min.js"></script>
 
 
+	
 	<script type="text/javascript">
-
 		function tabletsinc() {
 
 			var floor = 3;
@@ -260,34 +260,24 @@
 				success : function(tabletdto) {
 
 					$(tabletdto).each(function(idx, data)  {
-						
 						if (data.seat_useable_state == 'N') {
-		
-							$('#'+data.seat_id).attr("class", "occupied");
-						}
-
-						if (data.seat_useable_state == 'N' && data.user_leave_yn == 'N') {
 							$('#'+data.seat_id).attr("class", "unavailable");
-						} 
-						
-						if (data.seat_useable_state == 'Y') {
-							
-							$('#'+data.seat_id).attr("class", "available");
 						}
-						
-						if (data.user_leave_yn == 'Y') {
-							
-							$('#'+data.seat_id).attr("class", "occupied");
+						else{
+							if (data.user_leave_yn != null || data.user_leave_yn == 'N') {
+								$('#'+data.seat_id).attr("class", "occupied");
+							}
+							else{
+								$('#'+data.seat_id).attr("class", "available");
+							}
 						}
 					});
 				}
 			});
 		}
-
 		$(document).ready(function() {
-			setInterval(tabletsinc(), 3000);
+			setInterval("tabletsinc()", 3000);
 		});
-		
 	</script>
 
 </body>
