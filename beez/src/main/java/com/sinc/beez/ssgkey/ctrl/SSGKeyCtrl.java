@@ -22,8 +22,8 @@ public class SSGKeyCtrl {
 	@RequestMapping("/setRSSIByMobile.do")
 	@ResponseBody
 	public String setRSSIByMobile(SSGKeyVO vo) {
-		System.out.println(">>>>CTRL >>>> setRSSIByMobile");
-		System.out.println(vo.toString());
+	//	System.out.println(">>>>CTRL >>>> setRSSIByMobile");
+	//	System.out.println(vo.toString());
 		service.setRssi(vo.getPcName(), vo.getBtRssi());
 		JSONObject rst = new JSONObject();
 		rst.put("result", true);
@@ -32,8 +32,8 @@ public class SSGKeyCtrl {
 	@RequestMapping("/registerDeviceforMobile.do")
 	@ResponseBody
 	public String registerDeviceforMobile(SSGKeyVO vo) {
-		System.out.println(">>>>CTRL >>>> registerDeviceforMobile");
-		System.out.println(vo.toString());
+	//	System.out.println(">>>>CTRL >>>> registerDeviceforMobile");
+	//	System.out.println(vo.toString());
 		
 		JSONObject rst = new JSONObject();
 		rst.put("result", true);
