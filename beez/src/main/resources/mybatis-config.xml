@@ -9,8 +9,7 @@
 
 		<typeAlias type="com.sinc.beez.beacon.model.vo.BeaconOfficeDTO"
 			alias="beaconoffice" />
-
-
+	
 		<typeAlias type="com.sinc.beez.user.model.vo.UserVO" alias="user" />
 		<typeAlias type="com.sinc.beez.att.model.vo.AttVO" alias="att" />
 
