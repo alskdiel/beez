@@ -18,6 +18,14 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService service;
 	
+
+	@RequestMapping("/login.do")
+	public String loginForm() {
+		
+		System.out.println("UserCtrl login");
+		return "user/login";
+	}
+	
 	
 	@RequestMapping("/status.do")
 	public String status() {
