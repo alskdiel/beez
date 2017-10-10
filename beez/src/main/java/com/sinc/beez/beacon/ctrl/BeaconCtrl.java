@@ -23,7 +23,7 @@ public class BeaconCtrl {
 	@RequestMapping("/getBeaconInfoByAddr.do")
 	@ResponseBody
 	public String getBeaconInfoByAddr(String beacon_addr, int rssi) {
-		System.out.println(">>>>>>>>>>>>>>getBeaconInfoByAddr>>controller");
+	//	System.out.println(">>>>>>>>>>>>>>getBeaconInfoByAddr>>controller");
 		BeaconOfficeDTO dto = service.getBeaconInfoByAddr(beacon_addr);
 		// System.out.println(dto.toString());
 		JSONObject json = new JSONObject(dto);
@@ -35,14 +35,14 @@ public class BeaconCtrl {
 		}catch(Exception e){
 			
 		}
-		System.out.println(json);
+	//	System.out.println(json);
 		return json.toString();
 	}
 
 	@RequestMapping("/getBeaconInfoAll.do")
 	@ResponseBody
 	public String getBeaconInfoAll() {
-		System.out.println(">>>>>>>>>>>>>>getBeaconInfoByAddr>>controller");
+//		System.out.println(">>>>>>>>>>>>>>getBeaconInfoByAddr>>controller");
 		JSONArray json = new JSONArray();
 
 		List<BeaconOfficeDTO> list = service.getBeaconInfoAll();

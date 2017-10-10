@@ -23,7 +23,7 @@ public class BeaconDAOImpl implements BeaconDAO {
 
 	@Override
 	public BeaconOfficeDTO getBeaconInfoByAddr(String address) {
-		System.out.println(address);
+	//	System.out.println(address);
 		BeaconOfficeDTO dto = new BeaconOfficeDTO();
 		dto = session.selectOne(PREFIX + "getBeaconInfoByAddr", address);
 		

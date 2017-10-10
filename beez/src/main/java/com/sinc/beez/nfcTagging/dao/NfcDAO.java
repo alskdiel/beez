@@ -1,0 +1,7 @@
+package com.sinc.beez.nfcTagging.dao;
+
+import com.sinc.beez.nfcTagging.model.NfcDTO;
+
+public interface NfcDAO {
+	public int touchTag(NfcDTO dto);
+}
