@@ -23,8 +23,9 @@ public class NfcCtrl {
 	//	System.out.println(dto);
 		int result;
 		result = service.touchTag(dto);
-		
-		JSONObject json = new JSONObject(result);
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
 		return json.toString();
 	}
 	

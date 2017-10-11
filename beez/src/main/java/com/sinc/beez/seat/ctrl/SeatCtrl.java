@@ -46,7 +46,7 @@ public class SeatCtrl {
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		current_user.setUser_id("p908v1");
 		/**********************************/
 		
 		pagingDTO.setPageSize(10);
