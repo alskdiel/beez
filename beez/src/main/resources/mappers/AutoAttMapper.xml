@@ -13,6 +13,7 @@
 	<update id="workupdate" parameterType="attdto">
 		UPDATE	USER_ATT_TB	SET		ATT_NEWEST_CHK_TIME = SYSDATE
 		WHERE	USER_ID = #{userid}
+		AND 		TO_DATE(ATT_DATE,'YYYY/MM/DD') = TO_DATE(SYSDATE, 'YYYY/MM/DD')
 	</update>
 	<!-- 
 	<select id="login" parameterType="user" resultType="user">
