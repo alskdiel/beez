@@ -29,7 +29,7 @@
 		<typeAlias type="com.sinc.beez.seat.model.vo.SeatVO" alias="seat"/>
 		
 		<typeAlias type="com.sinc.beez.userseat.model.vo.UserSeatVO" alias="userseat"/>
-	    
+	    	<typeAlias type="com.sinc.beez.tablet.model.dto.TabletDTO" 		alias="tabletdto"	/>
 		
 	</typeAliases>
 
