@@ -18,15 +18,68 @@
 		  <div class="content-wrapper">
 			  <!-- Content Header (Page header) -->
 			  <section class="content-header">
-			
-				  <input type="text" name="searchSeat" id="searchSeat">
-				  <button id='searchBtn'>직원 검색</button>
-				<%--
+					<%--
 				  <c:forEach items="${seatlist}" var="SeatVO">
 				  	${SeatVO}
 				  </c:forEach>
 				   --%>
-				   <img src="/resources/images/m_bg.png" style="width: 100% !important">
+				<div class="all">
+	              <div class="box1">
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	              </div>
+	              <div class="box2">
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	              </div>
+	              <div class="box3">
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	                <ul>
+	                    <li></li>
+	                    <li></li>
+	                </ul>
+	              </div>
+	            </div>  
+
 				   	
 			  </section>
 		  </div>
@@ -50,7 +103,12 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
     
-    <link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
+    <link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
+    <link href="/resources/css/m_10f.css" rel="stylesheet" type="text/css" />
+    <link href="/resources/css/m_13f.css" rel="stylesheet" type="text/css" />
+    <link href="/resources/css/m_14f.css" rel="stylesheet" type="text/css" />
+    
+    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
 </body>
 </html>

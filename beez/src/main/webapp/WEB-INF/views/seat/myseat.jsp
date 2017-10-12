@@ -126,5 +126,7 @@
     <script src="/resources/js/seat.js"></script>  
 	<link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
         
+    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
+    
 </body>
 </html>

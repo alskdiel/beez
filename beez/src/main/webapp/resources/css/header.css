@@ -1,5 +1,12 @@
+
+body{ 
+    overflow-y:hidden;          
+	height: calc(100% - 50px);
+}
+
+*{margin:0; padding:0;}
 .main-header nav.navbar {	
-	background-color: #fdc23e
+	background-color: #bcbcbc;
 }
 
 .main-header .navbar a.logo {
@@ -7,16 +14,16 @@
 }
 
 a {
-	color: #333;
+	color: #FFF;
 }
 a:hover {
-	color: inherit;
+	color: #ef6262;
 }
 a:focus {
-	color: inherit;
+	color: #ef6262;
 }
 a:active {
-	color: inherit;
+	color: #ef6262;
 }
 
 .navbar-userinfo {
@@ -29,7 +36,7 @@ a:active {
 	transition: width .3s ease-in-out;
 	text-decoration: none;
 }
-
+.icon_bell{background-color: #fff;font-size: 24px;}
 .main-header .sidebar-toggle:hover {
 	color: inherit;
 }
@@ -53,22 +60,42 @@ a:active {
 	color: inherit;
 }
 
+.main-sidebar{background-color: #444;}
 
 .sidebar-open .main-sidebar {
-	background: #254555;
+	background: #222;
 	z-index: 9999;
-	box-shadow: 5px -1px 10px #666;
-	color: #bbb;
-	padding-top: 0px !important
+	color: #fff;
+	padding-top: 0px !important;
+	width: 100%;	
+}
+
+.main-sidebar .beez-sidebar-content {
+	padding: 10px;
+	margin-bottom: 80px!important;
 	
+}
+
+.main-sidebar .beez-sidebar-content .user-name {
+	color:#ef6262;
+	font-size: 15px;
+}
+
+.main-sidebar .beez-sidebar-content .user-id {
+	color:#ef6262;
+	font-size: 13px;
+}
+
+.main-sidebar .user-panel .beez-logo-left {
+	float: left;
+}
+
+.main-sidebar .user-panel .beez-logo-right {
+	float: right;
 }
 
 .sidebar-open .main-sidebar div, .sidebar-open .main-sidebar span, .sidebar-open .main-sidebar a {
-	color: inherit;
+	color: inherit;}
+.sidebar-open .main-sidebar .sidebar .user-panel.beez-logo { color:#ef6262; font-size: 30px;
+	margin-bottom: 10px!important;
 }
-
-.sidebar-open .main-sidebar .sidebar .user-panel.beez-logo {
-	margin-bottom: 100px!important;
-	
-}
-

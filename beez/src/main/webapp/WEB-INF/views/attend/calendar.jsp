@@ -18,14 +18,12 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-			
-			캘린더	
-				
+			  <div class="cd_box">캘린더</div>			
 			</section>
-
-		</div>
+          <a href="#"><p class="v_text">상세보기</p></a>
 		<div class='control-sidebar-bg'></div>
 	</div>
+	
 	
 	
 	
@@ -41,7 +39,9 @@
     <script src="/resources/dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
-    
+   	<link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
+   
+    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
 </body>
 </html>

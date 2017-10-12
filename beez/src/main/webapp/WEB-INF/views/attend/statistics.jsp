@@ -17,13 +17,21 @@
 
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<section class="content-header">
-			
-			통계
-				
-			</section>
+			<div class="content-wrapper">
 
-		</div>
+			<section class="content-header">
+			  <div class="m_txt">Month</div>
+			  <div class="m_box">박스1</div>
+			  <div class="m_box">박스2</div>
+			</section>
+			
+			<section class="content-header invalid">
+			  <div class="m_txt">Year</div>
+			  <div class="m_box">박스1</div>
+			  <div class="m_box">박스2</div>
+			</section>
+			
+			
 		<div class='control-sidebar-bg'></div>
 	</div>
 	
@@ -41,7 +49,9 @@
     <script src="/resources/dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
+    <link href="/resources/css/att.css" rel="stylesheet" type="text/css" />
     
+    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
 </body>
 </html>
