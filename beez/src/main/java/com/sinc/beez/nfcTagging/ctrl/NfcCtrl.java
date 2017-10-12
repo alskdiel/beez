@@ -23,8 +23,21 @@ public class NfcCtrl {
 	//	System.out.println(dto);
 		int result;
 		result = service.touchTag(dto);
-		
-		JSONObject json = new JSONObject(result);
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
+	@RequestMapping("/touchTagUpdate.do")
+	@ResponseBody
+	public String touchTagUpdate(NfcDTO dto){
+	//	System.out.println("NFC CTRL");
+	//	System.out.println(dto);
+		int result;
+		result = service.touchTagUpdate(dto);
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
 		return json.toString();
 	}
 	

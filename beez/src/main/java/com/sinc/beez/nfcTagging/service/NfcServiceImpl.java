@@ -9,8 +9,8 @@ import com.sinc.beez.nfcTagging.model.NfcDTO;
 
 @Service("NfcService")
 public class NfcServiceImpl implements NfcService {
-	
-	@Resource(name="NfcDAO")
+
+	@Resource(name = "NfcDAO")
 	NfcDAO dao;
 
 	@Override
@@ -18,4 +18,13 @@ public class NfcServiceImpl implements NfcService {
 		return dao.touchTag(dto);
 	}
 
+	@Override
+	public int touchTagUpdate(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		int r =dao.touchTagUpdate(dto);
+		if (r > 0){
+			r = dao.touchNewTag(dto);
+		}
+		return r;
+	}
 }

@@ -11,6 +11,9 @@
 			alias="beaconoffice" />
 		<typeAlias type="com.sinc.beez.nfcTagging.model.NfcDTO"
 			alias="nfcdto" />
+		<typeAlias type="com.sinc.beez.autoAttend.model.AutoAttDTO"
+			alias="attdto" />
+
 
 		<typeAlias type="com.sinc.beez.user.model.vo.UserVO" alias="user" />
 		<typeAlias type="com.sinc.beez.att.model.vo.AttVO" alias="att" />
