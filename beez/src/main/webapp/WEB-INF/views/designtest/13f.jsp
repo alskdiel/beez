@@ -246,6 +246,7 @@
 
 	
 	<script type="text/javascript">
+	
 		function tabletsinc() {
 
 			var floor = 3;
@@ -264,11 +265,15 @@
 							$('#'+data.seat_id).attr("class", "unavailable");
 						}
 						else{
-							if (data.user_leave_yn != null || data.user_leave_yn == 'N') {
-								$('#'+data.seat_id).attr("class", "occupied");
-							}
-							else{
+							if(data.user_leave_yn == 'Y') {
 								$('#'+data.seat_id).attr("class", "available");
+							} else {
+								if (data.user_leave_yn != null || data.user_leave_yn == 'N') {
+									$('#'+data.seat_id).attr("class", "occupied");
+								}
+								else{
+									$('#'+data.seat_id).attr("class", "available");
+								}
 							}
 						}
 					});
