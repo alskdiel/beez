@@ -4,5 +4,6 @@ import com.sinc.beez.nfcTagging.model.NfcDTO;
 
 public interface NfcService {
 	public int touchTag(NfcDTO dto);
+	public int touchTagUpdate(NfcDTO dto);
 
 }

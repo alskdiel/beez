@@ -10,7 +10,19 @@
 			(SELECT OFFICE_SEQ FROM OFFICE_TB WHERE FLOOR_NUM = #{officefloor})
 		, SYSDATE, 'N')
 	</insert>
-
+	<update id="seatTouchUpdate" parameterType="nfcdto">
+		UPDATE	USER_SEAT_TB
+		SET		USER_LEAVE_YN = 'Y'
+		WHERE	USER_ID = #{userid} 
+		AND		TO_DATE(SEATED_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+		AND		USER_LEAVE_YN = 'N'
+	</update>
+	<insert id="seatNewTouch" parameterType="nfcdto">
+		INSERT  INTO    USER_SEAT_TB
+		    VALUES (#{userid}, #{seatid},
+			(SELECT OFFICE_SEQ FROM OFFICE_TB WHERE FLOOR_NUM = #{officefloor})
+		, SYSDATE, 'N')
+	</insert>
 	<!-- <select id="getBeaconInfoAll" resultType="beaconoffice">
 		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
 		FROM    BEACON_OFFICE_VW
