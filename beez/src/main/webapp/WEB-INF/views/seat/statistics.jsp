@@ -42,6 +42,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
     
+    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
 </body>
 </html>
