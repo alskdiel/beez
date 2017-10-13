@@ -19,7 +19,7 @@ public class AutoAttCtrl {
 	@RequestMapping("/workIn.do")
 	@ResponseBody
 	public String workIn(AutoAttDTO dto){
-		System.out.println(dto.toString());
+//		System.out.println(dto.toString());
 		int result = 0;
 		result = service.workIn(dto);
 		JSONObject json = new JSONObject();
@@ -43,7 +43,7 @@ public class AutoAttCtrl {
 	@RequestMapping("/workUpdate.do")
 	@ResponseBody
 	public String workUpdate(AutoAttDTO dto){
-		System.out.println(dto.toString());
+	//	System.out.println(dto.toString());
 		int result = 0;
 		result = service.workUpdate(dto);
 		JSONObject json = new JSONObject();

@@ -23,7 +23,7 @@ public class SSGKeyCtrl {
 	@ResponseBody
 	public String setRSSIByMobile(SSGKeyVO vo) {
 	//	System.out.println(">>>>CTRL >>>> setRSSIByMobile");
-	//	System.out.println(vo.toString());
+		System.out.println(vo.toString());
 		service.setRssi(vo.getPcName(), vo.getBtRssi());
 		JSONObject rst = new JSONObject();
 		rst.put("result", true);
