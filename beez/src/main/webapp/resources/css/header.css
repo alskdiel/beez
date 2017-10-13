@@ -16,6 +16,7 @@ body{
 a {
 	color: #FFF;
 }
+/*
 a:hover {
 	color: #ef6262;
 }
@@ -25,7 +26,7 @@ a:focus {
 a:active {
 	color: #ef6262;
 }
-
+*/
 .navbar-userinfo {
 	font-size: 20px;
 	line-height: 50px;
@@ -65,14 +66,14 @@ a:active {
 .sidebar-open .main-sidebar {
 	background: #222;
 	z-index: 9999;
-	color: #fff;
+	/*color: #fff;*/
 	padding-top: 0px !important;
 	width: 100%;	
 }
 
 .main-sidebar .beez-sidebar-content {
 	padding: 10px;
-	margin-bottom: 80px!important;
+	margin-bottom: 30px!important;
 	
 }
 
@@ -94,8 +95,39 @@ a:active {
 	float: right;
 }
 
-.sidebar-open .main-sidebar div, .sidebar-open .main-sidebar span, .sidebar-open .main-sidebar a {
+.sidebar-menu-menus {
+	min-width: 100%;
+}
+.sidebar-menu-wrapper, .sidebar-menu-container, .sidebar-menu-row {
+	min-width: inherit;
+}
+.sidebar-menu-container {
+	background: #efefef;
+}
+.sidebar-menu-row {
+	height: 120px;
+	border-bottom: 1px solid #fff;
+	padding: 10px 40px;
+
+}
+
+.sidebar-menu-row .sidebar-row-header {
+	font-size: 15px;
+	line-height: 15px;
+	color: #6b2255;
+}
+.sidebar-icon {
+	display: inline-block;
+	padding: 20px;
+}
+.sidebar-icon img {
+	max-height: 50px !important;
+	line-height: 50px;
+}
+
+
+.sidebar-open .main-sidebar span, .sidebar-open .main-sidebar a {
 	color: inherit;}
 .sidebar-open .main-sidebar .sidebar .user-panel.beez-logo { color:#ef6262; font-size: 30px;
-	margin-bottom: 10px!important;
+	margin-bottom: 45px!important;
 }

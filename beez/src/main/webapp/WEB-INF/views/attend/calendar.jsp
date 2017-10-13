@@ -18,7 +18,14 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
-			  <div class="cd_box">캘린더</div>			
+			  <div class="cd_box">
+			  	<div class="calendar-wrapper">
+			  		<div class="calendar-container">
+			  			<div id="canvas-calendar">
+			  			</div>
+			  		</div>
+			  	</div>
+			  </div>
 			</section>
           <a href="#"><p class="v_text">상세보기</p></a>
 		<div class='control-sidebar-bg'></div>
@@ -40,6 +47,8 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
    	<link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
+
+    <script src="/resources/js/calendar.js" type="text/javascript"></script>
    
     <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
