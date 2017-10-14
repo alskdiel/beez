@@ -94,7 +94,7 @@
 					<div class="sidebar-row-header">
 						설정
 					</div>
-					<a class="sidebar-icon" href="#">
+					<a class="sidebar-icon" href="/settings/AlramSettings.do">
 						<img src="/resources/images/sidebar/alarm.png"/>
 					</a>
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('SSGKEYSETTING')">
