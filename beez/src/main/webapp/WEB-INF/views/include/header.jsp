@@ -21,16 +21,17 @@
 	 </a>
 	 
 	 
-	
+	<!-- 
 	 <div class="navbar-custom-menu">
 	  <ul class="nav navbar-nav">
 	   <li class="dropdown">
-	    <a href="#" class=""> <!-- mini logo for sidebar mini 50x50 pixels -->
+	    <a href="#" class="">
 			    <i class="fa fa-bell-o" aria-hidden="true"></i>
 		    </a>
 	    </li>
 	   </ul>
 	  </div>
+	   -->
 	 </nav>
 	</header>
 	
@@ -59,9 +60,56 @@
 		</div>
 	</div>
 
-
+	<div class="beez-sidebar-menus">
+		<div class="sidebar-menu-wrapper">
+			<div class="sidebar-menu-container">
+				<div class="sidebar-menu-row">
+					<div class="sidebar-row-header">
+						근태
+					</div>
+					<a class="sidebar-icon" href="/att/myattend.do">
+						<img src="/resources/images/sidebar/calender2.png"/>
+					</a>
+					<a class="sidebar-icon" href="/att/myattstat.do">
+						<img src="/resources/images/sidebar/c_statistics.png"/>
+					</a>
+					<a class="sidebar-icon">
+					</a>
+				</div>
+				<div class="sidebar-menu-row">
+					<div class="sidebar-row-header">
+						좌석
+					</div>
+					<a class="sidebar-icon" href="/seat/list.do">
+						<img src="/resources/images/sidebar/seat.png"/>
+					</a>
+					<a class="sidebar-icon" href="#">
+						<img src="/resources/images/sidebar/s_statistics.png"/>
+					</a>
+					<a class="sidebar-icon" href="/seat/myseat.do">
+						<img src="/resources/images/sidebar/seat-history.png"/>
+					</a>
+				</div>
+				<div class="sidebar-menu-row">
+					<div class="sidebar-row-header">
+						설정
+					</div>
+					<a class="sidebar-icon" href="#">
+						<img src="/resources/images/sidebar/alarm.png"/>
+					</a>
+					<a class="sidebar-icon" href="javascript:sendAndroidMsg('SSGKEYSETTING')">
+						<img src="/resources/images/sidebar/ssgkey.png"/>
+					</a>
+					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFF')">
+						<img src="/resources/images/sidebar/ssgkey1.png"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	 <!-- sidebar menu: : style can be found in sidebar.less -->
 	 
+	<!-- 	 
 	 <ul class="sidebar-menu">
 	 
 	 
@@ -129,6 +177,7 @@
 	   </ul>
 	  </li>
 	 </ul>
+	-->
 	
 	</section>
 	<!-- /.sidebar -->
