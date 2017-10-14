@@ -186,8 +186,8 @@
 
 <script type="text/javascript">
 	
-	function sendAndroidMsg(){
-		window.beez.startActivityFunction('SSGKEYSETTING');
+	function sendAndroidMsg(option){
+		window.beez.startActivityFunction(option);
 	}
 	function getPosition(alias, addr){
 		alert(alias);
