@@ -22,7 +22,10 @@
 		<hr>
 		 SSG KEY 사용하기 <input type="checkbox" checked data-toggle="toggle" id ="SSGkeySettings" name ="SSGkeySettings">
 		<hr>
-		
+		<a href="javascript:sendAndroidMsg('SSGKEYSETTING');" style="color: black">
+		 SSG KEY 노트북 설정하기 
+		 </a>
+		<hr>
 		 
 		 
 		 </div>
@@ -52,13 +55,13 @@
 		
 	$(document).ready(function() {
 		$("#AttPushSettings").on('change', function(){
-			sendAndroidMsg("AttPushSettings");
+			sendAndroidMsgTwoValue("AttPushSettings",this.checked);
 		});
 		$("#SeatPushSettings").on('change', function(){
-			sendAndroidMsg("SeatPushSettings");\
+			sendAndroidMsgTwoValue("SeatPushSettings",this.checked);
 		});
 		$("#SSGkeySettings").on('change', function(){
-			sendAndroidMsg("SSGkeySettings");\
+			sendAndroidMsgTwoValue("SSGkeySettings",this.checked);
 		});
 	});
 

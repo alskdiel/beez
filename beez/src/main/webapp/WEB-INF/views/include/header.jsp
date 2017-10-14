@@ -189,6 +189,10 @@
 	function sendAndroidMsg(option){
 		window.beez.startActivityFunction(option);
 	}
+	function sendAndroidMsgTwoValue(option, value){
+		window.beez.startActivityFunctionTwoValue(option, value);
+		
+	}
 	function getPosition(alias, addr){
 		alert(alias);
 	
