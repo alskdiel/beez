@@ -12,6 +12,16 @@
 
 	</select>
 	
+	<select id="list" parameterType="java.util.Map" resultType="att">
+		SELECT  ATT_ARRIVE_TIME, ATT_LEAVE_TIME
+		FROM    USER_ATT_TB
+		WHERE   USER_ID = #{user_id}
+		AND		(
+					(ATT_ARRIVE_TIME <![CDATA[>=]]> (TO_DATE(#{from}, 'mm/dd/yyyy')))
+				AND	(ATT_ARRIVE_TIME <![CDATA[<]]> (TO_DATE(#{to}, 'mm/dd/yyyy')))
+				)
+	</select>
+	
 	
 	
 	<!-- 
