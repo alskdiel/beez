@@ -1,5 +1,8 @@
 package com.sinc.beez.att.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,4 +22,11 @@ public class AttDaoImpl implements AttDao {
 		return session.selectOne(ATTPREFIX + "arrival", obj);
 	}
 
+	
+	@Override
+	public List<Object> attListRow(Object obj) {
+		return session.selectList(ATTPREFIX + "list", obj);
+	}
+
+	
 }
