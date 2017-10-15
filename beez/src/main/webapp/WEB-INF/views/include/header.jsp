@@ -97,9 +97,11 @@
 					<a class="sidebar-icon" href="/settings/AlramSettings.do">
 						<img src="/resources/images/sidebar/alarm.png"/>
 					</a>
+					<!-- 
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('SSGKEYSETTING')">
 						<img src="/resources/images/sidebar/ssgkey.png"/>
 					</a>
+					 -->
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFF')">
 						<img src="/resources/images/sidebar/ssgkey1.png"/>
 					</a>
