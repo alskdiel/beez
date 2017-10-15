@@ -102,31 +102,18 @@
 	</div>
 	
 	
+	<%@include file="./../include/footer.jsp"%>
 	
-	<!-- jQuery -->
-	<script src="/resources/js/lib/jQuery/jQuery-2.1.4.min.js"></script>
 	
-	<!-- Bootstrap 3.3.2 JS -->
-    <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- FastClick -->
-    <script src='/resources/js/lib/fastclick/fastclick.min.js'></script>
-    
-    
     <!-- daterangePicker -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     
-    
-    <!-- AdminLTE App -->
-    <script src="/resources/dist/js/app.min.js" type="text/javascript"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
     <script src="/resources/js/seat.js"></script>  
 	<link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
         
-    <script src="/resources/js/sidebar.js" type="text/javascript"></script>
     
 </body>
 </html>

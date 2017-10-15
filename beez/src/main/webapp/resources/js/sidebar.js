@@ -6,3 +6,7 @@ $side_bar_close_btn.on("click", function() {
 		$body.removeClass("sidebar-open");
 	}
 });
+
+$(".sidebar-mini").on("swipe", function(e) {
+	console.log('xx');
+});
