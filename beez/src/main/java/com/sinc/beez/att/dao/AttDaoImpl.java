@@ -1,7 +1,7 @@
 package com.sinc.beez.att.dao;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -25,6 +25,10 @@ public class AttDaoImpl implements AttDao {
 	
 	@Override
 	public List<Object> attListRow(Object obj) {
+		System.out.println(((HashMap)obj).get("user_id"));
+		System.out.println(((HashMap)obj).get("from"));
+		System.out.println(((HashMap)obj).get("to"));
+		
 		return session.selectList(ATTPREFIX + "list", obj);
 	}
 

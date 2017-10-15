@@ -48,9 +48,18 @@
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
    	<link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
 
-    <script src="/resources/js/calendar.js" type="text/javascript"></script>
    
     <script src="/resources/js/sidebar.js" type="text/javascript"></script>
+    <script src="/resources/js/calendar.js" type="text/javascript"></script>
+    
+    <script>
+    	var data_cal = ${data_cal};
+    	var data_cal_yr = ${data_cal_yr}
+    	var data_cal_mon = ${data_cal_mon}
+    	
+    	setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
+    </script>
+    
     
 </body>
 </html>
