@@ -16,7 +16,8 @@ public class AutoAttDAOImpl implements AutoAttDAO {
 	
 	@Override
 	public int workIn(AutoAttDTO dto) {
-		return session.update(PREFIX+"workin", dto);
+//		System.out.println("WORKIN : "+dto.toString());
+		return session.insert(PREFIX+"workin", dto);
 	}
 
 	@Override
@@ -27,6 +28,7 @@ public class AutoAttDAOImpl implements AutoAttDAO {
 
 	@Override
 	public int workUpdate(AutoAttDTO dto) {
+	//	System.out.println("WORKUPDATE : "+dto.toString());
 		// TODO Auto-generated method stub
 		return session.update(PREFIX+"workupdate", dto);
 	}
