@@ -1,5 +1,3 @@
-console.log("xxxx");
-
 var data_cal;
 function setCalData(data_cal, date) {
 	this.data_cal = data_cal;
