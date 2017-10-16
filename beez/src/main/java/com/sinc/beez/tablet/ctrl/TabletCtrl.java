@@ -4,18 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mysql.cj.x.json.JsonArray;
-import com.sinc.beez.beacon.model.vo.BeaconVO;
-import com.sinc.beez.office.model.vo.OfficeVO;
-import com.sinc.beez.seat.model.vo.SeatVO;
 import com.sinc.beez.tablet.service.TabletService;
-import com.sinc.beez.userseat.model.vo.UserSeatVO;
 
 @Controller
 @RequestMapping("/tablet")
@@ -23,18 +17,25 @@ public class TabletCtrl {
 
 	@Resource(name = "tabletService")
 	private TabletService service;
-	
+
 	@RequestMapping("/getListForSeat.do")
 	@ResponseBody
 	public List<Object> getListForSeatForm(int floor) {
-		
+
 		List<Object> list = service.seatInfoService(floor);
-		
-		System.out.println("LIST : " + list.toString());
+
+		// System.out.println("LIST : " + list.toString());
 
 		return list;
 	}
 
+	@RequestMapping("/tablet.do")
+	public String tablet_view(String floor, Model model) {
+	//	System.out.println("TABLET CTRL : "+floor);
+		model.addAttribute("floor",floor.toUpperCase());
+		return "tablet/tablet_view";
+	}
+/*
 	@RequestMapping("/9f.do")
 	public String a() {
 		return "designtest/9f";
@@ -53,5 +54,5 @@ public class TabletCtrl {
 	@RequestMapping("/14f.do")
 	public String d() {
 		return "designtest/14f";
-	}
+	}*/
 }

@@ -21,7 +21,7 @@ public class TabletDaoImpl implements TabletDao {
 	@Override
 	public List<Object> seatInfo(int floor) {
 
-		System.out.println("TabletDaoImpl seatInfo");
+	//	System.out.println("TabletDaoImpl seatInfo");
 		return session.selectList(TABLETPREFIX + "tabletdto", floor);
 	}
 }
