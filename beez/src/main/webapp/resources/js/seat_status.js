@@ -4,23 +4,6 @@ $(document).on("ready", function() {
 	$offset_13f = $("#floor-13").offset().top - 35;
 	$offset_14f = $("#floor-14").offset().top - 35;
 
-	$("#to-9f").on("click", function() {
-        $('html, body').animate({ scrollTop: $offset_9f}, 1000);
-	});
-	
-	$("#to-10f").on("click", function() {
-        $('html, body').animate({ scrollTop: $offset_10f}, 1000);
-	});
-	
-	$("#to-13f").on("click", function() {
-        $('html, body').animate({ scrollTop: $offset_13f}, 1000);
-	});
-	
-	$("#to-14f").on("click", function() {
-        $('html, body').animate({ scrollTop: $offset_14f}, 1000);
-	});
-	
-	
 	
 	function setStatus(data) {
 		for(var i=0; i<data.length; i++) {
@@ -46,6 +29,17 @@ $(document).on("ready", function() {
 			}
 		}
 	}
+	
+	
+	function resetStatus() {
+		var seats = $(".floor-container .outer .inner td");
+		for(var i=0; i<seats.length; i++) {
+			if(($(seats[i]).hasClass("disabled")) || ($(seats[i]).hasClass("inuse"))) {
+				$(seats[i]).removeClass();
+			}
+		}
+	}
+	
 	
 	
 	var dummies =
@@ -107,6 +101,26 @@ $(document).on("ready", function() {
 	console.log(dummies);
 	
 	setStatus(dummies);
-
+	/*
+	setTimeout(function() { 
+		resetStatus();
+	}, 2000);
+	*/
+	
+	$("#to-9f").on("click", function() {
+        $('html, body').animate({ scrollTop: $offset_9f}, 1000);
+	});
+	
+	$("#to-10f").on("click", function() {
+        $('html, body').animate({ scrollTop: $offset_10f}, 1000);
+	});
+	
+	$("#to-13f").on("click", function() {
+        $('html, body').animate({ scrollTop: $offset_13f}, 1000);
+	});
+	
+	$("#to-14f").on("click", function() {
+        $('html, body').animate({ scrollTop: $offset_14f}, 1000);
+	});
 });
 
