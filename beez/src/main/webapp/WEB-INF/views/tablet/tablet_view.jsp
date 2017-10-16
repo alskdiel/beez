@@ -287,6 +287,7 @@
 			});
 		}
 		$(document).ready(function() {
+			tabletsinc();
 			setInterval("tabletsinc()", 3000);
 		});
 	</script>

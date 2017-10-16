@@ -20,9 +20,9 @@
 			<section class="content-header">
 
 				<div class="textbox">
-					<h2>근무중</h2>
-					<div id="t_box01">나의위치</div>
-					<div id="t_box02">2017년 0월 00일 09시 30분에 출근하셨습니다.</div>
+					<h2 id="t_box00">근무중</h2>
+					<div id="t_box01">-</div>
+					<div id="t_box02">-</div>
 				</div>
 			</section>
 			<div class="bar_01">
@@ -50,5 +50,31 @@
 		<%@include file="./include/footer.jsp"%>
 
 		<link href="/resources/css/main.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+			sendAndroidMsg("MAINONLOADCALL");
+			setInterval("sendAndroidMsg('MAINONLOADCALL')", 3000);
+		});
+		
+		function setUserStateToWeb(name, date, position){
+	//		alert(name + " / " + date + " / "+ position);
+			
+			if(date == 'null'){
+				$('#t_box00').text("충전중");
+				$('#t_box02').text("아직 출근하지 않았네요~");
+			}else{
+				$('#t_box02').text("출근시간 : "+date);
+				if(position == 'null'){
+					$('#t_box01').text("자리에 앉지 않았네요~");
+				}else{
+					$('#t_box01').text(name+"님의 위치 : "+position);
+				}
+			}
+			
+			
+		}
+		
+		</script>
 </body>
 </html>

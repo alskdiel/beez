@@ -6,6 +6,10 @@
 <configuration>
 
 	<typeAliases>
+		<typeAlias type="com.sinc.beez.main.model.MainVO"
+				alias="mainvo"
+		/>
+	
 
 		<typeAlias type="com.sinc.beez.beacon.model.vo.BeaconOfficeDTO"
 			alias="beaconoffice" />

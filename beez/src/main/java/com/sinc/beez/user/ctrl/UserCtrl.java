@@ -20,6 +20,7 @@ public class UserCtrl {
 	
 	
 	@RequestMapping("/status.do")
+	@ResponseBody
 	public String status() {
 		System.out.println("/user/status.do");
 		

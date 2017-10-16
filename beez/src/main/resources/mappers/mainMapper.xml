@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.beez.mapper.main">
+	
+	<select id="selectMain" parameterType="mainvo" resultType="mainvo">
+		SELECT  ATT_ARRIVE_TIME
+		FROM    USER_ATT_TB
+		WHERE   (USER_ID = #{user_id}) AND ATT_DATE <![CDATA[>]]> TRUNC(SYSDATE)
+
+	</select>
+	
+	
+	
+	
+	<!-- 
+	<update id="keepLogin" parameterType="java.util.HashMap">
+		UPDATE 	SPRING_USER_TBL
+		SET		SESSIONKEY = #{sessionId}, SESSIONLIMIT = #{next}
+		WHERE  	ID = #{id}
+	</update>
+	
+	<select id="sessionKey" parameterType="java.lang.String" resultType="user">
+		SELECT	ID, PWD, NAME, UPPOINT, SESSIONKEY, SESSIONLIMIT, IMGSRC
+		FROM	SPRING_USER_TBL
+		WHERE	SESSIONKEY = #{value} AND SESSIONLIMIT > SYSDATE
+	</select>
+	
+	<update id="deleteSession" parameterType="java.util.HashMap">
+		UPDATE 	SPRING_USER_TBL
+		SET		SESSIONKEY = 'NONE', SESSIONLIMIT = SYSDATE
+		WHERE  	SESSIONKEY = #{sessionId}
+	</update>
+	
+	<insert id="signup" parameterType="user">
+		INSERT 	INTO SPRING_USER_TBL (ID, PWD, NAME, IMGSRC)
+		VALUES	(#{id}, #{pwd}, #{name}, #{imgSrc})
+	</insert>
+	-->
+</mapper>

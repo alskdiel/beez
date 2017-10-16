@@ -21,7 +21,11 @@ public class AutoAttCtrl {
 	public String workIn(AutoAttDTO dto){
 		System.out.println(dto.toString());
 		int result = 0;
-		result = service.workIn(dto);
+		if(dto.getUserid().equals(null) || dto.getUserid() == null){
+			result = -1;
+		}else{
+			result = service.workIn(dto);
+		}
 		JSONObject json = new JSONObject();
 		json.put("result", result);
 		return json.toString();
