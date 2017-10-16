@@ -23,62 +23,17 @@
 				  	${SeatVO}
 				  </c:forEach>
 				   --%>
-				<div class="all">
-	              <div class="box1">
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	              </div>
-	              <div class="box2">
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	              </div>
-	              <div class="box3">
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	                <ul>
-	                    <li></li>
-	                    <li></li>
-	                </ul>
-	              </div>
-	            </div>  
+				<div class="floor-btn">
+					<div id="to-9f">9</div>
+					<div id="to-10f">10</div>
+					<div id="to-13f">13</div>
+					<div id="to-14f">14</div>
+				</div>
+				
+				<%@include file="status_9f.jsp"%>
+				<%@include file="status_10f.jsp"%>
+				<%@include file="status_13f.jsp"%>
+				<%@include file="status_14f.jsp"%>
 
 				   	
 			  </section>
@@ -91,9 +46,12 @@
 	<%@include file="./../include/footer.jsp"%>
 	
     <link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
+    <!-- 
     <link href="/resources/css/m_10f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_13f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_14f.css" rel="stylesheet" type="text/css" />
+    -->
+    <script src="/resources/js/seat_status.js"></script>  
     
 </body>
 </html>

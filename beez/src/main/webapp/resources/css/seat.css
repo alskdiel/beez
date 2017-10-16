@@ -1,5 +1,16 @@
+body {
+    overflow-y: scroll;          
+	height: calc(100% - 50px);
+}
 
+header.main-header {
+	position: fixed;
+	width: 100%;
+}
 
+.content-wrapper {
+	margin-top: 50px;
+}
 .content-body, .content-header {
 	padding: 15px 0px 0px 0px; background-color: #ef6262;
 }

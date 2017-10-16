@@ -1,6 +1,6 @@
 
 
-
+/*
 .content-header{width: 100%; height: 536px; background-color: #daa;background-image: url(/resources/images/m_a.png); background-size: 100%; background-position: center; background-repeat: no-repeat; padding: 0;}
 
 .all{width: 100%; height: 100%; position: relative;}
@@ -11,33 +11,105 @@
 
 
 ul, ol, li{list-style: none;}
+*/
 /*------------------------box1---------------------------*/
+/*
 .all>.box1{width: 20%; height: 200px; position: absolute; z-index: 0; top:70px; left: 28px;}
 .all>.box1>ul>li{width: 38%; height: 40px; float: left; margin-right: 0px; margin-bottom: 4px; margin-left: 4px; }
-
+*/
 /*------------------------box2---------------------------*/
+/*
 .all>.box2{width: 20%; height: 200px; position: absolute; z-index: 0; top:70px; left: 146px;}
 .all>.box2>ul>li{width: 38%; height: 40px; float: left; margin-right: 0px; margin-bottom: 4px; margin-left: 4px;}
-
+*/
 /*------------------------box3---------------------------*/
+/*
 .all>.box3{width: 20%; height: 200px; position: absolute; z-index: 0; top:70px; left: 266px;}
 .all>.box3>ul>li{width: 38%; height: 40px; float: left; margin-right: 0px; margin-bottom: 4px; margin-left: 4px;}
-
+*/
 /*------------------------box4---------------------------*/
+/*
 .all>.box4{width: 20%; height: 200px; position: absolute; z-index: 0; top:282px; left: 28px;}
 .all>.box4>ul>li{width: 38%; height: 40px; float: left; margin-right: 0px; margin-bottom: 4px; margin-left: 4px;}
+*/
+
+body {
+    overflow-y: scroll;          
+	height: calc(100% - 50px);
+}
+
+header.main-header {
+	position: fixed;
+	width: 100%;
+}
+
+.content-wrapper {
+	margin-top: 50px;
+}
+
+.floor-btn {
+	position: fixed;
+	width: 30px;
+	background: #ff6813;
+	z-index: 2;
+	margin-left: calc(100% - 60px);
+	margin-top: 100%;
+}
+
+.floor-btn div {
+	font-size: 20px;
+	text-align: center;
+}
+
+.floor {
+	width: inherit;
+	margin-bottom: 50px;
+}
+
+.floor-container .tab-content {
+	background: #FFF;
+}
+
+.floor table {
+	width: 100%;
+}
+
+.floor table.outer tr {
+	width: 100%;
+}
+
+.floor table.outer tr td {
+	width: 30%;
+	padding: 10px;
+}
 
 
+.floor table.inner tr {
+	width: 25%;
+	background: #ddd;
+	
+	height: 50px;
+}
 
+.floor table.inner tr td {
+	width: 25%;
+	background: #FFF;
+	border: 1px solid #ff6813;
+	
+	height: 50px;
+}
 
+.floor table.inner tr td.available {
+	background: #FFF;
+}
 
+.floor table.inner tr td.disabled {
+	background: red;
+}
 
-
-
-
-
-
-
+.floor table.inner tr td.inuse {
+	background: blue;
+}
 
 
 

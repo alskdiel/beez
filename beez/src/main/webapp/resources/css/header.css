@@ -1,4 +1,3 @@
-
 body{ 
     overflow-y:hidden;          
 	height: calc(100% - 50px);
@@ -16,17 +15,17 @@ body{
 a {
 	color: #FFF;
 }
-/*
+
 a:hover {
-	color: #ef6262;
+	color: #FFF;
 }
 a:focus {
-	color: #ef6262;
+	color: #FFF;
 }
 a:active {
-	color: #ef6262;
+	color: #FFF;
 }
-*/
+
 .navbar-userinfo {
 	font-size: 20px;
 	line-height: 50px;

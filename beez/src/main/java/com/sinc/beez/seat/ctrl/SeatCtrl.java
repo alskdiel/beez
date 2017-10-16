@@ -46,7 +46,7 @@ public class SeatCtrl {
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908v1");
+		current_user.setUser_id("p908vd");
 		/**********************************/
 		
 		pagingDTO.setPageSize(10);
@@ -57,8 +57,8 @@ public class SeatCtrl {
 		
 		List<Object> list = service.seatHistoryList(current_user, pagingDTO, "all", null);
 		model.addAttribute("userSeatVO", list);
-		
-		
+		System.out.println(list);
+		System.out.println(pagingDTO);
 		return "seat/myseat";
 	}
 	
