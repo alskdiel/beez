@@ -1,11 +1,28 @@
 var $side_bar_close_btn = $(".main-sidebar .user-panel .beez-logo-right");
 
 $side_bar_close_btn.on("click", function() {
+	/*
 	$body = $("body");
 	if($body.hasClass("sidebar-open")) {
 		$body.removeClass("sidebar-open");
 	}
+	*/
+	toggleSidebar();
+
 });
+/*
+$(".sidebar-toggle").on("click", function() {
+	toggleSidebar();
+});
+*/
+function toggleSidebar() {
+	$body = $("body");
+	if($body.hasClass("sidebar-open")) {
+		$body.removeClass("sidebar-open");
+	} else {
+		$body.addClass("sidebar-open");
+	}
+}
 
 
 $(document).on("ready", function() {
@@ -13,7 +30,7 @@ $(document).on("ready", function() {
 	var prev = {};
 	var current = {};
 	var flag = false;
-	$(document).bind('touchstart', function(e) {
+	$(".content-wrapper").bind('touchstart', function(e) {
 
 
 		console.log("touch started");
@@ -33,7 +50,7 @@ $(document).on("ready", function() {
 	});
 
 	
-	$(document).bind('touchmove', function(e) {
+	$(".content-wrapper").bind('touchmove', function(e) {
 		if(flag) {
 			var event = e.originalEvent;
 	/*
@@ -57,7 +74,7 @@ $(document).on("ready", function() {
 		}
 	});
 
-	$(document).bind('touchend', function(e) {
+	$(".content-wrapper").bind('touchend', function(e) {
 		if(flag) {
 			console.log("터치이벤트가 종료되었어요"); 
 			
@@ -73,10 +90,12 @@ $(document).on("ready", function() {
 		if((current.x - prev.x) > 100) {
 			console.log("enough");
 			$body = $("body");
+			toggleSidebar();
+/*
 			if(!$body.hasClass("sidebar-open")) {
 				$body.addClass("sidebar-open");
 			}
-
+*/
 		} else {
 			console.log("not enough");
 		}
