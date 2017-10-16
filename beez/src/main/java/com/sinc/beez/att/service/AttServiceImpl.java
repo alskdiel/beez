@@ -69,7 +69,7 @@ public class AttServiceImpl implements AttService {
 
 		for(int i=0; i<list.size(); i++) {
 			Map<String, String> att_info = new HashMap<String, String>();
-			
+			try{
 			String day = (((AttVO)(list.get(i))).getAtt_arrive_time().split(" ")[0]).split("-")[2];
 			String[] arrive = ((((AttVO)(list.get(i))).getAtt_arrive_time()).split(" ")[1]).split(":");
 			String[] leave = ((((AttVO)(list.get(i))).getAtt_leave_time()).split(" ")[1]).split(":");
@@ -78,7 +78,9 @@ public class AttServiceImpl implements AttService {
 			att_info.put("leave", leave[0]+":"+leave[1]);
 
 			ret.put(day, att_info);
-			
+			}catch(Exception e){
+				
+			}
 		}
 		
 		return ret;
