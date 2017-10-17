@@ -27,8 +27,8 @@ public class AttServiceImpl implements AttService {
 		Date tmp = new Date();
 		//System.out.println(tmp.getYear());
 		//System.out.println(tmp.getMonth());
-		map.put("from", (String.format("%02d", tmp.getMonth()) + "/01/" + (tmp.getYear()+1900)).toString());
-		map.put("to", (String.format("%02d", (tmp.getMonth()+1)) + "/01/" + (tmp.getYear()+1900)).toString());
+		map.put("from", (String.format("%02d", tmp.getMonth()+1) + "/01/" + (tmp.getYear()+1900)).toString());
+		map.put("to", (String.format("%02d", (tmp.getMonth()+2)) + "/01/" + (tmp.getYear()+1900)).toString());
 		
 		List<Object> list = dao.attListRow(map);
 		//List<Object> ret = new ArrayList<Object>();

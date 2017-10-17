@@ -41,7 +41,7 @@ public class AttendCtrl {
 		Date tmp = new Date();
 		
 		model.addAttribute("data_cal_yr", (tmp.getYear()+1900));
-		model.addAttribute("data_cal_mon", tmp.getMonth());
+		model.addAttribute("data_cal_mon", tmp.getMonth()+1);
 		
 		return "attend/calendar";
 	}
