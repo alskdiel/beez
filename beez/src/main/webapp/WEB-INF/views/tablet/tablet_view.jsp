@@ -126,7 +126,64 @@
 					<li class="available" id='24'></li>
 				</ul>
 			</div>
+			
+			
+			
 			<div class="box4">
+				<ul>
+					<li class="available" id='36'></li>
+					<li class="available" id='37'></li>
+				</ul>
+				<ul>
+					<li class="available" id='38'></li>
+					<li class="available" id='39'></li>
+				</ul>
+				<ul>
+					<li class="available" id='40'></li>
+					<li class="available" id='41'></li>
+				</ul>
+				<ul>
+					<li class="available" id='42'></li>
+					<li class="available" id='43'></li>
+				</ul>
+			</div>
+			<div class="box5">
+				<ul>
+					<li class="available" id='44'></li>
+					<li class="available" id='45'></li>
+				</ul>
+				<ul>
+					<li class="available" id='46'></li>
+					<li class="available" id='47'></li>
+				</ul>
+				<ul>
+					<li class="available" id='48'></li>
+					<li class="available" id='49'></li>
+				</ul>
+				<ul>
+					<li class="available" id='50'></li>
+					<li class="available" id='51'></li>
+				</ul>
+			</div>
+			<div class="box6">
+				<ul>
+					<li class="available" id='52'></li>
+					<li class="available" id='53'></li>
+				</ul>
+				<ul>
+					<li class="available" id='54'></li>
+					<li class="available" id='55'></li>
+				</ul>
+				<ul>
+					<li class="available" id='56'></li>
+					<li class="available" id='57'></li>
+				</ul>
+				<ul>
+					<li class="available" id='58'></li>
+					<li class="available" id='59'></li>
+				</ul>
+			</div>
+			<div class="box7">
 				<ul>
 					<li class="available" id='25'></li>
 					<li class="available" id='26'></li>
@@ -143,66 +200,12 @@
 					<li class="available" id='31'></li>
 					<li class="available" id='32'></li>
 				</ul>
-			</div>
-			<div class="box5">
 				<ul>
 					<li class="available" id='33'></li>
 					<li class="available" id='34'></li>
 				</ul>
 				<ul>
 					<li class="available" id='35'></li>
-					<li class="available" id='36'></li>
-				</ul>
-				<ul>
-					<li class="available" id='37'></li>
-					<li class="available" id='38'></li>
-				</ul>
-				<ul>
-					<li class="available" id='39'></li>
-					<li class="available" id='40'></li>
-				</ul>
-			</div>
-			<div class="box6">
-				<ul>
-					<li class="available" id='41'></li>
-					<li class="available" id='42'></li>
-				</ul>
-				<ul>
-					<li class="available" id='43'></li>
-					<li class="available" id='44'></li>
-				</ul>
-				<ul>
-					<li class="available" id='45'></li>
-					<li class="available" id='46'></li>
-				</ul>
-				<ul>
-					<li class="available" id='47'></li>
-					<li class="available" id='48'></li>
-				</ul>
-			</div>
-			<div class="box7">
-				<ul>
-					<li class="available" id='49'></li>
-					<li class="available" id='50'></li>
-				</ul>
-				<ul>
-					<li class="available" id='51'></li>
-					<li class="available" id='52'></li>
-				</ul>
-				<ul>
-					<li class="available" id='53'></li>
-					<li class="available" id='54'></li>
-				</ul>
-				<ul>
-					<li class="available" id='55'></li>
-					<li class="available" id='56'></li>
-				</ul>
-				<ul>
-					<li class="available" id='57'></li>
-					<li class="available" id='58'></li>
-				</ul>
-				<ul>
-					<li class="available" id='59'></li>
 				</ul>
 			</div>
 			<div class="box8">
