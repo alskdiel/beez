@@ -24,81 +24,71 @@ function toggleSidebar() {
 	}
 }
 
-
 $(document).on("ready", function() {
+	var $windowWidth = $(window).width();
 	
 	var prev = {};
 	var current = {};
-	var flag = false;
-	$(".content-wrapper").bind('touchstart', function(e) {
-
-
-		console.log("touch started");
+	var flag_open = false;
+	var flag_close = false;
+	
+	$(".main-sidebar").bind('touchstart', function(e) {
 		
-		console.log("page");
-		if(event.touches[0].pageX < 30) {
-			flag = true;
+		if(($windowWidth - event.touches[0].pageX) < 60 && ($("body").hasClass("sidebar-open"))) {
+			flag_close = true;
 			prev.x = event.touches[0].pageX;
-			
-			console.log(prev.x);
 			e.preventDefault();	//	이벤트취소
-
-		} else {
-			console.log("x more than 30");
 		}
-
 	});
 
-	
-	$(".content-wrapper").bind('touchmove', function(e) {
-		if(flag) {
+	$(".main-sidebar").bind('touchmove', function(e) {
+		if(flag_close) {
 			var event = e.originalEvent;
-	/*
-			console.log("screen");
-			console.log(event.touches[0].screenX);
-			console.log(event.touches[0].screenY);
-	
-			console.log("page");
-			console.log(event.touches[0].pageX);
-			console.log(event.touches[0].pageY);
-			
-			console.log("client");
-			console.log(event.touches[0].clientX);
-			console.log(event.touches[0].clientY);
-	*/	
-			current.x = event.touches[0].pageX;
-			
+			current.x = event.touches[0].pageX;			
 			event.preventDefault();
-		} else {
-			console.log("x more than 20");
+		}
+	});
+
+	$(".main-sidebar").bind('touchend', function(e) {
+		if(flag_close) {
+			chkSlideScale("close");
+		}
+	});
+	
+	
+	
+	$(".content-wrapper").bind('touchstart', function(e) {
+		if(event.touches[0].pageX < 60) {
+			flag_open = true;
+			prev.x = event.touches[0].pageX;
+			e.preventDefault();	//	이벤트취소
+		}
+	});
+
+	$(".content-wrapper").bind('touchmove', function(e) {
+		if(flag_open) {
+			var event = e.originalEvent;
+			current.x = event.touches[0].pageX;			
+			event.preventDefault();
 		}
 	});
 
 	$(".content-wrapper").bind('touchend', function(e) {
-		if(flag) {
-			console.log("터치이벤트가 종료되었어요"); 
-			
-			console.log(current.x);
-			chkSlideScale();
-		} else {
-			console.log("x more than 20");
+		if(flag_open) {
+			chkSlideScale("open");
 		}
 	});
 
 
-	function chkSlideScale() {
-		if((current.x - prev.x) > 100) {
-			console.log("enough");
+	function chkSlideScale(type) {
+		if(Math.abs(current.x - prev.x) > 100) {
 			$body = $("body");
 			toggleSidebar();
-/*
-			if(!$body.hasClass("sidebar-open")) {
-				$body.addClass("sidebar-open");
-			}
-*/
-		} else {
-			console.log("not enough");
 		}
-		flag = false;
+		if(type == "open") {
+			flag_open = false;
+		} else {
+			flag_close = false;
+		}
 	}
 });
