@@ -46,6 +46,7 @@
 		src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$('#nav_title').text("시스템 설정");
 			sendAndroidMsg('GETDEVICESETTINGS');
 			$("#AttPushSettings").on('change', function() {
 				sendAndroidMsgTwoValue("AttPushSettings", this.checked);

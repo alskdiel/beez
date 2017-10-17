@@ -43,6 +43,11 @@
     	var data_cal_mon = ${data_cal_mon}
     	
     	setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
+
+
+		$(document).ready(function() {
+			$('#nav_title').text("나의근태");
+		});
     </script>
     
     

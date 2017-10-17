@@ -13,13 +13,13 @@
 	  <span class="icon-bar"></span>
 	  <span class="icon-bar"></span>
 	 </a>
-	 
-	 <a href="#" class="navbar-userinfo">
+	 <div style="text-align: center; margin-right: 40px">
 	  <span class="logo-lg">
-	   <b>홍길동</b> 부서
-	  </span>
-	 </a>
+	 <a  class="navbar-userinfo" id ="nav_title">
 	 
+	 </a>
+	  </span>
+	 </div>
 	 
 	<!-- 
 	 <div class="navbar-custom-menu">
@@ -55,7 +55,7 @@
 	 
 	<div class="beez-sidebar-content">
 		<div>
-			<div class="user-name">조현재(인사(임))</div>
+			<div class="user-name" id = "uname"></div>
 			<div class="user-id">p908vd</div>
 		</div>
 	</div>

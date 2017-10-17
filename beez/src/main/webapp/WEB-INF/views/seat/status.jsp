@@ -94,6 +94,12 @@
     <link href="/resources/css/m_10f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_13f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_14f.css" rel="stylesheet" type="text/css" />
-    
+    <script type="text/javascript">
+
+
+	$(document).ready(function() {
+		$('#nav_title').text("좌석 현황");
+	});
+    </script>
 </body>
 </html>

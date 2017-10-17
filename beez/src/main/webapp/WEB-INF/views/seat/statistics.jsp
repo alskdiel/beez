@@ -29,6 +29,13 @@
 	
 	
 	<%@include file="./../include/footer.jsp"%>
+	<script type="text/javascript">
+
+
+	$(document).ready(function() {
+		$('#nav_title').text("좌석 통계");
+	});
 	
+	</script>
 </body>
 </html>

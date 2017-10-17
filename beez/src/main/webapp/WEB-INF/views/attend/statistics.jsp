@@ -40,6 +40,12 @@
 	
 	<link href="/resources/css/att.css" rel="stylesheet" type="text/css" />
     
-    
+    <script type="text/javascript">
+
+
+	$(document).ready(function() {
+		$('#nav_title').text("근태 통계");
+	});
+    </script>
 </body>
 </html>

@@ -114,6 +114,12 @@
     <script src="/resources/js/seat.js"></script>  
 	<link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
         
+        <script type="text/javascript">
+
+		$(document).ready(function() {
+			$('#nav_title').text("내 좌석 이력");
+		});
+        </script>
     
 </body>
 </html>

@@ -53,6 +53,7 @@
 		
 		<script type="text/javascript">
 		$(document).ready(function() {
+			$('#nav_title').text("SSG BEEZ");
 			sendAndroidMsg("MAINONLOADCALL");
 			setInterval("sendAndroidMsg('MAINONLOADCALL')", 3000);
 		});

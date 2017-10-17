@@ -18,7 +18,6 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService service;
 	
-	
 	@RequestMapping("/status.do")
 	@ResponseBody
 	public String status() {
