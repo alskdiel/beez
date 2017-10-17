@@ -13,7 +13,7 @@
 	  <span class="icon-bar"></span>
 	  <span class="icon-bar"></span>
 	 </a>
-	 <div style="text-align: center; margin-right: 40px">
+	 <div style="text-align: center; margin-right: 45px">
 	  <span class="logo-lg">
 	 <a  class="navbar-userinfo" id ="nav_title">
 	 
