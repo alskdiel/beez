@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,13 @@ public class SeatCtrl {
 	public String status(Model model) {
 		
 		List<Object> seatlist = service.seatList();
-	     
-		model.addAttribute("seatlist",seatlist);
+	    
+		for(int i=0; i<seatlist.size(); i++) {
+			System.out.println(seatlist.get(i));
+		}
+		JSONArray list = new JSONArray(seatlist);
+		model.addAttribute("tmp", list);
+		
 		return "/seat/status";
 	}
 	
@@ -57,8 +63,8 @@ public class SeatCtrl {
 		
 		List<Object> list = service.seatHistoryList(current_user, pagingDTO, "all", null);
 		model.addAttribute("userSeatVO", list);
-		System.out.println(list);
-		System.out.println(pagingDTO);
+		
+		
 		return "seat/myseat";
 	}
 	

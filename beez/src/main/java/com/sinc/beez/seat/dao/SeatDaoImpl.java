@@ -19,12 +19,16 @@ public class SeatDaoImpl implements SeatDao {
 	
 	
 	@Override
-	public List<Object> seatListRow() {
+	public List<Object> seatListRow(Object obj) {	// obj: officeVO
 	    System.out.println("Dao seatListRow");
 	    
 	    return session.selectList(SEATPREFIX+"seatlist");
 	}
 
+	@Override
+	public List<Object> officeListRow() {
+		return session.selectList(SEATPREFIX+"officelist");
+	}
 	
 	@Override
 	public Object userFavoriteRow(Object obj) {
@@ -90,5 +94,18 @@ public class SeatDaoImpl implements SeatDao {
 		
 		return session.selectList(SEATPREFIX + "historyLoc", obj);
 	}
+
+	@Override
+	public List<Object> seatDisabledListRow(Object obj) {
+		return session.selectList(SEATPREFIX + "seatlist_disabled", obj);
+	}
+
+	@Override
+	public List<Object> seatInuseListRow(Object obj) {
+		return session.selectList(SEATPREFIX + "seatlist_inuse", obj);
+
+	}
+
+
 
 }

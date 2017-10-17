@@ -5,21 +5,21 @@
 		<td>
 			<div>				
 				<jsp:include page="status/inner_section.jsp" flush="false">
-					<jsp:param name="seat_no" value="<%=1%>" />
+					<jsp:param name="seat_no" value="<%=36%>" />
 				</jsp:include>
 			</div>
 		</td>
 		<td>
 			<div>
 				<jsp:include page="status/inner_section.jsp" flush="false">
-					<jsp:param name="seat_no" value="<%=9%>" />
+					<jsp:param name="seat_no" value="<%=44%>" />
 				</jsp:include>
 			</div>
 		</td>
 		<td>
 			<div>
 				<jsp:include page="status/inner_section.jsp" flush="false">
-					<jsp:param name="seat_no" value="<%=17%>" />
+					<jsp:param name="seat_no" value="<%=52%>" />
 				</jsp:include>
 			</div>
 		</td>
@@ -30,8 +30,8 @@
 		</td>
 		<td>
 			<div>
-				<jsp:include page="status/inner_section.jsp" flush="false">
-					<jsp:param name="seat_no" value="<%=25%>" />
+				<jsp:include page="status/inner_bottomB.jsp" flush="false">
+					<jsp:param name="seat_no" value="<%=60%>" />
 				</jsp:include>
 			</div>
 		</td>

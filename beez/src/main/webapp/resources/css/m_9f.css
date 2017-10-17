@@ -43,9 +43,29 @@ header.main-header {
 	width: 100%;
 }
 
+.content-wrapper .content-header {
+	padding: 0px;
+}
+
 .content-wrapper {
 	margin-top: 50px;
 }
+
+.floor .floor-container .nav-tabs {
+	width: 100%;
+	border: none;
+}
+
+.floor .floor-container .nav-tabs li {
+	width: 50%;
+	border: inherit;
+	text-align: center;
+}
+
+.floor .floor-container .nav-tabs li a {
+	border: inherit;
+}
+
 
 .floor-btn {
 	position: fixed;
@@ -80,7 +100,7 @@ header.main-header {
 
 .floor table.outer tr td {
 	width: 30%;
-	padding: 10px;
+	padding: 25px 10px;
 }
 
 

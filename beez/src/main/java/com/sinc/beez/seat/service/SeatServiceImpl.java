@@ -1,6 +1,7 @@
 package com.sinc.beez.seat.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +11,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.sinc.beez.office.model.vo.OfficeVO;
 import com.sinc.beez.seat.dao.SeatDao;
 import com.sinc.beez.user.model.vo.UserVO;
 import com.sinc.beez.userseat.model.vo.UserSeatVO;
@@ -25,9 +27,66 @@ public class SeatServiceImpl implements SeatService{
 	@Override
 	public List<Object> seatList() {
 		System.out.println("Service seatListService");
-		List<Object> list = dao.seatListRow();
-		return dao.seatListRow();
+		
+		List<Object> officeList = dao.officeListRow();
+		System.out.println(officeList);
+		
+		List<Object> ret = new ArrayList<Object>();
+		
+		//Map ret = new HashMap<Object, Object>();
+		
+		for(int i=0; i<officeList.size(); i++) {
+			Map<Object, Object> rData = new HashMap<Object, Object>();
 
+			//dao.seatListRow(((OfficeVO)officeList.get(i)));
+			int floor_num = ((OfficeVO)officeList.get(i)).getFloor_num();
+			int office_seq = ((OfficeVO)officeList.get(i)).getOffice_seq();
+
+			rData.put("floor", floor_num);
+			
+			Map<Object, Object> dto = new HashMap<Object, Object>();
+			dto.put("office_seq", office_seq);
+			dto.put("section", "A");
+			
+			List<Object> fList = new ArrayList<Object>();
+			
+			Map<Object, Object> fData = new HashMap<Object, Object>();
+			fData.put("section", "A");
+			
+			
+			Map<Object, Object> sData = new HashMap<Object, Object>();
+			sData.put("disabled", dao.seatDisabledListRow(dto));
+			sData.put("inuse", dao.seatInuseListRow(dto));
+			
+			fData.put("data", sData);
+			
+			fList.add(fData);
+			dto = new HashMap<Object, Object>();
+			dto.put("office_seq", office_seq);
+			dto.put("section", "B");
+			
+			fData = new HashMap<Object, Object>();
+			fData.put("section", "B");
+			
+			
+			sData = new HashMap<Object, Object>();
+			sData.put("disabled", dao.seatDisabledListRow(dto));
+			sData.put("inuse", dao.seatInuseListRow(dto));
+			
+			fData.put("data", sData);
+			
+			fList.add(fData);
+			//ret.put("data", new ArrayList());
+			rData.put("data", fList);
+			
+			ret.add(rData);
+		}
+		
+		//List<Object> list = dao.seatListRow();
+		
+		
+		//return dao.seatListRow();
+		return ret;
 	}
 
 	@Override

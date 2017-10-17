@@ -52,6 +52,15 @@
     <link href="/resources/css/m_14f.css" rel="stylesheet" type="text/css" />
     -->
     <script src="/resources/js/seat_status.js"></script>  
-    
+    <script>
+    	
+    	console.log(${tmp});
+    	var seat_status = ${tmp};
+    	$(document).on("ready", function() {
+    		setStatus(seat_status);
+    		console.log(seat_status);
+    	});
+		
+    </script>
 </body>
 </html>

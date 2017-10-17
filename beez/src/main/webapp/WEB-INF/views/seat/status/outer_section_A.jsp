@@ -27,7 +27,7 @@
 	<tr>
 		<td>
 			<div>
-				<jsp:include page="status/inner_section.jsp" flush="false">
+				<jsp:include page="status/inner_bottomA.jsp" flush="false">
 					<jsp:param name="seat_no" value="<%=25%>" />
 				</jsp:include>
 			</div>

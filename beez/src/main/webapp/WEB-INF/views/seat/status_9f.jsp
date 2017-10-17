@@ -67,12 +67,6 @@
 		<div>
 			<span>9층</span>
 		</div>
-
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#section-9A" data-toggle="tab">A</a></li>
-			<li><a href="#section-9B" data-toggle="tab">B</a></li>
-		</ul>
-
 		<div class="tab-content">
 			<div class="tab-pane active" id="section-9A">
 				<%@include file="status/outer_section_A.jsp"%>
@@ -83,6 +77,10 @@
 			</div>
 
 		</div>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#section-9A" data-toggle="tab">A</a></li>
+			<li><a href="#section-9B" data-toggle="tab">B</a></li>
+		</ul>
 
 	</div>
 </div>
