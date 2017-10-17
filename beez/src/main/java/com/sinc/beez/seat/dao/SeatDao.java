@@ -5,8 +5,12 @@ import java.util.Map;
 
 public interface SeatDao {
 
-	public List<Object> seatListRow();
+	public List<Object> seatListRow(Object obj);
+	public List<Object> officeListRow();
 	public Object userFavoriteRow(Object obj);
+	
+	public List<Object> seatDisabledListRow(Object obj);
+	public List<Object> seatInuseListRow(Object obj);
 
 	public Object seatRow(Object obj);
 	

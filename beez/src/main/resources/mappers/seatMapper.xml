@@ -9,6 +9,26 @@
 	    SELECT *  FROM LIST_SEATED_USER_VW
 	</select>
 	
+	<select id="officelist" resultType="office">
+	    SELECT *  FROM OFFICE_TB
+	</select>
+	
+	<select id="seatlist_disabled" parameterType="office" resultType="int">
+	    SELECT  SEAT_ID
+		FROM    LIST_SEATED_USER_VW
+		WHERE   office_seq = #{office_seq}
+		AND     SEAT_USEABLE_STATE = 'N'
+		AND		SEAT_REAL_LOCATION = #{section}
+	</select>
+	
+	<select id="seatlist_inuse" parameterType="office" resultType="int">
+	    SELECT  SEAT_ID
+		FROM    LIST_SEATED_USER_VW
+		WHERE   office_seq = #{office_seq}
+		AND		SEAT_USEABLE_STATE = 'Y'
+		AND     (USER_LEAVE_YN = 'N' OR USER_LEAVE_YN != NULL)
+		AND		SEAT_REAL_LOCATION = #{section}
+	</select>
 
 	<select id="history" parameterType="java.util.HashMap" resultType="userseat">
 		SELECT * FROM (
