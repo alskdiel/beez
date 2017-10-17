@@ -32,6 +32,9 @@ public class TabletCtrl {
 	@RequestMapping("/tablet.do")
 	public String tablet_view(String floor, Model model) {
 	//	System.out.println("TABLET CTRL : "+floor);
+		if(floor == null || floor.equals(null)){
+			floor = "14f";
+		}
 		model.addAttribute("floor",floor.toUpperCase());
 		return "tablet/tablet_view";
 	}

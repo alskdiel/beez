@@ -31,10 +31,14 @@ public class AttendCtrl {
 		UserVO current_user = new UserVO();
 		current_user.setUser_id("p908vd");
 		/**********************************/
-		
-		Map<String, Map> list = (HashMap)service.attList(current_user);
+		Map<String, Map> list = new HashMap<String, Map>();
+		try{
+		list = (HashMap)service.attList(current_user);
 		System.out.println(list);
 		
+		}catch(Exception e ){
+			
+		}
 		JSONObject jsObj = new JSONObject(list);
 		model.addAttribute("data_cal", jsObj);
 		
