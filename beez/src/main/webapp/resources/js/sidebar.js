@@ -33,11 +33,10 @@ $(document).on("ready", function() {
 	var flag_close = false;
 	
 	$(".main-sidebar").bind('touchstart', function(e) {
-		
-		if(($windowWidth - event.touches[0].pageX) < 60 && ($("body").hasClass("sidebar-open"))) {
+		if(($windowWidth - event.touches[0].pageX) < 200 && ($("body").hasClass("sidebar-open"))) {
 			flag_close = true;
 			prev.x = event.touches[0].pageX;
-			e.preventDefault();	//	이벤트취소
+			//e.preventDefault();	//	이벤트취소
 		}
 	});
 
@@ -45,7 +44,7 @@ $(document).on("ready", function() {
 		if(flag_close) {
 			var event = e.originalEvent;
 			current.x = event.touches[0].pageX;			
-			event.preventDefault();
+			//event.preventDefault();
 		}
 	});
 
@@ -58,7 +57,7 @@ $(document).on("ready", function() {
 	
 	
 	$(".content-wrapper").bind('touchstart', function(e) {
-		if(event.touches[0].pageX < 60) {
+		if(event.touches[0].pageX < 40) {
 			flag_open = true;
 			prev.x = event.touches[0].pageX;
 			e.preventDefault();	//	이벤트취소

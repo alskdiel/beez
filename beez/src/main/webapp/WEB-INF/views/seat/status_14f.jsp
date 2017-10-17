@@ -6,15 +6,16 @@
 			<span>14층</span>
 		</div>
 
-		<div class="tab-content">
-			<div class="tab-pane active" id="section-14A">
-				<%@include file="status/outer_section_A.jsp"%>
+		<div class="tab-content carousel slide" id="carousel-example-generic">
+			<div class="carousel-inner">
+				<div class="tab-pane active item" id="section-14A">
+					<%@include file="status/outer_section_A.jsp"%>
+				</div>
+	
+				<div class="tab-pane item" id="section-14B">
+					<%@include file="status/outer_section_B.jsp"%>
+				</div>
 			</div>
-
-			<div class="tab-pane" id="section-14B">
-				<%@include file="status/outer_section_B.jsp"%>
-			</div>
-
 		</div>
 
 		<ul class="nav nav-tabs">

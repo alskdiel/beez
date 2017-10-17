@@ -60,7 +60,10 @@ a:active {
 	color: inherit;
 }
 
-.main-sidebar{background-color: #444;}
+.main-sidebar{
+	background-color: #444;
+	position: fixed;
+}
 
 .sidebar-open .main-sidebar {
 	background: #222;
