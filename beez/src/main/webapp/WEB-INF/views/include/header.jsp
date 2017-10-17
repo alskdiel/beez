@@ -196,7 +196,7 @@
 		
 	}
 	function getPosition(alias, addr){
-		alert(alias);
+//		alert(alias);
 	
 	}
 </script>
