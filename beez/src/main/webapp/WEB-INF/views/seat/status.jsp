@@ -54,7 +54,7 @@
     <script src="/resources/js/seat_status.js"></script>  
     <script>
     	
-    	console.log(${tmp});
+    	//console.log(${tmp});
     	var seat_status = ${tmp};
     	$(document).on("ready", function() {
     		setStatus(seat_status);
@@ -62,6 +62,7 @@
     		$('#nav_title').text("좌석 현황");
     	});
 		
+    	
     </script>
 </body>
 </html>
