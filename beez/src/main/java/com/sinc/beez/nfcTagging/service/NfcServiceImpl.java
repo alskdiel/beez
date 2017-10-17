@@ -25,11 +25,27 @@ public class NfcServiceImpl implements NfcService {
 	NfcDAO dao;
 
 	@Override
+	public String SyncMap(String taginfo) {
+		System.out.println(taginfo + " / " + onMem.get(taginfo));
+		String temp = onMem.get(taginfo);
+		if (temp == null || temp.equals(null)) {
+			return "false";
+		} else{
+			if(temp.equals(getDate()) || temp == getDate()){
+				return "true";
+			}else{
+				return "false";
+			}
+		}
+	}
+
+	@Override
 	public int touchTag(NfcDTO dto) {
-		System.out.println("NEW TAG : "+dto.toString());
+		System.out.println("NEW TAG : " + dto.toString());
 		try {
 			String temp = onMem.get(dto.getTagginginfo());
-			System.out.println("temp : "+temp + "getT : "+dto.getTagginginfo());
+			System.out.println("temp : " + temp + "getT : "
+					+ dto.getTagginginfo());
 			if (temp == getDate() || temp.equals(getDate())) {
 				System.out.println("RETURN -4");
 				return -4;
@@ -42,10 +58,11 @@ public class NfcServiceImpl implements NfcService {
 
 	@Override
 	public int touchTagUpdate(NfcDTO dto) {
-		System.out.println("UPDATE TAG : "+dto.toString());
+		System.out.println("UPDATE TAG : " + dto.toString());
 		try {
 			String temp = onMem.get(dto.getTagginginfo());
-			System.out.println("temp : "+temp + "getOT : "+dto.getTagginginfo());
+			System.out.println("temp : " + temp + "getOT : "
+					+ dto.getTagginginfo());
 			if (temp == getDate() || temp.equals(getDate())) {
 				System.out.println("RETURN -5");
 				return -5;

@@ -24,9 +24,7 @@
 					<div id="t_box01">-</div>
 					<div id="t_box02">-</div>
 					
-				<div>
 					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  onclick="javascript:shareMyLocation()">
-				</div>
 				</div>
 			</section>
 			<div class="bar_01">
@@ -76,6 +74,7 @@
 				}else{
 					$('#t_box01').text(name+"님의 위치 : "+position);
 					document.getElementById("chatimg").style.display = "block";
+					document.getElementById("chatimg").style.textalign = "center";
 				}
 			}
 			
