@@ -23,6 +23,10 @@
 					<h2 id="t_box00">근무중</h2>
 					<div id="t_box01">-</div>
 					<div id="t_box02">-</div>
+					
+				<div>
+					<img alt="share" src="/img/chat.png"    style="width: 10%; height: 10%"  onclick="javascript:shareMyLocation()">
+				</div>
 				</div>
 			</section>
 			<div class="bar_01">
@@ -75,7 +79,9 @@
 			
 			
 		}
-		
+		function shareMyLocation(){
+			sendAndroidMsg("KAKAOSHARE");
+		}
 		</script>
 </body>
 </html>
