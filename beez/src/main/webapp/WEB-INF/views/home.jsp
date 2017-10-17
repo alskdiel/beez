@@ -25,7 +25,7 @@
 					<div id="t_box02">-</div>
 					
 				<div>
-					<img alt="share" src="/img/chat.png"    style="width: 10%; height: 10%"  onclick="javascript:shareMyLocation()">
+					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  onclick="javascript:shareMyLocation()">
 				</div>
 				</div>
 			</section>
@@ -66,14 +66,16 @@
 	//		alert(name + " / " + date + " / "+ position);
 			
 			if(date == 'null'){
-				$('#t_box00').text("충전중");
+				$('#t_box00').text("충전 중");
 				$('#t_box02').text("아직 출근하지 않았네요~");
 			}else{
+				$('#t_box00').text("근무 중");
 				$('#t_box02').text("출근시간 : "+date);
 				if(position == 'null'){
 					$('#t_box01').text("자리에 앉지 않았네요~");
 				}else{
 					$('#t_box01').text(name+"님의 위치 : "+position);
+					document.getElementById("chatimg").style.display = "block";
 				}
 			}
 			

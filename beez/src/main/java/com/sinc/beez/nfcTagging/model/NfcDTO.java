@@ -4,71 +4,102 @@ public class NfcDTO {
 	String deviceid;
 	String userid;
 	String tagginginfo;
+	String oldtagginginfo;
 	String officefloor;
 	String area;
 	String seatid;
 
 
+	public NfcDTO(String deviceid, String userid, String tagginginfo,
+			String oldtagginginfo, String officefloor, String area,
+			String seatid) {
+		super();
+		this.deviceid = deviceid;
+		this.userid = userid;
+		this.tagginginfo = tagginginfo;
+		this.oldtagginginfo = oldtagginginfo;
+		this.officefloor = officefloor;
+		this.area = area;
+		this.seatid = seatid;
+	}
+
 	@Override
 	public String toString() {
 		return "NfcDTO [deviceid=" + deviceid + ", userid=" + userid
 				+ ", tagginginfo=" + tagginginfo
+				+ ", oldtagginginfo=" + oldtagginginfo
 				+ ", officefloor=" + officefloor + ", area="
 				+ area + ", seatid=" + seatid + "]";
-	}
-
-	public NfcDTO(String deviceID, String userID, String taggingInfo) {
-		super();
-		deviceid = deviceID;
-		userid = userID;
-		tagginginfo = taggingInfo;
-		divideTagInfo();
 	}
 
 	public NfcDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getDeviceID() {
+	public String getDeviceid() {
 		return deviceid;
 	}
 
-	public void setDeviceID(String deviceID) {
-		deviceid = deviceID;
+	public void setDeviceid(String deviceid) {
+		this.deviceid = deviceid;
 	}
 
-	public String getUserID() {
+	public String getUserid() {
 		return userid;
 	}
 
-	public void setUserID(String userID) {
-		userid = userID;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
-	public String getTaggingInfo() {
+	public String getTagginginfo() {
 		return tagginginfo;
 	}
+	public void setTagginginfo(String taggingInfo) {
+		  tagginginfo = taggingInfo;
+		  divideTagInfo();
+		 }
 
-	public void setTaggingInfo(String taggingInfo) {
-		tagginginfo = taggingInfo;
-		divideTagInfo();
+		 private void divideTagInfo() {
+		  if (tagginginfo != null) {
+		   String[] t = tagginginfo.split("-");
+		   officefloor = t[0].replaceAll("F", "");
+		   area = t[1];
+		   seatid = t[2];
+		  }
+		 }
+
+	public String getOldtagginginfo() {
+		return oldtagginginfo;
 	}
 
-	private void divideTagInfo() {
-		if (tagginginfo != null) {
-			String[] t = tagginginfo.split("-");
-			officefloor = t[0].replaceAll("F", "");
-			area = t[1];
-			seatid = t[2];
-		}
+	public void setOldtagginginfo(String oldtagginginfo) {
+		this.oldtagginginfo = oldtagginginfo;
 	}
+
+	public String getOfficefloor() {
+		return officefloor;
+	}
+
+	public void setOfficefloor(String officefloor) {
+		this.officefloor = officefloor;
+	}
+
 	public String getArea() {
 		return area;
 	}
-	public String getOfficeFloor() {
-		return officefloor;
+
+	public void setArea(String area) {
+		this.area = area;
 	}
-	public String getSeatID() {
+
+	public String getSeatid() {
 		return seatid;
 	}
+
+	public void setSeatid(String seatid) {
+		this.seatid = seatid;
+	}
+	
+	
 }
