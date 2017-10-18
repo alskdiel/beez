@@ -27,7 +27,7 @@
 					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  onclick="javascript:shareMyLocation()">
 				</div>
 			</section>
-			<div class="bar_01">
+			<div class="bar_01" onclick="javascript:href_page('bar01');">
 				<p class="sub_img01">
 					<!--이미지-->
 				</p>
@@ -36,12 +36,12 @@
 				</div>
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
-			<div class="bar_02">
+			<div class="bar_02" onclick="javascript:href_page('bar02');">
 				<p class="sub_img02">
 					<!--이미지-->
 				</p>
 				<div class="m_t">
-					<a href="#">전체 좌석 정보</a>
+					<a href="">전체 좌석 정보</a>
 				</div>
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
@@ -58,6 +58,9 @@
 			$('#nav_title').text("SSG BEEZ");
 			sendAndroidMsg("MAINONLOADCALL");
 			setInterval("sendAndroidMsg('MAINONLOADCALL')", 3000);
+			
+			
+			
 		});
 		
 		function setUserStateToWeb(name, date, position){
@@ -80,6 +83,19 @@
 			
 			
 		}
+		
+
+		function href_page(bar){
+			var url;
+			if(bar == 'bar01'){
+				url = '/att/myattend.do';
+			}	
+			if(bar == 'bar02'){
+				url = '/seat/list.do';
+			}
+			location.href=url;
+		}
+		
 		function shareMyLocation(){
 			sendAndroidMsg("KAKAOSHARE");
 		}

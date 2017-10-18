@@ -33,23 +33,45 @@
 	
 	
 	<%@include file="./../include/footer.jsp"%>
-	    
+    
     <link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
     <script src="/resources/js/calendar.js" type="text/javascript"></script>
-    
     <script>
+
+
+	$(document).ready(function() {
     	var data_cal = ${data_cal};
     	var data_cal_yr = ${data_cal_yr}
     	var data_cal_mon = ${data_cal_mon}
-    	
-    	setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
 
-
-		$(document).ready(function() {
-			$('#nav_title').text("나의근태");
+	setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
+		$('#nav_title').text("나의근태");
+		
+		var date = {};
+		date.from = pad(data_cal_mon) + "/01/" + data_cal_yr;
+		date.to = pad((parseInt(data_cal_mon) + 1)) + "/01/" + data_cal_yr;
+		
+		console.log(date);
+		$.ajax({
+			url  : "myattendAjax.do" , 
+			type : "get" , 
+			data : { from: date.from,
+					 to: date.to } ,
+			dataType : "json" , 
+			success : function(data) {
+				console.log(data);
+				data_cal = data.data_cal;
+				
+				data_cal_yr = data.data_cal_yr;
+				data_cal_mon = data.data_cal_mon;
+				
+				setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
+			}
 		});
+	});
     </script>
     
     
+	    
 </body>
 </html>

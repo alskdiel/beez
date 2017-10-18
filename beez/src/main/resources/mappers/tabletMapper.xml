@@ -10,6 +10,7 @@
 				seat_nfc_tag_id, user_id, seated_date, user_leave_yn
   		FROM 	LIST_SEATED_USER_TODAY_VW
   		WHERE	OFFICE_SEQ = #{floor} 
+  		ORDER BY	USER_LEAVE_YN DESC
 	</select>
 	
 </mapper>
