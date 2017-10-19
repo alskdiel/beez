@@ -24,7 +24,9 @@
 					<div id="t_box01">-</div>
 					<div id="t_box02">-</div>
 					
-					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  onclick="javascript:shareMyLocation()">
+					<div onclick="javascript:shareMyLocation()">
+					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
+					</div>
 				</div>
 			</section>
 			<div class="bar_01" onclick="javascript:href_page('bar01');">
@@ -32,7 +34,7 @@
 					<!--이미지-->
 				</p>
 				<div class="m_t">
-					<a href="#">내 근태 정보</a>
+					<a >내 근태 정보</a>
 				</div>
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
@@ -41,7 +43,7 @@
 					<!--이미지-->
 				</p>
 				<div class="m_t">
-					<a href="">전체 좌석 정보</a>
+					<a>전체 좌석 정보</a>
 				</div>
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
@@ -58,9 +60,6 @@
 			$('#nav_title').text("SSG BEEZ");
 			sendAndroidMsg("MAINONLOADCALL");
 			setInterval("sendAndroidMsg('MAINONLOADCALL')", 3000);
-			
-			
-			
 		});
 		
 		function setUserStateToWeb(name, date, position){
@@ -97,6 +96,7 @@
 		}
 		
 		function shareMyLocation(){
+			alert("KAKAO");
 			sendAndroidMsg("KAKAOSHARE");
 		}
 		</script>
