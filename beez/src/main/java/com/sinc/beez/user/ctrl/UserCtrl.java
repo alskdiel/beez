@@ -1,6 +1,7 @@
 package com.sinc.beez.user.ctrl;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -36,23 +37,36 @@ public class UserCtrl {
 	
 	@RequestMapping("/search.do")
 	@ResponseBody
-	public UserVO search(UserVO userToSearch) {			// user_id should be in params
+	public Map<Object, Object> search(UserVO userToSearch) {			// user_id should be in params
 		System.out.println("/user/search.do");
 		
-		UserVO ret = (UserVO)service.getUserSeat(userToSearch); 
+		Map<Object, Object> ret = (Map<Object, Object>) service.getUserSeat(userToSearch); 
 		
 		return ret;
 	}
 
+	/*
 	@RequestMapping("/finduser.do")
 	@ResponseBody
 	public ArrayList<UserVO> findUserByName(UserVO userToSearch) {
 		System.out.println("/user/finduser.do");
 
 		ArrayList<UserVO> list = (ArrayList) service.getUserByName(userToSearch);
-		
+
 		return list;
 	}
+	*/
+	
+	@RequestMapping("/finduser.do")
+	@ResponseBody
+	public Map<Object, Object> findUserByName(UserVO userToSearch) {
+		System.out.println("/user/finduser.do");
+
+		Map<Object, Object> ret = (Map<Object, Object>) service.getUserSeatByName(userToSearch); 
+
+		return ret;
+	}
+
 	
 	@RequestMapping("/myteam.do")
 	@ResponseBody
@@ -62,7 +76,7 @@ public class UserCtrl {
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908v4");
+		current_user.setUser_id("p908vd");
 		/**********************************/
 		
 		ArrayList<UserVO> list = (ArrayList) service.getUserTeamList(current_user);

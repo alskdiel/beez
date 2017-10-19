@@ -6,7 +6,7 @@
 <mapper namespace="com.sinc.beez.mapper.user">
 	
 	<select id="teamlist" parameterType="user" resultType="user">
-		SELECT  USER_ID
+		SELECT  USER_ID, USER_NAME
 		FROM    USER_TB
 		WHERE   DEPT_ID = 
 					   (SELECT  DEPT_ID

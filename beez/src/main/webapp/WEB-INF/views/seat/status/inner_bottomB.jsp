@@ -22,4 +22,7 @@
 		<td id="<%= seat_no++ %>"></td>
 		<td id="<%= seat_no++ %>"></td>
 	</tr>
+	<tr>
+		<td class="blank"></td>
+	</tr>
 </table>

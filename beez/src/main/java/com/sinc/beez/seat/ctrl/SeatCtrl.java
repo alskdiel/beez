@@ -32,13 +32,20 @@ public class SeatCtrl {
 		
 		List<Object> seatlist = service.seatList();
 	    
-		for(int i=0; i<seatlist.size(); i++) {
-			System.out.println(seatlist.get(i));
-		}
+		
 		JSONArray list = new JSONArray(seatlist);
 		model.addAttribute("tmp", list);
 		
 		return "/seat/status";
+	}
+	
+	@RequestMapping("/listAjax.do")
+	@ResponseBody
+	public List<Object> statusAjax(Model model) {
+		
+		List<Object> seatlist = service.seatList();
+	    
+		return seatlist;
 	}
 	
 	@RequestMapping("/seatstat.do")
