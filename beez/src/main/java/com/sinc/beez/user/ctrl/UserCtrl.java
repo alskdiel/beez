@@ -39,8 +39,11 @@ public class UserCtrl {
 	@ResponseBody
 	public Map<Object, Object> search(UserVO userToSearch) {			// user_id should be in params
 		System.out.println("/user/search.do");
+		Map<Object, Object> ret = null;
 		
-		Map<Object, Object> ret = (Map<Object, Object>) service.getUserSeat(userToSearch); 
+		try {
+			ret = (Map<Object, Object>) service.getUserSeat(userToSearch); 
+		} catch(Exception e) {}
 		
 		return ret;
 	}
@@ -62,8 +65,12 @@ public class UserCtrl {
 	public Map<Object, Object> findUserByName(UserVO userToSearch) {
 		System.out.println("/user/finduser.do");
 
-		Map<Object, Object> ret = (Map<Object, Object>) service.getUserSeatByName(userToSearch); 
-
+		Map<Object, Object> ret = null;
+		
+		try {
+			ret = (Map<Object, Object>) service.getUserSeatByName(userToSearch); 
+		} catch(Exception e) {}
+		
 		return ret;
 	}
 

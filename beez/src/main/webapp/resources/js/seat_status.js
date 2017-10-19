@@ -74,7 +74,6 @@ var current = {};
 var flag = false;
 
 $(".carousel").bind('touchstart', function(e) {
-	console.log("xxxxx");
 	if(event.touches[0].pageX > 40) {
 		flag = true;
 		prev.x = event.touches[0].pageX;
@@ -84,7 +83,6 @@ $(".carousel").bind('touchstart', function(e) {
 });
 
 $(".carousel").bind('touchmove', function(e) {
-	console.log("yyyy");
 	if(flag) {
 		var event = e.originalEvent;
 		current.x = event.touches[0].pageX;			
@@ -181,6 +179,7 @@ function searchUserSeatById(user_id) {
 			console.log(data);
 			resetStatus();
 			takeElavatorWithOfficeSeq(data.floor);
+			showSearchResult(data)
 		}
 	});
 }
