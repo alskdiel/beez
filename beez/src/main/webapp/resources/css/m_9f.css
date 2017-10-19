@@ -99,6 +99,19 @@ header.main-header {
 	font-size: 14px;
 }
 
+.my-modal table tbody .user-leave-yn {
+	width: 10px;
+	height: 10px;
+	background: #dedede;
+	border-radius: 10px;
+}
+
+
+.my-modal table tbody .user-leave-yn.y {
+	background: green;
+}
+
+
 .filter-container .input-container {
 	width: 100px;
 }
@@ -199,3 +212,4 @@ header.main-header {
 .floor table.inner tr td.inuse {
 	background-image: url(../../img/f_box02.png);
 }
+

@@ -251,12 +251,19 @@ function writeTeamList(teammates) {
 	for(var i=0; i<teammates.length; i++) {
 		var user_id = teammates[i].user_id;
 		var user_name = teammates[i].user_name;
+		var user_seat = teammates[i].seat;
+		
+		var td_seat_status = "<div class='user-leave-yn'></div>";
+		if(user_seat) {
+			td_seat_status = "<div class='user-leave-yn y'></div>";
+		}
 		
 		//onclick="getCalendar(\'' + prevDate + '\')"
 		
 		html += "<tr onclick='searchUserSeatById(\"" + user_id + "\")'>"
 			  + "<td>" + user_id + "</td>"
 			  + "<td>" + user_name + "</td>"
+			  + "<td>" + td_seat_status + "</td>"
 			  + "</tr>";
 	}
 	

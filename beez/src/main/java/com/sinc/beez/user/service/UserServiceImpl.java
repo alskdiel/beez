@@ -1,5 +1,6 @@
 package com.sinc.beez.user.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -93,8 +94,23 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Object> getUserTeamList(Object obj) {
+		List<Object> list = userDao.userTeamListRow(obj);
+		List<Object> ret = new ArrayList<Object>();
 		
-		return userDao.userTeamListRow(obj);
+		for(int i=0; i<list.size(); i++) {
+			Map<Object, Object> tmp = new HashMap<Object, Object>();
+			UserVO user = (UserVO)list.get(i);
+
+			tmp.put("user_id", user.getUser_id());
+			tmp.put("user_name", user.getUser_name());
+			
+			if((SeatVO) seatDao.seatRow(user) != null) {
+				tmp.put("seat", true);
+			}
+			
+			ret.add(tmp);
+		}
+		return ret;
 	}
 
 	@Override

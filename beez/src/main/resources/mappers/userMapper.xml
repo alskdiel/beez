@@ -12,6 +12,7 @@
 					   (SELECT  DEPT_ID
 						FROM    USER_TB
 						WHERE   USER_ID = #{user_id})
+		AND		USER_ID != #{user_id}
 	</select>
 
 	<select id="userbyname" parameterType="user" resultType="user">

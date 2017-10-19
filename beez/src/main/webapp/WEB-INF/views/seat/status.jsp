@@ -58,6 +58,7 @@
 								<tr>
 									<td>사번</td>
 									<td>이름</td>
+									<td></td>
 								</tr>
 							</thead>
 							<tbody>
