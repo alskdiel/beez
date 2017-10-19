@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="floor 14f" id="floor-14">
 	<div class="floor-container">
-		<div>
+		<div style="width: 100%; text-align: center; font-size: 12pt">
 			<span>14층</span>
 		</div>
 
