@@ -4,32 +4,51 @@ import com.sinc.beez.office.model.vo.OfficeVO;
 
 public class SeatVO {
     	
-	private String seat_id, seat_real_location,
+	private String office_seq, seat_id, seat_real_location,
 	        seat_useable_state,seat_nfc_tag_id;
      
 	private OfficeVO office;
 	
 	
-	@Override
-	public String toString() {
-		return "SeatVO [seat_id=" + seat_id + ", seat_real_location="
-				+ seat_real_location + ", seat_useable_state="
-				+ seat_useable_state + ", seat_nfc_tag_id="
-				+ seat_nfc_tag_id + "]";
+	public SeatVO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public SeatVO(String seat_id, String seat_real_location,
-			String seat_useable_state, String seat_nfc_tag_id) {
+	@Override
+	public String toString() {
+		return "SeatVO [office_seq=" + office_seq + ", seat_id=" + seat_id
+				+ ", seat_real_location=" + seat_real_location
+				+ ", seat_useable_state=" + seat_useable_state
+				+ ", seat_nfc_tag_id=" + seat_nfc_tag_id + ", office=" + office
+				+ "]";
+	}
+
+	public String getOffice_seq() {
+		return office_seq;
+	}
+
+	public void setOffice_seq(String office_seq) {
+		this.office_seq = office_seq;
+	}
+
+	public OfficeVO getOffice() {
+		return office;
+	}
+
+	public void setOffice(OfficeVO office) {
+		this.office = office;
+	}
+
+	public SeatVO(String office_seq, String seat_id, String seat_real_location,
+			String seat_useable_state, String seat_nfc_tag_id, OfficeVO office) {
 		super();
+		this.office_seq = office_seq;
 		this.seat_id = seat_id;
 		this.seat_real_location = seat_real_location;
 		this.seat_useable_state = seat_useable_state;
 		this.seat_nfc_tag_id = seat_nfc_tag_id;
-	}
-
-	public SeatVO() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.office = office;
 	}
 
 	public String getSeat_id() {

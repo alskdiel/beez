@@ -1,7 +1,9 @@
 package com.sinc.beez.user.service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -83,7 +85,12 @@ public class UserServiceImpl implements UserService{
 		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
 		((UserVO)obj).setSeat((SeatVO)seatDao.seatRow(obj));
 		
-		return obj;
+		Map<Object, Object> ret = new HashMap<Object, Object>();
+		
+		ret.put("floor", ((UserVO)obj).getSeat().getOffice_seq());
+		ret.put("seat_id", ((UserVO)obj).getSeat().getSeat_id());
+		
+		return ret;
 	}
 
 	@Override
@@ -112,6 +119,25 @@ public class UserServiceImpl implements UserService{
 		return list;
 	}
 
+	public Object getUserSeatByName(Object obj) {
+		System.out.println("UserService getUserSeat");
+		
+		List<Object> list = userDao.getUserByNameRow(obj);
+		
+		UserVO tmp = (UserVO)(list.get(0));
+		SeatVO tmp2 = (SeatVO)(seatDao.seatRow(tmp));
+		
+		Map<Object, Object> ret = new HashMap<Object, Object>();
+		
+		ret.put("floor", tmp2.getOffice_seq());
+		ret.put("seat_id", tmp2.getSeat_id());
+		
+		return ret;
+	}
+	
+	
+	
+	
 	/*
 	@Override
 	public Object getUserById(Object obj) {

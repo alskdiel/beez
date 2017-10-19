@@ -2,6 +2,9 @@ package com.sinc.beez.user.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
+import com.sinc.beez.user.model.vo.UserVO;
 
 
 public interface UserService{
@@ -22,5 +25,6 @@ public interface UserService{
 
 	public List<Object> getUserByName(Object obj);
 	//public Object getUserById(Object obj);
+	public Object getUserSeatByName(Object obj);
 	
 }

@@ -51,6 +51,62 @@ header.main-header {
 	margin-top: 50px;
 }
 
+.filter-container {
+	padding: 15px;
+}
+.filter-container .search, .my-team, .refresh {
+	display: inline-block;
+	vertical-align: top; /* here */
+	padding: 0px 5px;
+}
+
+.filter-container .refresh {
+	float: right;
+}
+
+.filter-container i {
+	font-size: 20px;
+}
+
+.my-modal {
+	width: calc(100% - 100px);
+	margin: 0px 50px;
+	border: 1px solid #000;
+	z-index: 5;
+	background: #FFF;
+	position: absolute;
+	height: 300px;
+	display: none;
+}
+
+.my-modal .modal-header div {
+	display: inline-block;
+}
+
+.my-modal .modal-header div:nth-child(2) {
+	float: right;
+}
+
+.my-modal .modal-content {
+	padding: 15px;
+}
+
+.my-modal table {
+	width: 100%;
+	line-height: 35px;
+}
+.my-modal table thead, tbody {
+	font-size: 14px;
+}
+
+.filter-container .input-container {
+	width: 100px;
+}
+
+.filter-container .input-container, .icon-container, .team-container, .toggle-container {
+	display: inline-block;
+}
+
 .floor .floor-container .nav-tabs {
 	width: 100%;
 	border: none;
@@ -94,6 +150,10 @@ header.main-header {
 	width: 100%;
 }
 
+.floor table.outer {
+	min-height: 540px !important;
+}
+
 .floor table.outer tr {
 	width: 100%;
 }
@@ -114,49 +174,28 @@ header.main-header {
 .floor table.inner tr td {
 	width: 25%;
 	background: #FFF;
-	border: 1px solid #ff6813;
+	background-image: url(../../img/f_box.png);
 	
 	height: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow-y:hidden;
+	overflow-x:hidden;
 }
 
 .floor table.inner tr td.available {
-	background: #FFF;
+	background-image: url(../../img/f_box.png);
+}
+
+.floor table.inner tr td.blank {
+	background-image: none;
 }
 
 .floor table.inner tr td.disabled {
-	background: red;
+	background-image: url(../../img/f_box03.png);
+
 }
 
 .floor table.inner tr td.inuse {
-	background: blue;
+	background-image: url(../../img/f_box02.png);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
