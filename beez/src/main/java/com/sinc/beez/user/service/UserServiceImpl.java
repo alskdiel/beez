@@ -61,7 +61,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getState(Object obj) {
-		System.out.println("UserService getState");
 		
 		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
 		
@@ -80,7 +79,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getUserSeat(Object obj) {
-		System.out.println("UserService getUserSeat");
 		
 		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
 		((UserVO)obj).setSeat((SeatVO)seatDao.seatRow(obj));
@@ -95,7 +93,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Object> getUserTeamList(Object obj) {
-		System.out.println("UserService getUserTeamList");
 		
 		return userDao.userTeamListRow(obj);
 	}
@@ -108,7 +105,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Object> getUserByName(Object obj) {
-		System.out.println("UserService getUserByName");
 		
 		List<Object> list = userDao.getUserByNameRow(obj);
 		
@@ -120,7 +116,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public Object getUserSeatByName(Object obj) {
-		System.out.println("UserService getUserSeat");
 		
 		List<Object> list = userDao.getUserByNameRow(obj);
 		

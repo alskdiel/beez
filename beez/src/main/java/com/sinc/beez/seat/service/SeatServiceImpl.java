@@ -26,10 +26,8 @@ public class SeatServiceImpl implements SeatService{
 	
 	@Override
 	public List<Object> seatList() {
-		System.out.println("Service seatListService");
 		
 		List<Object> officeList = dao.officeListRow();
-		System.out.println(officeList);
 		
 		List<Object> ret = new ArrayList<Object>();
 		
@@ -97,7 +95,6 @@ public class SeatServiceImpl implements SeatService{
 
 	@Override
 	public List<Object> seatHistoryList(Object currentUser, Object pagingDTO, Object type, Object params) {
-		System.out.println("Service seatHistoryList");
 		
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("user_id", ((UserVO)currentUser).getUser_id());
@@ -140,7 +137,6 @@ public class SeatServiceImpl implements SeatService{
 	
 	@Override
 	public int getCount(Object obj, Object type, Object params) {
-		System.out.println("Service getCount");
 		
 		if(type.equals("date")) {
 			String[] dates = ((String)params).split("-");

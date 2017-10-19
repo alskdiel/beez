@@ -1,8 +1,7 @@
 var data_cal;
 function setCalData(data_cal, date) {
 	this.data_cal = data_cal;
-	console.log(data_cal);
-	console.log(date);
+
 	
 	drawCalendar(date);
 }
@@ -17,7 +16,6 @@ function getCalendar(date_to_get) {
 	date.from = pad(to_send[1]) + "/01/" + to_send[0];
 	date.to = pad((parseInt(to_send[1]) + 1)) + "/01/" + to_send[0];
 	
-	console.log(date);
 	
 	$.ajax({
 		url  : "myattendAjax.do" , 
@@ -26,7 +24,6 @@ function getCalendar(date_to_get) {
 				 to: date.to } ,
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			data_cal = data.data_cal;
 			
 			data_cal_yr = data.data_cal_yr;

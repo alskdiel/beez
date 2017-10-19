@@ -20,14 +20,12 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<Object> userTeamListRow(Object obj) {
-		System.out.println("UserDao userTeamListRow");
 		
 		return session.selectList(USERPREFIX + "teamlist", obj);
 	}
 
 	@Override
 	public List<Object> getUserByNameRow(Object obj) {
-		System.out.println("UserDao getUserByName");
 		
 		return session.selectList(USERPREFIX + "userbyname", obj);
 	}
@@ -35,7 +33,6 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public Object getUserByIDRow(Object obj) {
-		System.out.println("UserDao getUserById");
 		
 		return session.selectOne(USERPREFIX + "userbyid", obj);
 	}

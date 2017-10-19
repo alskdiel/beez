@@ -14,7 +14,6 @@ var pageNo = {
 		"date": 1
 };
 
-console.log(pageNo);
 
 var endPageNo = {
 		"all": 4,
@@ -26,7 +25,6 @@ var filterType = "all";
 var stored_filterType = "all";
 
 function getMoreData() {
-	console.log(stored_filterType);
 	if(pageNo[stored_filterType] <= endPageNo[stored_filterType]) {
 		var params;
 		if(stored_filterType == "all") {
@@ -37,7 +35,6 @@ function getMoreData() {
 		} else {
 			params = $("#entered-loc").val();
 		}
-		console.log(pageNo);
 
 		$.ajax({
 			url  : "myseatajax.do" , 
@@ -52,8 +49,6 @@ function getMoreData() {
 				renderData(data.list);
 			}
 		});
-	} else {
-		console.log('data end');
 	}	
 }
 

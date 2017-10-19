@@ -20,7 +20,6 @@ public class SeatDaoImpl implements SeatDao {
 	
 	@Override
 	public List<Object> seatListRow(Object obj) {	// obj: officeVO
-	    System.out.println("Dao seatListRow");
 	    
 	    return session.selectList(SEATPREFIX+"seatlist");
 	}
@@ -38,21 +37,18 @@ public class SeatDaoImpl implements SeatDao {
 
 	@Override
 	public Object seatRow(Object obj) {
-		System.out.println("SeatDao userSeatRow");
 		
 		return session.selectOne(SEATPREFIX + "seat", obj);
 	}
 
 	@Override
 	public List<Object> seatHistoryListRow(Object obj) {
-		System.out.println("SeatDao seatHistoryListRow");
 		
 		return session.selectList(SEATPREFIX + "history", obj);
 	}
 	
 	@Override
 	public int getCountRow(Object obj) {
-		System.out.println("SeatDao getCountRow");
 		
 		return session.selectOne(SEATPREFIX + "cnt", obj);
 	}
@@ -67,7 +63,6 @@ public class SeatDaoImpl implements SeatDao {
 
 	@Override
 	public int getCountRowDate(Object obj) {
-		System.out.println("getCountRowDate");
 		
 		return session.selectOne(SEATPREFIX + "cntDate", obj);
 	}

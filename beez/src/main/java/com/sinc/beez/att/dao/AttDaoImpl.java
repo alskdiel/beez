@@ -17,7 +17,6 @@ public class AttDaoImpl implements AttDao {
 	
 	@Override
 	public Object attArivalRow(Object obj) {
-		System.out.println("AttrDao userAttArivalRow");
 		
 		return session.selectOne(ATTPREFIX + "arrival", obj);
 	}

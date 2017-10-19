@@ -50,7 +50,6 @@
 	date.from = pad(data_cal_mon) + "/01/" + data_cal_yr;
 	date.to = pad((parseInt(data_cal_mon) + 1)) + "/01/" + data_cal_yr;
 	
-	console.log(date);
 	$.ajax({
 		url  : "myattendAjax.do" , 
 		type : "get" , 
@@ -58,7 +57,6 @@
 				 to: date.to } ,
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			data_cal = data.data_cal;
 			
 			data_cal_yr = data.data_cal_yr;
