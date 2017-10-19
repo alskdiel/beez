@@ -68,6 +68,10 @@ public class AttendCtrl {
 		
 		
 		Map<Object, Object> map = (HashMap)service.attAjaxList(current_user, date);
+		System.out.println("xxxxxxxxxxxxxx");
+		System.out.println(map);
+		System.out.println("xxxxxxxxxxxxxx");
+		
 		Map<Object, Object> ret = new HashMap<Object, Object>();
 		ret.put("data_cal", map);
 		
