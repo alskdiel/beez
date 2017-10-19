@@ -119,7 +119,6 @@ $(".carousel").bind('touchend', function(e) {
 });
 
 $(".nav.nav-tabs li").on("click", function() {
-	console.log(this);
 	var $tab = $(this);
 	var floor = $(this).parent().parent().parent().attr("id");
 	
@@ -163,7 +162,6 @@ function getCurrentStatus() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			refresh(data);
 		}
 	});
@@ -176,7 +174,6 @@ function searchUserSeatById(user_id) {
 		data : { user_id : user_id } ,
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			resetStatus();
 			takeElavatorWithOfficeSeq(data.floor);
 			showSearchResult(data)
@@ -227,7 +224,6 @@ function getTeamMates() {
 		dataType : "json" , 
 		success : function(data) {
 			$(".my-modal").css("display", "block");
-			console.log(data);
 			writeTeamList(data);
 		}
 	});
@@ -240,7 +236,6 @@ function searchUserByName(user_name) {
 		data : { user_name: user_name },
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			
 			resetStatus();
 			showSearchResult(data);
@@ -256,12 +251,19 @@ function writeTeamList(teammates) {
 	for(var i=0; i<teammates.length; i++) {
 		var user_id = teammates[i].user_id;
 		var user_name = teammates[i].user_name;
+		var user_seat = teammates[i].seat;
+		
+		var td_seat_status = "<div class='user-leave-yn'></div>";
+		if(user_seat) {
+			td_seat_status = "<div class='user-leave-yn y'></div>";
+		}
 		
 		//onclick="getCalendar(\'' + prevDate + '\')"
 		
 		html += "<tr onclick='searchUserSeatById(\"" + user_id + "\")'>"
 			  + "<td>" + user_id + "</td>"
 			  + "<td>" + user_name + "</td>"
+			  + "<td>" + td_seat_status + "</td>"
 			  + "</tr>";
 	}
 	

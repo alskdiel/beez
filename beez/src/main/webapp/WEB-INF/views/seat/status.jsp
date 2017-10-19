@@ -58,6 +58,7 @@
 								<tr>
 									<td>사번</td>
 									<td>이름</td>
+									<td></td>
 								</tr>
 							</thead>
 							<tbody>
@@ -107,14 +108,10 @@
     	var seat_status = ${tmp};
     	$(document).on("ready", function() {
     		setStatus(seat_status);
-    		console.log(seat_status);
     		$('#nav_title').text("좌석 현황");
     	});
 		
-    	$(".user-row").on("click", function() {
-    		console.log("xxxxx");
-    	});
-
+    	
     </script>
 </body>
 </html>

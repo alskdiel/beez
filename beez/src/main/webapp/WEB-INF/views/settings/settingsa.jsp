@@ -11,33 +11,37 @@
 
 	<div class="wrapper">
 		<%@include file="../include/header.jsp"%>
-		<div align="center">
-			알림설정
-			<hr>
-		</div>
+		 <div class="i_box">
+            <p class="icon_boc_i"></p>
+            <h2>알림설정</h2>
+        </div>
+			
+
 		<div class="content-wrapper">
-			출퇴근 PUSH 알림 받기
+		  <ul>
+		  <li class="chec_1">출퇴근 PUSH 알림 받기
 			<!-- checked data-toggle="toggle"  -->
-			<input type="checkbox" checked data-toggle="toggle"
-				id="AttPushSettings" name="AttPushSettings" />
-
-			<hr>
-			좌석 PUSH 알림 받기 <input type="checkbox" checked data-toggle="toggle"
-				id="SeatPushSettings" name="SeatPushSettings">
-			<hr>
-			SSG KEY 사용하기 <input type="checkbox" checked data-toggle="toggle"
-				id="SSGkeySettings" name="SSGkeySettings">
-			<hr>
-			<a href="javascript:sendAndroidMsg('SSGKEYSETTING');"
-				style="color: black"> SSG KEY 노트북 설정하기 </a>
-			<hr>
-
+			<input type="checkbox" class="putcon" checked data-toggle="toggle"
+				id="AttPushSettings" name="AttPushSettings" /></li>
+		  <li class="chec">좌석 PUSH 알림 받기
+		    <input type="checkbox" checked data-toggle="toggle"
+				id="SeatPushSettings" name="SeatPushSettings"></li>
+		  <li class="chec">SSG KEY 사용하기
+		  <input type="checkbox" checked data-toggle="toggle"
+				id="SSGkeySettings" name="SSGkeySettings"></li>
+		  <li class="chec_2">
+			<a href="javascript:sendAndroidMsg('SSGKEYSETTING');"> SSG KEY 노트북 설정하기 </a>
+          </li>
+        </ul>
 
 		</div>
 
 	</div>
 
+
 	<%@include file="./../include/footer.jsp"%>
+
+	<link rel="stylesheet" href="../../../resources/css/settings.css" />
 
 	<link
 		href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"

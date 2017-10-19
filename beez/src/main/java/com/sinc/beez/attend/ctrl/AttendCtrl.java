@@ -25,7 +25,6 @@ public class AttendCtrl {
 	
 	@RequestMapping("/myattend.do")
 	public String calendar(Model model) {
-		System.out.println("AttendCtrl calendar");
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
@@ -34,7 +33,6 @@ public class AttendCtrl {
 		Map<String, Map> list = new HashMap<String, Map>();
 		try{
 		list = (HashMap)service.attList(current_user);
-		System.out.println(list);
 		
 		}catch(Exception e ){
 			
@@ -53,7 +51,6 @@ public class AttendCtrl {
 	@RequestMapping("/myattendAjax.do")
 	@ResponseBody
 	public Map<Object, Object> calendarAjax(Model model, HttpServletRequest request) {
-		System.out.println("AttendCtrl calendar");
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
@@ -68,9 +65,7 @@ public class AttendCtrl {
 		
 		
 		Map<Object, Object> map = (HashMap)service.attAjaxList(current_user, date);
-		System.out.println("xxxxxxxxxxxxxx");
-		System.out.println(map);
-		System.out.println("xxxxxxxxxxxxxx");
+
 		
 		Map<Object, Object> ret = new HashMap<Object, Object>();
 		ret.put("data_cal", map);
@@ -84,7 +79,6 @@ public class AttendCtrl {
 	
 	@RequestMapping("/myattstat.do")
 	public String main() {
-		System.out.println("AttendCtrl statistics");
 		
 		return "attend/statistics";
 	}

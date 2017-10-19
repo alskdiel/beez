@@ -99,6 +99,19 @@ header.main-header {
 	font-size: 14px;
 }
 
+.my-modal table tbody .user-leave-yn {
+	width: 10px;
+	height: 10px;
+	background: #dedede;
+	border-radius: 10px;
+}
+
+
+.my-modal table tbody .user-leave-yn.y {
+	background: green;
+}
+
+
 .filter-container .input-container {
 	width: 100px;
 }
@@ -174,7 +187,7 @@ header.main-header {
 .floor table.inner tr td {
 	width: 25%;
 	background: #FFF;
-	background-image: url(../../img/f_box.png);
+	background-image: url(/resources/images/f_box.png);
 	
 	height: 50px;
 	background-repeat: no-repeat;
@@ -184,7 +197,7 @@ header.main-header {
 }
 
 .floor table.inner tr td.available {
-	background-image: url(../../img/f_box.png);
+	background-image: url(/resources/images/f_box.png);
 }
 
 .floor table.inner tr td.blank {
@@ -192,10 +205,11 @@ header.main-header {
 }
 
 .floor table.inner tr td.disabled {
-	background-image: url(../../img/f_box03.png);
+	background-image: url(/resources/images/f_box03.png);
 
 }
 
 .floor table.inner tr td.inuse {
-	background-image: url(../../img/f_box02.png);
+	background-image: url(/resources/images/f_box02.png);
 }
+

@@ -22,23 +22,19 @@ public class UserCtrl {
 	@RequestMapping("/status.do")
 	@ResponseBody
 	public String status() {
-		System.out.println("/user/status.do");
 		
 		/**********************************/
 		// current_user = session.getUserVO
 		UserVO current_user = new UserVO();
 		current_user.setUser_id("p908vd");
 		/**********************************/
-		
-		System.out.println(service.getState(current_user));
-		
+				
 		return null;
 	}
 	
 	@RequestMapping("/search.do")
 	@ResponseBody
 	public Map<Object, Object> search(UserVO userToSearch) {			// user_id should be in params
-		System.out.println("/user/search.do");
 		Map<Object, Object> ret = null;
 		
 		try {
@@ -63,7 +59,6 @@ public class UserCtrl {
 	@RequestMapping("/finduser.do")
 	@ResponseBody
 	public Map<Object, Object> findUserByName(UserVO userToSearch) {
-		System.out.println("/user/finduser.do");
 
 		Map<Object, Object> ret = null;
 		
@@ -78,7 +73,6 @@ public class UserCtrl {
 	@RequestMapping("/myteam.do")
 	@ResponseBody
 	public ArrayList<UserVO> getUserTeam() {
-		System.out.println("/user/myteam.do");
 		
 		/**********************************/
 		// current_user = session.getUserVO

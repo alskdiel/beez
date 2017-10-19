@@ -57,13 +57,11 @@ public class AttServiceImpl implements AttService {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("user_id", ((UserVO)currentUser).getUser_id());
 		
-		System.out.println(date);
 		
 		map.put("from", ((HashMap)date).get("from"));
 		map.put("to", ((HashMap)date).get("to"));
 		
 		List<Object> list = dao.attListRow(map);
-		System.out.println(list);
 		//List<Object> ret = new ArrayList<Object>();
 		Map<Object, Object> ret = new HashMap<Object, Object>();
 

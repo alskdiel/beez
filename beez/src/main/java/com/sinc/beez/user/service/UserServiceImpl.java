@@ -1,5 +1,6 @@
 package com.sinc.beez.user.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -61,7 +62,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getState(Object obj) {
-		System.out.println("UserService getState");
 		
 		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
 		
@@ -80,7 +80,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Object getUserSeat(Object obj) {
-		System.out.println("UserService getUserSeat");
 		
 		((UserVO)obj).setUser_name(((UserVO)userDao.getUserByIDRow(obj)).getUser_name());
 		((UserVO)obj).setSeat((SeatVO)seatDao.seatRow(obj));
@@ -95,9 +94,23 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Object> getUserTeamList(Object obj) {
-		System.out.println("UserService getUserTeamList");
+		List<Object> list = userDao.userTeamListRow(obj);
+		List<Object> ret = new ArrayList<Object>();
 		
-		return userDao.userTeamListRow(obj);
+		for(int i=0; i<list.size(); i++) {
+			Map<Object, Object> tmp = new HashMap<Object, Object>();
+			UserVO user = (UserVO)list.get(i);
+
+			tmp.put("user_id", user.getUser_id());
+			tmp.put("user_name", user.getUser_name());
+			
+			if((SeatVO) seatDao.seatRow(user) != null) {
+				tmp.put("seat", true);
+			}
+			
+			ret.add(tmp);
+		}
+		return ret;
 	}
 
 	@Override
@@ -108,7 +121,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Object> getUserByName(Object obj) {
-		System.out.println("UserService getUserByName");
 		
 		List<Object> list = userDao.getUserByNameRow(obj);
 		
@@ -120,7 +132,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public Object getUserSeatByName(Object obj) {
-		System.out.println("UserService getUserSeat");
 		
 		List<Object> list = userDao.getUserByNameRow(obj);
 		
