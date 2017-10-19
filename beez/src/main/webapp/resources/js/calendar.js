@@ -128,7 +128,7 @@ function drawCalendar(date) {
 						  +				data_cal[dateNum].arrive
 						  + 		"</div>"
 						  + 		"<div class='leave'>"
-						  +				data_cal[dateNum].leave
+						  +				(data_cal[dateNum].leave? data_cal[dateNum].leave: "")
 						  + 		"</div>"
 			}
 						  + 	"</div>"
