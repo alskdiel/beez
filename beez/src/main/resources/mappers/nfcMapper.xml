@@ -8,7 +8,7 @@
 		INSERT  INTO    USER_SEAT_TB
 		    VALUES (#{userid}, #{seatid},
 			(SELECT OFFICE_SEQ FROM OFFICE_TB WHERE FLOOR_NUM = #{officefloor})
-		, SYSDATE, 'N')
+		, SYSDATE, 'N' , NULL, SYSDATE)
 	</insert>
 	<update id="seatTouchUpdate" parameterType="nfcdto">
 		UPDATE	USER_SEAT_TB
@@ -21,7 +21,7 @@
 		INSERT  INTO    USER_SEAT_TB
 		    VALUES (#{userid}, #{seatid},
 			(SELECT OFFICE_SEQ FROM OFFICE_TB WHERE FLOOR_NUM = #{officefloor})
-		, SYSDATE, 'N')
+		, SYSDATE, 'N', NULL, SYSDATE)
 	</insert>
 	<!-- <select id="getBeaconInfoAll" resultType="beaconoffice">
 		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME

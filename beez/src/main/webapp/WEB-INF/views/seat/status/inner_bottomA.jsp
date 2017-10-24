@@ -11,6 +11,7 @@
 			class="btn"
 			 data-container="body"
 				data-toggle="popover" data-placement="top"
+				
 				></div>
 		</td>
 		<td id="<%=seat_no++%>"></td>

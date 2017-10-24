@@ -154,7 +154,7 @@
 		            FROM    USER_SEAT_TB US
 		            JOIN    SEAT_TB      S   ON(S.OFFICE_SEQ = US.OFFICE_SEQ AND S.SEAT_ID = US.SEAT_ID)
 		            WHERE   USER_ID = #{user_id}
-		            AND     TO_DATE(SEATED_DATE,'YYYY-MM-DD') <![CDATA[>]]>= TO_DATE(CURRENT_DATE,'YYYY-MM-DD') - 365
+		            AND     TO_DATE(SEATED_DATE,'YYYY-MM-DD') <![CDATA[>=]]> TO_DATE(CURRENT_DATE,'YYYY-MM-DD') - 365
 		        )
 		        GROUP BY    TTSEAT
 		        HAVING      COUNT(TTSEAT) <![CDATA[>]]> 1
@@ -163,6 +163,32 @@
 		)
 		WHERE RK <![CDATA[<=]]>  5
 	</select>
+	<select id="getOurSeatAvgTimeTopTen" resultType="java.util.Map">
+	SELECT TITLE, RES
+	FROM
+	(
+	    SELECT TITLE, RES, ROWNUM RN
+	    FROM
+	    (
+	        SELECT SEAT_NFC_TAG_ID AS TITLE, 
+	                to_char(trunc(AVG_SEC/3600),'fm999999990')||':'||
+	                to_char(trunc(mod(AVG_SEC,3600)/60),'fm00')||':'||
+	                to_char(mod(AVG_SEC,60),'fm00') res
+	        FROM
+	        (
+	            SELECT  S.SEAT_NFC_TAG_ID,  AVG(to_number(substr(TO_CHAR(CHARTONLYDATE, 'HH24:MI:SS'),1,2) ) * 3600 
+	            + to_number(substr(TO_CHAR(CHARTONLYDATE, 'HH24:MI:SS'),4,2) ) * 60
+	            + to_number(substr(TO_CHAR(CHARTONLYDATE, 'HH24:MI:SS'),7,2) )) AS AVG_SEC
+	            FROM    USER_SEAT_TB    US
+	            JOIN    SEAT_TB         S   ON  (US.SEAT_ID = S.SEAT_ID AND US.OFFICE_SEQ = S.OFFICE_SEQ)
+	            WHERE   TO_DATE(SEATED_DATE, 'YYYY-MM-DD')  <![CDATA[>=]]> TO_DATE(CURRENT_DATE,'YYYY-MM-DD')-100
+	            GROUP   BY  SEAT_NFC_TAG_ID
+	        )
+	        ORDER BY AVG_SEC ASC
+	    )
+	)
+	WHERE RN  <![CDATA[<]]> 11
 	
+	</select>
 </mapper>
 
