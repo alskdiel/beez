@@ -22,8 +22,10 @@
 	</select>
 	
 	<select id="userbyid" parameterType="user" resultType="user">
-		SELECT  USER_NAME, USER_ID
-		FROM    USER_TB
+		
+		SELECT  USER_ID, USER_NAME, DEPT_NAME
+		FROM    USER_TB U
+		JOIN    DEPT_TB D   ON(U.DEPT_ID = D.DEPT_ID)
 		WHERE   USER_ID = #{user_id}
 	</select>
 	
