@@ -1,0 +1,60 @@
+.content-wrapper {
+	background: #FFF;
+}
+
+.nav-tabs {
+	margin-bottom: 30px;
+}
+/*
+.datepicker-container {
+	text-align: right;
+	margin-bottom: 20px;
+}
+.datepicker-container .datepicker-wrapper {
+	width: 30%;
+	display: inline-block;
+}
+.icon-search {
+	display: inline-block;
+}
+*/
+.filter-container {
+	text-align: right;
+	margin-bottom: 20px;
+}
+.filter-container div {
+	display: inline-block;
+	padding: 5px 9px;
+}
+
+.filter-container div.active {
+	background: #ff6813;
+	color: #FFF;
+}
+
+
+.nav-tabs li{
+	width: 50%;
+	text-align: center;
+}
+
+.nav-tabs li.active {
+	border-bottom: 1px solid #ff6813;
+}
+
+.nav-tabs li a, a:hover {
+	border: none;
+}
+.nav-tabs li.active a {
+	border: none;
+}
+.nav-tabs li a:hover {
+	border: none;
+}
+.nav-tabs li.active a:hover {
+	border: none;
+}
+
+.content-wrapper a {
+	color: #555;
+}
