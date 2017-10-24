@@ -113,6 +113,30 @@ public class UserServiceImpl implements UserService{
 		return ret;
 	}
 
+	
+	public List<Object> getUserTeamSeatList(Object obj) {
+		List<Object> list = userDao.userTeamListRow(obj);
+		List<Object> ret = new ArrayList<Object>();
+		
+		for(int i=0; i<list.size(); i++) {
+			Map<Object, Object> tmp = new HashMap<Object, Object>();
+			UserVO user = (UserVO)list.get(i);
+
+			//tmp.put("user_id", user.getUser_id());
+			tmp.put("user_name", user.getUser_name());
+			SeatVO user_seat = (SeatVO) seatDao.seatRow(user);
+			if(user_seat != null) {
+
+				tmp.put("floor", user_seat.getOffice_seq());
+				tmp.put("seat_id", user_seat.getSeat_id());
+			}
+			
+			ret.add(tmp);
+		}
+		return ret;
+	}
+
+	
 	@Override
 	public List<Object> seatHistory(Object obj) {
 		// TODO Auto-generated method stub

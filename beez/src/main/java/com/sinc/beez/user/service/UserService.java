@@ -20,6 +20,7 @@ public interface UserService{
 	public List<Object> getMyCalender(Object obj);
 	public Object getUserSeat(Object obj);
 	public List<Object> getUserTeamList(Object obj);
+	public List<Object> getUserTeamSeatList(Object obj);
 	
 	public List<Object> seatHistory(Object obj);
 
