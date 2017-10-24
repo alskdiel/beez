@@ -27,6 +27,9 @@
 					<div onclick="javascript:shareMyLocation()">
 					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
 					</div>
+					<div onclick="javascript:ReadQR()">	
+						QR코드로 좌석 인식
+					</div>
 				</div>
 			</section>
 			<div class="bar_01" onclick="javascript:href_page('bar01');">
@@ -82,7 +85,6 @@
 			
 			
 		}
-		
 
 		function href_page(bar){
 			var url;
@@ -98,6 +100,9 @@
 		function shareMyLocation(){
 			alert("KAKAO");
 			sendAndroidMsg("KAKAOSHARE");
+		}
+		function ReadQR(){
+			sendAndroidMsg("STARTQRREADER");
 		}
 		</script>
 </body>

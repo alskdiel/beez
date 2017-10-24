@@ -1,4 +1,4 @@
-body{background-color: #ef6262;}
+body,html{background-color: #ef6262; overflow:hidden; width:100%;}
 
 ul,ol,li{list-style: none;}
 

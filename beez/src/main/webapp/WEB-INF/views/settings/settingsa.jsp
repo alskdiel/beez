@@ -13,7 +13,7 @@
 		<%@include file="../include/header.jsp"%>
 		 <div class="i_box">
             <p class="icon_boc_i"></p>
-            <h2>알림설정</h2>
+            <h2>시스템 설정</h2>
         </div>
 			
 

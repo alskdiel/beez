@@ -105,6 +105,9 @@
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFF')">
 						<img src="/resources/images/sidebar/ssgkey1.png"/>
 					</a>
+					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFFRELEASE')">
+						<img src="/resources/images/sidebar/ssgkey3.png"/>
+					</a>
 				</div>
 			</div>
 		</div>
