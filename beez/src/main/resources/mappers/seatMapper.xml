@@ -114,5 +114,55 @@
 	</select>
 	
 	
+	
+	
+	
+	<select id="getMySeatTopFiveOfMonth" parameterType="user" resultType="java.util.Map">
+		SELECT SEAT_NAME,  CNT, RK
+		FROM
+		(
+		    SELECT SEAT_NAME, CNT, RANK() OVER(ORDER BY CNT DESC) AS RK
+		    FROM
+		    (
+		        SELECT TTSEAT AS SEAT_NAME , COUNT(TTSEAT) AS CNT
+		        FROM
+		        (
+		            SELECT  USER_ID, S.SEAT_NFC_TAG_ID TTSEAT
+		            FROM    USER_SEAT_TB US
+		            JOIN    SEAT_TB      S   ON(S.OFFICE_SEQ = US.OFFICE_SEQ AND S.SEAT_ID = US.SEAT_ID)
+		            WHERE   USER_ID = #{user_id}
+		            AND     TO_DATE(SEATED_DATE,'YYYY-MM-DD') <![CDATA[>]]>= TO_DATE(CURRENT_DATE,'YYYY-MM-DD') - 31
+		        )
+		        GROUP BY    TTSEAT
+		        HAVING      COUNT(TTSEAT) <![CDATA[>]]> 1
+		        ORDER BY    COUNT(TTSEAT) DESC
+		    )
+		)
+		WHERE RK <![CDATA[<=]]>  5
+	</select>
+	<select id="getMySeatTopFiveOfYear" parameterType="user" resultType="java.util.Map">
+		SELECT SEAT_NAME,  CNT, RK
+		FROM
+		(
+		    SELECT SEAT_NAME, CNT, RANK() OVER(ORDER BY CNT DESC) AS RK
+		    FROM
+		    (
+		        SELECT TTSEAT AS SEAT_NAME , COUNT(TTSEAT) AS CNT
+		        FROM
+		        (
+		            SELECT  USER_ID, S.SEAT_NFC_TAG_ID TTSEAT
+		            FROM    USER_SEAT_TB US
+		            JOIN    SEAT_TB      S   ON(S.OFFICE_SEQ = US.OFFICE_SEQ AND S.SEAT_ID = US.SEAT_ID)
+		            WHERE   USER_ID = #{user_id}
+		            AND     TO_DATE(SEATED_DATE,'YYYY-MM-DD') <![CDATA[>]]>= TO_DATE(CURRENT_DATE,'YYYY-MM-DD') - 365
+		        )
+		        GROUP BY    TTSEAT
+		        HAVING      COUNT(TTSEAT) <![CDATA[>]]> 1
+		        ORDER BY    COUNT(TTSEAT) DESC
+		    )
+		)
+		WHERE RK <![CDATA[<=]]>  5
+	</select>
+	
 </mapper>
 
