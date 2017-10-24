@@ -7,7 +7,8 @@ public interface SeatDao {
 
 	public List<Object> seatListRow(Object obj);
 	public List<Object> officeListRow();
-	public Object userFavoriteRow(Object obj);
+	public List<Object> userFavoriteRowByMonth(Object obj);
+	public List<Object> userFavoriteRowByYear(Object obj);
 	
 	public List<Object> seatDisabledListRow(Object obj);
 	public List<Object> seatInuseListRow(Object obj);

@@ -3,9 +3,11 @@ package com.sinc.beez.seat.ctrl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
@@ -52,6 +54,35 @@ public class SeatCtrl {
 	public String statistics() {
 		
 		return "seat/statistics";
+	}
+	
+	@RequestMapping("/statistics.do")
+	@ResponseBody
+	public List<Object> statisticsAjax(HttpServletRequest request, HttpSession session) {
+		
+		String type = request.getParameter("type");
+		String sub_type = request.getParameter("sub_type");
+		
+		UserVO currentUser = (UserVO) session.getAttribute("currentUser");
+		
+		System.out.println(type);
+		System.out.println(sub_type);
+		
+		Map<Object, Object> obj = new HashMap<Object, Object>();
+		obj.put("currentUser", currentUser);
+		obj.put("sub_type", sub_type);
+		
+		List<Object> chartlist;
+		
+		if(type.equals("fav")) {
+			chartlist = service.getUserFavorite(obj);
+		} else {
+			chartlist = service.getUserFavorite(obj);
+		}
+		
+		System.out.println(chartlist);
+		
+		return chartlist;
 	}
 	
 	@RequestMapping("/myseat.do")
