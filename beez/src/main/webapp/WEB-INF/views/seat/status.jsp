@@ -103,7 +103,8 @@
 	<script
 		src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script>
-    	
+	console.log("AAAA");
+    $(".btn").popover();      
     	//console.log(${tmp});
     	var seat_status = ${tmp};
     	$(document).on("ready", function() {
