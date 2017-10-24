@@ -59,52 +59,6 @@ function toggleNavTabs($element, type) {
 	}
 }
 
-$(".filter-container .year").on("click", function() {
-	var $this = $(this);
-	var type;
-	if($this.hasClass("fav")) {
-		type = "fav";
-	} else {
-		type = "hot";
-	}
-	$this.parent().find(".month").removeClass("active");
-	$this.addClass("active");
-	
-	getChartData(type, "year");
-});
-
-$(".filter-container .month").on("click", function() {
-	var $this = $(this);
-	var type;
-	if($this.hasClass("fav")) {
-		type = "fav";
-	} else {
-		type = "hot";
-	}
-	$this.parent().find(".year").removeClass("active");
-	$this.addClass("active");
-	
-	getChartData(type, "month");
-});
-
-
-function getChartData(type, sub_type) {
-	console.log(type);
-	console.log(sub_type);
-	
-	$.ajax({
-		url  : "statistics.do" , 
-		type : "get" , 
-		data : { type: type,
-				 sub_type: sub_type },
-		dataType : "json" , 
-		success : function(data) {
-			
-		}
-	});
-	
-}
-
 
 
 /*
@@ -141,52 +95,76 @@ $(".icon-search").on("click", function() {
 
 
 $(document).on("ready", function() {
-	setChart();
+	var cData = [[1, 2, 3, 4, 5, 6],
+	             [11, 12, 13, 14, 15, 16],
+	             [21, 22, 23, 24, 25, 26],
+	             [31, 32, 33, 34, 35, 36],
+	             [41, 42, 43, 44, 45, 46],
+	             [51, 52, 53, 54, 55, 56],
+	             [61, 62, 63, 64, 65, 66],
+	             [71, 72, 73, 74, 75, 76],
+	             [81, 82, 83, 84, 85, 86],
+	             [91, 92, 93, 94, 95, 96]];
+	var cLabels = [["a1", "b1", "c1", "d1", "e1", "f1"],
+	               ["a2", "b2", "c2", "d2", "e2", "f2"],
+	               ["a3", "b3", "c3", "d3", "e3", "f3"],
+	               ["a4", "b4", "c4", "d4", "e4", "f4"],
+	               ["a5", "b5", "c5", "d5", "e5", "f5"],
+	               ["a6", "b6", "c6", "d6", "e6", "f6"],
+	               ["a7", "b7", "c7", "d7", "e7", "f7"],
+	               ["a8", "b8", "c8", "d8", "e8", "f8"],
+	               ["a9", "b9", "c9", "d9", "e9", "f9"],
+	               ["a0", "b0", "c0", "d0", "e0", "f0"]];
+	
 	
 	function setChart() {
-		setFavChart();
-		setHotChart();
+		getChartData("fav", "year");
+		for(var i=0; i<10; i++) {
+			setHotChart(i, cData[i], cLabels[i], BGCOLOR[i]);
+		}
 	}
 	
-	function setFavChart() {
-		var ctx_f = document.getElementById("favChart").getContext('2d');
-		
+	var ctx_f = document.getElementById("favChart").getContext('2d');
+	function setFavChart(data, labels, bgColor) {
+		console.log(bgColor);
 		var favChart = new Chart(ctx_f,{
 		    type: 'pie',
 		    data: {
 		    	datasets: [{
-			        data: [10, 20, 30]
+			        data: data,
+			        backgroundColor: bgColor
 			    }],
 
 			    // These labels appear in the legend and in the tooltips when hovering different arcs
-			    labels: [
-			        'Red',
-			        'Yellow',
-			        'Blue'
-			    ]
+			    labels: labels,
+			    
 		    }
 		    //options: options
 		});
 	}
-	
-	function setHotChart() {
-		var ctx_h = document.getElementById("hotChart").getContext('2d');
+	var ctx_h = [
+	             document.getElementById("hotChart-1").getContext('2d'),
+	             document.getElementById("hotChart-2").getContext('2d'),
+	             document.getElementById("hotChart-3").getContext('2d'),
+	             document.getElementById("hotChart-4").getContext('2d'),
+	             document.getElementById("hotChart-5").getContext('2d'),
+	             document.getElementById("hotChart-6").getContext('2d'),
+	             document.getElementById("hotChart-7").getContext('2d'),
+	             document.getElementById("hotChart-8").getContext('2d'),
+	             document.getElementById("hotChart-9").getContext('2d'),
+	             document.getElementById("hotChart-10").getContext('2d')
+	            ];
 
-		var hotChart = new Chart(ctx_h, {
-		    type: 'bar',
+	function setHotChart(chartnum, data, labels, bgcolor) {
+		
+		var hotChart = new Chart(ctx_h[chartnum], {
+		    type: 'line',
 		    data: {
-		        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+		        labels: labels,
 		        datasets: [{
 		            label: '# of Votes',
-		            data: [12, 19, 3, 5, 2, 3],
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
+		            data: data,
+		            backgroundColor: bgcolor,
 		            borderColor: [
 		                'rgba(255,99,132,1)',
 		                'rgba(54, 162, 235, 1)',
@@ -211,4 +189,76 @@ $(document).on("ready", function() {
 	}
 	
 
+	
+	$(".filter-container .year").on("click", function() {
+		var $this = $(this);
+		var type;
+		if($this.hasClass("fav")) {
+			type = "fav";
+		} else {
+			type = "hot";
+		}
+		$this.parent().find(".month").removeClass("active");
+		$this.addClass("active");
+		
+		getChartData(type, "year");
+	});
+
+	$(".filter-container .month").on("click", function() {
+		var $this = $(this);
+		var type;
+		if($this.hasClass("fav")) {
+			type = "fav";
+		} else {
+			type = "hot";
+		}
+		$this.parent().find(".year").removeClass("active");
+		$this.addClass("active");
+		
+		getChartData(type, "month");
+	});
+
+
+	function getChartData(type, sub_type) {
+		console.log(type);
+		console.log(sub_type);
+		
+		$.ajax({
+			url  : "statistics.do" , 
+			type : "get" , 
+			data : { type: type,
+					 sub_type: sub_type },
+			dataType : "json" , 
+			success : function(data) {
+				console.log(data);
+				var dataArr = [];
+				var labels = [];
+				var bgcolor = [];
+				for(var i=0; i<data.length; i++) {
+					dataArr.push(data[i].CNT);
+					labels.push(data[i].SEAT_NAME);
+					bgcolor.push(BGCOLOR[i]);
+				}
+				setFavChart(dataArr, labels, bgcolor)
+			}
+		});
+		
+	}
+
+	setChart();
+	
+	
 });
+
+var BGCOLOR = [
+	'rgba(255, 99, 132, 0.2)',
+	'rgba(54, 162, 235, 0.2)',
+	'rgba(255, 206, 86, 0.2)',
+	'rgba(75, 192, 192, 0.2)',
+	'rgba(153, 102, 255, 0.2)',
+	'rgba(255, 159, 64, 0.2)',
+	'rgba(79, 159, 64, 0.2)',
+	'rgba(239, 19, 234, 0.2)',
+	'rgba(189, 59, 24, 0.2)',
+	'rgba(79, 211, 184, 0.2)'
+]

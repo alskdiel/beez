@@ -140,6 +140,7 @@
 		)
 		WHERE RK <![CDATA[<=]]>  5
 	</select>
+
 	<select id="getMySeatTopFiveOfYear" parameterType="user" resultType="java.util.Map">
 		SELECT SEAT_NAME,  CNT, RK
 		FROM

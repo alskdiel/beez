@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <html>
 <head>
 	<%@include file="./../include/resources.jsp"%>
@@ -57,6 +56,7 @@
 						</div>
 			
 						<div class="tab-pane item" id="hot">
+						<!-- 
 							<div class="filter-container">
 								<div class="year hot active">
 									최근 1년
@@ -65,6 +65,7 @@
 									최근 1개월
 								</div>
 							</div>
+						-->
 						<!-- 
 							<div class="datepicker-container">
 								<div class="datepicker-wrapper">
@@ -78,8 +79,125 @@
 								</div>
 							</div>
 						-->
-						
-							<canvas id="hotChart" width="400" height="400"></canvas>
+
+
+
+
+
+
+
+							<div class="container">
+
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-1">
+								1등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-1" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-1" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-2">
+								2등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-2" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-2" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-3">
+								3등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-3" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-3" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-4">
+								4등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-4" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-4" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-5">
+								5등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-5" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-5" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-6">
+								6등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-6" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-6" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-7">
+								7등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-7" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-7" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-8">
+								8등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-8" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-8" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-9">
+								9등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-9" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-9" width="400" height="400"></canvas>
+									</div>
+								</div>
+								
+								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-10">
+								10등. 좌석 이름 보여준다.
+								</button>
+								<div id="hot-chart-10" class="collapse">
+									<div class="chart-wrapper">
+										<canvas id="hotChart-10" width="400" height="400"></canvas>
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							
 						</div>
 					</div>
 				</div>

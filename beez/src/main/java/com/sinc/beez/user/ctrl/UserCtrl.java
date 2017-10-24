@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -102,13 +103,15 @@ public class UserCtrl {
 	}
 	@RequestMapping("/setSession.do")
 	@ResponseBody
-	public UserVO setSession(UserVO user){
+	public UserVO setSession(UserVO user, HttpSession session){
 		System.out.println(">>>>>>>>SETSESSION USERVO : ");
 		user = (UserVO)service.getUserVoById(user);
 		System.out.println(user.toString());
 		
 		// 여기다가 세션처리하시면 됩니당
+		session.setAttribute("currentUser", user);
 		
+		//System.out.println(session.getAttribute("currentUser"));
 		JSONObject res = new JSONObject();
 		res.put("userid",  user.getUser_id());
 		res.put("username",user.getUser_name());

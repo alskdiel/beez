@@ -30,10 +30,16 @@ public class SeatDaoImpl implements SeatDao {
 	}
 	
 	@Override
-	public Object userFavoriteRow(Object obj) {
-		return null;
+	public List<Object> userFavoriteRowByMonth(Object obj) {
+		
+		return session.selectList(SEATPREFIX+"getMySeatTopFiveOfMonth", obj);
 	}
 
+	@Override
+	public List<Object> userFavoriteRowByYear(Object obj) {
+		
+		return session.selectList(SEATPREFIX+"getMySeatTopFiveOfYear", obj);
+	}
 
 	@Override
 	public Object seatRow(Object obj) {

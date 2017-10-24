@@ -88,9 +88,14 @@ public class SeatServiceImpl implements SeatService{
 	}
 
 	@Override
-	public Object getUserFavorite(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Object> getUserFavorite(Object obj) {
+		UserVO current_user = (UserVO)(((Map)obj).get("currentUser"));
+		String type = (String)(((Map)obj).get("sub_type"));
+		if(type.equals("month")) {
+			return dao.userFavoriteRowByMonth(current_user);
+		} else {
+			return dao.userFavoriteRowByYear(current_user);
+		}
 	}
 
 	@Override
