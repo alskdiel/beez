@@ -28,7 +28,7 @@
 					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
 					</div>
 					<div onclick="javascript:ReadQR()">	
-						QR코드로 좌석 인식
+						<p id = "qrbtn" style="display: none;">QR코드로 좌석 인식</p>
 					</div>
 				</div>
 			</section>
@@ -74,10 +74,12 @@
 			}else{
 				$('#t_box00').text("근무 중");
 				$('#t_box02').text("출근시간 : "+date);
+				document.getElementById("qrbtn").style.display = "block";
 				if(position == 'null'){
 					$('#t_box01').text("자리에 앉지 않았네요~");
 				}else{
 					$('#t_box01').text(name+"님의 위치 : "+position);
+
 					document.getElementById("chatimg").style.display = "block";
 					document.getElementById("chatimg").style.textalign = "center";
 				}
