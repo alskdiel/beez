@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -98,5 +99,20 @@ public class UserCtrl {
 		ArrayList<UserVO> list = (ArrayList) service.getUserTeamSeatList(current_user);
 		
 		return list;
+	}
+	@RequestMapping("/setSession.do")
+	@ResponseBody
+	public UserVO setSession(UserVO user){
+		System.out.println(">>>>>>>>SETSESSION USERVO : ");
+		user = (UserVO)service.getUserVoById(user);
+		System.out.println(user.toString());
+		
+		// 여기다가 세션처리하시면 됩니당
+		
+		JSONObject res = new JSONObject();
+		res.put("userid",  user.getUser_id());
+		res.put("username",user.getUser_name());
+		res.put("deptname", user.getDept_name());
+		return  user;
 	}
 }

@@ -171,7 +171,11 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
-	
+	public Object getUserVoById(Object obj) {
+		// TODO Auto-generated method stub
+		
+		return userDao.getUserByIDRow(obj);
+	}
 	
 	/*
 	@Override

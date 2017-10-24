@@ -28,4 +28,6 @@ public interface UserService{
 	//public Object getUserById(Object obj);
 	public Object getUserSeatByName(Object obj);
 	
+	public Object getUserVoById(Object obj);
+	
 }

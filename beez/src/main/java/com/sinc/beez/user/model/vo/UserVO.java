@@ -18,6 +18,7 @@ public class UserVO {
 	private int fail_cnt;
 	private String user_leave_yn;
 	private Date seated_date;
+	private String dept_name;
 	
 	
 	private AttVO att;
@@ -25,13 +26,18 @@ public class UserVO {
 	private OfficeVO office;
 	private SeatVO seat;
 	
-	
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+	public String getDept_name() {
+		return dept_name;
+	}
 	
 	public UserVO(String user_id, String user_pwd, String user_name,
 			String phone_num, String duty_name, String last_access,
 			String skey_use_yn, int fail_cnt, String user_leave_yn,
-			Date seated_date, AttVO att, DeptVO dept,
-			OfficeVO office, SeatVO seat) {
+			Date seated_date, String dept_name, AttVO att,
+			DeptVO dept, OfficeVO office, SeatVO seat) {
 		super();
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -43,6 +49,7 @@ public class UserVO {
 		this.fail_cnt = fail_cnt;
 		this.user_leave_yn = user_leave_yn;
 		this.seated_date = seated_date;
+		this.dept_name = dept_name;
 		this.att = att;
 		this.dept = dept;
 		this.office = office;
@@ -139,12 +146,15 @@ public class UserVO {
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_pwd=" + user_pwd
-				+ ", user_name=" + user_name + ", phone_num=" + phone_num
-				+ ", duty_name=" + duty_name + ", last_access=" + last_access
-				+ ", skey_use_yn=" + skey_use_yn + ", fail_cnt=" + fail_cnt
-				+ ", user_leave_yn=" + user_leave_yn + ", seated_date="
-				+ seated_date + ", att=" + att + ", dept=" + dept + ", office="
-				+ office + ", seat=" + seat + "]";
+				+ ", user_name=" + user_name + ", phone_num="
+				+ phone_num + ", duty_name=" + duty_name
+				+ ", last_access=" + last_access
+				+ ", skey_use_yn=" + skey_use_yn
+				+ ", fail_cnt=" + fail_cnt + ", user_leave_yn="
+				+ user_leave_yn + ", seated_date="
+				+ seated_date + ", dept_name=" + dept_name
+				+ ", att=" + att + ", dept=" + dept
+				+ ", office=" + office + ", seat=" + seat + "]";
 	}
 
 
