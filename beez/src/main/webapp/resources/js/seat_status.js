@@ -173,6 +173,7 @@ function getCurrentStatus() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
+			console.log(data);
 			refresh(data);
 		}
 	});
