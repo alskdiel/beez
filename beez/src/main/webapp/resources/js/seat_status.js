@@ -248,21 +248,11 @@ function getTeamMatesSeat() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			var tmp = [{user_name: "조현재",
-						floor: 4,
-						seat_id: 7},
-					   {user_name: "김기찬",
-						floor: 1,
-						seat_id: 7},
-					   {user_name: "김승희",
-						floor: 2,
-						seat_id: 7}];
-			
 			console.log(data);
 			resetStatus();
 			
-			for(var i=0; i<tmp.length; i++) {
-				showSearchResult(tmp[i]);
+			for(var i=0; i<data.length; i++) {
+				showSearchResult(data[i]);
 			}
 			
 		}
