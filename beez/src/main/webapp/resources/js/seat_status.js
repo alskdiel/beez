@@ -1,3 +1,6 @@
+$("#team-toggle").prop('checked', false).change();
+
+
 function setStatus(data) {
 	for(var i=0; i<data.length; i++) {
 		var floor = data[i].floor;
@@ -65,6 +68,12 @@ $(".my-modal .dismiss").on("click", function() {
 $(".display-team-list").on("click", function() {
 	getTeamMates()
 	
+});
+
+$("#team-toggle").on("change", function() {
+	if($(this).prop("checked") == true) {
+		getTeamMatesSeat();	
+	}	
 });
 
 
@@ -135,15 +144,17 @@ $(".search .icon-container").on("click", function() {
 });
 
 $(".refresh .icon-container").on("click", function() {
+
 	resetStatus();
 	
 	getCurrentStatus();
-	
+	$("#team-toggle").prop('checked', false).change();
+
 });
 
 function refresh(seat_status) {
 
-		setStatus(seat_status);
+	setStatus(seat_status);
 }
 
 function toggleNavTabs($element, type) {
@@ -223,8 +234,36 @@ function getTeamMates() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
+			console.log(data);
 			$(".my-modal").css("display", "block");
 			writeTeamList(data);
+		}
+	});
+}
+
+function getTeamMatesSeat() {
+	$.ajax({
+		url  : "/user/myteam_seat.do" , 
+		type : "get" , 
+		dataType : "json" , 
+		success : function(data) {
+			var tmp = [{user_name: "조현재",
+						floor: 4,
+						seat_id: 7},
+					   {user_name: "김기찬",
+						floor: 1,
+						seat_id: 7},
+					   {user_name: "김승희",
+						floor: 2,
+						seat_id: 7}];
+			
+			console.log(data);
+			resetStatus();
+			
+			for(var i=0; i<tmp.length; i++) {
+				showSearchResult(tmp[i]);
+			}
+			
 		}
 	});
 }
@@ -236,12 +275,27 @@ function searchUserByName(user_name) {
 		data : { user_name: user_name },
 		dataType : "json" , 
 		success : function(data) {
+			console.log(data);
+			
 			
 			resetStatus();
 			showSearchResult(data);
 
 			takeElavatorWithOfficeSeq(data.floor);
 
+			var $element = $(this).parent().children(".nav-tabs");
+			var type = 'A';
+			if(data.id > 35 && data.id < 70) {
+				type = 'B';
+			}
+			
+			if(type == 'A') {
+				isFirstPage[data.floor] = true;
+			} else {
+				isFirstPage[data.floor] = false;
+			}
+			
+			toggleNavTabs($element, type);
 		}
 	});
 }

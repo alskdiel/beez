@@ -84,4 +84,19 @@ public class UserCtrl {
 		
 		return list;
 	}
+	
+	@RequestMapping("/myteam_seat.do")
+	@ResponseBody
+	public ArrayList<UserVO> getUserTeamSeat() {
+		
+		/**********************************/
+		// current_user = session.getUserVO
+		UserVO current_user = new UserVO();
+		current_user.setUser_id("p908vd");
+		/**********************************/
+		
+		ArrayList<UserVO> list = (ArrayList) service.getUserTeamSeatList(current_user);
+		
+		return list;
+	}
 }
