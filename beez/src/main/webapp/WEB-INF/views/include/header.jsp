@@ -83,7 +83,7 @@
 					<a class="sidebar-icon" href="/seat/list.do">
 						<img src="/resources/images/sidebar/seat.png"/>
 					</a>
-					<a class="sidebar-icon" href="#">
+					<a class="sidebar-icon" href="/seat/myseat.do">
 						<img src="/resources/images/sidebar/s_statistics.png"/>
 					</a>
 					<a class="sidebar-icon" href="/seat/myseat.do">

@@ -35,6 +35,7 @@
 		WHERE   office_seq = #{office_seq}
 		AND		SEAT_USEABLE_STATE = 'Y'
 		AND     (USER_LEAVE_YN = 'N' OR USER_LEAVE_YN != NULL)
+		AND		(SEATED_DATE <![CDATA[>]]> TRUNC(SYSDATE))
 		AND		SEAT_REAL_LOCATION = #{section}
 	</select>
 
