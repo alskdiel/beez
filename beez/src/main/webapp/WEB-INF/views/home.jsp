@@ -100,7 +100,6 @@
 		}
 		
 		function shareMyLocation(){
-			alert("KAKAO");
 			sendAndroidMsg("KAKAOSHARE");
 		}
 		function ReadQR(){
