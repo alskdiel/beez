@@ -54,6 +54,21 @@ public class SeatCtrl {
 		return "seat/statistics";
 	}
 	
+	@RequestMapping("/statistics.do")
+	@ResponseBody
+	public List<Object> statisticsAjax(HttpServletRequest request) {
+		
+		String type = request.getParameter("type");
+		String sub_type = request.getParameter("sub_type");
+		
+		System.out.println(type);
+		System.out.println(sub_type);
+		
+		List<Object> chartlist = null;
+		
+		return chartlist;
+	}
+	
 	@RequestMapping("/myseat.do")
 	public String myHistory(Model model, PagingDTO pagingDTO) {
 		/**********************************/

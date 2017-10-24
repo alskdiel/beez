@@ -69,6 +69,8 @@ $(".filter-container .year").on("click", function() {
 	}
 	$this.parent().find(".month").removeClass("active");
 	$this.addClass("active");
+	
+	getChartData(type, "year");
 });
 
 $(".filter-container .month").on("click", function() {
@@ -81,7 +83,28 @@ $(".filter-container .month").on("click", function() {
 	}
 	$this.parent().find(".year").removeClass("active");
 	$this.addClass("active");
+	
+	getChartData(type, "month");
 });
+
+
+function getChartData(type, sub_type) {
+	console.log(type);
+	console.log(sub_type);
+	
+	$.ajax({
+		url  : "statistics.do" , 
+		type : "get" , 
+		data : { type: type,
+				 sub_type: sub_type },
+		dataType : "json" , 
+		success : function(data) {
+			
+		}
+	});
+	
+}
+
 
 
 /*
