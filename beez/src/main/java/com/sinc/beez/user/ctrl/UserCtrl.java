@@ -102,7 +102,7 @@ public class UserCtrl {
 	}
 	@RequestMapping("/setSession.do")
 	@ResponseBody
-	public String setSession(UserVO user){
+	public UserVO setSession(UserVO user){
 		System.out.println(">>>>>>>>SETSESSION USERVO : ");
 		user = (UserVO)service.getUserVoById(user);
 		System.out.println(user.toString());
@@ -113,6 +113,6 @@ public class UserCtrl {
 		res.put("userid",  user.getUser_id());
 		res.put("username",user.getUser_name());
 		res.put("deptname", user.getDept_name());
-		return  res.toString();
+		return  user;
 	}
 }
