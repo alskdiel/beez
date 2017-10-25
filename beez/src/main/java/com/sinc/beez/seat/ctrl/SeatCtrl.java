@@ -67,19 +67,25 @@ public class SeatCtrl {
 		System.out.println(type);
 		System.out.println(sub_type);
 		
-		Map<Object, Object> obj = new HashMap<Object, Object>();
-		obj.put("currentUser", currentUser);
-		obj.put("sub_type", sub_type);
-		
 		List<Object> chartlist;
 		
 		if(type.equals("fav")) {
-			chartlist = service.getUserFavorite(obj);
+			Map<Object, Object> obj = new HashMap<Object, Object>();
+			obj.put("currentUser", currentUser);
+			obj.put("sub_type", sub_type);
+			
+			
+			if(type.equals("fav")) {
+				chartlist = service.getUserFavorite(obj);
+			} else {
+				chartlist = service.getUserFavorite(obj);
+			}
+			
+			System.out.println(chartlist);
+			
 		} else {
-			chartlist = service.getUserFavorite(obj);
+			chartlist = service.getHotPlace();
 		}
-		
-		System.out.println(chartlist);
 		
 		return chartlist;
 	}

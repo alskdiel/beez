@@ -119,6 +119,7 @@ $(document).on("ready", function() {
 	
 	function setChart() {
 		getChartData("fav", "year");
+
 		for(var i=0; i<10; i++) {
 			setHotChart(i, cData[i], cLabels[i], BGCOLOR[i]);
 		}
@@ -126,7 +127,6 @@ $(document).on("ready", function() {
 	
 	var ctx_f = document.getElementById("favChart").getContext('2d');
 	function setFavChart(data, labels, bgColor) {
-		console.log(bgColor);
 		var favChart = new Chart(ctx_f,{
 		    type: 'pie',
 		    data: {
@@ -220,8 +220,6 @@ $(document).on("ready", function() {
 
 
 	function getChartData(type, sub_type) {
-		console.log(type);
-		console.log(sub_type);
 		
 		$.ajax({
 			url  : "statistics.do" , 
@@ -230,16 +228,25 @@ $(document).on("ready", function() {
 					 sub_type: sub_type },
 			dataType : "json" , 
 			success : function(data) {
-				console.log(data);
 				var dataArr = [];
 				var labels = [];
 				var bgcolor = [];
-				for(var i=0; i<data.length; i++) {
-					dataArr.push(data[i].CNT);
-					labels.push(data[i].SEAT_NAME);
-					bgcolor.push(BGCOLOR[i]);
+				
+				if(type == "fav") {
+					for(var i=0; i<data.length; i++) {
+						dataArr.push(data[i].CNT);
+						labels.push(data[i].SEAT_NAME);
+						bgcolor.push(BGCOLOR[i]);
+					}
+					setFavChart(dataArr, labels, bgcolor)
+				} else {
+					for(var i=0; i<data.length; i++) {
+						var title = data[i].TITLE;
+						var time = data[i].RES;
+						
+						$($(".title-chart")[i]).text(title+" / "+time);
+					}
 				}
-				setFavChart(dataArr, labels, bgcolor)
 			}
 		});
 		
@@ -247,6 +254,7 @@ $(document).on("ready", function() {
 
 	setChart();
 	
+	getChartData("hot");
 	
 });
 

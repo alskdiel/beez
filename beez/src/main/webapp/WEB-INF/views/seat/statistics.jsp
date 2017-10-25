@@ -89,7 +89,9 @@
 							<div class="container">
 
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-1">
-								1등. 좌석 이름 보여준다.
+								<div class="title-chart title1">
+								1
+								</div>
 								</button>
 								<div id="hot-chart-1" class="collapse">
 									<div class="chart-wrapper">
@@ -98,7 +100,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-2">
-								2등. 좌석 이름 보여준다.
+								<div class="title-chart title2">
+								2
+								</div>
 								</button>
 								<div id="hot-chart-2" class="collapse">
 									<div class="chart-wrapper">
@@ -107,7 +111,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-3">
-								3등. 좌석 이름 보여준다.
+								<div class="title-chart title3">
+								3
+								</div>
 								</button>
 								<div id="hot-chart-3" class="collapse">
 									<div class="chart-wrapper">
@@ -116,7 +122,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-4">
-								4등. 좌석 이름 보여준다.
+								<div class="title-chart title4">
+								4
+								</div>
 								</button>
 								<div id="hot-chart-4" class="collapse">
 									<div class="chart-wrapper">
@@ -125,7 +133,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-5">
-								5등. 좌석 이름 보여준다.
+								<div class="title-chart title5">
+								5
+								</div>
 								</button>
 								<div id="hot-chart-5" class="collapse">
 									<div class="chart-wrapper">
@@ -134,7 +144,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-6">
-								6등. 좌석 이름 보여준다.
+								<div class="title-chart title6">
+								6
+								</div>
 								</button>
 								<div id="hot-chart-6" class="collapse">
 									<div class="chart-wrapper">
@@ -143,7 +155,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-7">
-								7등. 좌석 이름 보여준다.
+								<div class="title-chart title7">
+								7
+								</div>
 								</button>
 								<div id="hot-chart-7" class="collapse">
 									<div class="chart-wrapper">
@@ -152,7 +166,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-8">
-								8등. 좌석 이름 보여준다.
+								<div class="title-chart title8">
+								8
+								</div>
 								</button>
 								<div id="hot-chart-8" class="collapse">
 									<div class="chart-wrapper">
@@ -161,7 +177,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-9">
-								9등. 좌석 이름 보여준다.
+								<div class="title-chart title9">
+								9
+								</div>
 								</button>
 								<div id="hot-chart-9" class="collapse">
 									<div class="chart-wrapper">
@@ -170,7 +188,9 @@
 								</div>
 								
 								<button type="button" class="btn btn-success" data-toggle="collapse" data-target="#hot-chart-10">
-								10등. 좌석 이름 보여준다.
+								<div class="title-chart title10">
+								10
+								</div>
 								</button>
 								<div id="hot-chart-10" class="collapse">
 									<div class="chart-wrapper">

@@ -107,6 +107,12 @@ public class SeatDaoImpl implements SeatDao {
 
 	}
 
+	@Override
+	public List<Object> getHotPlaceRow() {
+		// TODO Auto-generated method stub
+		return session.selectList(SEATPREFIX + "getOurSeatAvgTimeTopTen");
+	}
+
 
 
 }
