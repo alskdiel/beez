@@ -62,9 +62,8 @@ public class SeatCtrl {
 		
 		String type = request.getParameter("type");
 		String sub_type = request.getParameter("sub_type");
-		
 		UserVO currentUser = (UserVO) session.getAttribute("currentUser");
-		
+		System.out.println(">>>CURRENTUSER"+currentUser);
 		System.out.println(type);
 		System.out.println(sub_type);
 		
