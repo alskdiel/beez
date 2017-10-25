@@ -166,4 +166,10 @@ public class SeatServiceImpl implements SeatService{
 		}
 		
 	}
+
+	@Override
+	public List<Object> getHotPlace() {
+		
+		return dao.getHotPlaceRow();
+	}
 }

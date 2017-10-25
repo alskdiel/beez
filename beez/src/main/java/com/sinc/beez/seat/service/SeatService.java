@@ -8,6 +8,8 @@ public interface SeatService {
 	public List<Object> getUserFavorite(Object obj);
 	public List<Object> seatHistoryList(Object currentUser, Object pagingDTO, Object type, Object params);	// obj: UserVO
 	
+	public List<Object> getHotPlace();
+	
 	public int getCount(Object obj, Object type, Object params);
 
 }
