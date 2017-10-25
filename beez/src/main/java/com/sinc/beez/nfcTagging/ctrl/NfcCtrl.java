@@ -17,7 +17,18 @@ import com.sinc.beez.nfcTagging.service.NfcService;
 public class NfcCtrl {
 	@Resource(name="NfcService")
 	NfcService service;
-	
+	@RequestMapping("/bookSeat.do")
+	@ResponseBody
+	public String bookSeat(NfcDTO dto){
+	//	System.out.println("NFC CTRL");
+		System.out.println(dto);
+		int result;
+		result = service.bookSeat(dto);
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
 	@RequestMapping("/touchTag.do")
 	@ResponseBody
 	public String touchTag(NfcDTO dto){

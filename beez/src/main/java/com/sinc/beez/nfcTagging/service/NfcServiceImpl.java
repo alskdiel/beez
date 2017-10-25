@@ -24,6 +24,13 @@ public class NfcServiceImpl implements NfcService {
 	@Resource(name = "NfcDAO")
 	NfcDAO dao;
 
+	
+	@Override
+	public int bookSeat(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		
+		return dao.bookSeat(dto);
+	}
 	@Override
 	public String SyncMap(String taginfo) {
 		System.out.println(taginfo + " / " + onMem.get(taginfo));

@@ -29,4 +29,9 @@ public class NfcDAOImpl implements NfcDAO {
 		System.out.println("touchNewTag : "+dto);
 		return session.insert(PREFIX + "seatNewTouch", dto);
 	}
+	@Override
+	public int bookSeat(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return session.insert(PREFIX+"seatNewBook",dto);
+	}
 }
