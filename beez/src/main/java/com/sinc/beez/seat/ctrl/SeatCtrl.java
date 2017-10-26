@@ -30,13 +30,18 @@ public class SeatCtrl {
 	
 	//전체 좌석 현황
 	@RequestMapping("/list.do")
-	public String status(Model model) {
+	public String status(Model model, HttpSession session) {
 		
 		List<Object> seatlist = service.seatList();
 	    
+		System.out.println(session.getAttribute("currentUser"));
+		UserVO user = (UserVO) session.getAttribute("currentUser");
+		
 		
 		JSONArray list = new JSONArray(seatlist);
+		
 		model.addAttribute("tmp", list);
+		model.addAttribute("user_id", user.getUser_id());
 		
 		return "/seat/status";
 	}

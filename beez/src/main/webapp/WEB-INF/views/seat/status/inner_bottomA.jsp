@@ -7,32 +7,58 @@
 <table class="inner">
 	<tr>
 		<td id="<%=seat_no++%>">
-			<div title="<%=seat_no%>" 
-			class="btn"
-			 data-container="body"
-				data-toggle="popover" data-placement="top"
-				
-				></div>
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
 		</td>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 	<tr>
-		<td id="<%=seat_no++%>"></td>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 	<tr>
-		<td id="<%=seat_no++%>"></td>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 	<tr>
-		<td id="<%=seat_no++%>"></td>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 	<tr>
-		<td id="<%=seat_no++%>"></td>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 	<tr>
-		<td id="<%=seat_no++%>"></td>
+		<td id="<%=seat_no++%>">
+			<div title="<%=seat_no -1%>" class="btn" data-container="body" data-toggle="popover" data-placement="top">
+			</div>
+		</td>
 	</tr>
 </table>

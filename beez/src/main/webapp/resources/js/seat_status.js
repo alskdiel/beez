@@ -1,10 +1,113 @@
+
+$('html').click(function(e) {	
+	$('table.inner tr td .btn').popover('hide');
+   
+});
+
+$('table.inner tr td .btn').popover({
+    html: true,
+    trigger: 'manual'
+}).click(function(e) {
+	$('table.inner tr td .btn').popover('hide');
+
+	var seat_id = $(this).parent().attr("id");
+	var floor_num = $(this).parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.parent()
+							.attr("id")
+							.split("-")[1];
+							
+	var isRevable = isReservable(floor_num, seat_id);
+	
+	
+	//sendAndroidMsgTwoValue('p908v1','14F-A-01')
+	
+	seat_info = transformToNFCID(floor_num, seat_id);
+	
+	setTimeout(function() {
+		if(isRevable) {
+			mkRevBtn(seat_info);
+		}
+	}, 100);
+	
+	
+    $(this).popover('toggle');
+    e.stopPropagation();
+});
+
+function transformToNFCID(floor_num, seat_id) {
+	section = 'A';
+	
+	if(seat_id > 35) {
+		section = 'B';
+	}
+	
+	if(seat_id < 10) {
+		seat_id = "0" + seat_id;
+	}
+	
+	return floor_num + "F-" + section + "-" + seat_id;
+}
+
+function mkRevBtn(seat_info) {
+	console.log(seat_info);
+	var btn = "<div class='btn-rev' onclick=reserveSeat('" + seat_info + "')>예약</div>";
+	$(".popover .popover-content").html(btn);
+}
+
+function reserveSeat(seat_info) {
+	
+	sendAndroidMsgTwoValue(currentUser, seat_info)
+
+}
+
+function isReservable(floor_num, seat_id) {
+	console.log(seat_status);
+	for(var i=0; i<seat_status.length; i++) {
+		if(seat_status[i].floor == floor_num) {
+			for(var j=0; j<seat_status[i].data.length; j++) {
+				console.log(seat_status[i].data);
+				for(var k=0; k<seat_status[i].data[j].data.disabled.length; k++) {
+					if(seat_status[i].data[j].data.disabled[k] == seat_id) {
+						return false;
+					}
+				}
+				
+				for(var k=0; k<seat_status[i].data[j].data.inuse.length; k++) {
+					if(seat_status[i].data[j].data.disabled[k] == seat_id) {
+						return false;
+					}
+				}
+			}
+		}
+	}
+	
+	return true;
+}
+
+
+
+
 $("#team-toggle").prop('checked', false).change();
 
 
 function setStatus(data) {
+	console.log(data);
 	for(var i=0; i<data.length; i++) {
 		var floor = data[i].floor;
 		var floor_info = data[i].data;
+		
 		
 		for(var j=0; j<floor_info.length; j++) {
 			var section = floor_info[j].section;
@@ -94,7 +197,9 @@ $(".carousel").bind('touchstart', function(e) {
 $(".carousel").bind('touchmove', function(e) {
 	if(flag) {
 		var event = e.originalEvent;
-		current.x = event.touches[0].pageX;			
+		current.x = event.touches[0].pageX;
+		$('table.inner tr td .btn').popover('hide');
+
 		//event.preventDefault();
 	}
 });
@@ -174,6 +279,7 @@ function getCurrentStatus() {
 		dataType : "json" , 
 		success : function(data) {
 			console.log(data);
+			seat_status = data;
 			refresh(data);
 		}
 	});
