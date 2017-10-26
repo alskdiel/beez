@@ -8,11 +8,20 @@ public class NfcDTO {
 	String officefloor;
 	String area;
 	String seatid;
+	String starttime;
 
+	
+	
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+	public String getStarttime() {
+		return starttime;
+	}
 
 	public NfcDTO(String deviceid, String userid, String tagginginfo,
 			String oldtagginginfo, String officefloor, String area,
-			String seatid) {
+			String seatid, String starttime) {
 		super();
 		this.deviceid = deviceid;
 		this.userid = userid;
@@ -21,6 +30,7 @@ public class NfcDTO {
 		this.officefloor = officefloor;
 		this.area = area;
 		this.seatid = seatid;
+		this.starttime = starttime;
 	}
 
 	@Override
@@ -29,7 +39,8 @@ public class NfcDTO {
 				+ ", tagginginfo=" + tagginginfo
 				+ ", oldtagginginfo=" + oldtagginginfo
 				+ ", officefloor=" + officefloor + ", area="
-				+ area + ", seatid=" + seatid + "]";
+				+ area + ", seatid=" + seatid + ", starttime="
+				+ starttime + "]";
 	}
 
 	public NfcDTO() {
