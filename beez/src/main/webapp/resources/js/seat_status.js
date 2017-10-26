@@ -107,7 +107,7 @@ function mkRevBtn(seat_info) {
 }
 
 function reserveSeat(seat_info) {
-	sendAndroidMsgTwoValue(currentUser, seat_info);
+	sendAndroidMsgTwoValue("GoSeatBook", seat_info);
 }
 
 function isReservable(floor_num, seat_id) {

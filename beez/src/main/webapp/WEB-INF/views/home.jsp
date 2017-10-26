@@ -65,9 +65,14 @@
 		});
 		
 		function setUserStateToWeb(name, date, position){
-	//		alert(name + " / " + date + " / "+ position);
+		//	alert(name + " / " + date + " / "+ position);
 			
-			if(date == 'null'){
+			if(position == 'leaved'){
+				$('#t_box00').text("오늘도 수고하셨습니다!");
+				$('#t_box01').text("퇴근");
+				$('#t_box02').text(date.substr(0,10));
+			}
+			else 	if(date == 'null'){
 				$('#t_box00').text("충전 중");
 				$('#t_box02').text("아직 출근하지 않았네요~");
 			}else{

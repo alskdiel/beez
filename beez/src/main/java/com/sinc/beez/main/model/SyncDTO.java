@@ -1,5 +1,9 @@
 package com.sinc.beez.main.model;
 
+/**
+ * @author p908v0
+ *
+ */
 public class SyncDTO {
 
 	private String userid;
@@ -9,12 +13,15 @@ public class SyncDTO {
 	private String seatid;
 	private String booking;
 	private String today;
+	private String leave;
 	
-	
+	public SyncDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public SyncDTO(String userid, String atttime, boolean att,
 			boolean seat, String seatid, String booking,
-			String today) {
+			String today, String leave) {
 		super();
 		this.userid = userid;
 		this.atttime = atttime;
@@ -23,20 +30,21 @@ public class SyncDTO {
 		this.seatid = seatid;
 		this.booking = booking;
 		this.today = today;
+		this.leave = leave;
 	}
-
-	public SyncDTO() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String toString() {
 		return "SyncDTO [userid=" + userid + ", atttime=" + atttime
 				+ ", att=" + att + ", seat=" + seat
 				+ ", seatid=" + seatid + ", booking=" + booking
-				+ ", today=" + today + "]";
+				+ ", today=" + today + ", leave=" + leave + "]";
 	}
-	
+	public void setLeave(String leave) {
+		this.leave = leave;
+	}
+	public String getLeave() {
+		return leave;
+	}
 	public void setBooking(String booking) {
 		this.booking = booking;
 	}
