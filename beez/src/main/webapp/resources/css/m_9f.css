@@ -194,6 +194,7 @@ header.main-header {
 	background-position: center;
 	overflow-y:hidden;
 	overflow-x:hidden;
+	
 }
 
 .floor table.inner tr td.available {
@@ -213,3 +214,14 @@ header.main-header {
 	background-image: url(/resources/images/f_box02.png);
 }
 
+table.inner tr td div.btn {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+}
+
+.btn-rev {
+	border-radius: 3px;
+	color: #FF6813;
+	
+}
