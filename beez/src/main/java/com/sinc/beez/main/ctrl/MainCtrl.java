@@ -3,11 +3,15 @@ package com.sinc.beez.main.ctrl;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import oracle.net.aso.n;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.beez.main.model.MainVO;
+import com.sinc.beez.main.model.SyncDTO;
 import com.sinc.beez.main.service.MainService;
 import com.sinc.beez.user.model.vo.UserVO;
 import com.sinc.beez.user.service.UserService;
@@ -37,5 +41,16 @@ public class MainCtrl {
 		session.setAttribute("currentUser", user);
 		
 		return "home";
+	}
+	@RequestMapping("syncAttNFc.do")
+	@ResponseBody
+	public SyncDTO syncAttNFc(String userid){
+
+		SyncDTO vo = new SyncDTO();
+		vo.setUserid(userid);
+		System.out.println(vo.toString());
+		vo = service.init(vo);
+		System.out.println(vo.toString());
+		return vo;
 	}
 }
