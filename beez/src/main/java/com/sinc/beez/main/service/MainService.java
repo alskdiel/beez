@@ -25,6 +25,9 @@ public class MainService {
 		}catch(Exception e){
 			res = new SyncDTO();
 		}
+		if (res == null){
+			return new SyncDTO();
+		}
 		System.out.println("SERVICE : "+res);
 		return res;
 	}

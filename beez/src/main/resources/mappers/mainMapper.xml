@@ -16,7 +16,7 @@
 	SELECT *
 	FROM
 	(
-		SELECT      	UA.USER_ID as userid , ATT_ARRIVE_TIME as atttime, BOOK_TIME as booking, SEAT_NFC_TAG_ID as seatid, ATT_DATE as today
+		SELECT      	UA.USER_ID as userid , ATT_ARRIVE_TIME as atttime, BOOK_TIME as booking, SEAT_NFC_TAG_ID as seatid, ATT_DATE as today , att_leave_time as leave
 		FROM            	USER_ATT_TB         UA
 		LEFT    		JOIN    
 		(
