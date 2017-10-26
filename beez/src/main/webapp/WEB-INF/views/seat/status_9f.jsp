@@ -7,8 +7,9 @@
 		<div>
 			<span>9층</span>
 		</div>
-		
+	
 		<div class="tab-content carousel slide" id="carousel-example-generic">
+		
 			<div class="carousel-inner">
 				<div class="tab-pane active item" id="section-9A">
 						<%@include file="status/outer_section_A.jsp"%>

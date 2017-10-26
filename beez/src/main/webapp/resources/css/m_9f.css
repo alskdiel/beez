@@ -53,7 +53,17 @@ header.main-header {
 
 .filter-container {
 	padding: 15px;
+	position: fixed;
+	z-index: 1;
+	background: #FFF;
+	width: 100%;
+	top: 50px;
 }
+
+.status-container {
+	margin-top: 120px;
+}
+
 .filter-container .search, .my-team, .refresh {
 	display: inline-block;
 	vertical-align: top; /* here */
@@ -74,7 +84,7 @@ header.main-header {
 	border: 1px solid #000;
 	z-index: 5;
 	background: #FFF;
-	position: absolute;
+	position: fixed;
 	height: 300px;
 	display: none;
 }
@@ -240,3 +250,44 @@ table.inner tr td div.btn {
 	border-radius: 3px;
 	color: #FF6813;	
 }
+
+.btn-rev, .btn-show-hot {
+	font-size: 18px;
+}
+
+#chartModal.fade {
+	display: none;
+}
+
+#chartModal.active {
+	border: 1px solid #333;
+	margin: 0px 15px;
+	position: absolute;
+	display: block;
+	z-index: 1000;
+	background: #FFF;
+	position: fixed;
+	width: 90%;
+	height: 350px;
+}
+
+#chartModal {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#chartModal #hot-chart .chart-wrapper {
+	padding: 15px;
+}
+
+#hotChart {
+	width: 100%;
+}
+
+#chartModal .title-chart {
+	font-size: 15px;
+	text-align: center;
+	padding-top: 15px;
+}
+.popover .arrow {visibility:hidden;}
+

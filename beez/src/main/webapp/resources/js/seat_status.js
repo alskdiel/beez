@@ -1,7 +1,26 @@
 
+//searchUserSeatById('p908vd');
+//getTeamMates();
+//searchUserByName('조현재');
+	
+	
+	
+//});
+
+
+
+
+
+
 $('html').click(function(e) {	
 	$('table.inner tr td .btn').popover('hide');
-   
+	
+	$modal = $("#chartModal");
+	if($modal.hasClass("active")) {
+		$modal.removeClass("active");
+		$modal.addClass("fade");
+		
+	}
 });
 
 $('table.inner tr td .btn').popover({
@@ -47,17 +66,11 @@ $('table.inner tr td .btn').popover({
 });
 
 function mkShowHotDetailBtn(floor_num, seat_id) {
+	
 	var btn = "<div class='btn-show-hot' onclick=getHotChart("+ floor_num +"," + seat_id +")>상세보기</div>";
 	$(".popover .popover-content").append(btn);
 }
-function getHotChart(floor_num, seat_id) {
-	console.log(floor_num);
-	console.log(seat_id);
-	
-	console.log("after ajax success");
-	
-	
-}
+
 function transformToNFCID(floor_num, seat_id) {
 	section = 'A';
 	
@@ -81,8 +94,31 @@ function getHotPlace() {
 	return ret;
 }
 
+
+function getHotChart(floor_num, seat_id) {
+	console.log(floor_num);
+	console.log(seat_id);
+	
+	console.log("after ajax success");
+
+
+	setTimeout(function() {
+		var $modal = $("#chartModal");
+		$modal.removeClass("fade");
+		$modal.addClass("active");
+		
+		setHotChart(cData, cLabels, BGCOLOR);
+			
+	});
+	
+	
+}
+
+
+
 function isHotPlace(floor_num, seat_id) {
 	var hotPlaces = getHotPlace();
+	console.log(hotPlaces);
 	
 	for(var i=0; i<hotPlaces.length; i++) {
 		if(floor_num == hotPlaces[i].floor && seat_id == hotPlaces[i].seat_id) {
@@ -111,11 +147,9 @@ function reserveSeat(seat_info) {
 }
 
 function isReservable(floor_num, seat_id) {
-	console.log(seat_status);
 	for(var i=0; i<seat_status.length; i++) {
 		if(seat_status[i].floor == floor_num) {
 			for(var j=0; j<seat_status[i].data.length; j++) {
-				console.log(seat_status[i].data);
 				for(var k=0; k<seat_status[i].data[j].data.disabled.length; k++) {
 					if(seat_status[i].data[j].data.disabled[k] == seat_id) {
 						return false;
@@ -123,7 +157,7 @@ function isReservable(floor_num, seat_id) {
 				}
 				
 				for(var k=0; k<seat_status[i].data[j].data.inuse.length; k++) {
-					if(seat_status[i].data[j].data.disabled[k] == seat_id) {
+					if(seat_status[i].data[j].data.inuse[k] == seat_id) {
 						return false;
 					}
 				}
@@ -194,26 +228,26 @@ function resetStatus() {
 //$(document).on("ready", function() {
 	 
 
-$offset_9f = $("#floor-9").offset().top - 25;
-$offset_10f = $("#floor-10").offset().top - 25;
-$offset_13f = $("#floor-13").offset().top - 25;
-$offset_14f = $("#floor-14").offset().top - 25;
+$offset_9f = $("#floor-9").offset().top - 120;
+$offset_10f = $("#floor-10").offset().top - 120;
+$offset_13f = $("#floor-13").offset().top - 120;
+$offset_14f = $("#floor-14").offset().top - 120;
 
 
 $("#to-9f").on("click", function() {
-    $('html, body').animate({ scrollTop: $offset_9f}, 1000);
+    $('html, body').animate({ scrollTop: $offset_9f}, 700);
 });
 
 $("#to-10f").on("click", function() {
-    $('html, body').animate({ scrollTop: $offset_10f}, 1000);
+    $('html, body').animate({ scrollTop: $offset_10f}, 700);
 });
 
 $("#to-13f").on("click", function() {
-    $('html, body').animate({ scrollTop: $offset_13f}, 1000);
+    $('html, body').animate({ scrollTop: $offset_13f}, 700);
 });
 
 $("#to-14f").on("click", function() {
-    $('html, body').animate({ scrollTop: $offset_14f}, 1000);
+    $('html, body').animate({ scrollTop: $offset_14f}, 700);
 });
 
 $(".my-modal .dismiss").on("click", function() {
@@ -239,7 +273,15 @@ var current = {};
 var flag = false;
 
 $(".carousel").bind('touchstart', function(e) {
-	if(event.touches[0].pageX > 40) {
+	
+	$modal = $("#chartModal");
+	if($modal.hasClass("active")) {
+		$modal.removeClass("active");
+		$modal.addClass("fade");
+		
+	}	
+	
+	if(event.touches[0].pageX > 20) {
 		flag = true;
 		prev.x = event.touches[0].pageX;
 		//e.preventDefault();	//	이벤트취소
@@ -473,11 +515,63 @@ function writeTeamList(teammates) {
 	
 	$(".my-modal .modal-content table tbody").html(html);
 }
-//searchUserSeatById('p908vd');
-//getTeamMates();
-//searchUserByName('조현재');
-	
-	
-	
-//});
 
+var cData = [];
+var cLabels = [];
+var BGCOLOR = [
+         	           	'rgba(255, 99, 132, 0.2)',
+        	           	'rgba(54, 162, 235, 0.2)',
+        	           	'rgba(255, 206, 86, 0.2)',
+        	           	'rgba(75, 192, 192, 0.2)',
+        	           	'rgba(153, 102, 255, 0.2)',
+        	           	'rgba(255, 159, 64, 0.2)',
+        	           	'rgba(79, 159, 64, 0.2)',
+        	           	'rgba(239, 19, 234, 0.2)',
+        	           	'rgba(189, 59, 24, 0.2)',
+        	           	'rgba(79, 211, 184, 0.2)'
+        	           ];
+;
+
+var ctx;
+
+function setHotChart(data, labels, bgcolor) {
+	
+	var hotChart = new Chart(ctx, {
+	    type: 'line',
+	    data: {
+	        labels: labels,
+	        datasets: [{
+	            label: '# of Votes',
+	            data: data,
+	            backgroundColor: BGCOLOR,
+	            borderColor: BGCOLOR,
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
+	        }
+	    }
+	});
+}
+
+
+
+$(document).on("ready", function() {
+
+	
+	cData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	cLabels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	
+	ctx = document.getElementById("hotChart").getContext('2d');
+	
+	setStatus(seat_status);
+
+	setHotChart(cData, cLabels, BGCOLOR);
+
+});

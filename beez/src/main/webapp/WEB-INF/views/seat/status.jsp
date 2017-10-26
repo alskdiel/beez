@@ -44,60 +44,84 @@
 					</div>
 				</div>
 				
-				<div class="my-modal">
-					<div class="modal-header">
-						<div>
-							팀원 목록
+				
+				<div class="status-container">
+					<div class="my-modal">
+						<div class="modal-header">
+							<div>
+								팀원 목록
+							</div>
+							<div class="dismiss"><i class="fa fa-times" aria-hidden="true"></i></div>
+							
 						</div>
-						<div class="dismiss"><i class="fa fa-times" aria-hidden="true"></i></div>
-						
+						<div class="modal-content">
+							<table>
+								<thead>
+									<tr>
+										<td>사번</td>
+										<td>이름</td>
+										<td></td>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
 					</div>
-					<div class="modal-content">
-						<table>
-							<thead>
-								<tr>
-									<td>사번</td>
-									<td>이름</td>
-									<td></td>
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+					
+					<div class="floor-btn">
+						<div id="to-9f">9</div>
+						<div id="to-10f">10</div>
+						<div id="to-13f">13</div>
+						<div id="to-14f">14</div>
 					</div>
-				</div>
-				
-				<div class="floor-btn">
-					<div id="to-9f">9</div>
-					<div id="to-10f">10</div>
-					<div id="to-13f">13</div>
-					<div id="to-14f">14</div>
-				</div>
-				
-				<%@include file="status_9f.jsp"%>
-				<%@include file="status_10f.jsp"%>
-				<%@include file="status_13f.jsp"%>
-				<%@include file="status_14f.jsp"%>
-
-				   	
+					
+					<%@include file="status_9f.jsp"%>
+					<%@include file="status_10f.jsp"%>
+					<%@include file="status_13f.jsp"%>
+					<%@include file="status_14f.jsp"%>
+				</div> 	
 			  </section>
 		  </div>
 		
 		 <div class='control-sidebar-bg'></div>
 	</div>
 		
+	<div class="chartModal fade" id="chartModal">
+		<div class="title-chart">
+			평균 좌석 점유 시간
+		</div>
+		
+		<div id="hot-chart">
+			<div class="chart-wrapper">
+				<canvas id="hotChart" width="400" height="400"></canvas>
+			</div>
+		</div>
+	</div>
+
+	
 			
 	<%@include file="./../include/footer.jsp"%>
 	
-    <link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
+    
+	<link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+	
+	<script src="/resources/js/lib/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+	
+    
     <!-- 
     <link href="/resources/css/m_10f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_13f.css" rel="stylesheet" type="text/css" />
     <link href="/resources/css/m_14f.css" rel="stylesheet" type="text/css" />
 	-->
+	<script src="/resources/js/lib/Chart.min.js"></script>
+	
     <script src="/resources/js/seat_status.js"></script>  
     
-    	<link
+    <link
 		href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
 		rel="stylesheet" >
 	<script
@@ -111,7 +135,6 @@
    	var hot_places = ${hotPlaces};
    	
    	$(document).on("ready", function() {
-   		setStatus(seat_status);
    		$('#nav_title').text("좌석 현황");
    	});
 	
