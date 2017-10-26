@@ -30,14 +30,14 @@ $('table.inner tr td .btn').popover({
 							
 	var isRevable = isReservable(floor_num, seat_id);
 	
-	
-	//sendAndroidMsgTwoValue('p908v1','14F-A-01')
-	
 	seat_info = transformToNFCID(floor_num, seat_id);
 	
 	setTimeout(function() {
 		if(isRevable) {
 			mkRevBtn(seat_info);
+		}
+		if(isHotPlace(floor_num, seat_id)) {
+			mkShowHotDetailBtn(floor_num, seat_id);
 		}
 	}, 100);
 	
@@ -46,6 +46,18 @@ $('table.inner tr td .btn').popover({
     e.stopPropagation();
 });
 
+function mkShowHotDetailBtn(floor_num, seat_id) {
+	var btn = "<div class='btn-show-hot' onclick=getHotChart("+ floor_num +"," + seat_id +")>상세보기</div>";
+	$(".popover .popover-content").append(btn);
+}
+function getHotChart(floor_num, seat_id) {
+	console.log(floor_num);
+	console.log(seat_id);
+	
+	console.log("after ajax success");
+	
+	
+}
 function transformToNFCID(floor_num, seat_id) {
 	section = 'A';
 	
@@ -60,16 +72,42 @@ function transformToNFCID(floor_num, seat_id) {
 	return floor_num + "F-" + section + "-" + seat_id;
 }
 
+function getHotPlace() {
+	var ret = [];
+	for(var i=0; i<hot_places.length; i++) {
+		ret.push(splitNFCID(hot_places[i].TITLE));
+	}
+	
+	return ret;
+}
+
+function isHotPlace(floor_num, seat_id) {
+	var hotPlaces = getHotPlace();
+	
+	for(var i=0; i<hotPlaces.length; i++) {
+		if(floor_num == hotPlaces[i].floor && seat_id == hotPlaces[i].seat_id) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function splitNFCID(nfcID) {
+	var temp = nfcID.split("-");
+	var floor_num = temp[0].substr(0, temp[0].length-1);
+	var seat_id = temp[2];
+	
+	return {floor: floor_num,
+			seat_id: seat_id};
+}
+
 function mkRevBtn(seat_info) {
-	console.log(seat_info);
 	var btn = "<div class='btn-rev' onclick=reserveSeat('" + seat_info + "')>예약</div>";
 	$(".popover .popover-content").html(btn);
 }
 
 function reserveSeat(seat_info) {
-	
-	sendAndroidMsgTwoValue(currentUser, seat_info)
-
+	sendAndroidMsgTwoValue(currentUser, seat_info);
 }
 
 function isReservable(floor_num, seat_id) {
@@ -95,8 +133,6 @@ function isReservable(floor_num, seat_id) {
 	
 	return true;
 }
-
-
 
 
 $("#team-toggle").prop('checked', false).change();
@@ -126,6 +162,23 @@ function setStatus(data) {
 				$cur_section.find("#"+inuse[k]).addClass("inuse");
 			}
 		}
+	}
+	
+	var hotPlaces = getHotPlace();
+	
+	for(var i=0; i<hotPlaces.length; i++) {
+		var floor = hotPlaces[i].floor;
+		var seat_id = hotPlaces[i].seat_id;
+		
+		
+		var $floor = $("#floor-" + floor);
+		var hotPlaceTxt = "<div class='icon-wrapper'>"
+						+ 	"<div class='icon-hotplace'>"
+						+ 	"</div>"
+						+ "</div>";
+		
+		$floor.find("#"+seat_id).prepend(hotPlaceTxt);
+
 	}
 }
 

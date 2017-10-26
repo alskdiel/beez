@@ -39,8 +39,12 @@ public class SeatCtrl {
 		
 		
 		JSONArray list = new JSONArray(seatlist);
+		List<Object> hotPlace = service.getHotPlace();
+		JSONArray hotPlaces = new JSONArray(hotPlace);
 		
-		model.addAttribute("tmp", list);
+		model.addAttribute("seatStatus", list);
+		model.addAttribute("hotPlaces", hotPlaces);
+		
 		model.addAttribute("user_id", user.getUser_id());
 		
 		return "/seat/status";
