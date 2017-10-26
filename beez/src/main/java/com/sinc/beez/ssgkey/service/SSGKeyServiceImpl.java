@@ -24,14 +24,14 @@ class SSGKeyServiceImpl implements SSGKeyService {
 			// TODO: handle exception
 			return 99999;
 		}
-		System.out.println("get : "+rssi);
+	//	System.out.println("get : "+rssi);
 		return rssi;
 	}
 	@SuppressWarnings("finally")
 	@Override
 	public boolean setRssi(String pcName, int Rssi) {
 		// TODO Auto-generated method stub
-		System.out.println("get : "+Rssi);
+	//	System.out.println("get : "+Rssi);
 		int rssi = 0;
 		try {
 			rssi = udMap.get(pcName);

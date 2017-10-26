@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.sinc.beez.main.model.MainVO;
+import com.sinc.beez.main.model.SyncDTO;
 
 @Repository("MainDAO")
 public class MainDAO {
@@ -26,5 +27,8 @@ public class MainDAO {
 
 		return ret;
 	}
-
+	public SyncDTO init(SyncDTO dto){
+		System.out.println("DAO : "+dto.toString());
+		return session.selectOne(PREFIX+"selectinit",dto);
+	}
 }

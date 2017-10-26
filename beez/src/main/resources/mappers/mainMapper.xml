@@ -12,6 +12,29 @@
 
 	</select>
 	
+	<select id="selectinit" parameterType="syncdto" resultType="syncdto">
+	SELECT *
+	FROM
+	(
+		SELECT      	UA.USER_ID as userid , ATT_ARRIVE_TIME as atttime, BOOK_TIME as booking, SEAT_NFC_TAG_ID as seatid, ATT_DATE as today
+		FROM            	USER_ATT_TB         UA
+		LEFT    		JOIN    
+		(
+		    	SELECT  		USER_ID, SEAT_NFC_TAG_ID, BOOK_TIME, SEATED_DATE
+		   	FROM    		USER_SEAT_TB        US
+		    	JOIN            	SEAT_TB             ST
+		    	ON      		(US.SEAT_ID = ST.SEAT_ID AND US.OFFICE_SEQ = ST.OFFICE_SEQ)
+		)   	US
+		ON      		(UA.USER_ID = US.USER_ID    AND     (TO_CHAR(ATT_DATE,'YYYY/MM/DD') = TO_CHAR(SEATED_DATE,'YYYY/MM/DD')))
+		WHERE   		TO_CHAR(ATT_DATE,'YYYY/MM/DD') = TO_CHAR(SYSDATE,'YYYY/MM/DD')
+		AND     		UA.USER_ID = #{userid}
+	    ORDER BY UA.ATT_ARRIVE_TIME 
+	)
+	WHERE ROWNUM = 1
+	
+	
+	</select>
+	
 	
 	
 	
