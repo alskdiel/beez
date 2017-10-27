@@ -44,42 +44,49 @@
 	 <div class="user-panel beez-logo">
 	 	<div class="beez-logo-left">
 		  <a href="/">
-		   SSG BEEZ
+		  	<img src="/resources/images/sidebar/slidebar_logo.png">
 		  </a>
 	  	</div>
 		  <div id="dismiss" class="beez-logo-right">
-		   CLOSE
+		  <img src="/resources/images/sidebar/close_btn.png">
 		  </div>
 		  
 	 </div>
-	 
+	 <!-- 
 	<div class="beez-sidebar-content">
 		<div>
 			<div class="user-name" id = "uname"></div>
 			<div class="user-id">p908vd</div>
 		</div>
 	</div>
-
+ 	-->
+ 
 	<div class="beez-sidebar-menus">
 		<div class="sidebar-menu-wrapper">
 			<div class="sidebar-menu-container">
 				<div class="sidebar-menu-row">
-					<div class="sidebar-row-header">
-						근태
-					</div>
+					
 					<a class="sidebar-icon" href="/att/myattend.do">
-						<img src="/resources/images/sidebar/calender2.png"/>
+						<img src="/resources/images/sidebar/slidebar_icon_1.png"/>
+						<div class="sidebar-ititle">캘린더</div>
 					</a>
+					<a class="sidebar-icon" href="/seat/list.do">
+						<img src="/resources/images/sidebar/slidebar_icon_2.png"/>
+						<div class="sidebar-ititle">좌석 현황 확인</div>
+					</a>
+					<a class="sidebar-icon" href="/seat/myseat.do">
+						<img src="/resources/images/sidebar/slidebar_icon_3.png"/>
+						<div class="sidebar-ititle">좌석 이력</div>
+					</a>
+					<!-- 
 					<a class="sidebar-icon" href="/att/myattstat.do">
 						<img src="/resources/images/sidebar/c_statistics.png"/>
 					</a>
-					<a class="sidebar-icon">
-					</a>
+					-->
 				</div>
+				<!-- 
 				<div class="sidebar-menu-row">
-					<div class="sidebar-row-header">
-						좌석
-					</div>
+					
 					<a class="sidebar-icon" href="/seat/list.do">
 						<img src="/resources/images/sidebar/seat.png"/>
 					</a>
@@ -90,12 +97,12 @@
 						<img src="/resources/images/sidebar/seat-history.png"/>
 					</a>
 				</div>
+				 -->
 				<div class="sidebar-menu-row">
-					<div class="sidebar-row-header">
-						설정
-					</div>
+					
 					<a class="sidebar-icon" href="/settings/AlramSettings.do">
-						<img src="/resources/images/sidebar/alarm.png"/>
+						<img src="/resources/images/sidebar/slidebar_icon_4.png"/>
+						<div class="sidebar-ititle">설정 기능</div>
 					</a>
 					<!-- 
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('SSGKEYSETTING')">
@@ -103,10 +110,12 @@
 					</a>
 					 -->
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFF')">
-						<img src="/resources/images/sidebar/ssgkey1.png"/>
+						<img src="/resources/images/sidebar/slidebar_icon_5.png"/>
+						<div class="sidebar-ititle">PC 로그오프</div>
 					</a>
 					<a class="sidebar-icon" href="javascript:sendAndroidMsg('REMOTELOGOFFRELEASE')">
-						<img src="/resources/images/sidebar/ssgkey3.png"/>
+						<img src="/resources/images/sidebar/slidebar_icon_6.png"/>
+						<div class="sidebar-ititle">PC 잠금해제</div>
 					</a>
 				</div>
 			</div>
