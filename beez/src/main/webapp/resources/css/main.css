@@ -1,16 +1,16 @@
 
-.content-wrapper{width: 100%;background-color: #fff; position: relative;}
+.content-wrapper{width: 100%;background: #fff; position: relative;}
 .content-wrapper>.content-header>.textbox{width:100%; height: 20%;height: 50%; margin-top: 25%; font-size: 16px; line-height: 24px; text-align: center;}
 
 
-.content-wrapper>.bar_01{width:100%; height: 40%; background-color: #ef6262;position: absolute; z-index: 0; top: 50%; }
+.content-wrapper>.bar_01{width:100%; height: 40%; background: #ef6262;position: absolute; z-index: 0; top: 50%; }
 .content-wrapper>.bar_01>.sub_img01{width: 20%; height: 30%;  float: left;
 margin-left: 4%; margin-top: 10%; background-size: 100%; background-position: center;
  background-image: url(/resources/images/icon2.png); background-repeat: no-repeat;}
 .content-wrapper>.bar_01>.m_t{width:50%; float: left; margin-top: 10%; font-size: 30px; line-height: 70px; text-align: center; color: #fff; margin-left: 2%;}
 .content-wrapper>.bar_01>i{width:10%; height: 10%; font-size: 60px; color: #fff; float: left; margin-top: 10%; margin-left: 12%;text-align: center; line-height: 70px;}
 
-.content-wrapper>.bar_02{width:100%; height: 40%; background-color: #444;position: absolute; z-index: 0; top: 75%; }
+.content-wrapper>.bar_02{width:100%; height: 40%; background: #444;position: absolute; z-index: 0; top: 75%; }
 .content-wrapper>.bar_02>.sub_img02{width: 20%; height:30%;  float: left;
 margin-left: 4%; margin-top: 10%; background-size: 100%; background-position: center;
  background-image: url(/resources/images/icon1.png); background-repeat: no-repeat;}

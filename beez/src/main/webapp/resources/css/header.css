@@ -1,7 +1,36 @@
-body{ 
+@font-face {
+	font-family: 'NANUMSQUARE_B';
+	src: url(/resources/fonts/NANUMSQUAREB.OTF);
+	
+	font-family: 'NANUMSQUARE_EB';
+	src: url(/resources/fonts/NANUMSQUAREEB.OTF);
+	
+	font-family: 'NANUMSQUARE_L';
+	src: url(/resources/fonts/NANUMSQUAREL.OTF);
+	
+	font-family: 'NANUMSQUARE_R';
+	src: url(/resources/fonts/NANUMSQUARER.OTF);
+	
+}
+
+body{
     overflow-y:hidden;          
 	height: calc(100% - 50px);
+	font-family: NANUMSQUARE_B;
 }
+/*
+body .main-header, .content-wrapper {
+	background-color: none;
+	opacity: 1;
+}
+
+
+body.sidebar-open .main-header, .content-wrapper {
+	background-color: #000;
+	opacity: 0.8;
+}
+
+*/
 
 .btn:active {
 	box-shadow: none;
@@ -73,17 +102,37 @@ a:active {
 	color: inherit;
 }
 
-.main-sidebar{
+.main-sidebar {
 	background-color: #444;
 	position: fixed;
+	box-shadow: none;
+}
+.sidebar-open .main-sidebar{
+	
+	box-shadow: 20px 0px 0px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.main-sidebar .beez-logo-left img {
+	max-height: 23px;
+}
+
+.main-sidebar .beez-logo-right {
+	height: 23px;
+	line-height: 23px;
+	padding: 5px;
+}
+.main-sidebar .beez-logo-right img {
+	max-height: 15px;
 }
 
 .sidebar-open .main-sidebar {
-	background: #222;
+	background: #e8e9eb;
 	z-index: 9999;
 	/*color: #fff;*/
 	padding-top: 0px !important;
-	width: 100%;	
+	width: 88%;	
 }
 
 .main-sidebar .beez-sidebar-content {
@@ -112,9 +161,11 @@ a:active {
 
 .sidebar-menu-menus {
 	min-width: 100%;
+	background: e8e9eb;
 }
 .sidebar-menu-wrapper, .sidebar-menu-container, .sidebar-menu-row {
 	min-width: inherit;
+	background: #FFF;
 }
 .sidebar-menu-container {
 	background: #efefef;
@@ -122,8 +173,9 @@ a:active {
 .sidebar-menu-row {
 	height: 120px;
 	border-bottom: 1px solid #fff;
-	padding: 10px 40px;
-
+	padding: 15px;
+	text-align: center;
+	margin-bottom: 5px;
 }
 
 .sidebar-menu-row .sidebar-row-header {
@@ -133,16 +185,24 @@ a:active {
 }
 .sidebar-icon {
 	display: inline-block;
-	padding: 20px;
+	padding: 0px;
+	margin: 17px 7px;
+	width: 83px;
 }
 .sidebar-icon img {
-	max-height: 50px !important;
-	line-height: 50px;
+	max-height: 40px !important;
+	line-height: 40px;
 }
 
+.sidebar-ititle {
+	margin-top: 8px;
+	font-size: 12px;
+	font-weight: 1000;
+}
 
 .sidebar-open .main-sidebar span, .sidebar-open .main-sidebar a {
 	color: inherit;}
 .sidebar-open .main-sidebar .sidebar .user-panel.beez-logo { color:#ef6262; font-size: 30px;
-	margin-bottom: 45px!important;
+	padding: 30px;
+	background: #323743;
 }
