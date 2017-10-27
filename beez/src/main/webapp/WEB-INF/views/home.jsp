@@ -65,7 +65,15 @@
 		});
 		
 		function setUserStateToWeb(name, date, position){
-		//	alert(name + " / " + date + " / "+ position);
+	alert(name + " / " + date + " / "+ position);
+	// if booked 
+	// position : booked//location//date
+	// else
+		// position : location
+	
+			var arr = position.split("//");
+			//arr[0] :booked
+			alert(arr[0]);
 			
 			if(position == 'leaved'){
 				$('#t_box00').text("오늘도 수고하셨습니다!");
