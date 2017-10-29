@@ -18,6 +18,9 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
+			  <div class="content-title">
+			  	나의 근태
+			  </div>
 			  <div class="cd_box">
 			  	<div class="calendar-wrapper">
 			  		<div class="calendar-container">
@@ -27,7 +30,6 @@
 			  	</div>
 			  </div>
 			</section>
-          <a href="#"><p class="v_text">상세보기</p></a>
 		<div class='control-sidebar-bg'></div>
 	</div>
 	
@@ -45,7 +47,7 @@
     	var data_cal_mon = ${data_cal_mon}
 
 	setCalData(data_cal, data_cal_yr+"-"+data_cal_mon+"-01");
-	$('#nav_title').text("나의근태");
+	
 	var date = {};
 	date.from = pad(data_cal_mon) + "/01/" + data_cal_yr;
 	date.to = pad((parseInt(data_cal_mon) + 1)) + "/01/" + data_cal_yr;

@@ -9,16 +9,13 @@
 	
 	 <!-- Sidebar toggle button-->
 	 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-	  <span class="icon-bar"></span>
-	  <span class="icon-bar"></span>
-	  <span class="icon-bar"></span>
+	  
 	 </a>
-	 <div style="text-align: center; margin-right: 45px">
-	  <span class="logo-lg">
-	 <a  class="navbar-userinfo" id ="nav_title">
-	 
-	 </a>
-	  </span>
+	 <div>
+	 	<span class="logo-lg">
+	 		SSG BEEZ
+	 		<!-- <a class="navbar-userinfo" id ="nav_title"></a> -->
+	  	</span>
 	 </div>
 	 
 	<!-- 

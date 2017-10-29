@@ -90,20 +90,20 @@ function drawCalendar(date) {
 	var calendar = '';
 
 	calendar += '<div id="header" class="calendar-header">';
-	calendar += '			<span><a href="#" onclick="getCalendar(\'' + prevDate + '\')"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></span>';
-	calendar += '			<span id="date">' + currentYear + '년 ' + currentMonth + '월</span>';
-	calendar += '			<span><a href="#" onclick="getCalendar(\'' + nextDate + '\')"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></span>';
+	calendar += '			<span><a href="#" onclick="getCalendar(\'' + prevDate + '\')"><img src="/resources/images/calendar/prev_icon.png"/></a></span>';
+	calendar += '			<div class="cal-title"><span id="date">' + currentYear + '.' + currentMonth + '</span></div>';
+	calendar += '			<span><a href="#" onclick="getCalendar(\'' + nextDate + '\')"><img src="/resources/images/calendar/next_icon.png"/></a></span>';
 	calendar += '		</div>';
 	calendar += '		<table border="0" cellspacing="0" cellpadding="0">';
 	calendar += '			<thead>';
 	calendar += '				<tr>';
-	calendar += '					<th class="sun" scope="row sun">일</th>';
-	calendar += '					<th class="mon" scope="row">월</th>';
-	calendar += '					<th class="tue" scope="row">화</th>';
-	calendar += '					<th class="wed" scope="row">수</th>';
-	calendar += '					<th class="thu" scope="row">목</th>';
-	calendar += '					<th class="fri" scope="row">금</th>';
-	calendar += '					<th class="sat" scope="row sat">토</th>';
+	calendar += '					<th class="sun" scope="row sun">S</th>';
+	calendar += '					<th class="mon" scope="row">M</th>';
+	calendar += '					<th class="tue" scope="row">T</th>';
+	calendar += '					<th class="wed" scope="row">W</th>';
+	calendar += '					<th class="thu" scope="row">T</th>';
+	calendar += '					<th class="fri" scope="row">F</th>';
+	calendar += '					<th class="sat" scope="row sat">S</th>';
 	calendar += '				</tr>';
 	calendar += '			</thead>';
 	calendar += '			<tbody>';
@@ -117,18 +117,23 @@ function drawCalendar(date) {
 				calendar += '				<td class="' + dateString[j] + '"> </td>';
 				continue;
 			}
+			if(dateNum < 10) {
+				dateNum = "0"+dateNum;
+			}
 			var inner_box = "<div class='info-day'>"
 						  + 	"<div class='info-day-header'>" + dateNum + "</div>"
 						  + 	"<div class='info-day-content'>";
 			if(data_cal[dateNum] != null) {
 				inner_box +=		"<div class='arrive'>"
 						  +				data_cal[dateNum].arrive
-						  + 		"</div>"
-						  + 		"<div class='leave'>"
-						  +				(data_cal[dateNum].leave? data_cal[dateNum].leave: "")
-						  + 		"</div>"
+						  + 		"</div>";
+				if(data_cal[dateNum].leave) {
+					inner_box += 		"<div class='leave'>"
+							  +			data_cal[dateNum].leave
+							  + 		"</div>";
+				}
 			}
-						  + 	"</div>"
+			inner_box	  += 	"</div>"
 						  + "</div>"
 			calendar += '				<td class="' + dateString[j] + '">' + inner_box + '</td>';
 		}

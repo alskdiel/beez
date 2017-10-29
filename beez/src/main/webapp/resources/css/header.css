@@ -16,22 +16,8 @@
 body{
     overflow-y:hidden;          
 	height: calc(100% - 50px);
-	font-family: NANUMSQUARE_B;
+	font-family: NANUMSQUARE_R;
 }
-/*
-body .main-header, .content-wrapper {
-	background-color: none;
-	opacity: 1;
-}
-
-
-body.sidebar-open .main-header, .content-wrapper {
-	background-color: #000;
-	opacity: 0.8;
-}
-
-*/
-
 .btn:active {
 	box-shadow: none;
 }
@@ -47,27 +33,38 @@ body.sidebar-open .main-header, .content-wrapper {
 
 *{margin:0; padding:0;}
 .main-header nav.navbar {	
-	background-color: #bcbcbc;
+	background: #FFF;
+	color: #000;
+}
+
+.content-header {
+	background: #e8e9eb;
 }
 
 .main-header .navbar a.logo {
 	max-width: 50%;
 }
 
-a {
-	color: #FFF;
+a, a:active, a:focus, a:hover {
+	color: inherit;
 }
-
-a:hover {
-	color: #FFF;
+.navbar {
+	font-size: 23px;
+	line-height: 23px;
 }
-a:focus {
-	color: #FFF;
+.navbar a {
+	height: 50px;
 }
-a:active {
-	color: #FFF;
+.navbar div {
+	font-size: 20px;
+	font-weight: 1000;
+	line-height: 50px;
+	padding: 0 15px;
+	text-align: center;
+	margin-right: 40px;
+	font-family: NANUMSQUARE_R;
 }
-
+/*
 .navbar-userinfo {
 	font-size: 20px;
 	line-height: 50px;
@@ -78,6 +75,7 @@ a:active {
 	transition: width .3s ease-in-out;
 	text-decoration: none;
 }
+*/
 .icon_bell{background-color: #fff;font-size: 24px;}
 .main-header .sidebar-toggle:hover {
 	color: inherit;
