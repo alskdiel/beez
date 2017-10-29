@@ -61,7 +61,7 @@ header.main-header {
 }
 
 .status-container {
-	margin-top: 110px;
+	margin-top: 105px;
 }
 
 .filter-container .search, .my-team, .refresh {
@@ -82,7 +82,27 @@ header.main-header {
 .filter-container .refresh .icon-container img {
 	height: 100%;
 }
-
+.filter-container .my-team {
+	margin-left: 20px;
+}
+.filter-container .toggle-container .toggle.btn {
+	border-radius: 20px;
+	width: 65px;
+	border-color: #999;
+}
+.filter-container .toggle-container .toggle.btn.btn-primary {
+	border-color: #ef6262;
+}
+.filter-container .toggle-container .toggle-group .toggle-on {
+	background-color: #ef6262;
+}
+.filter-container .toggle-container .toggle-group .toggle-off {
+	background-color: #999;
+}
+.filter-container .toggle-container .toggle.btn .toggle-handle {
+	border-radius: 20px;
+	width: 70px;
+}
 
 .filter-container i {
 	font-size: 15px;
@@ -90,7 +110,7 @@ header.main-header {
 
 .my-modal {
 	width: calc(100% - 40px);
-	margin: 0px 20px;
+	margin: 50px 20px 0px 20px;
 	z-index: 5;
 	background: #FFF;
 	position: fixed;

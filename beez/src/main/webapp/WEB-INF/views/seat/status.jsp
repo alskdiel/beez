@@ -34,7 +34,7 @@
 							<div class="btn btn-warning display-team-list">팀원목록</div>
 						</div>
 						<div class="toggle-container">
-							<input type="checkbox" checked data-toggle="toggle" id="team-toggle">
+							<input type="checkbox" checked data-toggle="toggle" id="team-toggle" data-on=" " data-off=" ">
 						</div>
 					</div>
 					
