@@ -65,7 +65,7 @@
 		});
 		
 		function setUserStateToWeb(name, date, position){
-	alert(name + " / " + date + " / "+ position);
+//	alert(name + " / " + date + " / "+ position);
 	// if booked 
 	// position : booked//location//date
 	// else
@@ -73,8 +73,7 @@
 	
 			var arr = position.split("//");
 			//arr[0] :booked
-			alert(arr[0]);
-			
+
 			if(position == 'leaved'){
 				$('#t_box00').text("오늘도 수고하셨습니다!");
 				$('#t_box01').text("퇴근");
@@ -95,6 +94,15 @@
 					document.getElementById("chatimg").style.display = "block";
 					document.getElementById("chatimg").style.textalign = "center";
 				}
+			}
+
+			
+			if(arr[0] == "booked"){
+
+
+				$('#t_box01').text("예약중인 위치 : "+arr[1]+" / 유효시간 : "+arr[2]);
+				
+				
 			}
 			
 			
