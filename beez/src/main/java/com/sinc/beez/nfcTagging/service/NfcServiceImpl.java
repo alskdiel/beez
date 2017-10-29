@@ -24,7 +24,13 @@ public class NfcServiceImpl implements NfcService {
 	@Resource(name = "NfcDAO")
 	NfcDAO dao;
 
+	@Override
+	public int touchTagBooking(NfcDTO dto) {
+		// TODO Auto-generated method stub
+
+		return dao.updateBooking(dto);
 	
+	}
 	@Override
 	public int bookSeat(NfcDTO dto) {
 		// TODO Auto-generated method stub

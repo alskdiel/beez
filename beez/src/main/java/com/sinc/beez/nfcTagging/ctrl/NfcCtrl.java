@@ -29,6 +29,18 @@ public class NfcCtrl {
 		json.put("result", result);
 		return json.toString();
 	}
+	@RequestMapping("/touchTagBooking.do")
+	@ResponseBody
+	public String touchTagBooking(NfcDTO dto){
+		int result = 0;
+		result = service.touchTagBooking(dto);
+		
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
+	
 	@RequestMapping("/touchTag.do")
 	@ResponseBody
 	public String touchTag(NfcDTO dto){
