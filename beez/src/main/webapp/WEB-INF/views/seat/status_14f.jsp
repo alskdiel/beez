@@ -2,10 +2,6 @@
 	pageEncoding="UTF-8"%>
 <div class="floor 14f" id="floor-14">
 	<div class="floor-container">
-		<div style="width: 100%; text-align: center; font-size: 12pt">
-			<span>14층</span>
-		</div>
-
 		<div class="tab-content carousel slide" id="carousel-example-generic">
 			<div class="carousel-inner">
 				<div class="tab-pane active item" id="section-14A">

@@ -24,13 +24,14 @@
 							<input type="text" class="form-control" id="name" placeholder="이름">
 						</div>
 						<div class="icon-container">
-							<i class="fa fa-search" aria-hidden="true"></i>
+							<img src="/resources/images/seat_status/search_icon.png"/>
+							
 						</div>
   					</div>
   					
 					<div class="my-team">
 						<div class="team-container">
-							<div class="btn btn-warning display-team-list">팀원 목록</div>
+							<div class="btn btn-warning display-team-list">팀원목록</div>
 						</div>
 						<div class="toggle-container">
 							<input type="checkbox" checked data-toggle="toggle" id="team-toggle">
@@ -39,7 +40,7 @@
 					
 					<div class="refresh">
 						<div class="icon-container">
-							<i class="fa fa-refresh" aria-hidden="true"></i>
+							<img src="/resources/images/seat_status/refresh_icon.png"/>
 						</div>
 					</div>
 				</div>
@@ -51,15 +52,21 @@
 							<div>
 								팀원 목록
 							</div>
-							<div class="dismiss"><i class="fa fa-times" aria-hidden="true"></i></div>
+							<div class="dismiss">
+								<img src="/resources/images/seat_status/popup_close_btn.png"/>
+							</div>
 							
 						</div>
 						<div class="modal-content">
 							<table>
 								<thead>
 									<tr>
-										<td>사번</td>
-										<td>이름</td>
+										<td>
+											<div>사번</div>
+										</td>
+										<td>
+											<div>이름</div>
+										</td>
 										<td></td>
 									</tr>
 								</thead>
@@ -67,10 +74,14 @@
 								</tbody>
 							</table>
 						</div>
+						<div class="modal-footer">
+							<div>
+							</div>
+						</div>
 					</div>
 					
 					<div class="floor-btn">
-						<div id="to-9f">9</div>
+						<div id="to-9f" class="current_floor">9</div>
 						<div id="to-10f">10</div>
 						<div id="to-13f">13</div>
 						<div id="to-14f">14</div>

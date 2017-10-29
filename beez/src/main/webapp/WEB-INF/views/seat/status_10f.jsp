@@ -2,10 +2,6 @@
 	pageEncoding="UTF-8"%>
 <div class="floor 10f" id="floor-10">
 	<div class="floor-container">
-		<div>
-			<span>10층</span>
-		</div>
-
 		<div class="tab-content carousel slide" id="carousel-example-generic">
 			<div class="carousel-inner">
 				<div class="tab-pane active item" id="section-10A">

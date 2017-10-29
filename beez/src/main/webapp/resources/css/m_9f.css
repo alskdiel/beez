@@ -55,84 +55,188 @@ header.main-header {
 	padding: 15px;
 	position: fixed;
 	z-index: 1;
-	background: #FFF;
+	background: #e8e9eb;
 	width: 100%;
 	top: 50px;
 }
 
 .status-container {
-	margin-top: 120px;
+	margin-top: 110px;
 }
 
 .filter-container .search, .my-team, .refresh {
 	display: inline-block;
+	height: 34px;
 	vertical-align: top; /* here */
-	padding: 0px 5px;
+	/*padding: 0px 5px;*/
 }
 
 .filter-container .refresh {
 	float: right;
 }
+.filter-container .refresh .icon-container {
+	padding: 7px;
+	margin-right: -7px;
+	height: 100%;
+}
+.filter-container .refresh .icon-container img {
+	height: 100%;
+}
+
 
 .filter-container i {
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .my-modal {
-	width: calc(100% - 100px);
-	margin: 0px 50px;
-	border: 1px solid #000;
+	width: calc(100% - 40px);
+	margin: 0px 20px;
 	z-index: 5;
 	background: #FFF;
 	position: fixed;
-	height: 300px;
 	display: none;
+	box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.5);
+	z-index: 1111;
+	border-radius: 20px;
+	padding: 20px;
 }
 
 .my-modal .modal-header div {
 	display: inline-block;
+	height: 25px;
 }
 
 .my-modal .modal-header div:nth-child(2) {
 	float: right;
 }
 
+.my-modal .modal-header, .my-modal .modal-content, .my-modal .modal-footer {
+	padding: 0px;
+	box-shadow: none !important;
+}
+
+.my-modal .modal-header {
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 2px solid #000;
+	padding-bottom: 5px;
+}
+.my-modal .modal-header .dismiss {
+	padding: 5px;
+}
+.my-modal .modal-header .dismiss img {
+	height: 100%;
+}
+
 .my-modal .modal-content {
-	padding: 15px;
+	padding: 20px;
 }
 
 .my-modal table {
 	width: 100%;
 	line-height: 35px;
+	text-align: center;
+}
+.my-modal table thead tr {
+	height: 50px;
+}
+.my-modal table tbody tr {
+	height: 40px;
 }
 .my-modal table thead, tbody {
 	font-size: 14px;
 }
-
+.my-modal table thead tr td div {
+	width: 80%;
+	margin: auto;
+	border-radius: 20px;
+	font-family: NANUMSQUARE_L;
+	line-height: 20px;
+	padding: 5px;
+	color: #FFF;
+	background: #393939;
+}
+.my-modal table tbody tr {
+	font-weight: bold;
+	border-bottom: 1px solid #ddd;
+}
+.my-modal table tbody tr:last-child {
+	border-bottom: none;
+}
+.my-modal table thead tr td:first-child {
+	width: 30%;
+}
+.my-modal table thead tr td:nth-child(2) {
+	width: 50%;
+}
+.my-modal table thead tr td:nth-child(2) div {
+	width: 50%;
+}
+/*
+.my-modal table tbody tr td:last-child {
+	width: 30%;
+}
+*/
 .my-modal table tbody .user-leave-yn {
 	width: 10px;
 	height: 10px;
 	background: #dedede;
 	border-radius: 10px;
+	float: right;
+	margin-right: 12px;
 }
 
 
 .my-modal table tbody .user-leave-yn.y {
-	background: green;
+	background: #ef6262;
 }
 
 
 .filter-container .input-container {
-	width: 100px;
+	width: 120px;
+	
+}
+.input-container .form-control {
+	border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    -webkit-border-radius: 20px !important;
+}
+
+.filter-container .search .icon-container {
+	height: 34px;
+	margin-left: -40px;
+	vertical-align: top;
+	padding: 7px 9px;;
+	font-size: 15px;
+	background: #ef6262;
+	color: #FFF;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border: 0.5px solid #d2d6de;
+	
+}
+.filter-container .search .icon-container img {
+	height: 100%;
 }
 
 .filter-container .input-container, .icon-container, .team-container, .toggle-container {
 	display: inline-block;
 }
+.team-container div, .team-container div:hover, .team-container div:active, .team-container div:focus, .team-container div.hover, .team-container div.active, .team-container div.focus {
+	background: #393939;
+	border-radius: 20px;
+	border: none;
+	font-size: 14px;
+	line-height: 17px;
+	padding: 9px 15px;
+	font-family: NANUMSQUARE_L;
+	
+}
 
 .floor .floor-container .nav-tabs {
 	width: 100%;
 	border: none;
+	padding: 10px 50px;
 }
 
 .floor .floor-container .nav-tabs li {
@@ -141,32 +245,62 @@ header.main-header {
 	text-align: center;
 }
 
-.floor .floor-container .nav-tabs li a {
-	border: inherit;
+.floor .floor-container .nav-tabs li.active a {
+	background: #ef6262;
+	color: #FFF;
 }
 
-
+.floor .floor-container .nav-tabs li a {
+	border: 1px solid #ef6262;
+	margin: 0px;
+	background: #FFF;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 9px;
+	font-weight: bold;
+	border-radius: 0px;
+}
+.floor .floor-container .nav-tabs li:first-child a {
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.floor .floor-container .nav-tabs li:last-child a {
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
 .floor-btn {
 	position: fixed;
-	width: 30px;
-	background: #fbb0b3;
+	width: 40px;
+	background: #FFF;
 	z-index: 2;
-	margin-left: calc(100% - 60px);
-	margin-top: 100%;
+	margin-left: calc(100% - 85px);
+	margin-top: calc(100% - 120px);
 }
 
 .floor-btn div {
-	font-size: 20px;
+	font-size: 16px;
+	line-height: 32px;
 	text-align: center;
+	border: 1px solid #d2d6de;
+	font-weight: bold;
+}
+
+.floor-btn div.current_floor {
+	color: #FFF;
+	background: #ef6262;
+	border: 1px solid #ef6262;
+	font-weight: bold;
 }
 
 .floor {
 	width: inherit;
 	margin-bottom: 50px;
+	padding: 10px;
 }
 
 .floor-container .tab-content {
 	background: #FFF;
+	padding: 0px 15px;
 }
 
 .floor table {
@@ -174,7 +308,7 @@ header.main-header {
 }
 
 .floor table.outer {
-	min-height: 540px !important;
+	min-height: 470px !important;
 }
 
 .floor table.outer tr {
@@ -191,15 +325,15 @@ header.main-header {
 	width: 25%;
 	background: #ddd;
 	
-	height: 50px;
+	height: 40px;
 }
 
 .floor table.inner tr td {
 	width: 25%;
 	background: #FFF;
-	background-image: url(/resources/images/f_box.png);
-	
-	height: 50px;
+	background-image: url(/resources/images/seat_status/chair_icon_1_small.png);
+	background-size: 35px;
+	height: 40px;
 	background-repeat: no-repeat;
 	background-position: center;
 	overflow-y:hidden;
@@ -208,7 +342,7 @@ header.main-header {
 }
 
 .floor table.inner tr td.available {
-	background-image: url(/resources/images/f_box.png);
+	background-image: url(/resources/images/seat_status/chair_icon_1_small.png);
 }
 
 .floor table.inner tr td.blank {
@@ -216,12 +350,12 @@ header.main-header {
 }
 
 .floor table.inner tr td.disabled {
-	background-image: url(/resources/images/f_box03.png);
+	background-image: url(/resources/images/seat_status/chair_icon_2_small.png);
 
 }
 
 .floor table.inner tr td.inuse {
-	background-image: url(/resources/images/f_box02.png);
+	background-image: url(/resources/images/seat_status/chair_icon_3_small.png);
 }
 
 table.inner tr td div.btn {

@@ -4,10 +4,6 @@
 
 <div class="floor 9f" id="floor-9">
 	<div class="floor-container">
-		<div>
-			<span>9층</span>
-		</div>
-	
 		<div class="tab-content carousel slide" id="carousel-example-generic">
 		
 			<div class="carousel-inner">

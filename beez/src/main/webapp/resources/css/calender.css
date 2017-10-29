@@ -3,7 +3,7 @@
 	width: 100%;
 	height: auto;
 	position: relative;
-	padding: 15px;
+	padding: 10px;
 }
 .content-header>.cd_box{
 	width: 100%;
@@ -22,7 +22,7 @@ a>.v_text{width: 100%; min-height: 55px; font-size: 20px; text-align: center; li
 	font-size: 22px;
 	text-align: center;
 	line-height: 28px;
-	margin-bottom: 17px;
+	margin: 10px 0px;
 	font-weight: bold;
 	
 }

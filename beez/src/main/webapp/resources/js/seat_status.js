@@ -228,25 +228,55 @@ function resetStatus() {
 //$(document).on("ready", function() {
 	 
 
-$offset_9f = $("#floor-9").offset().top - 120;
-$offset_10f = $("#floor-10").offset().top - 120;
-$offset_13f = $("#floor-13").offset().top - 120;
-$offset_14f = $("#floor-14").offset().top - 120;
+$offset_9f = $("#floor-9").offset().top - 100;
+$offset_10f = $("#floor-10").offset().top - 100;
+$offset_13f = $("#floor-13").offset().top - 100;
+$offset_14f = $("#floor-14").offset().top - 100;
 
+function switchFlrBtn(flr) {
+    var $btns = $(".floor-btn div");
+	console.log($btns);
+	var idx = 0;
+	if(flr == 10) {
+		idx = 1;
+	} else if(flr == 13) {
+		idx = 2
+	} else if(flr == 14) {
+		idx = 3;
+	} else {
+		idx = 0;
+	}
+	
+    for(var i=0; i<$btns.length; i++) {
+    	
+    	var $cur_flr = $($btns[i]);
+    	if($cur_flr.hasClass("current_floor")) {
+    		$cur_flr.removeClass("current_floor");
+    	}
+    	
+    	if(idx == i) {
+    		$cur_flr.addClass("current_floor");
+    	}
+    }
+}
 
 $("#to-9f").on("click", function() {
+	switchFlrBtn(9);
     $('html, body').animate({ scrollTop: $offset_9f}, 700);
 });
 
 $("#to-10f").on("click", function() {
+	switchFlrBtn(10);
     $('html, body').animate({ scrollTop: $offset_10f}, 700);
 });
 
 $("#to-13f").on("click", function() {
+	switchFlrBtn(13);
     $('html, body').animate({ scrollTop: $offset_13f}, 700);
 });
 
 $("#to-14f").on("click", function() {
+	switchFlrBtn(14);
     $('html, body').animate({ scrollTop: $offset_14f}, 700);
 });
 
@@ -373,7 +403,6 @@ function getCurrentStatus() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			seat_status = data;
 			refresh(data);
 		}
@@ -410,6 +439,9 @@ function officeSeqToFlr(office_seq) {
 
 function takeElavatorWithOfficeSeq(office_seq) {
 	var floor = officeSeqToFlr(office_seq);
+	
+	switchFlrBtn(floor);
+
 	
 	if(floor == 9) {
 	    $('html, body').animate({ scrollTop: $offset_9f}, 1000);
