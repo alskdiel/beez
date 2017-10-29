@@ -38,6 +38,13 @@
 		AND		BOOK_TIME IS NOT NULL
 	
 	</update>
+	<update  id="leaveTag" parameterType="nfcdto">
+		UPDATE      USER_ATT_TB
+		SET         	ATT_LEAVE_TIME = SYSDATE
+		WHERE       USER_ID = #{userid}
+		AND         	TO_DATE(ATT_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+		AND         	ATT_LEAVE_TIME IS NULL
+	</update>
 	<!-- <select id="getBeaconInfoAll" resultType="beaconoffice">
 		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
 		FROM    BEACON_OFFICE_VW

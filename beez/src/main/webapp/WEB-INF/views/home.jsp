@@ -4,16 +4,10 @@
 <html>
 <head>
 <%@include file="./include/resources.jsp"%>
-
 </head>
-
 <body class="sidebar-mini">
-
 	<div class="wrapper">
-
 		<%@include file="./include/header.jsp"%>
-
-
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
@@ -23,7 +17,6 @@
 					<div id="t_box01">-</div>
 					<div id="t_box02">-</div>
 					<div id="t_box03"></div>
-					
 					<div onclick="javascript:shareMyLocation()" style="text-align: center;">
 						<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
 					</div>

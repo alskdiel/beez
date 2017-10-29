@@ -8,4 +8,5 @@ public interface NfcDAO {
 	public int touchNewTag(NfcDTO dto);
 	public int bookSeat(NfcDTO dto);
 	public int updateBooking(NfcDTO dto);
+	public int leaveTag(NfcDTO dto);
 }

@@ -42,4 +42,9 @@ public class NfcDAOImpl implements NfcDAO {
 		// TODO Auto-generated method stub
 		return session.insert(PREFIX + "seatNewBook", dto);
 	}
+	@Override
+	public int leaveTag(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return session.update(PREFIX+"leaveTag", dto);
+	}
 }
