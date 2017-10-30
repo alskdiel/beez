@@ -490,14 +490,14 @@ function showSearchResult(data, type) {
 			type = 'B';
 		}
 		if(type == 'A') {
-			if(!isFirstPage[data.floor]) {
+			if(!isFirstPage["floor-"+floor]) {
 				$element.parent().children(".carousel").carousel('prev');
-				isFirstPage[data.floor] = true;
+				isFirstPage["floor-"+floor] = true;
 			}
 		} else {
-			if(isFirstPage[data.floor]) {
+			if(isFirstPage["floor-"+floor]) {
 				$element.parent().children(".carousel").carousel('next');
-				isFirstPage[data.floor] = false;
+				isFirstPage["floor-"+floor] = false;
 			}
 		}
 		
