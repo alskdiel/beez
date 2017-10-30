@@ -90,10 +90,6 @@ function transformToNFCID(floor_num, seat_id) {
 		section = 'B';
 	}
 	
-	if(seat_id < 10) {
-		seat_id = "0" + seat_id;
-	}
-	
 	return floor_num + "F-" + section + "-" + seat_id;
 }
 
@@ -437,7 +433,7 @@ function searchUserSeatById(user_id) {
 			dissmissModal();
 			
 			
-			resetStatus();
+			//resetStatus();
 			takeElavatorWithOfficeSeq(data.floor);
 			showSearchResult(data)
 		}
@@ -540,7 +536,7 @@ function getTeamMatesSeat() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			resetStatus();
+			//resetStatus();
 			
 			for(var i=0; i<data.length; i++) {
 				showSearchResult(data[i], "no-blink");
@@ -558,7 +554,7 @@ function searchUserByName(user_name) {
 		dataType : "json" , 
 		success : function(data) {			
 			
-			resetStatus();
+			//resetStatus();
 			showSearchResult(data);
 
 			takeElavatorWithOfficeSeq(data.floor);
