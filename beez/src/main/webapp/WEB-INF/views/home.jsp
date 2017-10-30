@@ -23,6 +23,9 @@
 					<div onclick="javascript:ReadQR()">	
 						<p id = "qrbtn" style="display: none;">QR코드로 좌석 인식</p>
 					</div>
+					<div onclick="javascript:CancelBook()">	
+						<p id = "canbook" style="display: none;">좌석 예약 취소</p>
+					</div>
 				</div>
 			</section>
 			<div class="bar_01" onclick="javascript:href_page('bar01');">
@@ -79,6 +82,7 @@
 			else 	if(date == 'null'){
 				$('#t_box00').text("충전 중");
 				$('#t_box02').text("아직 출근하지 않았네요~");
+				document.getElementById("canbook").style.display = "none";
 			}else{
 
 				$('#t_box00').text("근무 중");
@@ -86,9 +90,11 @@
 				document.getElementById("qrbtn").style.display = "block";
 				if(position == 'null'){
 					$('#t_box01').text("자리에 앉지 않았네요~");
+					document.getElementById("canbook").style.display = "none";
 				}else{
 					$('#t_box01').text(name+"님의 위치 : "+position);
 
+					document.getElementById("canbook").style.display = "none";
 					document.getElementById("chatimg").style.display = "block";
 					document.getElementById("chatimg").style.textalign = "center";
 					$('#t_box03').text('');
@@ -98,8 +104,9 @@
 				$('#t_box01').text("예약중인 위치 : "+arr[1]);
 				if(arr[3]=='0'){
 					$('#t_box03').text("예약 시간이 지났습니다.");
-					
+					document.getElementById("canbook").style.display = "none";
 				}
+				document.getElementById("canbook").style.display = "block";
 				$('#t_box03').text(arr[2]+"까지 ["+arr[3]+"초 남음]");
 				}	
 		}
@@ -119,6 +126,9 @@
 		}
 		function ReadQR(){
 			sendAndroidMsg("STARTQRREADER");
+		}
+		function CancelBook(){
+			sendAndroidMsg("CANCELBOOKING");
 		}
 		</script>
 </body>
