@@ -1,3 +1,4 @@
+<%@page import="com.sinc.beez.user.model.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -61,6 +62,10 @@
 	<div class="beez-sidebar-menus">
 		<div class="sidebar-menu-wrapper">
 			<div class="sidebar-menu-container">
+				
+				<div class="sidebar-menu-row" style="text-align: left; height: 100px" >
+						<%=((UserVO)session.getAttribute("currentUser")).getUser_name() %>님 안녕하세요?
+				</div>
 				<div class="sidebar-menu-row">
 					
 					<a class="sidebar-icon" href="/att/myattend.do">
