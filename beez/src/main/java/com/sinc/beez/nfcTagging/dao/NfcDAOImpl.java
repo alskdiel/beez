@@ -15,23 +15,36 @@ public class NfcDAOImpl implements NfcDAO {
 
 	@Override
 	public int touchTag(NfcDTO dto) {
-		System.out.println("touchTag : "+dto);
+		System.out.println("touchTag : " + dto);
 		return session.insert(PREFIX + "seatTouch", dto);
 	}
 
 	@Override
+	public int updateBooking(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return session.delete(PREFIX+"updateBooking",dto);
+	}
+
+	@Override
 	public int touchTagUpdate(NfcDTO dto) {
-		System.out.println("touchUpdate : "+dto);
+		System.out.println("touchUpdate : " + dto);
 		return session.update(PREFIX + "seatTouchUpdate", dto);
 	}
+
 	@Override
 	public int touchNewTag(NfcDTO dto) {
-		System.out.println("touchNewTag : "+dto);
+		System.out.println("touchNewTag : " + dto);
 		return session.insert(PREFIX + "seatNewTouch", dto);
 	}
+
 	@Override
 	public int bookSeat(NfcDTO dto) {
 		// TODO Auto-generated method stub
-		return session.insert(PREFIX+"seatNewBook",dto);
+		return session.insert(PREFIX + "seatNewBook", dto);
+	}
+	@Override
+	public int leaveTag(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return session.update(PREFIX+"leaveTag", dto);
 	}
 }

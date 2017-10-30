@@ -24,23 +24,31 @@ public class NfcServiceImpl implements NfcService {
 	@Resource(name = "NfcDAO")
 	NfcDAO dao;
 
-	
+	@Override
+	public int touchTagBooking(NfcDTO dto) {
+		// TODO Auto-generated method stub
+
+		return dao.updateBooking(dto);
+
+	}
+
 	@Override
 	public int bookSeat(NfcDTO dto) {
 		// TODO Auto-generated method stub
-		
+
 		return dao.bookSeat(dto);
 	}
+
 	@Override
 	public String SyncMap(String taginfo) {
 		System.out.println(taginfo + " / " + onMem.get(taginfo));
 		String temp = onMem.get(taginfo);
 		if (temp == null || temp.equals(null)) {
 			return "false";
-		} else{
-			if(temp.equals(getDate()) || temp == getDate()){
+		} else {
+			if (temp.equals(getDate()) || temp == getDate()) {
 				return "true";
-			}else{
+			} else {
 				return "false";
 			}
 		}
@@ -86,6 +94,13 @@ public class NfcServiceImpl implements NfcService {
 		return r;
 	}
 
+	@Override
+	public int leaveTag(NfcDTO dto) {
+		
+		
+		return dao.leaveTag(dto);
+	}
+
 	public static String getDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
 				"yyyy-MM-dd", java.util.Locale.getDefault());
@@ -93,4 +108,5 @@ public class NfcServiceImpl implements NfcService {
 		String strDate = dateFormat.format(date);
 		return strDate;
 	}
+
 }

@@ -17,6 +17,23 @@ import com.sinc.beez.nfcTagging.service.NfcService;
 public class NfcCtrl {
 	@Resource(name="NfcService")
 	NfcService service;
+	
+	@RequestMapping("/leaveTag.do")
+	@ResponseBody
+	public String leaveTag(NfcDTO dto){
+		System.out.println(">>>>>>>>>>>>>LEAVE TAG");
+		int result = 0;
+		System.out.println(dto.toString());
+		result = service.leaveTag(dto);
+		if(result > 0) result = 72731992;
+		
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		System.out.println(json.toString());
+		return json.toString();
+		
+	}
+	
 	@RequestMapping("/bookSeat.do")
 	@ResponseBody
 	public String bookSeat(NfcDTO dto){
@@ -29,6 +46,18 @@ public class NfcCtrl {
 		json.put("result", result);
 		return json.toString();
 	}
+	@RequestMapping("/touchTagBooking.do")
+	@ResponseBody
+	public String touchTagBooking(NfcDTO dto){
+		int result = 0;
+		result = service.touchTagBooking(dto);
+		
+
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
+	
 	@RequestMapping("/touchTag.do")
 	@ResponseBody
 	public String touchTag(NfcDTO dto){
@@ -64,5 +93,7 @@ public class NfcCtrl {
 		json.put("result", result);
 		return json.toString();
 	}
+	
+	
 	
 }

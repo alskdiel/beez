@@ -4,27 +4,21 @@
 <html>
 <head>
 <%@include file="./include/resources.jsp"%>
-
 </head>
-
 <body class="sidebar-mini">
-
 	<div class="wrapper">
-
 		<%@include file="./include/header.jsp"%>
-
-
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 
 				<div class="textbox">
-					<h2 id="t_box00">근무중</h2>
+					<h2 id="t_box00">근무 중</h2>
 					<div id="t_box01">-</div>
 					<div id="t_box02">-</div>
-					
-					<div onclick="javascript:shareMyLocation()">
-					<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
+					<div id="t_box03"></div>
+					<div onclick="javascript:shareMyLocation()" style="text-align: center;">
+						<img alt="share" src="/img/chat.png"  id="chatimg"  style="width: 10%; height: 10% ; display: none"  >
 					</div>
 					<div onclick="javascript:ReadQR()">	
 						<p id = "qrbtn" style="display: none;">QR코드로 좌석 인식</p>
@@ -61,21 +55,32 @@
 		$(document).ready(function() {
 			$('#nav_title').text("SSG BEEZ");
 			sendAndroidMsg("MAINONLOADCALL");
-			setInterval("sendAndroidMsg('MAINONLOADCALL')", 3000);
+			setInterval("sendAndroidMsg('MAINONLOADCALL')", 1000);
 		});
 		
 		function setUserStateToWeb(name, date, position){
-		//	alert(name + " / " + date + " / "+ position);
-			
+	// if booked 
+	// position : booked//location//date
+	// else
+	// position : location
+	
+			var arr = position.split("//");
+			//arr[0] :booked
+
 			if(position == 'leaved'){
 				$('#t_box00').text("오늘도 수고하셨습니다!");
 				$('#t_box01').text("퇴근");
 				$('#t_box02').text(date.substr(0,10));
+
+				document.getElementById("chatimg").style.display = "none";
+				document.getElementById("qrbtn").style.display = "none";
+				
 			}
 			else 	if(date == 'null'){
 				$('#t_box00').text("충전 중");
 				$('#t_box02').text("아직 출근하지 않았네요~");
 			}else{
+
 				$('#t_box00').text("근무 중");
 				$('#t_box02').text("출근시간 : "+date);
 				document.getElementById("qrbtn").style.display = "block";
@@ -86,12 +91,18 @@
 
 					document.getElementById("chatimg").style.display = "block";
 					document.getElementById("chatimg").style.textalign = "center";
+					$('#t_box03').text('');
 				}
-			}
-			
-			
+			}			
+			if(arr[0] == "booked"){
+				$('#t_box01').text("예약중인 위치 : "+arr[1]);
+				if(arr[3]=='0'){
+					$('#t_box03').text("예약 시간이 지났습니다.");
+					
+				}
+				$('#t_box03').text(arr[2]+"까지 ["+arr[3]+"초 남음]");
+				}	
 		}
-
 		function href_page(bar){
 			var url;
 			if(bar == 'bar01'){

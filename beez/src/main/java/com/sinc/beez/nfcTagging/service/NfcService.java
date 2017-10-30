@@ -7,4 +7,6 @@ public interface NfcService {
 	public int touchTagUpdate(NfcDTO dto);
 	public String SyncMap(String taginfo);
 	public int bookSeat(NfcDTO dto);
+	public int touchTagBooking(NfcDTO dto);
+	public int leaveTag(NfcDTO dto);
 }

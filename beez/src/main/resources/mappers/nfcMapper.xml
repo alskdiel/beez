@@ -29,6 +29,22 @@
 			(SELECT OFFICE_SEQ FROM OFFICE_TB WHERE FLOOR_NUM = #{officefloor})
 		, SYSDATE, 'B', #{starttime}, SYSDATE)
 	</insert>
+	<update id="updateBooking" parameterType="nfcdto">
+		UPDATE		USER_SEAT_TB
+		SET			USER_LEAVE_YN = 'N' , CHARTONLYDATE = SYSDATE, BOOK_TIME = NULL
+		WHERE	USER_ID = #{userid}
+		AND		TO_DATE(SEATED_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+		AND		USER_LEAVE_YN = 'B'
+		AND		BOOK_TIME IS NOT NULL
+	
+	</update>
+	<update  id="leaveTag" parameterType="nfcdto">
+		UPDATE      USER_ATT_TB
+		SET         	ATT_LEAVE_TIME = SYSDATE
+		WHERE       USER_ID = #{userid}
+		AND         	TO_DATE(ATT_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+		AND         	ATT_LEAVE_TIME IS NULL
+	</update>
 	<!-- <select id="getBeaconInfoAll" resultType="beaconoffice">
 		SELECT  BEACON_ID, BEACON_ADDR, BEACON_POSITION, BEACON_ALIAS, FLOOR_NUM, BUILDING_NAME
 		FROM    BEACON_OFFICE_VW
