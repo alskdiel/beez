@@ -453,7 +453,11 @@ table.inner tr td div.btn {
 }
 
 .popover .popover-content {
-	font-size: 15px; 
+	font-size: 13px; 
+	padding: 4px 14px;
+}
+.popover .popover-content div {
+	line-height: 25px;
 }
 
 .btn-rev {

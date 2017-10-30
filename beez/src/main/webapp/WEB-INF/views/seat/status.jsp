@@ -88,10 +88,18 @@
 						<div id="to-14f">14</div>
 					</div>
 					
-					<%@include file="status_9f.jsp"%>
-					<%@include file="status_10f.jsp"%>
-					<%@include file="status_13f.jsp"%>
-					<%@include file="status_14f.jsp"%>
+					<jsp:include page="status_9f.jsp" flush="false">
+						<jsp:param name="floor" value="9" />
+					</jsp:include>
+					<jsp:include page="status_10f.jsp" flush="false">
+						<jsp:param name="floor" value="10" />
+					</jsp:include>
+					<jsp:include page="status_13f.jsp" flush="false">
+						<jsp:param name="floor" value="13" />
+					</jsp:include>
+					<jsp:include page="status_14f.jsp" flush="false">
+						<jsp:param name="floor" value="14" />
+					</jsp:include>
 				</div> 	
 			  </section>
 		  </div>

@@ -10,19 +10,34 @@ header.main-header {
 
 .content-wrapper {
 	margin-top: 50px;
+	padding: 10px;
+	background: #e8e9eb;
 }
-.content-body, .content-header {
-	padding: 15px 0px 0px 0px; background-color: #ef6262;
+.content-header {
+	padding: 10px 0px;
+}
+.content-body {
+	padding: 0px 5px;
+	background: #FFF;
 }
 
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-header .icon-filter {
+	padding: 2px;
 	display: inline-block;
 	float: right;
-	width: 30px;
-	height: 30px;
+	
+	height: 100%;
 }
-
-
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-header .icon-filter img {
+	height: 100%;
+}
+.content-header .filter-wrapper .filter-header {
+	font-size: 15px;
+	font-weight: bold;
+	
+	height: 30px;
+	line-height: 30px;
+}
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body {
 	height: 0px;
 	background: #fff;
@@ -33,7 +48,9 @@ header.main-header {
 }
 
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body.validated {
-	height: 100px;
+	height: 74px;
+	padding: 15px 20px;
+	border: 3px solid #cecece;
 }
 
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container,
@@ -42,17 +59,179 @@ header.main-header {
 	display: none;
 }
 
-
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button {
+	width: 100px;
+	padding: 9px 10px;
+	font-size: 13px;
+	text-align: left;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button .caret {
+	float: right;
+	margin-top: 7px;
+	
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown .dropdown-menu {
+	min-width: 100px !important;
+	font-size: 13px;
+	font-family: NANUMSQUARE_L;
+	margin-top: 0px;
+	padding: 0px;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown .dropdown-menu li {
+	
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown .dropdown-menu li a {
+	color: #000;
+	font-size: 13px;
+	padding: 9px 10px;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown .dropdown-menu li.divider {
+	margin: 0px;
+	padding: 0px;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button:hover,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button:active,
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .dropdown button:focus {
+	background: #FFF !important;
+	border-radius: 0px;
+	border-color: #ddd;
+}
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container div {
 	display: inline-block;
 }
-
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.loc input {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	font-size: 13px;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.date input {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	font-size: 13px;
+	height: 34px;
+	width: 180px;
+}
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .icon-search {
+	height: 34px;
+	padding: 10px;
+	font-size: 14px;
+	color: #FFF;
+	vertical-align: top;
+	background: #5e5e5e;
+	float: right;
+}
 #table-seat-history {
-	border-top: 1px solid #ddd;
+	font-size: 14px;
+	text-align: center;
 }
 
 .content-wrapper.seat-history .content-body .scrollspy-example {
 	overflow: auto;
 	height: 500px;
 }
+#table-seat-history thead {
+	border-bottom-color: #FFF;
+}
+#table-seat-history thead tr {
+	background: #FFF;
+	color: #FFF;
+	height: 55px;
+	line-height: 55px;
+}
+#table-seat-history thead tr td {
+	vertical-align: middle;	
+}
+#table-seat-history thead tr div {
+	background: #323743;
+	margin: auto;
+	padding: 7px 10px;
+	font-size: 12px;
+	border-radius: 20px;
+	font-family: NANUMSQUARE_L;
+}
+#table-seat-history thead tr td:first-child div {
+	with: 100%;
+}
+#table-seat-history thead tr td:nth-child(2) div {
+	width: 50%;
+}
+#table-seat-history thead tr td:nth-child(3) div {
+	width: 100%;
+}
+#table-seat-history thead tr td:last-child div {
+	width: 65%;
+}
 
+#table-seat-history thead tr td:first-child {
+	with: 61px;
+}
+#table-seat-history thead tr td:nth-child(2) {
+	width: 122px;
+}
+#table-seat-history thead tr td:nth-child(3) {
+	width: 87px;
+}
+#table-seat-history thead tr td:last-child {
+	width: 100px;
+}
+
+#table-seat-history tbody tr {
+	border-bottom: 1px solid #888888;
+	background: #FFF;
+}
+#table-seat-history tbody td {
+	padding: 11px 0px;
+}
+
+
+#table-seat-history tbody tr td:first-child {
+	
+}
+#table-seat-history tbody tr td:nth-child(2) {
+	font-weight: bold;	
+}
+#table-seat-history tbody tr td:nth-child(3) {
+	color: #eb5f60;
+	font-weight: bold;
+}
+#table-seat-history tbody tr td:last-child {
+	color: #888888;
+	font-size: 12px;
+	font-family: NANUMSQUARE_L;
+}
+
+.daterangepicker {
+	left: 10px !important;
+	width: 380px !important;
+	box-shadow: 1px 5px 5px #bbb; 
+}
+.daterangepicker .table-condensed {
+	font-size: 13px;
+}
+.daterangepicker .calendar th,
+.daterangepicker .calendar td {
+	min-width: 24px !important;
+	max-width: 24px !important;
+	padding: 5px 0px;
+}
+
+.daterangepicker .calendar {
+	display: inline-block !important;
+	width: 170px;
+}
+
+.daterangepicker .table-condensed td.in-range {
+	background-color: #ffe7e7;
+}
+.daterangepicker .table-condensed td.start-date {
+	background-color: #ef6262;
+}
+.daterangepicker .table-condensed td.end-date {
+	background-color: #ef6262;
+}
+.daterangepicker .calendar .daterangepicker_input,
+.daterangepicker .ranges {
+	display: none;
+}

@@ -7,7 +7,8 @@
 <html>
 <head>
 	<%@include file="./../include/resources.jsp"%>
-
+	<link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
 <body class="sidebar-mini">
@@ -25,7 +26,7 @@
 					<div class="filter-header">
 						<span>내 자리 이력</span>
 						<div class="icon-filter" id="seat-history-filter">
-							<i class="fa fa-filter" aria-hidden="true"></i>
+							<img src="/resources/images/seat_history/filter_btn.png"/>
 						</div>
 					</div>
 					<div class="filter-body" id="filter-body">
@@ -42,6 +43,7 @@
 									<li role="presentation" class="divider"></li>
 									<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:setFilterType('loc')">위치</a>
 									</li>
+									<li role="presentation" class="divider"></li>
 									<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:setFilterType('date')">날짜</a>
 									</li>
 							  </ul>
@@ -55,7 +57,7 @@
 									<input type="text" class="form-control" placeholder="14F or CENTRAL" id="entered-loc"/>
 								</div>
 								<div class="filter-content date">
-									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" readonly/>
 								</div>
 							</div>
 							<div class="icon-search" id="icon-search">
@@ -70,13 +72,21 @@
 			
 				<%-- <div data-spy="scroll" data-offset="0" class="scrollspy-example"> --%>
 				
-					<table id="table-seat-history" class="table table-striped">
+					<table id="table-seat-history" class="table">
 						<thead>
 							<tr>
-								<td>번호</td>
-								<td>위치</td>
-								<td>자리번호</td>
-								<td>날짜</td>
+								<td>
+									<div>번호</div>
+								</td>
+								<td>
+									<div>위치</div>
+								</td>
+								<td>
+									<div>자리번호</div>
+								</td>
+								<td>
+									<div>날짜</div>
+								</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -92,7 +102,6 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<div class="btn" id="myseat">call ajax</div>
 				<%-- </div> --%>
 
 			</section>
@@ -112,8 +121,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     
     <script src="/resources/js/seat.js"></script>  
-	<link href="/resources/css/seat.css" rel="stylesheet" type="text/css" />
-        
+	    
         <script type="text/javascript">
 
 		$(document).ready(function() {
