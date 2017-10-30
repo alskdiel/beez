@@ -34,7 +34,6 @@ public class SeatCtrl {
 		
 		List<Object> seatlist = service.seatList();
 	    
-		System.out.println(session.getAttribute("currentUser"));
 		UserVO user = (UserVO) session.getAttribute("currentUser");
 		
 		
@@ -100,11 +99,13 @@ public class SeatCtrl {
 	}
 	
 	@RequestMapping("/myseat.do")
-	public String myHistory(Model model, PagingDTO pagingDTO) {
+	public String myHistory(Model model, PagingDTO pagingDTO, HttpSession session) {
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+
 		/**********************************/
 		
 		pagingDTO.setPageSize(10);
@@ -122,11 +123,13 @@ public class SeatCtrl {
 	
 	@RequestMapping("/myseatajax.do")
 	@ResponseBody
-	public HashMap<String, Object> myHistoryAjax(PagingDTO pagingDTO, String pageNo, HttpServletRequest request) {
+	public HashMap<String, Object> myHistoryAjax(PagingDTO pagingDTO, String pageNo, HttpServletRequest request, HttpSession session) {
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+
 		/**********************************/
 		
 		pagingDTO.setPageSize(10);

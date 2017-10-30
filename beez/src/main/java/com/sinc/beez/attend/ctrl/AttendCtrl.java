@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -24,11 +25,15 @@ public class AttendCtrl {
 	private AttService service;
 	
 	@RequestMapping("/myattend.do")
-	public String calendar(Model model) {
+	public String calendar(Model model, HttpSession session) {
 		/**********************************/
 		// current_user = session.getUserVO
+		/*
 		UserVO current_user = new UserVO();
 		current_user.setUser_id("p908vd");
+		*/
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+
 		/**********************************/
 		Map<String, Map> list = new HashMap<String, Map>();
 		try{
@@ -50,11 +55,13 @@ public class AttendCtrl {
 	
 	@RequestMapping("/myattendAjax.do")
 	@ResponseBody
-	public Map<Object, Object> calendarAjax(Model model, HttpServletRequest request) {
+	public Map<Object, Object> calendarAjax(Model model, HttpServletRequest request, HttpSession session) {
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+
 		/**********************************/
 		//String date = request.getParameter("date");
 		Map<Object, Object> date = new HashMap<Object, Object>();
