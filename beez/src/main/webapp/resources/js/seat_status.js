@@ -73,15 +73,6 @@ function rmContentBox() {
 	
 	$popoverBox = $(".popover .popover-content"); 
 	$popoverBox.addClass("dn");
-	/*
-	var top = $popoverBox.offset().top;
-	console.log(top);
-	$popoverBox.css("top", top+30);
-	
-	//$popoverBox.offset().top = top+30;
-	console.log($popoverBox.offset().top);
-	*/
-	//$(".popover .popover-content").css("top", top+30);
 	
 }
 
@@ -99,10 +90,6 @@ function transformToNFCID(floor_num, seat_id) {
 		section = 'B';
 	}
 	
-	if(seat_id < 10) {
-		seat_id = "0" + seat_id;
-	}
-	
 	return floor_num + "F-" + section + "-" + seat_id;
 }
 
@@ -117,10 +104,6 @@ function getHotPlace() {
 
 
 function getHotChart(floor_num, seat_id) {
-	console.log(floor_num);
-	console.log(seat_id);
-	
-	console.log("after ajax success");
 
 
 	setTimeout(function() {
@@ -139,7 +122,7 @@ function getHotChart(floor_num, seat_id) {
 
 function isHotPlace(floor_num, seat_id) {
 	var hotPlaces = getHotPlace();
-	console.log(hotPlaces);
+	
 	
 	for(var i=0; i<hotPlaces.length; i++) {
 		if(floor_num == hotPlaces[i].floor && seat_id == hotPlaces[i].seat_id) {
@@ -196,7 +179,6 @@ $("#team-toggle").prop('checked', false).change();
 
 
 function setStatus(data) {
-	console.log(data);
 	for(var i=0; i<data.length; i++) {
 		var floor = data[i].floor;
 		var floor_info = data[i].data;
@@ -258,7 +240,6 @@ $offset_14f = $("#floor-14").offset().top - 100;
 
 function switchFlrBtn(flr) {
     var $btns = $(".floor-btn div");
-	console.log($btns);
 	var idx = 0;
 	if(flr == 10) {
 		idx = 1;
@@ -316,7 +297,11 @@ $(".display-team-list").on("click", function() {
 $("#team-toggle").on("change", function() {
 	if($(this).prop("checked") == true) {
 		getTeamMatesSeat();	
-	}	
+	} else {
+		resetStatus();
+		
+		getCurrentStatus();
+	}
 });
 
 
@@ -385,8 +370,10 @@ $(".nav.nav-tabs li").on("click", function() {
 	var floor = $(this).parent().parent().parent().attr("id");
 	
 	if($tab.text() == 'A') {
+		$(".floor-btn").removeClass("left");
 		isFirstPage[floor] = true;
 	} else {
+		$(".floor-btn").addClass("left");
 		isFirstPage[floor] = false;
 	}
 });
@@ -411,10 +398,13 @@ function refresh(seat_status) {
 }
 
 function toggleNavTabs($element, type) {
+	
 	if(type == 'A') {
+		$(".floor-btn").removeClass("left");
 		$element.children("li:nth-child(1)").addClass("active");
 		$element.children("li:nth-child(2)").removeClass("active");
 	} else {
+		$(".floor-btn").addClass("left");
 		$element.children("li:nth-child(2)").addClass("active");
 		$element.children("li:nth-child(1)").removeClass("active");
 	}
@@ -439,11 +429,18 @@ function searchUserSeatById(user_id) {
 		data : { user_id : user_id } ,
 		dataType : "json" , 
 		success : function(data) {
-			resetStatus();
+			
+			dissmissModal();
+			
+			
+			//resetStatus();
 			takeElavatorWithOfficeSeq(data.floor);
 			showSearchResult(data)
 		}
 	});
+}
+function dissmissModal() {
+	$(".my-modal").css("display", "none");
 }
 
 function officeSeqToFlr(office_seq) {
@@ -477,12 +474,52 @@ function takeElavatorWithOfficeSeq(office_seq) {
 	} 
 }
 
-function showSearchResult(data) {
+function showSearchResult(data, type) {
 	var office_seq = data.floor;
 	var seat_id = data.seat_id;
 	var floor = officeSeqToFlr(office_seq);
 	
-	$("#floor-"+floor+"").find("#"+seat_id).addClass("inuse");
+	var $element = $("#floor-"+floor+"").find("#"+seat_id).addClass("inuse");
+	if(type != "no-blink") {
+		blinkSeat($element);
+	
+		var $element = $("#floor-"+floor+"").find(".nav-tabs");
+		
+		var type = 'A';
+		if(seat_id > 35 && seat_id < 70) {
+			type = 'B';
+		}
+		if(type == 'A') {
+			if(!isFirstPage["floor-"+floor]) {
+				$element.parent().children(".carousel").carousel('prev');
+				isFirstPage["floor-"+floor] = true;
+			}
+		} else {
+			if(isFirstPage["floor-"+floor]) {
+				$element.parent().children(".carousel").carousel('next');
+				isFirstPage["floor-"+floor] = false;
+			}
+		}
+		
+		//$(this).carousel('next');
+		
+		toggleNavTabs($element, type);
+	}
+	
+}
+
+function blinkSeat($element) {
+	
+	var event = setInterval(function(){
+		//$element.fadeOut();
+		//$element.fadeIn();
+	    $element.toggleClass("inuse");
+	}, 500);
+	
+	setTimeout(function() {
+		clearInterval(event);
+	}, 4000);
+	
 }
 
 function getTeamMates() {
@@ -491,7 +528,6 @@ function getTeamMates() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
 			$(".my-modal").css("display", "block");
 			writeTeamList(data);
 		}
@@ -504,11 +540,10 @@ function getTeamMatesSeat() {
 		type : "get" , 
 		dataType : "json" , 
 		success : function(data) {
-			console.log(data);
-			resetStatus();
+			//resetStatus();
 			
 			for(var i=0; i<data.length; i++) {
-				showSearchResult(data[i]);
+				showSearchResult(data[i], "no-blink");
 			}
 			
 		}
@@ -521,28 +556,13 @@ function searchUserByName(user_name) {
 		type : "get" , 
 		data : { user_name: user_name },
 		dataType : "json" , 
-		success : function(data) {
-			console.log(data);
+		success : function(data) {			
 			
-			
-			resetStatus();
+			//resetStatus();
 			showSearchResult(data);
 
 			takeElavatorWithOfficeSeq(data.floor);
 
-			var $element = $(this).parent().children(".nav-tabs");
-			var type = 'A';
-			if(data.id > 35 && data.id < 70) {
-				type = 'B';
-			}
-			
-			if(type == 'A') {
-				isFirstPage[data.floor] = true;
-			} else {
-				isFirstPage[data.floor] = false;
-			}
-			
-			toggleNavTabs($element, type);
 		}
 	});
 }
