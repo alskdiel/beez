@@ -490,11 +490,15 @@ function showSearchResult(data, type) {
 			type = 'B';
 		}
 		if(type == 'A') {
-			$element.parent().children(".carousel").carousel('prev');
-			isFirstPage[data.floor] = true;
+			if(!isFirstPage[data.floor]) {
+				$element.parent().children(".carousel").carousel('prev');
+				isFirstPage[data.floor] = true;
+			}
 		} else {
-			$element.parent().children(".carousel").carousel('next');
-			isFirstPage[data.floor] = false;
+			if(isFirstPage[data.floor]) {
+				$element.parent().children(".carousel").carousel('next');
+				isFirstPage[data.floor] = false;
+			}
 		}
 		
 		//$(this).carousel('next');
