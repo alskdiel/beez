@@ -64,14 +64,19 @@
 			<div class="sidebar-menu-container">
 				
 				<div class="sidebar-menu-row" style="text-align: left; height: 100px" >
+					<div>
 						<%=((UserVO)session.getAttribute("currentUser")).getUser_name() %>님 안녕하세요?
+						<button onclick="javascript:sendAndroidMsg('LOGOUTPROCESS');" class="btn" >
+							LOGOUT
+						</button>
+					</div>
 				</div>
 				<div class="sidebar-menu-row">
 					
 					<a class="sidebar-icon" href="/att/myattend.do">
 						<img src="/resources/images/sidebar/slidebar_icon_1.png"/>
 						<div class="sidebar-ititle">캘린더</div>
-					</a>
+					</a>`
 					<a class="sidebar-icon" href="/seat/list.do">
 						<img src="/resources/images/sidebar/slidebar_icon_2.png"/>
 						<div class="sidebar-ititle">좌석 현황 확인</div>
