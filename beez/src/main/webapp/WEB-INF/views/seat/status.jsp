@@ -5,7 +5,8 @@
 <html>
 <head>
 	<%@include file="./../include/resources.jsp"%>
-
+	<link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
 <body class="sidebar-mini">
@@ -115,8 +116,7 @@
 	<%@include file="./../include/footer.jsp"%>
 	
     
-	<link href="/resources/css/m_9f.css" rel="stylesheet" type="text/css" />
-    
+	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 	
 	<script src="/resources/js/lib/moment.min.js"></script>

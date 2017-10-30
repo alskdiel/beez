@@ -400,25 +400,16 @@ table.inner tr td div.btn {
 	background-position: center;
 }
 
-.btn-rev {
-	border-radius: 3px;
-	color: #FF6813;	
-}
 
-.btn-rev, .btn-show-hot {
-	font-size: 18px;
-}
 
 #chartModal.fade {
 	display: none;
 }
 
 #chartModal.active {
-	border: 1px solid #333;
 	margin: 0px 15px;
 	position: absolute;
 	display: block;
-	z-index: 1000;
 	background: #FFF;
 	position: fixed;
 	width: 90%;
@@ -427,6 +418,10 @@ table.inner tr td div.btn {
 #chartModal {
 	top: 50%;
 	transform: translateY(-50%);
+	box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.5);
+	border: none;
+	border-radius: 20px;
+	z-index: 1111;
 }
 
 #chartModal #hot-chart .chart-wrapper {
@@ -438,9 +433,30 @@ table.inner tr td div.btn {
 }
 
 #chartModal .title-chart {
-	font-size: 15px;
+	font-size: 18px;
 	text-align: center;
-	padding-top: 15px;
+	padding: 15px 0px 5px 0px;
+	margin: 0px 20px;
+	border-bottom: 2px solid #000;
+	color: #000;
+	font-weight: bold;
+	
+}
+
+.popover {
+	border-radius: 0px;
 }
 .popover .arrow {visibility:hidden;}
 
+.popover .popover-content.dn {
+	display: none;
+}
+
+.popover .popover-content {
+	font-size: 15px; 
+}
+
+.btn-rev {
+	border-radius: 3px;
+	color: #FF6813;	
+}

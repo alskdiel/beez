@@ -5,7 +5,8 @@
 <html>
 <head>
 	<%@include file="./../include/resources.jsp"%>
-
+	<link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
 <body class="sidebar-mini">
@@ -36,7 +37,6 @@
 	
 	<%@include file="./../include/footer.jsp"%>
     
-    <link href="/resources/css/calender.css" rel="stylesheet" type="text/css" />
     <script src="/resources/js/calendar.js" type="text/javascript"></script>
     <script>
 

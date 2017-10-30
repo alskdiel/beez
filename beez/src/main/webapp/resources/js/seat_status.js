@@ -52,21 +52,42 @@ $('table.inner tr td .btn').popover({
 	seat_info = transformToNFCID(floor_num, seat_id);
 	
 	setTimeout(function() {
+		
 		if(isRevable) {
 			mkRevBtn(seat_info);
 		}
 		if(isHotPlace(floor_num, seat_id)) {
 			mkShowHotDetailBtn(floor_num, seat_id);
 		}
-	}, 100);
+		if(!isRevable && !isHotPlace(floor_num, seat_id)) {
+			rmContentBox();
+		}
+	}, 50);
 	
 	
     $(this).popover('toggle');
     e.stopPropagation();
 });
 
-function mkShowHotDetailBtn(floor_num, seat_id) {
+function rmContentBox() {
 	
+	$popoverBox = $(".popover .popover-content"); 
+	$popoverBox.addClass("dn");
+	/*
+	var top = $popoverBox.offset().top;
+	console.log(top);
+	$popoverBox.css("top", top+30);
+	
+	//$popoverBox.offset().top = top+30;
+	console.log($popoverBox.offset().top);
+	*/
+	//$(".popover .popover-content").css("top", top+30);
+	
+}
+
+function mkShowHotDetailBtn(floor_num, seat_id) {
+	$(".popover .popover-content").removeClass("dn");
+
 	var btn = "<div class='btn-show-hot' onclick=getHotChart("+ floor_num +"," + seat_id +")>상세보기</div>";
 	$(".popover .popover-content").append(btn);
 }
@@ -138,6 +159,8 @@ function splitNFCID(nfcID) {
 }
 
 function mkRevBtn(seat_info) {
+	$(".popover .popover-content").removeClass("dn");
+	
 	var btn = "<div class='btn-rev' onclick=reserveSeat('" + seat_info + "')>예약</div>";
 	$(".popover .popover-content").html(btn);
 }
