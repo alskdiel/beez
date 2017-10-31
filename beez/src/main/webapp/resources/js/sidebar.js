@@ -1,5 +1,4 @@
 var $side_bar_close_btn = $(".main-sidebar .user-panel .beez-logo-right");
-
 $side_bar_close_btn.on("click", function() {
 	/*
 	$body = $("body");
@@ -8,7 +7,6 @@ $side_bar_close_btn.on("click", function() {
 	}
 	*/
 	toggleSidebar();
-
 });
 /*
 $(".sidebar-toggle").on("click", function() {
@@ -18,12 +16,11 @@ $(".sidebar-toggle").on("click", function() {
 
 function logout() {
 	$.ajax({
-		url  : "/user/logout.do" , 
-		type : "get" , 
-		dataType : "json" , 
-		success : function(data) {
-		
-			if(data.ret) {
+		url  : "/user/logout.do",
+		type : "get",
+		dataType : "json",
+		success : function(data){
+			if(data.ret) { 
 				sendAndroidMsg('LOGOUTPROCESS');
 			}
 		}

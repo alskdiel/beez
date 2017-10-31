@@ -120,9 +120,9 @@ public class UserCtrl {
 	@RequestMapping("/logout.do")
 	@ResponseBody
 	public Map<Object, Object> logout(HttpSession session){
+		System.out.println("LOGOUT CTRL");
 		
 		Map<Object, Object> ret = new HashMap<Object, Object>();
-		
 		try {
 			session.invalidate();
 			ret.put("ret", true);
