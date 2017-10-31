@@ -128,7 +128,7 @@ function renderData(data) {
 		
 		toRender += "<tr>" +
 				"<td>" + index[stored_filterType]++ + "</td>" +
-				"<td>" + building_name + " / " + floor_num + "F / " + seat_real_location + "</td>" +
+				"<td>" + building_name + " </br> " + floor_num + "F / " + seat_real_location + "</td>" +
 				"<td>" + seat_id + "</td>" +
 				"<td>" + seated_Date + "</td>" +
 				"</tr>";

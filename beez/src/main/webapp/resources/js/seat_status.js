@@ -514,11 +514,12 @@ function blinkSeat($element) {
 		//$element.fadeOut();
 		//$element.fadeIn();
 	    $element.toggleClass("inuse");
-	}, 500);
+	}, 400);
 	
 	setTimeout(function() {
 		clearInterval(event);
-	}, 4000);
+		$element.addClass("inuse");
+	}, 5000);
 	
 }
 

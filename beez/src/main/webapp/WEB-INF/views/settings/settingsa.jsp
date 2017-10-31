@@ -4,6 +4,8 @@
 <html>
 <head>
 <%@include file="../include/resources.jsp"%>
+
+<link rel="stylesheet" href="../../../resources/css/settings.css" />
 </head>
 
 <body class="sidebar-mini">
@@ -11,25 +13,33 @@
 	<div class="wrapper">
 		<%@include file="../include/header.jsp"%>
 		 <div class="i_box">
-            <p class="icon_boc_i"></p>
-            <h2>시스템 설정</h2>
+		 
+            <h2>알림설정</h2>
+            <div class="icon-container">
+            	<img src="/resources/images/settings/setting_icon.png">
+            </div>
         </div>
 			
 
 		<div class="content-wrapper">
 		  <ul>
-		  <li class="chec_1">출퇴근 PUSH 알림 받기
+		  <li class="chec_1">
+		  	<div class="title">출퇴근 PUSH 알림 받기</div>
 			<!-- checked data-toggle="toggle"  -->
 			<input type="checkbox" class="putcon" checked data-toggle="toggle"
-				id="AttPushSettings" name="AttPushSettings" /></li>
-		  <li class="chec">좌석 PUSH 알림 받기
+				id="AttPushSettings" name="AttPushSettings" data-on=" " data-off=" "/></li>
+		  <li class="chec">
+		  	<div class="title">좌석 PUSH 알림 받기</div>
 		    <input type="checkbox" checked data-toggle="toggle"
-				id="SeatPushSettings" name="SeatPushSettings"></li>
-		  <li class="chec">SSG KEY 사용하기
+				id="SeatPushSettings" name="SeatPushSettings" data-on=" " data-off=" "></li>
+		  <li class="chec">
+		  	<div class="title">SSG KEY 사용하기</div>
 		  <input type="checkbox" checked data-toggle="toggle"
-				id="SSGkeySettings" name="SSGkeySettings"></li>
+				id="SSGkeySettings" name="SSGkeySettings" data-on=" " data-off=" "></li>
 		  <li class="chec_2">
-			<a href="javascript:sendAndroidMsg('SSGKEYSETTING');"> SSG KEY 노트북 설정하기 </a>
+			<a href="javascript:sendAndroidMsg('SSGKEYSETTING');">
+				<div class="title">SSG KEY 노트북 설정하기</div>
+			</a>
           </li>
         </ul>
 
@@ -40,7 +50,6 @@
 
 	<%@include file="./../include/footer.jsp"%>
 
-	<link rel="stylesheet" href="../../../resources/css/settings.css" />
 
 	<link
 		href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
@@ -49,7 +58,6 @@
 		src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#nav_title').text("시스템 설정");
 			sendAndroidMsg('GETDEVICESETTINGS');
 			$("#AttPushSettings").on('change', function() {
 				sendAndroidMsgTwoValue("AttPushSettings", this.checked);

@@ -13,10 +13,12 @@
 	  
 	 </a>
 	 <div>
-	 	<span class="logo-lg">
-	 		SSG BEEZ
-	 		<!-- <a class="navbar-userinfo" id ="nav_title"></a> -->
-	  	</span>
+		 <a href="/">
+		 	<span class="logo-lg">
+		 		SSG BEEZ
+		 		<!-- <a class="navbar-userinfo" id ="nav_title"></a> -->
+		  	</span>
+	  	</a>
 	 </div>
 	 
 	<!-- 

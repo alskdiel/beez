@@ -182,7 +182,7 @@ header.main-header {
 	background: #FFF;
 }
 #table-seat-history tbody td {
-	padding: 11px 0px;
+	padding: 20px 0px;
 }
 
 
@@ -190,7 +190,8 @@ header.main-header {
 	
 }
 #table-seat-history tbody tr td:nth-child(2) {
-	font-weight: bold;	
+	font-weight: bold;
+	padding: 11px 0px;
 }
 #table-seat-history tbody tr td:nth-child(3) {
 	color: #eb5f60;
