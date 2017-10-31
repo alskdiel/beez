@@ -41,19 +41,24 @@
 
 <style>
 
-/*   파란색   */
 .available {
-	background-image: url(../../img/f_box.png);
+	background-size:39px;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-image: url(../../img/chair_icon_1_small.png);
 }
 
-/*   노란색   */
 .occupied {
-	background-image: url(../../img/f_box02.png);
+	background-size:39px;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-image: url(../../img/chair_icon_3_small.png);
 }
-
-/*   주황색   */
 .unavailable {
-	background-image: url(../../img/f_box03.png);
+	background-size:39px;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-image: url(../../img/chair_icon_2_small.png);
 }
 </style>
 
@@ -63,11 +68,15 @@
 		<div id="header">
 			<h1>${floor }</h1>
 			<nav id="gnb">
+				<%
+					String fo = (String)request.getParameter("floor").trim();
+					System.out.println(fo);		
+				%>
 				<ul>
-					<li><a href="tablet.do?floor=9f">9F</a></li>
-					<li><a href="tablet.do?floor=10f">10F</a></li>
-					<li><a href="tablet.do?floor=13f">13F</a></li>
-					<li><a href="tablet.do?floor=14f">14F</a></li>
+					<li <%if(fo=="9f"   || fo.equals("9f")) { %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=9f">9F</a></li>
+					<li <%if(fo=="10f"|| fo.equals("10f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=10f">10F</a></li>
+					<li <%if(fo=="13f"|| fo.equals("13f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=13f">13F</a></li>
+					<li <%if(fo=="14f"|| fo.equals("14f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=14f">14F</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -234,7 +243,10 @@
 				</ul> -->
 			</div>
 			<div id="ar_box">
-				<span> <!--img-->
+				<span>
+						<img src="../../img/chair_icon_1_small.png" style="width: 40px; " /><div id="ar_text" style="display: inline;">사용 가능</div>
+						<img src="../../img/chair_icon_3_small.png" style="width: 40px" /><div id="ar_text" style="display:  inline;">사용 중</div>
+						<img src="../../img/chair_icon_2_small.png" style="width: 40px" /><div id="ar_text" style="display:  inline;">사용 불가</div>
 				</span>
 			</div>
 		</section>
