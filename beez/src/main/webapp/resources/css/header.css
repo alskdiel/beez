@@ -176,8 +176,12 @@ a, a:active, a:focus, a:hover {
 }
 .sidebar-menu-row .logout {
 	height: 20px;
-	margin-top: 6px;
 	padding: 0px;
+	float: right;
+	border: none;
+}
+.sidebar-menu-row:first-child>div {
+	display: inline-block;
 }
 .sidebar-menu-row .logout div {
 	display: inline-block;
@@ -196,7 +200,8 @@ a, a:active, a:focus, a:hover {
 	margin-bottom: 5px;
 }
 .sidebar-menu-row:first-child {
-	height: 75px;
+	height: 50px;
+	text-align: left;
 }
 .sidebar-menu-row .sidebar-row-header {
 	font-size: 15px;

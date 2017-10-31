@@ -65,7 +65,7 @@
 		<div class="sidebar-menu-wrapper">
 			<div class="sidebar-menu-container">
 				
-				<div class="sidebar-menu-row" style="text-align: left; height: 100px" >
+				<div class="sidebar-menu-row">
 					<div>
 						안녕하세요 <span class="user-name"><%=((UserVO)session.getAttribute("currentUser")).getUser_name() %></span>님
 						
