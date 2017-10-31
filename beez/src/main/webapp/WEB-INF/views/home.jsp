@@ -107,6 +107,8 @@
 				document.getElementById("qrbtn").style.display = "block";
 				if(position == 'null'){
 					$('#t_box01').text("자리에 앉지 않았네요~");
+
+					$('#t_box03').text("");
 					//document.getElementById("canbook").style.display = "none";
 				}else{
 					$('#t_box01').text(name+"님의 위치 : "+position);

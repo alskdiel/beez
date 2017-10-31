@@ -12,11 +12,18 @@ public class NfcDAOImpl implements NfcDAO {
 	private static final String PREFIX = "com.sinc.beez.mapper.nfcmapper.";
 	@Inject
 	SqlSession session;
+	@Override
+	public int deleteTag(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		int result = session.delete(PREFIX+"deleteBook",dto);
+		return result ;
+	}
 
 	@Override
 	public int touchTag(NfcDTO dto) {
 		System.out.println("touchTag : " + dto);
-		return session.insert(PREFIX + "seatTouch", dto);
+		int result =session.insert(PREFIX + "seatTouch", dto);
+		return result;
 	}
 
 	@Override
@@ -40,7 +47,9 @@ public class NfcDAOImpl implements NfcDAO {
 	@Override
 	public int bookSeat(NfcDTO dto) {
 		// TODO Auto-generated method stub
-		return session.insert(PREFIX + "seatNewBook", dto);
+		int result =  session.insert(PREFIX + "seatNewBook", dto);
+		return result;
+		
 	}
 	@Override
 	public int leaveTag(NfcDTO dto) {

@@ -4,6 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.sinc.beez.mapper.nfcmapper">
+	<delete id="deleteBook" parameterType="nfcdto">
+		DELETE	FROM		USER_SEAT_TB
+		WHERE	USER_ID = #{userid}
+		AND		SEAT_ID = #{seatid}
+		AND		USER_LEAVE_YN = 'B'
+		AND         	TO_DATE(SEATED_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+	</delete>
+
 	<insert id="seatTouch" parameterType="nfcdto">
 		INSERT  INTO    USER_SEAT_TB
 		    VALUES (#{userid}, #{seatid},

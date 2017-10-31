@@ -31,6 +31,11 @@ public class NfcServiceImpl implements NfcService {
 		return dao.updateBooking(dto);
 
 	}
+	@Override
+	public int deleteBook(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.deleteTag(dto);
+	}
 
 	@Override
 	public int bookSeat(NfcDTO dto) {

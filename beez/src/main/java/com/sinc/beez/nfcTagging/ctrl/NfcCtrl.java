@@ -33,6 +33,19 @@ public class NfcCtrl {
 		return json.toString();
 		
 	}
+
+	@RequestMapping("/bookCancel.do")
+	@ResponseBody
+	public String bookCancel(NfcDTO dto){
+		System.out.println("Book Cancel");
+		System.out.println(dto);
+		int result;
+		result = service.deleteBook(dto);
+		if(result >0) result = -1919;
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
 	
 	@RequestMapping("/bookSeat.do")
 	@ResponseBody
