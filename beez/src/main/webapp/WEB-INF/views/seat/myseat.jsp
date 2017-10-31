@@ -125,7 +125,7 @@
 
 		$(document).ready(function() {
 			$('#nav_title').text("내 좌석 이력");
-		});
+		})
         </script>
     
 </body>

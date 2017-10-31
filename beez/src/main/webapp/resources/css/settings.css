@@ -1,18 +1,106 @@
-body,html{background-color: #ef6262; overflow:hidden; width:100%;}
+body, html {
+	background-color: #f8f8f8;
+	overflow: hidden;
+	width: 100%;
+}
 
-ul,ol,li{list-style: none;}
+ul, ol, li {
+	list-style: none;
+}
 
-.i_box{width: 100%; height: auto; background-color: #ef6262; padding-top: 36px; padding-bottom: 30px;}
-h2{width: 100%; height: 10%;background-color: #ef6262; margin-top: 10px; margin-bottom: 0; line-height: 54px; text-align: center; color:#fff;}
-.content-wrapper{width: 100%; height: 20%; background-color: #ef6262;}
-.icon_boc_i{width: 78px; height: 76px; background-image: url(/resources/images/icon_setting.png); background-size:cover; background-repeat: no-repeat; background-position: center; background-color: #ef6262; margin-bottom: 0;  margin-left: 40%;}
-.content-wrapper>ul{width: 100%; height: auto;}
-.content-wrapper>ul>.chec_1{ width: 100%; height: 90px;font-size:18px;line-height: 50px; border-bottom: 1px solid #fff; display: block; padding-left: 15px; color:#fff; border-top:1px solid #fff; padding-top: 20px;}
-.content-wrapper>ul>.chec{ width: 100%; height: 70px;font-size:18px; margin-top: 20px;line-height: 50px; border-bottom: 1px solid #fff; display: block; padding-left: 15px; color:#fff;}
-.content-wrapper>ul>.chec_2{ width: 100%; height: 70px; margin-top: 20px;line-height: 50px; border-bottom: 1px solid #fff; border-bottom: 0; padding-left: 15px;  font-weight: 700;}
-.content-wrapper>ul>.chec_2>a{ font-size:18px;color: #444;}
+.i_box {
+	width: 100%;
+	height: auto;
+	padding: 40px 0px 25px 0px;
+}
 
-.btn btn-primary toggle-on{padding-top: 20px;}
-.btn-primary{background-color: #444; border: 1px solid #fff; float: right; margin-right: 20px; margin-top: 8px;}
-.btn-default{background-color: #eee; float: right; margin-right: 20px; text-align: left; margin-top: 8px;}
-.btn.btn-default.active.toggle-off{padding-left:6px;}
+h2 {
+	width: 100%;
+	line-height: 24x;
+	font-weight: bold;
+	font-size: 24px;
+	font-family: NANUMSQUARE_R;
+	margin: 0px 0px 25px 0px;
+	text-align: center;
+	color: #000;
+}
+.icon-container {
+	height: 150px;
+	text-align: center;
+}
+.icon-container img {
+	height: 100%;
+}
+.content-wrapper {
+	width: 100%;
+	height: 20%;
+	background-color: #f8f8f8;
+}
+
+.icon_boc_i {
+	width: 78px;
+	height: 76px;
+	background-image: url(/resources/images/icon_setting.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 0;
+	margin-left: 40%;
+}
+
+.content-wrapper>ul {
+	width: 100%;
+	height: auto;
+	background: #f8f8f8;
+}
+
+.content-wrapper>ul li>div.title, li>a>div.title {
+	display: inline-block;
+	height: 45px;
+	line-height: 15px;
+	padding: 15px;
+}
+
+
+.content-wrapper>ul>.chec_1, .content-wrapper>ul>.chec, .content-wrapper>ul>.chec_2 {
+	width: 100%;
+	font-size: 15px;
+	display: block;
+	color: #666;
+	margin-bottom: 2px;
+	background-color: #FFF;
+	
+}
+
+
+.btn btn-primary toggle-on {
+	
+}
+
+.toggle.btn {
+	margin-top: 10px;
+	margin-right: 25px;
+	
+	border-radius: 20px;
+	
+	border-color: #999;
+	float: right;
+	min-width: 44px !important;
+	width: 44px !important;
+	
+	min-height: 26px !important;
+	height: 26px !important;
+}
+.toggle.btn.btn-primary {
+	border-color: #ef6262;
+}
+.toggle-group .toggle-on {
+	background-color: #ef6262;
+}
+.toggle-group .toggle-off {
+	background-color: #999;
+}
+.toggle.btn .toggle-handle {
+	border-radius: 20px;
+	width: 48px;
+}
