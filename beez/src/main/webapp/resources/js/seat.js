@@ -2,7 +2,7 @@ var sysdate = new Date().yyyymmdd_datepicker();
 $('input[name="daterange"]').val(sysdate + "-" + sysdate);
 
 var index = {
-		"all": 11,
+		"all": 26,
 		"loc": 1,
 		"date": 1
 };
@@ -56,10 +56,17 @@ $("#seat-history-filter").on("click", function() {
 	$filterBody = $("#filter-body");
 	if($filterBody.hasClass("validated")) {
 		$("#filter-body").removeClass("validated");
-		$("#filter-body .filter-container").css("display", "none");
+		setTimeout(function() {
+			$("#filter-body .filter-container").css("display", "none");	
+		}, 200);
+		
 	} else {
 		$("#filter-body").addClass("validated");
-		$("#filter-body .filter-container").css("display", "block");
+		setTimeout(function() {
+			$("#filter-body .filter-container").css("display", "block");	
+		}, 200);
+		
+		
 	}
 });
 

@@ -56,7 +56,7 @@
 									<input type="text" class="form-control" placeholder="14F or CENTRAL" id="entered-loc"/>
 								</div>
 								<div class="filter-content date">
-									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015"/>
+									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" readonly/>
 								</div>
 							</div>
 							<div class="icon-search" id="icon-search">

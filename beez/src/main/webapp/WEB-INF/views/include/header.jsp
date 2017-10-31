@@ -67,10 +67,16 @@
 				
 				<div class="sidebar-menu-row" style="text-align: left; height: 100px" >
 					<div>
-						<%=((UserVO)session.getAttribute("currentUser")).getUser_name() %>님 안녕하세요?
-						<button onclick="javascript:sendAndroidMsg('LOGOUTPROCESS');" class="btn" >
+						안녕하세요 <span class="user-name"><%=((UserVO)session.getAttribute("currentUser")).getUser_name() %></span>님
+						
+					</div>
+					<div onclick="javascript:sendAndroidMsg('LOGOUTPROCESS');" class="btn logout" >
+						<div class="img-wrapper user-info">
+							<img src="/resources/images/sidebar/power.png"/>
+						</div>
+						<div>
 							LOGOUT
-						</button>
+						</div>
 					</div>
 				</div>
 				<div class="sidebar-menu-row">
