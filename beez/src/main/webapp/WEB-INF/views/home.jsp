@@ -88,7 +88,7 @@
 			//arr[0] :booked
 
 			if(position == 'leaved'){
-				$('#t_box00').text("오늘도 수고하셨습니다!");
+				$('#t_box00').text("수고하셨습니다!");
 				$('#t_box01').text("퇴근");
 				$('#t_box02').text(date.substr(0,10));
 
