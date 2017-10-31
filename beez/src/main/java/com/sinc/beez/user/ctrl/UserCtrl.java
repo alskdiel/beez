@@ -1,7 +1,7 @@
 package com.sinc.beez.user.ctrl;
 
-import java.net.CookieManager;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -115,5 +115,20 @@ public class UserCtrl {
 		res.put("username",user.getUser_name());
 		res.put("deptname", user.getDept_name());
 		return  user;
+	}
+	
+	@RequestMapping("/logout.do")
+	@ResponseBody
+	public Map<Object, Object> logout(HttpSession session){
+		
+		Map<Object, Object> ret = new HashMap<Object, Object>();
+		
+		try {
+			session.invalidate();
+			ret.put("ret", true);
+		} catch(Exception e) {
+			ret.put("ret", false);
+		}
+		return  ret;
 	}
 }

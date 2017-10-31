@@ -70,7 +70,7 @@
 						안녕하세요 <span class="user-name"><%=((UserVO)session.getAttribute("currentUser")).getUser_name() %></span>님
 						
 					</div>
-					<div onclick="javascript:sendAndroidMsg('LOGOUTPROCESS');" class="btn logout" >
+					<div onclick="javascript:logout();" class="btn logout" >
 						<div class="img-wrapper user-info">
 							<img src="/resources/images/sidebar/power.png"/>
 						</div>
