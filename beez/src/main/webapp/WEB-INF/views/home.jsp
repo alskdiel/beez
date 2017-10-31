@@ -77,7 +77,7 @@
 			setInterval("sendAndroidMsg('MAINONLOADCALL')", 1000);
 		});
 		//setUserStateToWeb('조현재', '2017/06/05', 'booked//14F-B-57//121//3');
-		setUserStateToWeb('조현재', '2017/06/05', '14F-B-12');
+		
 		function setUserStateToWeb(name, date, position){
 	// if booked 
 	// position : booked//location//date
