@@ -109,7 +109,7 @@ a, a:active, a:focus, a:hover {
 }
 .sidebar-open .main-sidebar{
 	
-	box-shadow: 20px 0px 0px 50px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -167,6 +167,24 @@ a, a:active, a:focus, a:hover {
 	min-width: inherit;
 	background: #FFF;
 }
+.sidebar-menu-row .user-name {
+	font-weight: bold;
+}
+.sidebar-menu-row .user-info.img-wrapper {
+	height: 100%;
+	padding: 1px;
+}
+.sidebar-menu-row .logout {
+	height: 20px;
+	margin-top: 6px;
+	padding: 0px;
+}
+.sidebar-menu-row .logout div {
+	display: inline-block;
+}
+.sidebar-menu-row .user-info.img-wrapper img {
+	height: 100%;
+}
 .sidebar-menu-container {
 	background: #efefef;
 }
@@ -177,7 +195,9 @@ a, a:active, a:focus, a:hover {
 	text-align: center;
 	margin-bottom: 5px;
 }
-
+.sidebar-menu-row:first-child {
+	height: 75px;
+}
 .sidebar-menu-row .sidebar-row-header {
 	font-size: 15px;
 	line-height: 15px;

@@ -56,7 +56,7 @@
 									<input type="text" class="form-control" placeholder="14F or CENTRAL" id="entered-loc"/>
 								</div>
 								<div class="filter-content date">
-									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015"/>
+									<input type="text" name="daterange" value="01/01/2015 - 01/31/2015" readonly/>
 								</div>
 							</div>
 							<div class="icon-search" id="icon-search">
@@ -116,8 +116,8 @@
     <!-- daterangePicker -->
     <script type="text/javascript" src="/resources/js/lib/moment.min.js"></script>
 
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="/resources/js/lib/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/lib/daterangepicker.css" />
     
     <script src="/resources/js/seat.js"></script>  
 	    

@@ -49,10 +49,12 @@ header.main-header {
 
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body.validated {
 	height: 74px;
-	padding: 15px 20px;
+	padding: 0px 20px;
 	border: 3px solid #cecece;
 }
-
+.content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container {
+	margin: 15px 0px;
+}
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container,
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.loc,
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.date {
@@ -105,6 +107,7 @@ header.main-header {
 	border: none;
 	border-bottom: 1px solid #ddd;
 	font-size: 13px;
+	width: 180px;
 }
 .content-wrapper.seat-history .content-header .filter-wrapper .filter-body .filter-container .filter-content.date input {
 	border: none;
@@ -178,7 +181,6 @@ header.main-header {
 }
 
 #table-seat-history tbody tr {
-	border-bottom: 1px solid #888888;
 	background: #FFF;
 }
 #table-seat-history tbody td {
