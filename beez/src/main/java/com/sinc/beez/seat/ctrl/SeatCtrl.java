@@ -108,10 +108,10 @@ public class SeatCtrl {
 
 		/**********************************/
 		
-		pagingDTO.setPageSize(10);
+		pagingDTO.setPageSize(25);
 		pagingDTO.setPageNo(1);
 		
-		pagingDTO.setBlockSize(10);
+		pagingDTO.setBlockSize(25);
 		pagingDTO.setTotalCount(service.getCount(current_user, "all", null));
 		
 		List<Object> list = service.seatHistoryList(current_user, pagingDTO, "all", null);
@@ -132,13 +132,13 @@ public class SeatCtrl {
 
 		/**********************************/
 		
-		pagingDTO.setPageSize(10);
+		pagingDTO.setPageSize(25);
 		pagingDTO.setPageNo(1);
 		if(pageNo != null){
 			pagingDTO.setPageNo(Integer.parseInt(pageNo));
 		}
 				
-		pagingDTO.setBlockSize(10);
+		pagingDTO.setBlockSize(25);
 		String filterType = request.getParameter("filterType");
 		String params = request.getParameter("params");
 		

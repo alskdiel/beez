@@ -33,7 +33,7 @@ public class AttendCtrl {
 		current_user.setUser_id("p908vd");
 		*/
 		UserVO current_user = (UserVO) session.getAttribute("currentUser");
-
+		System.out.println(current_user);
 		/**********************************/
 		Map<String, Map> list = new HashMap<String, Map>();
 		try{

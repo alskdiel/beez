@@ -92,7 +92,7 @@
 							<c:forEach items="${userSeatVO}" var="userSeatVO" varStatus="status">
 								<tr>
 									<td>${status.index+1}</td>
-									<td>${userSeatVO.building_name} / ${userSeatVO.floor_num}F / ${userSeatVO.seat_real_location}</td>
+									<td>${userSeatVO.building_name} </br> ${userSeatVO.floor_num}F / ${userSeatVO.seat_real_location}</td>
 									<td>${userSeatVO.seat_id}</td>
 									<td>
 										<fmt:formatDate value="${userSeatVO.seated_Date}" pattern="yyyy MM dd, hh:mm"/>
