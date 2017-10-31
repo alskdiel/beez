@@ -25,6 +25,7 @@ public class NfcCtrl {
 		int result = 0;
 		System.out.println(dto.toString());
 		result = service.leaveTag(dto);
+		int rr = service.deleteSeat(dto);
 		if(result > 0) result = 72731992;
 		
 		JSONObject json = new JSONObject();

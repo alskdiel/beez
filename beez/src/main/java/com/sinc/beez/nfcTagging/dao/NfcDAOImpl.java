@@ -18,7 +18,11 @@ public class NfcDAOImpl implements NfcDAO {
 		int result = session.delete(PREFIX+"deleteBook",dto);
 		return result ;
 	}
-
+	@Override
+	public int deleteSeat(NfcDTO dto) {
+		// TODO Auto-generated method stub
+		return session.delete(PREFIX+"leave",dto);
+	}
 	@Override
 	public int touchTag(NfcDTO dto) {
 		System.out.println("touchTag : " + dto);

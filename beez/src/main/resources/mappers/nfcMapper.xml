@@ -11,6 +11,15 @@
 		AND		USER_LEAVE_YN = 'B'
 		AND         	TO_DATE(SEATED_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
 	</delete>
+	<update id="leave" parameterType="nfcdto">
+	
+		UPDATE	USER_SEAT_TB
+		SET		USER_LEAVE_YN = 'Y'
+		WHERE	USER_ID = #{userid}
+		AND		USER_LEAVE_YN = 'N'
+		AND         	TO_DATE(SEATED_DATE,'YY/MM/DD') = TO_DATE(SYSDATE,'YY/MM/DD')
+	
+	</update>
 
 	<insert id="seatTouch" parameterType="nfcdto">
 		INSERT  INTO    USER_SEAT_TB
