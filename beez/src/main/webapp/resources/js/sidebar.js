@@ -15,6 +15,20 @@ $(".sidebar-toggle").on("click", function() {
 	toggleSidebar();
 });
 */
+
+function logout() {
+	$.ajax({
+		url  : "/user/logout.do" , 
+		type : "get" , 
+		dataType : "json" , 
+		success : function(data) {
+		
+			if(data.ret) {
+				sendAndroidMsg('LOGOUTPROCESS');
+			}
+		}
+	});
+}
 function toggleSidebar() {
 	$body = $("body");
 	if($body.hasClass("sidebar-open")) {
