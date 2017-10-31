@@ -33,15 +33,16 @@ public class MainCtrl {
 		vo = service.getMainInto(vo);
 		System.out.println("AFTER : "+vo.toString());
 		*/
-		UserVO current_user = (UserVO)session.getAttribute("currentUser"); 
+		UserVO current_user = (UserVO)session.getAttribute("currentUser");
+		
 		if(current_user == null) {
-			System.out.println("xxxxx");
 			
 			UserVO user = new UserVO();
 			
 			try {
 			user.setUser_id((String)session.getAttribute("currentUserId"));
 			user = (UserVO)service2.getUserVoById(user);
+			System.out.println(user);
 			} catch(Exception e){}
 			session.setAttribute("currentUser", user);
 		}

@@ -116,8 +116,8 @@
     <!-- daterangePicker -->
     <script type="text/javascript" src="/resources/js/lib/moment.min.js"></script>
 
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="/resources/js/lib/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/css/lib/daterangepicker.css" />
     
     <script src="/resources/js/seat.js"></script>  
 	    
