@@ -162,8 +162,8 @@ public class SeatCtrl {
 		String seat_id = request.getParameter("seat_id");
 		String office_seq= request.getParameter("office_seq");
 		
-		map.put("seat_id", seat_id);
-		map.put("office_seq", office_seq);
+		map.put("seat_id", "6");
+		map.put("office_seq", "4");
 		
 		List<Object> list = service.avgSetTimeList(map);
 		System.out.println(new JSONArray(list).toString());
