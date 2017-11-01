@@ -131,7 +131,9 @@ function getHotChart(floor_num, seat_id) {
 				chartData[i] = sum;
 			}
 			
-			
+			console.log(chartData);
+			console.log(chartLabel);
+			console.log(bgColor);
 //			chartData = [ "08:12:12", "08:13:16", "08:23:16", "08:52:16",
 //					"08:33:16" ];
 //			chartLabel = [ "1", "2", "3", "4", "5" ];
@@ -632,21 +634,16 @@ var BGCOLOR = [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
 		'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
 		'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
 		'rgba(79, 159, 64, 0.2)', 'rgba(239, 19, 234, 0.2)',
-		'rgba(189, 59, 24, 0.2)', 'rgba(79, 211, 184, 0.2)' ];
+		'rgba(189, 59, 24, 0.2)', 'rgba(79, 211, 184, 0.2)',
+		'rgba(79, 211, 134, 0.2)'];
 ;
 
 var ctx;
 
 function setHotChart(data, labels, bgcolor) {
 
-	for (var i = 0; i < data.length; i++) {
-		var str = data[i];
-		var temp = str.split(":");
-		var sum = temp[0] * 3600 + temp[1] * 60;
-		data[i] = sum;
-	}
-	console.log(data);
-
+	console.log(bgcolor);
+	
 	var hotChart = new Chart(ctx, {
 		type : 'line',
 		data : {
@@ -660,6 +657,9 @@ function setHotChart(data, labels, bgcolor) {
 			} ]
 		},
 		options : {
+			legend: {
+		        display: false
+		    },
 			responsive : true,
 			maintainAspectRatio : false,
 			scales : {
@@ -676,7 +676,7 @@ function setHotChart(data, labels, bgcolor) {
 	});
 
 	function epoch_to_hh_mm_ss(epoch) {
-		return new Date(epoch * 1000).toISOString().substr(12, 7)
+		return new Date(epoch * 1000).toISOString().substr(12, 4)
 	}
 }
 
