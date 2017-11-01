@@ -115,7 +115,7 @@ function getHotChart(floor_num, seat_id) {
 			var DATALENGTH = 10;
 			
 			for (var i = DATALENGTH; i > 0; i--) {
-				chartData.push(data[data.length - i].RES);
+				chartData.push(data[DATALENGTH - i].RES);
 				chartLabel.push(i * 10 + "일 전");
 				bgColor.push(BGCOLOR[i]);
 			}
