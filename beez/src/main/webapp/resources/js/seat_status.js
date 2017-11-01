@@ -106,7 +106,6 @@ function getHotChart(floor_num, seat_id) {
 		data : data,
 		dataType : "json",
 		success : function(data) {
-			console.log(data);
 
 			var chartData = [];
 			var chartLabel = [];
@@ -131,9 +130,7 @@ function getHotChart(floor_num, seat_id) {
 				chartData[i] = sum;
 			}
 			
-			console.log(chartData);
-			console.log(chartLabel);
-			console.log(bgColor);
+			
 //			chartData = [ "08:12:12", "08:13:16", "08:23:16", "08:52:16",
 //					"08:33:16" ];
 //			chartLabel = [ "1", "2", "3", "4", "5" ];
@@ -642,7 +639,6 @@ var ctx;
 
 function setHotChart(data, labels, bgcolor) {
 
-	console.log(bgcolor);
 	
 	var hotChart = new Chart(ctx, {
 		type : 'line',
