@@ -157,7 +157,7 @@ public class SeatCtrl {
 	@RequestMapping("/avgSetTime.do")
 	@ResponseBody
 	public List<Object> avgSetTime(HttpServletRequest request) {
-		
+		System.out.println(">>>>>>>>>>>>>>>>>AVG SEAT TIME");
 		Map<String, String> map = new HashMap<String, String>();
 		String seat_id = request.getParameter("seat_id");
 		String office_seq= request.getParameter("office_seq");
@@ -166,7 +166,7 @@ public class SeatCtrl {
 		map.put("office_seq", office_seq);
 		
 		List<Object> list = service.avgSetTimeList(map);
-		
+		System.out.println(new JSONArray(list).toString());
 		return list;
 	}
 }
