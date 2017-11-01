@@ -113,6 +113,12 @@ public class SeatDaoImpl implements SeatDao {
 		return session.selectList(SEATPREFIX + "getOurSeatAvgTimeTopTen");
 	}
 
+	@Override
+	public List<Object> avgSetTimeListRow(Object obj) {
+		
+		return session.selectList(SEATPREFIX + "avgSetTime", obj);
+	}
+
 
 
 }

@@ -153,4 +153,20 @@ public class SeatCtrl {
 		
 		return map;
 	}
+	
+	@RequestMapping("/avgSetTime.do")
+	@ResponseBody
+	public List<Object> avgSetTime(HttpServletRequest request) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		String seat_id = request.getParameter("seat_id");
+		String office_seq= request.getParameter("office_seq");
+		
+		map.put("seat_id", seat_id);
+		map.put("office_seq", office_seq);
+		
+		List<Object> list = service.avgSetTimeList(map);
+		
+		return list;
+	}
 }

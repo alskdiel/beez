@@ -256,7 +256,7 @@ header.main-header {
 .floor .floor-container .nav-tabs {
 	width: 100%;
 	border: none;
-	padding: 10px 50px;
+	padding: 30px 50px;
 }
 
 .floor .floor-container .nav-tabs li {
@@ -353,7 +353,7 @@ header.main-header {
 
 .floor table.outer tr td {
 	width: 30%;
-	padding: 10px;
+	padding: 30px 10px;
 }
 
 
@@ -442,6 +442,7 @@ table.inner tr td div.btn {
 
 #chartModal #hot-chart .chart-wrapper {
 	padding: 15px;
+	height: 400px;
 }
 
 #hotChart {

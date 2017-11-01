@@ -12,4 +12,5 @@ public interface SeatService {
 	
 	public int getCount(Object obj, Object type, Object params);
 
+	public List<Object> avgSetTimeList(Object obj);
 }

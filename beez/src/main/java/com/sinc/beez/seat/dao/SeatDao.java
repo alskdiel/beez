@@ -27,4 +27,5 @@ public interface SeatDao {
 	public int getCountRowDate(Object obj);	// obj: UserVO, from/to: Date
 	public int getCountRowLoc(Object obj);	// obj: UserVO, toFind: String
 
+	public List<Object> avgSetTimeListRow(Object obj);
 }

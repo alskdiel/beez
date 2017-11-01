@@ -172,4 +172,9 @@ public class SeatServiceImpl implements SeatService{
 		
 		return dao.getHotPlaceRow();
 	}
+
+	@Override
+	public List<Object> avgSetTimeList(Object obj) {
+		return dao.avgSetTimeListRow(obj);
+	}
 }
