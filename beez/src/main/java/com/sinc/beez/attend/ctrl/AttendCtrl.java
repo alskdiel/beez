@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.beez.att.service.AttService;
 import com.sinc.beez.user.model.vo.UserVO;
+import com.sinc.beez.user.service.UserService;
 
 @Controller
 @RequestMapping("/att")
@@ -23,6 +24,8 @@ public class AttendCtrl {
 	
 	@Resource(name="attService")
 	private AttService service;
+	@Resource(name="userService")
+	private UserService service2;
 	
 	@RequestMapping("/myattend.do")
 	public String calendar(Model model, HttpSession session) {
@@ -49,6 +52,23 @@ public class AttendCtrl {
 		
 		model.addAttribute("data_cal_yr", (tmp.getYear()+1900));
 		model.addAttribute("data_cal_mon", tmp.getMonth()+1);
+		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", current_user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(current_user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+
 		
 		return "attend/calendar";
 	}
@@ -85,7 +105,26 @@ public class AttendCtrl {
 	
 	
 	@RequestMapping("/myattstat.do")
-	public String main() {
+	public String main(HttpSession session, Model model) {
+		
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", current_user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(current_user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+		
 		
 		return "attend/statistics";
 	}

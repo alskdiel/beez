@@ -440,6 +440,7 @@ function getCurrentStatus() {
 		type : "get",
 		dataType : "json",
 		success : function(data) {
+			//console.log(data);
 			seat_status = data;
 			refresh(data);
 		}
@@ -593,14 +594,37 @@ function searchUserByName(user_name) {
 		},
 		dataType : "json",
 		success : function(data) {
-
+			
 			//resetStatus();
 			showSearchResult(data);
 
 			takeElavatorWithOfficeSeq(data.floor);
 
+		},
+		error : function(data) {
+			//console.log("xxxx");
+			alertUserState(user_name);
+			
 		}
 	});
+}
+
+function alertUserState(user) {
+	$.ajax({
+		url : "/user/getStatus.do",
+		type : "get",
+		data : {
+			user_name : user
+		},
+		dataType : "json",
+		success : function(data) {
+			if(data.result != "검색할 수 없습니다") {
+				data.result = user + " 님은 " + data.result + " 입니다";
+			}
+			alert(data.result);
+		},
+		
+	});	
 }
 
 function writeTeamList(teammates) {

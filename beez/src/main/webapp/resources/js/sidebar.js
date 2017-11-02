@@ -35,6 +35,32 @@ function toggleSidebar() {
 	}
 }
 
+function setState(type) {
+	var text; 
+	if(type == 'edu') {
+		text = "교육 중";
+	} else if (type == 'out') {
+		text = "외근 중";
+	} else if (type == 'vac') {
+		text = "휴가 중";
+	} else {
+		text = "출근 전";
+	}
+	
+	$.ajax({
+		url  : "/user/setStatus.do" , 
+		type : "get", 
+		dataType : "json",
+		data : {state: text},
+		success : function(data) {
+			console.log(data);
+		}
+	});
+	
+	
+	$(".sidebar-menu-row .dropdown button").html(text + "<span class='caret'></span>");
+}
+
 $(document).on("ready", function() {
 	var $windowWidth = $(window).width();
 	

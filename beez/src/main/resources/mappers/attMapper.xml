@@ -8,7 +8,7 @@
 	<select id="arrival" parameterType="user" resultType="att">
 		SELECT  ATT_ARRIVE_TIME
 		FROM    USER_ATT_TB
-		WHERE   (USER_ID = #{user_id}) AND ATT_DATE <![CDATA[>]]> TRUNC(SYSDATE)
+		WHERE   (USER_ID = #{user_id}) AND ATT_DATE <![CDATA[>=]]> TRUNC(SYSDATE)
 
 	</select>
 	

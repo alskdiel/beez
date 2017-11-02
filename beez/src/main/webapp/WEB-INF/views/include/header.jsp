@@ -1,6 +1,7 @@
 <%@page import="com.sinc.beez.user.model.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <header class="main-header">
 	<!-- Logo -->
@@ -13,7 +14,7 @@
 	  
 	 </a>
 	 <div>
-		 <a href="/">
+		 <a href="/main.do">
 		 	<span class="logo-lg">
 		 		SSG BEEZ
 		 		<!-- <a class="navbar-userinfo" id ="nav_title"></a> -->
@@ -43,7 +44,7 @@
 	
 	 <div class="user-panel beez-logo">
 	 	<div class="beez-logo-left">
-		  <a href="/">
+		  <a href="/main.do">
 		  	<img src="/resources/images/sidebar/slidebar_logo.png">
 		  </a>
 	  	</div>
@@ -79,6 +80,36 @@
 						</div>
 					</div>
 				</div>
+				
+				<c:if test="${!isAtted}">
+				<div class="sidebar-menu-row c-status">
+					<div>
+						내 상태 변경
+					</div>
+					<div class="dropdown">
+						<button type="button" id="filter-type" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							${userState}
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="javascript:setState()">출근 전</a>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:setState('edu')">교육 중</a>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:setState('out')">외근 중</a>
+							</li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:setState('vac')">휴가 중</a>
+							</li>
+					  </ul>
+					</div>
+					
+				</div>
+				</c:if>	
+				
 				<div class="sidebar-menu-row">
 					
 					<a class="sidebar-icon" href="/att/myattend.do">

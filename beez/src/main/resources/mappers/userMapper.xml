@@ -29,7 +29,22 @@
 		WHERE   USER_ID = #{user_id}
 	</select>
 	
+	<insert id="insertstate" parameterType="java.util.Map">
+		INSERT 	INTO USER_STATE_TB
+		VALUES	(#{user_id}, #{user_state})
+	</insert>
 	
+	<select id="selectstate" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT	*
+		FROM 	USER_STATE_TB
+		WHERE	USER_ID = #{user_id}
+	</select>
+	
+	<update id="updatestate" parameterType="java.util.Map">
+		UPDATE	USER_STATE_TB
+		SET 	USER_STATE = #{user_state}
+		WHERE	USER_ID = #{user_id}
+	</update>
 	
 	<!-- 
 	<update id="keepLogin" parameterType="java.util.HashMap">

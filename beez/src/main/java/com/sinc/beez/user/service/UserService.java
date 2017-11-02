@@ -30,4 +30,7 @@ public interface UserService{
 	
 	public Object getUserVoById(Object obj);
 	
+	public void setStatus(Object obj);
+	public Object getStatus(Object obj);
+	
 }

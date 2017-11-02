@@ -1,9 +1,10 @@
 package com.sinc.beez.main.ctrl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-
-import oracle.net.aso.n;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,11 +43,29 @@ public class MainCtrl {
 			try {
 			user.setUser_id((String)session.getAttribute("currentUserId"));
 			user = (UserVO)service2.getUserVoById(user);
-			System.out.println(user);
 			} catch(Exception e){}
 			session.setAttribute("currentUser", user);
+			
+			current_user = user; 
 		}
 		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", current_user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(current_user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+
 		return "home";
 	}
 	@RequestMapping("syncAttNFc.do")

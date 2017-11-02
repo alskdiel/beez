@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.beez.seat.service.SeatService;
 import com.sinc.beez.user.model.vo.UserVO;
+import com.sinc.beez.user.service.UserService;
 import com.sinc.beez.userseat.model.vo.UserSeatVO;
 import com.sinc.beez.util.PagingDTO;
 
@@ -27,6 +28,8 @@ public class SeatCtrl {
 	@Resource(name="seatService")
 	private SeatService service;
 	
+	@Resource(name="userService")
+	private UserService service2;
 	
 	//전체 좌석 현황
 	@RequestMapping("/list.do")
@@ -46,6 +49,22 @@ public class SeatCtrl {
 		
 		model.addAttribute("user_id", user.getUser_id());
 		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+
 		return "/seat/status";
 	}
 	
@@ -54,13 +73,31 @@ public class SeatCtrl {
 	public List<Object> statusAjax(Model model) {
 		
 		List<Object> seatlist = service.seatList();
+	    System.out.println(seatlist);
 	    
 		return seatlist;
 	}
 	
 	@RequestMapping("/seatstat.do")
-	public String statistics() {
+	public String statistics(HttpSession session, Model model) {
+		UserVO user = (UserVO) session.getAttribute("currentUser");
 		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+
 		return "seat/statistics";
 	}
 	
@@ -117,6 +154,23 @@ public class SeatCtrl {
 		List<Object> list = service.seatHistoryList(current_user, pagingDTO, "all", null);
 		model.addAttribute("userSeatVO", list);
 		
+		String userStatus = "출근 전";
+		try {
+			Map<Object, Object> stParam = new HashMap<Object, Object>();
+			stParam.put("user_id", current_user.getUser_id());
+			userStatus = (String)((Map) service2.getStatus(stParam)).get("USER_STATE");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		boolean isAtted = true;
+		if(((UserVO) service2.getState(current_user)).getAtt() == null) {
+			isAtted = false;
+		}
+		model.addAttribute("isAtted", isAtted);		
+		model.addAttribute("userState", userStatus);
+
 		
 		return "seat/myseat";
 	}

@@ -176,6 +176,21 @@ public class UserServiceImpl implements UserService{
 		
 		return userDao.getUserByIDRow(obj);
 	}
+
+	@Override
+	public void setStatus(Object obj) {
+		if(userDao.selectUserStatusRow(obj) == null) {
+			userDao.setUserStatusRow(obj);
+		} else {
+			userDao.updateUserStatusRow(obj);
+		}
+		
+	}
+
+	@Override
+	public Object getStatus(Object obj) {
+		return userDao.selectUserStatusRow(obj);	
+	}
 	
 	/*
 	@Override

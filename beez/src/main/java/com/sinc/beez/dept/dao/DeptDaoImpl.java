@@ -15,7 +15,6 @@ public class DeptDaoImpl implements DeptDao {
 	
 	@Override
 	public Object deptRow(Object obj) {
-		System.out.println("DeptDao deptRow");
 		
 		return session.selectOne(DEPTPREFIX + "dept", obj);
 	}

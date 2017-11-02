@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
@@ -67,7 +68,10 @@ public class UserCtrl {
 		
 		try {
 			ret = (Map<Object, Object>) service.getUserSeatByName(userToSearch); 
-		} catch(Exception e) {}
+			System.out.println(ret);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		return ret;
 	}
@@ -130,5 +134,50 @@ public class UserCtrl {
 			ret.put("ret", false);
 		}
 		return  ret;
+	}
+	
+	@RequestMapping("/setStatus.do")
+	@ResponseBody
+	public Map<Object, Object> setStatus(HttpSession session, HttpServletRequest request) {
+
+		String userState = request.getParameter("state");
+		String userId = ((UserVO) session.getAttribute("currentUser")).getUser_id();
+		Map<Object, Object> param = new HashMap<Object, Object>();
+		param.put("user_id", userId);
+		param.put("user_state", userState);
+		
+		Map<Object, Object> ret = new HashMap<Object, Object>();
+
+		try {
+			service.setStatus(param);
+			ret.put("ret", true);
+		} catch(Exception e) {
+			e.printStackTrace();
+			ret.put("ret", false);
+		}
+		
+		return ret;
+	}
+	
+	@RequestMapping("/getStatus.do")
+	@ResponseBody
+	public Map<Object, Object> getStatus(HttpServletRequest request) {
+		String userName = request.getParameter("user_name");
+		ArrayList<UserVO> list = (ArrayList) service.getUserByName(userName);
+		
+		Map<Object, Object> ret = new HashMap<Object, Object>();
+		String result = "검색할 수 없습니다";
+		
+		try {
+			UserVO user = list.get(0);
+			Map<Object, Object> param = new HashMap<Object, Object>();
+			param.put("user_id", user.getUser_id());
+			
+			result = (String)((Map) service.getStatus(param)).get("USER_STATE");
+		} catch(Exception e){}
+		
+		
+		ret.put("result", result);
+		return ret;
 	}
 }

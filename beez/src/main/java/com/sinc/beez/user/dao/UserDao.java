@@ -21,6 +21,9 @@ public interface UserDao {
 	public List<Object> getUserByNameRow(Object obj);
 	public Object getUserByIDRow(Object obj);
 
+	public void setUserStatusRow(Object obj);
+	public void updateUserStatusRow(Object obj);
+	public Map<Object, Object> selectUserStatusRow(Object obj);
 	
 	/*
 	public List<Object> myCalenderRow(Object obj);
