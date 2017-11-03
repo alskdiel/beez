@@ -256,7 +256,7 @@ header.main-header {
 .floor .floor-container .nav-tabs {
 	width: 100%;
 	border: none;
-	padding: 30px 50px;
+	padding: 10px 50px;
 }
 
 .floor .floor-container .nav-tabs li {
@@ -299,7 +299,7 @@ header.main-header {
     -webkit-transition:0.6s;
     -moz-transition:0.6s;
     
-	margin-top: calc(100% - 90px);
+	margin-top: calc(100% - 75px);
 }
 .floor-btn.left {
 	width: 40px;
@@ -353,7 +353,7 @@ header.main-header {
 
 .floor table.outer tr td {
 	width: 30%;
-	padding: 30px 10px;
+	padding: 30px 10px 20px 10px;
 }
 
 
@@ -480,4 +480,14 @@ table.inner tr td div.btn {
 .btn-rev {
 	border-radius: 3px;
 	color: #FF6813;	
+}
+table.outer .enterance {
+	text-align: center;
+	padding: 7px;
+	margin-top: 30px;
+	border-top: 3px solid #333;
+	
+}
+table.outer td.ent-wrapper {
+	vertical-align: bottom;
 }
