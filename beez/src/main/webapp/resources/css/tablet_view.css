@@ -13,7 +13,17 @@
 	src: url(/resources/fonts/NANUMSQUARER.OTF);
 	
 }
-
+div .enterance {
+	text-align: center;
+	padding: 7px;
+	margin-top: 250px;
+	border-top: 3px solid #333;
+	font-weight: bold;
+}
+div .ent_wr{
+	vertical-align: bottom;
+	
+}
 html{
 	font-family: NANUMSQUARE_R;
 }
