@@ -259,10 +259,6 @@
 	<script src="../../../resources/js/lib/jQuery/jQuery-2.1.4.min.js"></script>
 	
 	<script type="text/javascript">
-		function floor2seq(){
-			return 4;
-		}
-	
 	
 		function tabletsinc() {
 			var floor = 1;
