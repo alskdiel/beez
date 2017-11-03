@@ -40,24 +40,24 @@
 <link rel="stylesheet" href="../../../resources/css/tablet_view.css" />
 
 <style>
-
 .available {
-	background-size:39px;
-	background-repeat:no-repeat;
-	background-position:center;
+	background-size: 39px;
+	background-repeat: no-repeat;
+	background-position: center;
 	background-image: url(../../img/chair_icon_1_small.png);
 }
 
 .occupied {
-	background-size:39px;
-	background-repeat:no-repeat;
-	background-position:center;
+	background-size: 39px;
+	background-repeat: no-repeat;
+	background-position: center;
 	background-image: url(../../img/chair_icon_3_small.png);
 }
+
 .unavailable {
-	background-size:39px;
-	background-repeat:no-repeat;
-	background-position:center;
+	background-size: 39px;
+	background-repeat: no-repeat;
+	background-position: center;
 	background-image: url(../../img/chair_icon_2_small.png);
 }
 </style>
@@ -69,14 +69,22 @@
 			<h1>${floor }</h1>
 			<nav id="gnb">
 				<%
-					String fo = (String)request.getParameter("floor").trim();
-					System.out.println(fo);		
+					String fo = (String) request.getParameter("floor").trim();
+					System.out.println(fo);
 				%>
 				<ul>
-					<li <%if(fo=="9f"   || fo.equals("9f")) { %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=9f">9F</a></li>
-					<li <%if(fo=="10f"|| fo.equals("10f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=10f">10F</a></li>
-					<li <%if(fo=="13f"|| fo.equals("13f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=13f">13F</a></li>
-					<li <%if(fo=="14f"|| fo.equals("14f")){ %> style="background-color: #ea6060" <%} %>><a href="tablet.do?floor=14f">14F</a></li>
+					<li <%if (fo == "9f" || fo.equals("9f")) {%>
+						style="background-color: #ea6060" <%}%>><a
+						href="tablet.do?floor=9f">9F</a></li>
+					<li <%if (fo == "10f" || fo.equals("10f")) {%>
+						style="background-color: #ea6060" <%}%>><a
+						href="tablet.do?floor=10f">10F</a></li>
+					<li <%if (fo == "13f" || fo.equals("13f")) {%>
+						style="background-color: #ea6060" <%}%>><a
+						href="tablet.do?floor=13f">13F</a></li>
+					<li <%if (fo == "14f" || fo.equals("14f")) {%>
+						style="background-color: #ea6060" <%}%>><a
+						href="tablet.do?floor=14f">14F</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -135,9 +143,9 @@
 					<li class="available" id='24'></li>
 				</ul>
 			</div>
-			
-			
-			
+
+
+
 			<div class="box4">
 				<ul>
 					<li class="available" id='36'></li>
@@ -216,7 +224,12 @@
 				<ul>
 					<li class="available" id='35'></li>
 				</ul>
+				<div class="ent_wr">
+				<div class="enterance alone">출입구</div>
 			</div>
+			</div>
+
+			
 			<div class="box8">
 				<ul>
 					<li class="available" id='60'></li>
@@ -238,15 +251,22 @@
 					<li class="available" id='68'></li>
 					<li class="available" id='69'></li>
 				</ul>
+
+				<div class="ent_wr">
+					<div class="enterance alone">출입구</div>
+				</div>
 				<!-- <ul>
 					<li class="lastbox"></li>
 				</ul> -->
 			</div>
 			<div id="ar_box">
-				<span>
-						<img src="../../img/chair_icon_1_small.png" style="width: 40px; " /><div id="ar_text" style="display: inline;">사용 가능</div>
-						<img src="../../img/chair_icon_3_small.png" style="width: 40px" /><div id="ar_text" style="display:  inline;">사용 중</div>
-						<img src="../../img/chair_icon_2_small.png" style="width: 40px" /><div id="ar_text" style="display:  inline;">사용 불가</div>
+				<span> <img src="../../img/chair_icon_1_small.png"
+					style="width: 40px;" />
+				<div id="ar_text" style="display: inline;">사용 가능</div> <img
+					src="../../img/chair_icon_3_small.png" style="width: 40px" />
+				<div id="ar_text" style="display: inline;">사용 중</div> <img
+					src="../../img/chair_icon_2_small.png" style="width: 40px" />
+				<div id="ar_text" style="display: inline;">사용 불가</div>
 				</span>
 			</div>
 		</section>
@@ -257,16 +277,19 @@
 
 	<!-- jQuery -->
 	<script src="../../../resources/js/lib/jQuery/jQuery-2.1.4.min.js"></script>
-	
+
 	<script type="text/javascript">
-	
 		function tabletsinc() {
 			var floor = 1;
 			var text = '${floor}';
-			if(text == '9F') floor =  1;
-			if(text == '10F') floor = 2;
-			if(text == '13F') floor = 3;
-			if(text == '14F') floor = 4;
+			if (text == '9F')
+				floor = 1;
+			if (text == '10F')
+				floor = 2;
+			if (text == '13F')
+				floor = 3;
+			if (text == '14F')
+				floor = 4;
 
 			$.ajax({
 				url : "/tablet/getListForSeat.do",
@@ -277,23 +300,27 @@
 				dataType : "json",
 				success : function(tabletdto) {
 
-					$(tabletdto).each(function(idx, data)  {
-						if (data.seat_useable_state == 'N') {
-							$('#'+data.seat_id).attr("class", "unavailable");
-						}
-						else{
-							if(data.user_leave_yn == 'Y') {
-								$('#'+data.seat_id).attr("class", "available");
-							} else {
-								if (data.user_leave_yn != null || data.user_leave_yn == 'N') {
-									$('#'+data.seat_id).attr("class", "occupied");
+					$(tabletdto).each(
+							function(idx, data) {
+								if (data.seat_useable_state == 'N') {
+									$('#' + data.seat_id).attr("class",
+											"unavailable");
+								} else {
+									if (data.user_leave_yn == 'Y') {
+										$('#' + data.seat_id).attr("class",
+												"available");
+									} else {
+										if (data.user_leave_yn != null
+												|| data.user_leave_yn == 'N') {
+											$('#' + data.seat_id).attr("class",
+													"occupied");
+										} else {
+											$('#' + data.seat_id).attr("class",
+													"available");
+										}
+									}
 								}
-								else{
-									$('#'+data.seat_id).attr("class", "available");
-								}
-							}
-						}
-					});
+							});
 				}
 			});
 		}
