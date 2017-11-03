@@ -32,7 +32,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td class="ent-wrapper">
+			<div>
+				<div class="enterance alone">
+					출입구
+				</div>
+			</div>
+		</td>
+		<td>
 			<div></div>
 		</td>
 		<td>
@@ -42,6 +49,9 @@
 					<jsp:param name="section" value="B" />
 					<jsp:param name="floor" value="<%=floor %>" />
 				</jsp:include>
+			</div>
+			<div class="enterance">
+				출입구
 			</div>
 		</td>
 	</tr>

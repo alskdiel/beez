@@ -41,9 +41,19 @@
 					<jsp:param name="floor" value="<%=floor %>" />
 				</jsp:include>
 			</div>
+			<div class="enterance">
+				출입구
+			</div>
 		</td>
-		<td colspan="2">
+		<td>
 			<div></div>
+		</td>
+		<td class="ent-wrapper">
+			<div>
+				<div class="enterance alone">
+					출입구
+				</div>
+			</div>
 		</td>
 	</tr>
 </table>
