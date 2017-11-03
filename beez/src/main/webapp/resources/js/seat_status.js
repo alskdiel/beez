@@ -46,6 +46,7 @@ $('table.inner tr td .btn').popover({
 						}
 					}, 50);
 
+					
 					$(this).popover('toggle');
 					e.stopPropagation();
 				});
@@ -113,8 +114,9 @@ function getHotChart(floor_num, seat_id) {
 			
 			var DATALENGTH = 10;
 			
+			chartData = hotData[floor_num+"-"+seat_id];	// for gong_gal
 			for (var i = DATALENGTH; i > 0; i--) {
-				chartData.push(data[DATALENGTH - i].RES);
+				//chartData.push(data[DATALENGTH - i].RES);
 				chartLabel.push(i * 10 + "일 전");
 				bgColor.push(BGCOLOR[i]);
 			}
@@ -122,14 +124,15 @@ function getHotChart(floor_num, seat_id) {
 			var $modal = $("#chartModal");
 			$modal.removeClass("fade");
 			$modal.addClass("active");
-
-			for (var i = 0; i < chartData.length; i++) {
+/**************** when data is not gong_gal *******************/
+/*			for (var i = 0; i < chartData.length; i++) {
 				var str = chartData[i];
 				var temp = str.split(":");
 				var sum = temp[0] * 3600 + temp[1] * 60;
 				chartData[i] = sum;
-			}
-			
+			}*/
+/**************************************************************/
+			//console.log(chartData);
 			
 //			chartData = [ "08:12:12", "08:13:16", "08:23:16", "08:52:16",
 //					"08:33:16" ];
@@ -143,12 +146,21 @@ function getHotChart(floor_num, seat_id) {
 	});
 }
 
+var hotData = {};
+var gongGalDataIDX = 0;
+
 function isHotPlace(floor_num, seat_id) {
 	var hotPlaces = getHotPlace();
 
 	for (var i = 0; i < hotPlaces.length; i++) {
 		if (floor_num == hotPlaces[i].floor && seat_id == hotPlaces[i].seat_id) {
+			if(!hotData[floor_num+"-"+seat_id]) {
+				hotData[floor_num+"-"+seat_id] = getGongGalData()[gongGalDataIDX];
+				gongGalDataIDX++;
+			}
+			
 			return true;
+
 		}
 	}
 	return false;
@@ -712,3 +724,40 @@ $(document).on("ready", function() {
 	//setHotChart(cData, cLabels, BGCOLOR);
 
 });
+
+/*
+mkGongGalData();
+
+function mkGongGalData() {
+	var DATALENGTH = 10;
+	var S_TIME = 27500;
+	
+	var ret = [];
+	for(var i=0; i<DATALENGTH; i++) {
+		var arr = [];
+		for(var j=0; j<DATALENGTH; j++) {
+			var r_time = S_TIME + Math.random()*4500;
+			arr.push(Math.round(r_time));
+		}
+		ret.push(arr);
+		console.log(ret[i]);
+	}
+	
+	
+}
+*/
+
+function getGongGalData() {
+	var ret = [[31833, 30779, 28286, 31190, 27993, 31742, 30159, 29400, 30499, 28188],
+				[30399, 31316, 27990, 29830, 30965, 27947, 30539, 29133, 29642, 28472],
+				[30039, 29984, 29932, 27924, 27671, 28703, 27918, 30289, 29068, 27814],
+				[29404, 31596, 28349, 30162, 28901, 30258, 30788, 28666, 30242, 30680],
+				[30966, 31432, 28809, 30992, 28847, 29443, 28585, 29254, 28902, 30357],
+				[30488, 27501, 27500, 31971, 29948, 30197, 31129, 28332, 29786, 28255],
+				[27877, 27766, 30338, 30208, 30551, 27624, 30541, 28911, 30663, 29134],
+				[30046, 28604, 29581, 29529, 27744, 30132, 28371, 29192, 30364, 28193],
+				[29315, 28404, 30597, 30866, 29691, 27677, 28594, 30782, 30117, 29790],
+				[27755, 30203, 27991, 31930, 31729, 31695, 28284, 30917, 30263, 31602]];
+	
+	return ret;
+}
