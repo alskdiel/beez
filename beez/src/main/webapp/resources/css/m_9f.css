@@ -486,7 +486,7 @@ table.outer .enterance {
 	padding: 7px;
 	margin-top: 30px;
 	border-top: 3px solid #333;
-	
+	font-weight: bold;
 }
 table.outer td.ent-wrapper {
 	vertical-align: bottom;
