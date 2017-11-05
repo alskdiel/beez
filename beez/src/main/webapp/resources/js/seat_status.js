@@ -523,9 +523,14 @@ function showSearchResult(data, type) {
 	var office_seq = data.floor;
 	var seat_id = data.seat_id;
 	var floor = officeSeqToFlr(office_seq);
+	
+	var className = "inuse";
+	if(type == "no-blink") {
+		className = "team-mates";
+		console.log(data);
+	}
 
-	var $element = $("#floor-" + floor + "").find("#" + seat_id).addClass(
-			"inuse");
+	var $element = $("#floor-" + floor + "").find("#" + seat_id).addClass(className);
 	if (type != "no-blink") {
 		blinkSeat($element);
 

@@ -393,6 +393,9 @@ header.main-header {
 .floor table.inner tr td.inuse {
 	background-image: url(/resources/images/seat_status/chair_icon_3_small.png);
 }
+.floor table.inner tr td.team-mates {
+	background-image: url(/resources/images/seat_status/chair_icon_4_small.png);
+}
 
 table.inner tr td div.btn {
 	width: 100%;
