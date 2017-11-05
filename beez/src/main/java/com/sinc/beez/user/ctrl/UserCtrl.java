@@ -25,12 +25,15 @@ public class UserCtrl {
 	
 	@RequestMapping("/status.do")
 	@ResponseBody
-	public String status() {
+	public String status(HttpSession session) {
 		
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+		System.out.println(current_user);
+		
 		/**********************************/
 				
 		return null;
@@ -79,13 +82,16 @@ public class UserCtrl {
 	
 	@RequestMapping("/myteam.do")
 	@ResponseBody
-	public ArrayList<UserVO> getUserTeam() {
+	public ArrayList<UserVO> getUserTeam(HttpSession session) {
 		
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
 		/**********************************/
+		
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+		System.out.println(current_user);
 		
 		ArrayList<UserVO> list = (ArrayList) service.getUserTeamList(current_user);
 		
@@ -94,13 +100,17 @@ public class UserCtrl {
 	
 	@RequestMapping("/myteam_seat.do")
 	@ResponseBody
-	public ArrayList<UserVO> getUserTeamSeat() {
+	public ArrayList<UserVO> getUserTeamSeat(HttpSession session) {
 		
 		/**********************************/
 		// current_user = session.getUserVO
-		UserVO current_user = new UserVO();
-		current_user.setUser_id("p908vd");
+		//UserVO current_user = new UserVO();
+		//current_user.setUser_id("p908vd");
 		/**********************************/
+		
+		UserVO current_user = (UserVO) session.getAttribute("currentUser");
+		System.out.println(current_user);
+		
 		
 		ArrayList<UserVO> list = (ArrayList) service.getUserTeamSeatList(current_user);
 		

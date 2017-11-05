@@ -575,6 +575,7 @@ function getTeamMates() {
 		type : "get",
 		dataType : "json",
 		success : function(data) {
+			console.log(data);
 			$(".my-modal").css("display", "block");
 			writeTeamList(data);
 		}
